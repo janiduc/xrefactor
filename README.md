@@ -11,6 +11,20 @@ XRefactor is an intelligent IDE framework designed to automate semantic, cross-f
 3. **Transformer Code Generation** - Generates refactored code conditioned on structural understanding
 4. **Explainable AI (XAI) Module** - Provides decision rationales through dual-view causal inference
 
+## Current Status (2026-09-29)
+
+All four stages run end-to-end on real code with real trained checkpoints (no stage falls back to random-init weights by default). See `DEVELOPMENT.md`'s "Known Limitations" section for the honest caveats behind each number below - several are genuine first passes, not converged results.
+
+| Stage | Trained on | Headline result |
+|---|---|---|
+| CPG | N/A (rule-based) | Fully real; also runs a rule-based code-smell detector (`src/cpg/smell_detector.py`), spot-checked at a real ~2x lift over baseline against mined refactoring history |
+| GNN | 21 repos, self-supervised link prediction | Loss converged ~0.406 (`models/gnn_pretrained.pt`) |
+| GNN → refactoring predictor | 3,731 labeled examples / 10 classes, mined from 4 repos | 0.51 test accuracy, 0.25 macro F1 (`models/refactoring_predictor_trained.metrics.json`) |
+| Transformer | 1,000 of 2,612 available before/after pairs, 2 epochs (CPU time budget) | Output moved from incoherent subword garbage to real-but-repetitive text; 13.3% structural pass rate on held-out pairs (`outputs/evaluation_report_*.json`) |
+| XAI | Weak/proxy supervision, ~400-670 examples from 3 repos | `problem_detector` 0.88 test accuracy (real signal); `solution_evaluator` near chance - see limitations |
+
+Run `python evaluate.py` to reproduce a fresh version of these numbers.
+
 ## Project Structure
 
 ```

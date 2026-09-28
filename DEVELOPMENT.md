@@ -307,6 +307,22 @@ Usage:
 """
 ```
 
+## Known Limitations
+
+Honest caveats behind the numbers in `README.md`'s status table, so they aren't mistaken for converged results.
+
+**Mining/labeling (`refactoring_mining/`)**: 3,731 labeled examples across 10/10 classes from 4 repos (`mining_report.json` has the full per-repo breakdown), but `extract_interface` (8 examples) and `simplify_condition` (27 examples) are too thin to trust. RefactoringMiner's ~90 fine-grained types are deliberately mapped down to this project's 10-class taxonomy (`src/gnn/refactoring_types.py`); types with no mapping are dropped by design, not a bug.
+
+**Refactoring predictor (Stage 2 classifier)**: 0.51 test accuracy / 0.25 macro F1 on the held-out split. Classes with reasonable support show real F1 (`move_class` 0.70, `rename_variable` 0.65, `reduce_coupling` 0.51, `remove_dead_code` 0.43, `extract_method` 0.19); the thinnest classes are at 0 F1 - genuinely too little data, not a training bug (see `models/refactoring_predictor_trained.metrics.json`).
+
+**Code-smell detector (Stage 1, `src/cpg/smell_detector.py`)**: all 6 detectors are deliberately simple heuristics, not static-analysis-grade. Spot-checked against real history: the `long_method` detector shows a real ~2x lift (13.3% hit rate on actual Extract Method targets vs. 6.7% population base rate) on a 15-example sample - directionally real, not a rigorous benchmark. The `dead_code` detector has a known blind spot: it only sees same-repo call edges the CPG builder itself tracks, so framework-invoked methods (e.g. Spring `@RequestMapping` handlers, `@Bean` factories) routinely look "dead" when they aren't - confirmed on a held-out repo where `dead_code` was ~90% of all findings.
+
+**Transformer (Stage 3)**: trained on only 1,000 of 2,612 available before/after pairs, 2 epochs, bounded by CPU wall-clock time in the session that trained it. Conditioned on a learned per-*pattern* placeholder vector standing in for real per-example GNN context (see `src/transformer/train_transformer.py`'s docstring) - a documented, drop-in-replaceable simplification. Output moved from incoherent subword garbage (a real vocab-size/special-token bug, now fixed) to real-but-often-repetitive text (a separate, known undertrained-greedy-decoding failure mode). Structural pass rate (`src/transformer/pattern_validators.py`, `outputs/evaluation_report_*.json`) is 13.3% overall on held-out pairs - the honest number after a shared degeneracy guard was added specifically because two validators were initially rubber-stamping repetitive garbage as "passing."
+
+**XAI (Stage 4, `src/xai/train_causal_module.py`)**: template-based explanation *text* is a deliberate, retained design choice - the templates are reasonably grounded once Stage 2/3 predictions are real. The two learned scoring heads are weak/proxy-supervised (not ground truth): `problem_detector` reached 0.88-0.95 accuracy (real signal - refactoring targets are structurally distinctive), but `solution_evaluator` stayed near chance (~0.4-0.6). Likely cause: the GNN embeddings feeding both heads are purely structural/type-based with no semantic text content, so many before/after pairs (especially local changes like renames) are close to indistinguishable in this embedding space - a real, unresolved limitation, not something papered over. No automatic metric substitutes for a human rubric on evidence-card quality; `evaluate.py` recommends one rather than fabricating a number.
+
+**Known cross-stage disagreement**: on a held-out repo never used in mining/training, the rule-based smell detector and the GNN's learned prediction disagreed on 5/5 traced suggestions (smell said `remove_dead_code`, GNN said `reduce_coupling`, consistently) - see `outputs/evaluation_report_*.json`'s `end_to_end_trace`. This is presented as a real, reproducible finding about where the two views currently diverge, not resolved in either direction.
+
 ## Resources
 
 - [PyTorch Documentation](https://pytorch.org/docs)

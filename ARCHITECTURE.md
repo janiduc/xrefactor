@@ -4,6 +4,10 @@ Architecture and design documentation for XRefactor
 
 # XRefactor Architecture
 
+## Current Status
+
+The architecture below was the original design and remains accurate as *design* - what has changed since is that every stage now runs on real trained weights by default, not scaffolding. See `README.md`'s "Current Status" table for headline numbers and `DEVELOPMENT.md`'s "Known Limitations" for the honest caveats (dataset sizes, thin classes, the transformer's undertrained repetition, the XAI module's weak-supervision framing). One structural addition beyond the original design: `src/cpg/smell_detector.py` adds a rule-based code-smell detection layer (Stage 1) that runs alongside the GNN's learned `refactoring_type` prediction (Stage 2) - Stage 3 cross-checks the two and surfaces disagreement rather than silently picking one, closing the loop from "a specific code smell was identified" to "code was generated for that exact pattern."
+
 ## High-Level Overview
 
 ```

@@ -112,6 +112,38 @@ xrefactor/
 └── .gitignore                          # Git ignore rules
 ```
 
+## Files Added Since Initial Scaffold
+
+The directory layout above is the original design. These files were added while closing the gap between that scaffold and a genuinely trained, evaluated system (see `DEVELOPMENT.md`'s Known Limitations for what each one's numbers actually mean):
+
+```
+src/utils/data_split.py            - shared train/val/test split (reads config.yaml's data.* ratios)
+src/utils/metrics.py               - shared classification_report / generation_quality metrics
+src/cpg/smell_detector.py          - rule-based code-smell detection (Stage 1), 6 detectors -> 10 patterns
+src/transformer/train_transformer.py   - fine-tunes CodeTransformer's decoder on mined before/after pairs
+src/transformer/pattern_validators.py  - per-pattern structural correctness checks on generated code
+src/xai/train_causal_module.py     - weak-supervision training for CausalInferenceModule's scoring heads
+evaluate.py                        - end-to-end evaluation harness (root-level, like main.py)
+
+refactoring_mining/git_utils.py             - shared git plumbing (checkout-with-verification, git show)
+refactoring_mining/build_codegen_dataset.py - mines before/after SOURCE TEXT pairs (not just embeddings)
+refactoring_mining/mining_report.json       - per-repo mining breakdown (raw/filtered/matched counts)
+refactoring_mining/codegen_pairs.jsonl      - 3088 before/after code pairs, 10/10 classes
+refactoring_mining/causal_dataset_cache.pt  - cached (embedding, label) pairs for XAI weak supervision
+
+tests/test_utils.py                - data_split / metrics tests
+tests/test_smell_detector.py        - one positive/negative case per smell detector
+tests/test_pattern_validators.py    - one passing/failing case per pattern validator
+tests/test_checkpoints.py           - all 4 checkpoint-loading paths, with real (tiny) checkpoints
+
+models/gnn_pretrained.pt                    - self-supervised GNN checkpoint (21 repos, 40 epochs)
+models/refactoring_predictor_trained.pt(.metrics.json) - retrained classifier + test-set report
+models/transformer_trained.metrics.json     - generation-quality report (checkpoint itself is gitignored, ~500MB)
+models/causal_module_trained.pt             - trained XAI scoring heads
+```
+
+`labeled_dataset.pt` and `MicroBreweryModel_refactorings.json` predate this work but grew substantially (58 -> 3,731 examples; 1 repo -> 4 repos) - see `mining_report.json`.
+
 ## File Dependencies
 
 ```

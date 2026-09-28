@@ -52,6 +52,14 @@ python main.py \
     --device cuda
 ```
 
+`configs/config.yaml`'s checkpoint paths (`gnn.pretrained_checkpoint`, `gnn.refactoring_predictor_checkpoint`, `transformer.pretrained_checkpoint`, `xai.pretrained_checkpoint`) are non-null by default as of 2026-09-29 - a fresh run uses real trained weights out of the box, not random init. If any is missing/deleted, the pipeline logs an explicit warning and falls back to random init rather than failing silently - see `DEVELOPMENT.md`'s Known Limitations for what each checkpoint's numbers actually mean.
+
+### Reproduce the Evaluation Numbers
+```bash
+python evaluate.py --config ./configs/config.yaml --output ./outputs
+```
+Runs a fresh classifier/transformer/XAI evaluation plus an end-to-end smell-to-refactor trace on a held-out repo; see `README.md`'s "Current Status" table for what to expect.
+
 ### Custom Configuration
 1. Edit `configs/config.yaml`
 2. Run: `python main.py --config ./configs/config.yaml --data-dir ../Data`

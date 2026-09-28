@@ -1,6 +1,19 @@
 # XRefactor Implementation Summary
 
-## Overview
+## 2026-09-29 Update: From Scaffold to Trained System
+
+Everything below this note describes the *original* implementation pass - a complete architecture with all four stages wired together, but with untrained/random weights everywhere (explicitly logged as such). Since then, every stage has been backed by real training on real mined data:
+
+- **Mining** grew from 58 examples/1 repo to 3,731 labeled examples + 3,088 code pairs across 4 repos, 10/10 classes.
+- **GNN** is pretrained (21 repos, self-supervised) and the **refactoring predictor** is retrained on the grown dataset (0.51 test accuracy, 0.25 macro F1).
+- **Transformer** decoder is trained on real before/after pairs (2 epochs, bounded by CPU time) - real bugs found and fixed along the way (vocab-size mismatch, missing causal mask).
+- **XAI** module's scoring heads have weak-supervision training; a real bug was found and fixed where Stage 4 never actually generated evidence cards at all.
+- A new **rule-based code-smell detection layer** (`src/cpg/smell_detector.py`) and **structural pattern validators** (`src/transformer/pattern_validators.py`) close the loop from "a specific code smell was identified" to "code was generated and structurally checked for that exact pattern."
+- A new **evaluation harness** (`evaluate.py`) and **checkpoint-loading tests** (`tests/test_checkpoints.py`) make all of the above independently reproducible and regression-tested.
+
+See `README.md`'s "Current Status" table for headline numbers and `DEVELOPMENT.md`'s "Known Limitations" for the honest caveats behind each one - several are genuine first passes given real compute constraints, not converged results, and are reported as such rather than oversold.
+
+## Overview (original, 2026-05-14)
 
 I've created a complete, production-ready Python implementation of XRefactor - an explainable AI-driven cross-file code refactoring framework. The implementation spans all four core stages with proper architecture, documentation, and testing.
 

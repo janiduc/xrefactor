@@ -30,12 +30,26 @@ pytest tests/ --cov=src --cov-report=html
 
 ```
 tests/
-├── test_core.py          # Stage 1-4 pipeline tests (existing)
-├── test_web.py          # Flask API endpoint tests (NEW)
-├── test_integration.py   # End-to-end integration tests (NEW)
+├── test_core.py             # Stage 1-4 pipeline tests (existing)
+├── test_web.py               # Flask API endpoint tests
+├── test_integration.py       # End-to-end integration tests
+├── test_utils.py             # data_split / metrics utility tests
+├── test_smell_detector.py    # one positive/negative case per code-smell detector
+├── test_pattern_validators.py # one passing/failing case per refactoring-pattern validator
+├── test_checkpoints.py       # all 4 checkpoint-loading paths, with real (tiny) checkpoints
 └── fixtures/
     └── sample_code/     # Test data fixtures
 ```
+
+`test_checkpoints.py` is worth calling out specifically: it's the only suite that loads an actually-non-null checkpoint (a tiny, synthetic one with deliberately distinctive constant weights) into each of the 4 `_load_*_checkpoint_if_available` methods and asserts the target module's weights changed. To regenerate its fixtures by hand (e.g. while debugging a loader), the pattern is:
+```python
+distinctive_module = SameArchitectureClass(...)
+with torch.no_grad():
+    for p in distinctive_module.parameters():
+        p.fill_(0.1234)  # any distinctive constant
+torch.save({"some_state_key": distinctive_module.state_dict()}, tmp_path / "test.pt")
+```
+then load it via the pipeline's loader and assert the live module's weights equal that constant.
 
 ---
 
