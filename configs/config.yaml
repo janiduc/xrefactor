@@ -1,0 +1,88 @@
+# XRefactor Configuration
+
+# Project Paths
+project:
+  data_dir: "../Data"
+  output_dir: "./outputs"
+  model_dir: "./models"
+  experiment_dir: "./experiments"
+
+# CPG Configuration
+cpg:
+  language: "java"  # Supported: java
+  include_data_flow: true
+  include_control_flow: true
+  include_call_graph: true
+  max_file_size: 1000000  # bytes
+  
+# GNN Configuration
+gnn:
+  model_type: "gat"  # Supported: gat, gcn, graphsage
+  hidden_dims: [256, 256]
+  output_dim: 128
+  num_heads: 8
+  dropout: 0.1
+  num_layers: 3
+  activation: "relu"
+  node_embedding_dim: 64
+  # Path to weights produced by `python -m src.gnn.pretrain` (see docs). Without this,
+  # the node encoder and GNN run with random weights - structurally valid embeddings
+  # but not yet meaningful ones.
+  pretrained_checkpoint: null
+  # Path to weights produced by refactoring_mining/train_refactoring_predictor.py,
+  # trained on real refactorings mined from git history via RefactoringMiner.
+  # Without this, refactoring-type/confidence predictions are untrained.
+  refactoring_predictor_checkpoint: null
+  
+# Transformer Configuration
+transformer:
+  model_type: "microsoft/codebert-base"  # Supported: codebert, graphcodebert
+  max_seq_length: 512
+  hidden_size: 768
+  num_layers: 6
+  num_attention_heads: 12
+  intermediate_size: 3072
+  dropout: 0.1
+  
+# Training Configuration
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  num_epochs: 100
+  warmup_steps: 1000
+  gradient_accumulation_steps: 4
+  max_grad_norm: 1.0
+  weight_decay: 0.01
+  device: "cuda"  # or "cpu"
+  
+# XAI Configuration
+xai:
+  method: "causal_inference"  # Supported: causal_inference, attention, shap
+  explanation_length: 200  # words
+  num_evidence_cards: 3
+  confidence_threshold: 0.7
+  
+# Data Configuration
+data:
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+  random_seed: 42
+  num_workers: 4
+  
+# Refactoring Patterns
+refactoring:
+  patterns:
+    - "extract_method"
+    - "move_class"
+    - "rename_variable"
+    - "consolidate_duplicate_code"
+    - "remove_dead_code"
+  confidence_threshold: 0.8
+  max_changes_per_file: 5
+  
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "json"  # json, text
+  output_file: "./outputs/xrefactor.log"

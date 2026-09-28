@@ -1,0 +1,1328 @@
+{
+  "timestamp": "20260820_220316",
+  "stages": {
+    "cpg": {
+      "status": "success",
+      "statistics": {
+        "total_nodes": 2795,
+        "total_edges": 6565,
+        "node_types": {
+          "class": 60,
+          "method": 279,
+          "statement": 1560,
+          "variable": 597,
+          "field": 299
+        },
+        "edge_types": {
+          "control_flow": 1825,
+          "data_flow": 1457,
+          "calls": 3283
+        },
+        "data_flow_edges": 1457,
+        "control_flow_edges": 1825,
+        "call_graph_edges": 3283,
+        "total_files": 47,
+        "include_data_flow": true,
+        "include_control_flow": true,
+        "include_call_graph": true
+      },
+      "graph": {
+        "nodes": [
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\androidTest\\java\\com\\example\\myshoppingmall\\ExampleInstrumentedTest.java_ExampleInstrumentedTest",
+            "label": "ExampleInstrumentedTest",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\androidTest\\java\\com\\example\\myshoppingmall\\ExampleInstrumentedTest.java",
+            "line": 19
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddAddressActivity.java_AddAddressActivity",
+            "label": "AddAddressActivity",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddAddressActivity.java",
+            "line": 13
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java_AddressesAdapter",
+            "label": "AddressesAdapter",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java",
+            "line": 19
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java_Viewholder",
+            "label": "Viewholder",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java",
+            "line": 51
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java_AddressesModel",
+            "label": "AddressesModel",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java",
+            "line": 3
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java_CartAdapter",
+            "label": "CartAdapter",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java",
+            "line": 25
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java_CartItemViewholder",
+            "label": "CartItemViewholder",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java",
+            "line": 113
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java_CartTotalAmountViewholder",
+            "label": "CartTotalAmountViewholder",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java",
+            "line": 208
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_CartItemModel",
+            "label": "CartItemModel",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 3
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryActivity.java_CategoryActivity",
+            "label": "CategoryActivity",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryActivity.java",
+            "line": 19
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java_CategoryAdapter",
+            "label": "CategoryAdapter",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java",
+            "line": 20
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java_ViewHolder",
+            "label": "ViewHolder",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java",
+            "line": 54
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryModel.java_CategoryModel",
+            "label": "CategoryModel",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryModel.java",
+            "line": 3
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java_DBqueries",
+            "label": "DBqueries",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java",
+            "line": 29
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DeliveryActivity.java_DeliveryActivity",
+            "label": "DeliveryActivity",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DeliveryActivity.java",
+            "line": 17
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\GridProductLayoutAdapter.java_GridProductLayoutAdapter",
+            "label": "GridProductLayoutAdapter",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\GridProductLayoutAdapter.java",
+            "line": 17
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java_HomeFragment",
+            "label": "HomeFragment",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java",
+            "line": 53
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_HomePageAdapter",
+            "label": "HomePageAdapter",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 33
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_BannerSliderViewholder",
+            "label": "BannerSliderViewholder",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 118
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_StripAdBannerViewholder",
+            "label": "StripAdBannerViewholder",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 221
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_HorizontalProductViewholder",
+            "label": "HorizontalProductViewholder",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 237
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_GridProductViewholder",
+            "label": "GridProductViewholder",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 280
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageModel.java_HomePageModel",
+            "label": "HomePageModel",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageModel.java",
+            "line": 5
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HorizontalProductScrollAdapter.java_HorizontalProductScrollAdapter",
+            "label": "HorizontalProductScrollAdapter",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HorizontalProductScrollAdapter.java",
+            "line": 18
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HorizontalProductScrollAdapter.java_ViewHolder",
+            "label": "ViewHolder",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HorizontalProductScrollAdapter.java",
+            "line": 53
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HorizontalProductScrollModel.java_HorizontalProductScrollModel",
+            "label": "HorizontalProductScrollModel",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HorizontalProductScrollModel.java",
+            "line": 3
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MainActivity.java_MainActivity",
+            "label": "MainActivity",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MainActivity.java",
+            "line": 50
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyAccountFragment.java_MyAccountFragment",
+            "label": "MyAccountFragment",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyAccountFragment.java",
+            "line": 18
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyAddressesActivity.java_MyAddressesActivity",
+            "label": "MyAddressesActivity",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyAddressesActivity.java",
+            "line": 20
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyCartFragment.java_MyCartFragment",
+            "label": "MyCartFragment",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyCartFragment.java",
+            "line": 25
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyOrderAdapter.java_MyOrderAdapter",
+            "label": "MyOrderAdapter",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyOrderAdapter.java",
+            "line": 18
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyOrderAdapter.java_Viewholder",
+            "label": "Viewholder",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyOrderAdapter.java",
+            "line": 46
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyOrderItemModel.java_MyOrderItemModel",
+            "label": "MyOrderItemModel",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyOrderItemModel.java",
+            "line": 3
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyOrdersFragment.java_MyOrdersFragment",
+            "label": "MyOrdersFragment",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyOrdersFragment.java",
+            "line": 21
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyRewardsAdapter.java_MyRewardsAdapter",
+            "label": "MyRewardsAdapter",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyRewardsAdapter.java",
+            "line": 13
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyRewardsAdapter.java_Viewholder",
+            "label": "Viewholder",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyRewardsAdapter.java",
+            "line": 47
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyRewardsFragment.java_MyRewardsFragment",
+            "label": "MyRewardsFragment",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyRewardsFragment.java",
+            "line": 21
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyWishlistFragment.java_MyWishlistFragment",
+            "label": "MyWishlistFragment",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\MyWishlistFragment.java",
+            "line": 22
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\OrderDetailsActivity.java_OrderDetailsActivity",
+            "label": "OrderDetailsActivity",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\OrderDetailsActivity.java",
+            "line": 10
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductDescriptionFragment.java_ProductDescriptionFragment",
+            "label": "ProductDescriptionFragment",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductDescriptionFragment.java",
+            "line": 17
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductDetailsActivity.java_ProductDetailsActivity",
+            "label": "ProductDetailsActivity",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductDetailsActivity.java",
+            "line": 44
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductDetailsAdapter.java_ProductDetailsAdapter",
+            "label": "ProductDetailsAdapter",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductDetailsAdapter.java",
+            "line": 9
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductImagesAdapter.java_ProductImagesAdapter",
+            "label": "ProductImagesAdapter",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductImagesAdapter.java",
+            "line": 15
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductSpecificationAdapter.java_ProductSpecificationAdapter",
+            "label": "ProductSpecificationAdapter",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductSpecificationAdapter.java",
+            "line": 18
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductSpecificationAdapter.java_ViewHolder",
+            "label": "ViewHolder",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductSpecificationAdapter.java",
+            "line": 80
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductSpecificationFragment.java_ProductSpecificationFragment",
+            "label": "ProductSpecificationFragment",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductSpecificationFragment.java",
+            "line": 21
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductSpecificationModel.java_ProductSpecificationModel",
+            "label": "ProductSpecificationModel",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ProductSpecificationModel.java",
+            "line": 3
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\RegisterActivity.java_RegisterActivity",
+            "label": "RegisterActivity",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\RegisterActivity.java",
+            "line": 11
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ResetPasswordFragment.java_ResetPasswordFragment",
+            "label": "ResetPasswordFragment",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ResetPasswordFragment.java",
+            "line": 42
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\RewardModel.java_RewardModel",
+            "label": "RewardModel",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\RewardModel.java",
+            "line": 3
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\SignInFragment.java_SignInFragment",
+            "label": "SignInFragment",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\SignInFragment.java",
+            "line": 38
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\SignUpFragment.java_SignUpFragment",
+            "label": "SignUpFragment",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\SignUpFragment.java",
+            "line": 47
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\SliderAdapter.java_SliderAdapter",
+            "label": "SliderAdapter",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\SliderAdapter.java",
+            "line": 19
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\SliderModel.java_SliderModel",
+            "label": "SliderModel",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\SliderModel.java",
+            "line": 3
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\SplashActivity.java_SplashActivity",
+            "label": "SplashActivity",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\SplashActivity.java",
+            "line": 12
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ViewAllActivity.java_ViewAllActivity",
+            "label": "ViewAllActivity",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\ViewAllActivity.java",
+            "line": 17
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\WishlistAdapter.java_WishlistAdapter",
+            "label": "WishlistAdapter",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\WishlistAdapter.java",
+            "line": 22
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\WishlistAdapter.java_ViewHolder",
+            "label": "ViewHolder",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\WishlistAdapter.java",
+            "line": 65
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\WishlistModel.java_WishlistModel",
+            "label": "WishlistModel",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\WishlistModel.java",
+            "line": 3
+          },
+          {
+            "id": "class_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\test\\java\\com\\example\\myshoppingmall\\ExampleUnitTest.java_ExampleUnitTest",
+            "label": "ExampleUnitTest",
+            "type": "class",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\test\\java\\com\\example\\myshoppingmall\\ExampleUnitTest.java",
+            "line": 12
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\androidTest\\java\\com\\example\\myshoppingmall\\ExampleInstrumentedTest.java_useAppContext",
+            "label": "useAppContext",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\androidTest\\java\\com\\example\\myshoppingmall\\ExampleInstrumentedTest.java",
+            "line": 21
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddAddressActivity.java_onCreate",
+            "label": "onCreate",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddAddressActivity.java",
+            "line": 18
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddAddressActivity.java_onClick",
+            "label": "onClick",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddAddressActivity.java",
+            "line": 30
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddAddressActivity.java_onOptionsItemSelected",
+            "label": "onOptionsItemSelected",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddAddressActivity.java",
+            "line": 39
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java_onCreateViewHolder",
+            "label": "onCreateViewHolder",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java",
+            "line": 32
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java_onBindViewHolder",
+            "label": "onBindViewHolder",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java",
+            "line": 38
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java_getItemCount",
+            "label": "getItemCount",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java",
+            "line": 47
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java_setData",
+            "label": "setData",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java",
+            "line": 67
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java_onClick",
+            "label": "onClick",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java",
+            "line": 104
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java_getSelected",
+            "label": "getSelected",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java",
+            "line": 17
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java_setSelected",
+            "label": "setSelected",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java",
+            "line": 21
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java_getFullname",
+            "label": "getFullname",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java",
+            "line": 25
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java_setFullname",
+            "label": "setFullname",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java",
+            "line": 29
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java_getAddress",
+            "label": "getAddress",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java",
+            "line": 33
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java_setAddress",
+            "label": "setAddress",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java",
+            "line": 37
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java_getPincode",
+            "label": "getPincode",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java",
+            "line": 41
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java_setPincode",
+            "label": "setPincode",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesModel.java",
+            "line": 45
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java_getItemViewType",
+            "label": "getItemViewType",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java",
+            "line": 35
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java_onCreateViewHolder",
+            "label": "onCreateViewHolder",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java",
+            "line": 47
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java_onBindViewHolder",
+            "label": "onBindViewHolder",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java",
+            "line": 60
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java_getItemCount",
+            "label": "getItemCount",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java",
+            "line": 109
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java_setItemDetails",
+            "label": "setItemDetails",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java",
+            "line": 141
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java_onClick",
+            "label": "onClick",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java",
+            "line": 196
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java_setTotalAmount",
+            "label": "setTotalAmount",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartAdapter.java",
+            "line": 225
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_getType",
+            "label": "getType",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 10
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_setType",
+            "label": "setType",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 14
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_getProductID",
+            "label": "getProductID",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 42
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_setProductID",
+            "label": "setProductID",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 46
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_getProductImage",
+            "label": "getProductImage",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 50
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_setProductImage",
+            "label": "setProductImage",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 54
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_getProductTitle",
+            "label": "getProductTitle",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 58
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_setProductTitle",
+            "label": "setProductTitle",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 62
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_getFreeCoupons",
+            "label": "getFreeCoupons",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 66
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_setFreeCoupons",
+            "label": "setFreeCoupons",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 70
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_getProductPrice",
+            "label": "getProductPrice",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 74
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_setProductPrice",
+            "label": "setProductPrice",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 78
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_getCuttedPrice",
+            "label": "getCuttedPrice",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 82
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_setCuttedPrice",
+            "label": "setCuttedPrice",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 86
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_getProductQuantity",
+            "label": "getProductQuantity",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 90
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_setProductQuantity",
+            "label": "setProductQuantity",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 94
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_getOffersApplied",
+            "label": "getOffersApplied",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 98
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_setOffersApplied",
+            "label": "setOffersApplied",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 102
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_getCouponsApplied",
+            "label": "getCouponsApplied",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 106
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java_setCouponsApplied",
+            "label": "setCouponsApplied",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CartItemModel.java",
+            "line": 110
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryActivity.java_onCreate",
+            "label": "onCreate",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryActivity.java",
+            "line": 26
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryActivity.java_onCreateOptionsMenu",
+            "label": "onCreateOptionsMenu",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryActivity.java",
+            "line": 80
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryActivity.java_onOptionsItemSelected",
+            "label": "onOptionsItemSelected",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryActivity.java",
+            "line": 87
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java_onCreateViewHolder",
+            "label": "onCreateViewHolder",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java",
+            "line": 31
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java_onBindViewHolder",
+            "label": "onBindViewHolder",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java",
+            "line": 37
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java_getItemCount",
+            "label": "getItemCount",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java",
+            "line": 50
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java_setCategoryIcon",
+            "label": "setCategoryIcon",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java",
+            "line": 65
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java_setCategory",
+            "label": "setCategory",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java",
+            "line": 72
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java_onClick",
+            "label": "onClick",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java",
+            "line": 77
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryModel.java_getCategoryIconLink",
+            "label": "getCategoryIconLink",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryModel.java",
+            "line": 13
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryModel.java_setCategoryIconLink",
+            "label": "setCategoryIconLink",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryModel.java",
+            "line": 17
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryModel.java_getCategoryName",
+            "label": "getCategoryName",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryModel.java",
+            "line": 21
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryModel.java_setCategoryName",
+            "label": "setCategoryName",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryModel.java",
+            "line": 25
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java_loadCategories",
+            "label": "loadCategories",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java",
+            "line": 46
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java_loadFragmentData",
+            "label": "loadFragmentData",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java",
+            "line": 67
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java_loadWishList",
+            "label": "loadWishList",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java",
+            "line": 136
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java_removeFromWishlist",
+            "label": "removeFromWishlist",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java",
+            "line": 194
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java_loadRatingList",
+            "label": "loadRatingList",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java",
+            "line": 229
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java_loadCartList",
+            "label": "loadCartList",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java",
+            "line": 259
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java_removeFromCart",
+            "label": "removeFromCart",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java",
+            "line": 330
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java_onComplete",
+            "label": "onComplete",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java",
+            "line": 343
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java_clearData",
+            "label": "clearData",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DBqueries.java",
+            "line": 364
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DeliveryActivity.java_onCreate",
+            "label": "onCreate",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DeliveryActivity.java",
+            "line": 24
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DeliveryActivity.java_onClick",
+            "label": "onClick",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DeliveryActivity.java",
+            "line": 49
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DeliveryActivity.java_onOptionsItemSelected",
+            "label": "onOptionsItemSelected",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\DeliveryActivity.java",
+            "line": 58
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\GridProductLayoutAdapter.java_getCount",
+            "label": "getCount",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\GridProductLayoutAdapter.java",
+            "line": 26
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\GridProductLayoutAdapter.java_getItem",
+            "label": "getItem",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\GridProductLayoutAdapter.java",
+            "line": 31
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\GridProductLayoutAdapter.java_getItemId",
+            "label": "getItemId",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\GridProductLayoutAdapter.java",
+            "line": 36
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\GridProductLayoutAdapter.java_getView",
+            "label": "getView",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\GridProductLayoutAdapter.java",
+            "line": 41
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\GridProductLayoutAdapter.java_onClick",
+            "label": "onClick",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\GridProductLayoutAdapter.java",
+            "line": 50
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java_onCreateView",
+            "label": "onCreateView",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java",
+            "line": 73
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java_onRefresh",
+            "label": "onRefresh",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java",
+            "line": 170
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java_onClick",
+            "label": "onClick",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java",
+            "line": 179
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java_reloadPage",
+            "label": "reloadPage",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java",
+            "line": 187
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_getItemViewType",
+            "label": "getItemViewType",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 44
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_onCreateViewHolder",
+            "label": "onCreateViewHolder",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 60
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_onBindViewHolder",
+            "label": "onBindViewHolder",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 79
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_getItemCount",
+            "label": "getItemCount",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 114
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_setBannerSliderViewPager",
+            "label": "setBannerSliderViewPager",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 132
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_onPageScrolled",
+            "label": "onPageScrolled",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 155
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_onPageSelected",
+            "label": "onPageSelected",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 160
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_onPageScrollStateChanged",
+            "label": "onPageScrollStateChanged",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 165
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_onTouch",
+            "label": "onTouch",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 177
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_pageLooper",
+            "label": "pageLooper",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 187
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_startBannerSlideShow",
+            "label": "startBannerSlideShow",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 197
+          },
+          {
+            "id": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_run",
+            "label": "run",
+            "type": "method",
+            "file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java",
+            "line": 211
+          }
+        ],
+        "edges": [
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java_onBindViewHolder",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddressesAdapter.java_setData",
+            "type": "calls"
+          },
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java_onBindViewHolder",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java_setCategory",
+            "type": "calls"
+          },
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java_onBindViewHolder",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\CategoryAdapter.java_setCategoryIcon",
+            "type": "calls"
+          },
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java_onCreateView",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java_reloadPage",
+            "type": "calls"
+          },
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java_onCreateView",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java_reloadPage",
+            "type": "calls"
+          },
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java_onRefresh",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java_reloadPage",
+            "type": "calls"
+          },
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java_onClick",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomeFragment.java_reloadPage",
+            "type": "calls"
+          },
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_setBannerSliderViewPager",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_pageLooper",
+            "type": "calls"
+          },
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_setBannerSliderViewPager",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_startBannerSlideShow",
+            "type": "calls"
+          },
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_setBannerSliderViewPager",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_pageLooper",
+            "type": "calls"
+          },
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_setBannerSliderViewPager",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_startBannerSlideShow",
+            "type": "calls"
+          },
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_onPageScrollStateChanged",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_pageLooper",
+            "type": "calls"
+          },
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_onTouch",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_pageLooper",
+            "type": "calls"
+          },
+          {
+            "source": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_onTouch",
+            "target": "method_D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\HomePageAdapter.java_startBannerSlideShow",
+            "type": "calls"
+          }
+        ],
+        "truncated": true,
+        "total_nodes": 2795,
+        "shown_nodes": 150
+      }
+    },
+    "gnn": {
+      "status": "success",
+      "model_type": "gat",
+      "embedding_dim": 128
+    },
+    "transformer": {
+      "status": "success",
+      "model": "microsoft/codebert-base",
+      "refactoring_suggestions": [
+        {
+          "original_code": "public class ExampleInstrumentedTest {",
+          "refactored_code": "endminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna dagger values syntheticminus masse Jenna",
+          "refactoring_type": "extract_method",
+          "confidence": 0.75,
+          "type_id": 0,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\androidTest\\java\\com\\example\\myshoppingmall\\ExampleInstrumentedTest.java",
+          "node_type": "class"
+        },
+        {
+          "original_code": "    public void useAppContext() {",
+          "refactored_code": " f syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift assemblies syntheticminushift",
+          "refactoring_type": "move_class",
+          "confidence": 0.8,
+          "type_id": 1,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\androidTest\\java\\com\\example\\myshoppingmall\\ExampleInstrumentedTest.java",
+          "node_type": "method"
+        },
+        {
+          "original_code": "        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();",
+          "refactored_code": "writersend Ply syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift synthetic",
+          "refactoring_type": "rename_variable",
+          "confidence": 0.85,
+          "type_id": 2,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\androidTest\\java\\com\\example\\myshoppingmall\\ExampleInstrumentedTest.java",
+          "node_type": "statement"
+        },
+        {
+          "original_code": "        assertEquals(\"com.example.myshoppingmall\", appContext.getPackageName());",
+          "refactored_code": "writersendminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift syntheticminushift",
+          "refactoring_type": "consolidate_duplicate_code",
+          "confidence": 0.9,
+          "type_id": 3,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\androidTest\\java\\com\\example\\myshoppingmall\\ExampleInstrumentedTest.java",
+          "node_type": "statement"
+        },
+        {
+          "original_code": "public class AddAddressActivity extends AppCompatActivity {",
+          "refactored_code": "endminus masse Jenna daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar daggerJames290 hangar",
+          "refactoring_type": "remove_dead_code",
+          "confidence": 0.95,
+          "type_id": 4,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\mscResearchXrefactor\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddAddressActivity.java",
+          "node_type": "class"
+        }
+      ]
+    },
+    "xai": {
+      "status": "success",
+      "explanation_method": "causal_inference",
+      "num_evidence_cards": 5
+    }
+  },
+  "status": "success",
+  "metrics": {
+    "cpg_total_nodes": {
+      "count": 1,
+      "mean": 2795.0,
+      "median": 2795.0,
+      "min": 2795.0,
+      "max": 2795.0,
+      "stdev": 0
+    },
+    "cpg_total_edges": {
+      "count": 1,
+      "mean": 6565.0,
+      "median": 6565.0,
+      "min": 6565.0,
+      "max": 6565.0,
+      "stdev": 0
+    },
+    "cpg_data_flow_edges": {
+      "count": 1,
+      "mean": 1457.0,
+      "median": 1457.0,
+      "min": 1457.0,
+      "max": 1457.0,
+      "stdev": 0
+    },
+    "cpg_control_flow_edges": {
+      "count": 1,
+      "mean": 1825.0,
+      "median": 1825.0,
+      "min": 1825.0,
+      "max": 1825.0,
+      "stdev": 0
+    },
+    "cpg_call_graph_edges": {
+      "count": 1,
+      "mean": 3283.0,
+      "median": 3283.0,
+      "min": 3283.0,
+      "max": 3283.0,
+      "stdev": 0
+    },
+    "cpg_total_files": {
+      "count": 1,
+      "mean": 47.0,
+      "median": 47.0,
+      "min": 47.0,
+      "max": 47.0,
+      "stdev": 0
+    },
+    "cpg_include_data_flow": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_include_control_flow": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_include_call_graph": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "gnn_nodes": {
+      "count": 1,
+      "mean": 2795.0,
+      "median": 2795.0,
+      "min": 2795.0,
+      "max": 2795.0,
+      "stdev": 0
+    },
+    "gnn_embedding_dim": {
+      "count": 1,
+      "mean": 128.0,
+      "median": 128.0,
+      "min": 128.0,
+      "max": 128.0,
+      "stdev": 0
+    },
+    "transformer_samples": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    },
+    "xai_suggestions": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    }
+  }
+}

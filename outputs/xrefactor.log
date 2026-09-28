@@ -1,0 +1,266 @@
+2026-06-06 15:03:32 | INFO     | __main__:main - XRefactor - Explainable AI-driven Cross-file Code Refactoring Framework
+2026-06-06 15:03:32 | INFO     | __main__:main - Data directory: ..\Data
+2026-06-06 15:03:32 | INFO     | __main__:main - Configuration: .\configs\config.yaml
+2026-06-06 15:03:32 | INFO     | __main__:main - Output directory: .\outputs
+2026-06-06 15:03:32 | INFO     | __main__:main - Device: cpu
+2026-06-06 15:03:32 | INFO     | src.utils.helpers:__init__ - Configuration loaded from .\configs\config.yaml
+2026-06-06 15:03:32 | INFO     | src.core.pipeline:__init__ - Initializing XRefactor Pipeline on cpu
+2026-06-06 15:03:32 | INFO     | src.core.pipeline:run_pipeline - 
+================================================================================
+2026-06-06 15:03:32 | INFO     | src.core.pipeline:run_pipeline - STARTING XREFACTOR PIPELINE
+2026-06-06 15:03:32 | INFO     | src.core.pipeline:run_pipeline - ================================================================================
+
+2026-06-06 15:03:32 | INFO     | src.core.pipeline:stage_1_cpg_construction - ================================================================================
+2026-06-06 15:03:32 | INFO     | src.core.pipeline:stage_1_cpg_construction - STAGE 1: CODE PROPERTY GRAPH CONSTRUCTION
+2026-06-06 15:03:32 | INFO     | src.core.pipeline:stage_1_cpg_construction - ================================================================================
+2026-06-06 15:03:32 | INFO     | src.cpg.cpg_builder:__init__ - Initialized CPG for language: java
+2026-06-06 15:03:32 | INFO     | src.cpg.cpg_builder:build_from_directory - Building CPG from directory: ..\Data
+2026-06-06 15:04:09 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\service\UzcNodeService.java: 
+2026-06-06 15:04:10 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\entity\response\Block.java: 
+2026-06-06 15:04:10 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\entity\response\Constants.java: 
+2026-06-06 15:04:10 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\entity\response\Transaction.java: 
+2026-06-06 15:04:10 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\entity\response\attachment\MultiOutSameAttachment.java: 
+2026-06-06 15:04:11 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\entity\response\http\attachment\MultiOutSameAttachmentResponse.java: 
+2026-06-06 15:04:11 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\service\impl\GrpcUzcNodeService.java: 
+2026-06-06 15:04:11 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\service\impl\HttpUzcNodeService.java: 
+2026-06-06 15:04:16 | INFO     | src.cpg.cpg_builder:_build_cross_file_dependencies - Building cross-file dependencies...
+2026-06-06 15:04:16 | INFO     | src.cpg.cpg_builder:build_from_directory - CPG construction complete. Nodes: 30406, Edges: 64148
+2026-06-06 15:04:16 | INFO     | src.core.pipeline:stage_1_cpg_construction - CPG Construction Complete:
+2026-06-06 15:04:16 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Nodes: 30406
+2026-06-06 15:04:16 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Edges: 64148
+2026-06-06 15:04:16 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Files: 2187
+2026-06-06 15:04:16 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Node types: {'class': 2148, 'method': 21442, 'field': 6816}
+2026-06-06 15:04:16 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - ================================================================================
+2026-06-06 15:04:16 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - STAGE 2: GRAPH NEURAL NETWORK REASONING
+2026-06-06 15:04:16 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - ================================================================================
+2026-06-06 15:04:16 | INFO     | src.gnn.gnn_model:__init__ - Initializing GAT with dims: 1 -> [256, 256] -> 128
+2026-06-06 15:04:17 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - GNN Model created: GAT
+2026-06-06 15:04:17 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Input dim: 1
+2026-06-06 15:04:17 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Hidden dims: [256, 256]
+2026-06-06 15:04:17 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Output dim: 128
+2026-06-06 15:04:17 | ERROR    | src.core.pipeline:run_pipeline - Pipeline execution failed: running_mean should contain 2048 elements not 256
+2026-06-06 15:04:17 | INFO     | __main__:main - 
+================================================================================
+2026-06-06 15:04:17 | INFO     | __main__:main - PIPELINE SUMMARY
+2026-06-06 15:04:17 | INFO     | __main__:main - ================================================================================
+2026-06-06 15:04:17 | INFO     | __main__:main - Status: failed
+2026-06-06 15:04:17 | INFO     | __main__:main - Timestamp: 20260606_150332
+2026-06-06 15:04:17 | ERROR    | __main__:main - Error: running_mean should contain 2048 elements not 256
+2026-06-21 14:46:24 | INFO     | __main__:main - XRefactor - Explainable AI-driven Cross-file Code Refactoring Framework
+2026-06-21 14:46:24 | INFO     | __main__:main - Data directory: ..\Data
+2026-06-21 14:46:24 | INFO     | __main__:main - Configuration: .\configs\config.yaml
+2026-06-21 14:46:24 | INFO     | __main__:main - Output directory: .\outputs
+2026-06-21 14:46:24 | INFO     | __main__:main - Device: cpu
+2026-06-21 14:46:24 | INFO     | src.utils.helpers:__init__ - Configuration loaded from .\configs\config.yaml
+2026-06-21 14:46:24 | INFO     | src.core.pipeline:__init__ - Initializing XRefactor Pipeline on cpu
+2026-06-21 14:46:24 | INFO     | src.core.pipeline:run_pipeline - 
+================================================================================
+2026-06-21 14:46:24 | INFO     | src.core.pipeline:run_pipeline - STARTING XREFACTOR PIPELINE
+2026-06-21 14:46:24 | INFO     | src.core.pipeline:run_pipeline - ================================================================================
+
+2026-06-21 14:46:24 | INFO     | src.core.pipeline:stage_1_cpg_construction - ================================================================================
+2026-06-21 14:46:24 | INFO     | src.core.pipeline:stage_1_cpg_construction - STAGE 1: CODE PROPERTY GRAPH CONSTRUCTION
+2026-06-21 14:46:24 | INFO     | src.core.pipeline:stage_1_cpg_construction - ================================================================================
+2026-06-21 14:46:24 | INFO     | src.cpg.cpg_builder:__init__ - Initialized CPG for language: java
+2026-06-21 14:46:24 | INFO     | src.cpg.cpg_builder:build_from_directory - Building CPG from directory: ..\Data
+2026-06-21 14:47:06 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\service\UzcNodeService.java: 
+2026-06-21 14:47:07 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\entity\response\Block.java: 
+2026-06-21 14:47:07 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\entity\response\Constants.java: 
+2026-06-21 14:47:08 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\entity\response\Transaction.java: 
+2026-06-21 14:47:08 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\entity\response\attachment\MultiOutSameAttachment.java: 
+2026-06-21 14:47:08 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\entity\response\http\attachment\MultiOutSameAttachmentResponse.java: 
+2026-06-21 14:47:08 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\service\impl\GrpcUzcNodeService.java: 
+2026-06-21 14:47:08 | ERROR    | src.cpg.cpg_builder:_process_java_file - Error parsing Java file ..\Data\UzcDevelopmentTeam\uzckit4j\uzcKit\src\main\java\uzc\kit\service\impl\HttpUzcNodeService.java: 
+2026-06-21 14:47:14 | INFO     | src.cpg.cpg_builder:_build_cross_file_dependencies - Building cross-file dependencies...
+2026-06-21 14:47:14 | INFO     | src.cpg.cpg_builder:build_from_directory - CPG construction complete. Nodes: 30406, Edges: 64148
+2026-06-21 14:47:14 | INFO     | src.core.pipeline:stage_1_cpg_construction - CPG Construction Complete:
+2026-06-21 14:47:14 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Nodes: 30406
+2026-06-21 14:47:14 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Edges: 64148
+2026-06-21 14:47:14 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Files: 2187
+2026-06-21 14:47:14 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Node types: {'class': 2148, 'method': 21442, 'field': 6816}
+2026-06-21 14:47:15 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - ================================================================================
+2026-06-21 14:47:15 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - STAGE 2: GRAPH NEURAL NETWORK REASONING
+2026-06-21 14:47:15 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - ================================================================================
+2026-06-21 14:47:15 | INFO     | src.gnn.gnn_model:__init__ - Initializing GAT with dims: 1 -> [256, 256] -> 128
+2026-06-21 14:47:15 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - GNN Model created: GAT
+2026-06-21 14:47:15 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Input dim: 1
+2026-06-21 14:47:15 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Hidden dims: [256, 256]
+2026-06-21 14:47:15 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Output dim: 128
+2026-06-21 14:47:18 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - GNN Inference Complete:
+2026-06-21 14:47:18 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Node embeddings shape: torch.Size([30406, 128])
+2026-06-21 14:47:18 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Graph embedding shape: torch.Size([1, 128])
+2026-06-21 14:47:18 | INFO     | src.core.pipeline:stage_3_transformer_generation - ================================================================================
+2026-06-21 14:47:18 | INFO     | src.core.pipeline:stage_3_transformer_generation - STAGE 3: TRANSFORMER-BASED CODE GENERATION
+2026-06-21 14:47:18 | INFO     | src.core.pipeline:stage_3_transformer_generation - ================================================================================
+2026-06-21 14:47:18 | INFO     | src.transformer.code_generator:__init__ - Loading pre-trained model: codebert
+2026-06-21 14:47:19 | WARNING  | src.transformer.code_generator:__init__ - Could not load codebert: codebert is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=<your_token>`. Using default implementation.
+2026-06-21 14:47:20 | INFO     | src.transformer.code_generator:__init__ - CodeTransformer initialized successfully
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:stage_3_transformer_generation - Transformer Model created:
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:stage_3_transformer_generation -   - Pre-trained model: codebert
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:stage_3_transformer_generation -   - Hidden size: 768
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:stage_3_transformer_generation -   - Layers: 6
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:stage_4_xai_explanation - ================================================================================
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:stage_4_xai_explanation - STAGE 4: EXPLAINABLE AI MODULE
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:stage_4_xai_explanation - ================================================================================
+2026-06-21 14:47:20 | INFO     | src.xai.explanation_module:__init__ - Initialized CausalInferenceModule
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:stage_4_xai_explanation - XAI Module created:
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:stage_4_xai_explanation -   - Feature dimension: 128
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:stage_4_xai_explanation -   - Explanation method: causal_inference
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:stage_4_xai_explanation -   - Number of suggestions: 3
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:_save_pipeline_results - Pipeline results saved to .\outputs\pipeline_results_20260621_144624.json
+2026-06-21 14:47:20 | INFO     | src.utils.helpers:save_metrics - Metrics saved to .\outputs\metrics_20260621_144624.json
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:run_pipeline - 
+================================================================================
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:run_pipeline - XREFACTOR PIPELINE COMPLETED SUCCESSFULLY
+2026-06-21 14:47:20 | INFO     | src.core.pipeline:run_pipeline - ================================================================================
+2026-06-21 14:47:20 | INFO     | __main__:main - 
+================================================================================
+2026-06-21 14:47:20 | INFO     | __main__:main - PIPELINE SUMMARY
+2026-06-21 14:47:20 | INFO     | __main__:main - ================================================================================
+2026-06-21 14:47:20 | INFO     | __main__:main - Status: success
+2026-06-21 14:47:20 | INFO     | __main__:main - Timestamp: 20260621_144624
+2026-06-21 14:47:20 | INFO     | __main__:main -   cpg: success
+2026-06-21 14:47:20 | INFO     | __main__:main -   gnn: success
+2026-06-21 14:47:20 | INFO     | __main__:main -   transformer: success
+2026-06-21 14:47:20 | INFO     | __main__:main -   xai: success
+2026-06-21 15:27:42 | INFO     | __main__:main - XRefactor - Explainable AI-driven Cross-file Code Refactoring Framework
+2026-06-21 15:27:42 | INFO     | __main__:main - Data directory: ..\Data
+2026-06-21 15:27:42 | INFO     | __main__:main - Configuration: .\configs\config.yaml
+2026-06-21 15:27:42 | INFO     | __main__:main - Output directory: .\outputs
+2026-06-21 15:27:42 | INFO     | __main__:main - Device: cpu
+2026-06-21 15:27:42 | INFO     | src.utils.helpers:__init__ - Configuration loaded from .\configs\config.yaml
+2026-06-21 15:27:42 | INFO     | src.core.pipeline:__init__ - Initializing XRefactor Pipeline on cpu
+2026-06-21 15:27:42 | INFO     | src.core.pipeline:run_pipeline - 
+================================================================================
+2026-06-21 15:27:42 | INFO     | src.core.pipeline:run_pipeline - STARTING XREFACTOR PIPELINE
+2026-06-21 15:27:42 | INFO     | src.core.pipeline:run_pipeline - ================================================================================
+
+2026-06-21 15:27:42 | INFO     | src.core.pipeline:stage_1_cpg_construction - ================================================================================
+2026-06-21 15:27:42 | INFO     | src.core.pipeline:stage_1_cpg_construction - STAGE 1: CODE PROPERTY GRAPH CONSTRUCTION
+2026-06-21 15:27:42 | INFO     | src.core.pipeline:stage_1_cpg_construction - ================================================================================
+2026-06-21 15:27:42 | INFO     | src.cpg.cpg_builder:__init__ - Initialized CPG for language: java
+2026-06-21 15:27:42 | INFO     | src.cpg.cpg_builder:build_from_directory - Building CPG from directory: ..\Data
+2026-06-21 15:28:03 | INFO     | src.cpg.cpg_builder:_build_cross_file_dependencies - Building cross-file dependencies...
+2026-06-21 15:28:03 | INFO     | src.cpg.cpg_builder:build_from_directory - CPG construction complete. Nodes: 29321, Edges: 61091
+2026-06-21 15:28:03 | INFO     | src.core.pipeline:stage_1_cpg_construction - CPG Construction Complete:
+2026-06-21 15:28:03 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Nodes: 29321
+2026-06-21 15:28:03 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Edges: 61091
+2026-06-21 15:28:03 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Files: 2099
+2026-06-21 15:28:03 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Node types: {'class': 2047, 'method': 20844, 'field': 6430}
+2026-06-21 15:28:03 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - ================================================================================
+2026-06-21 15:28:03 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - STAGE 2: GRAPH NEURAL NETWORK REASONING
+2026-06-21 15:28:03 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - ================================================================================
+2026-06-21 15:28:03 | INFO     | src.gnn.gnn_model:__init__ - Initializing GAT with dims: 1 -> [256, 256] -> 128
+2026-06-21 15:28:03 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - GNN Model created: GAT
+2026-06-21 15:28:03 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Input dim: 1
+2026-06-21 15:28:03 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Hidden dims: [256, 256]
+2026-06-21 15:28:03 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Output dim: 128
+2026-06-21 15:28:06 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - GNN Inference Complete:
+2026-06-21 15:28:06 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Node embeddings shape: torch.Size([29321, 128])
+2026-06-21 15:28:06 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Graph embedding shape: torch.Size([1, 128])
+2026-06-21 15:28:06 | INFO     | src.core.pipeline:stage_3_transformer_generation - ================================================================================
+2026-06-21 15:28:06 | INFO     | src.core.pipeline:stage_3_transformer_generation - STAGE 3: TRANSFORMER-BASED CODE GENERATION
+2026-06-21 15:28:06 | INFO     | src.core.pipeline:stage_3_transformer_generation - ================================================================================
+2026-06-21 15:28:06 | INFO     | src.transformer.code_generator:__init__ - Loading pre-trained model: codebert
+2026-06-21 15:28:07 | WARNING  | src.transformer.code_generator:__init__ - Could not load codebert: codebert is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=<your_token>`. Using default implementation.
+2026-06-21 15:28:08 | INFO     | src.transformer.code_generator:__init__ - CodeTransformer initialized successfully
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:stage_3_transformer_generation - Transformer Model created:
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:stage_3_transformer_generation -   - Pre-trained model: codebert
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:stage_3_transformer_generation -   - Hidden size: 768
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:stage_3_transformer_generation -   - Layers: 6
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:stage_4_xai_explanation - ================================================================================
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:stage_4_xai_explanation - STAGE 4: EXPLAINABLE AI MODULE
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:stage_4_xai_explanation - ================================================================================
+2026-06-21 15:28:08 | INFO     | src.xai.explanation_module:__init__ - Initialized CausalInferenceModule
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:stage_4_xai_explanation - XAI Module created:
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:stage_4_xai_explanation -   - Feature dimension: 128
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:stage_4_xai_explanation -   - Explanation method: causal_inference
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:stage_4_xai_explanation -   - Number of suggestions: 3
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:_save_pipeline_results - Pipeline results saved to .\outputs\pipeline_results_20260621_152742.json
+2026-06-21 15:28:08 | INFO     | src.utils.helpers:save_metrics - Metrics saved to .\outputs\metrics_20260621_152742.json
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:run_pipeline - 
+================================================================================
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:run_pipeline - XREFACTOR PIPELINE COMPLETED SUCCESSFULLY
+2026-06-21 15:28:08 | INFO     | src.core.pipeline:run_pipeline - ================================================================================
+2026-06-21 15:28:08 | INFO     | __main__:main - 
+================================================================================
+2026-06-21 15:28:08 | INFO     | __main__:main - PIPELINE SUMMARY
+2026-06-21 15:28:08 | INFO     | __main__:main - ================================================================================
+2026-06-21 15:28:08 | INFO     | __main__:main - Status: success
+2026-06-21 15:28:08 | INFO     | __main__:main - Timestamp: 20260621_152742
+2026-06-21 15:28:08 | INFO     | __main__:main -   cpg: success
+2026-06-21 15:28:08 | INFO     | __main__:main -   gnn: success
+2026-06-21 15:28:08 | INFO     | __main__:main -   transformer: success
+2026-06-21 15:28:08 | INFO     | __main__:main -   xai: success
+2026-06-27 17:42:58 | INFO     | __main__:main - XRefactor - Explainable AI-driven Cross-file Code Refactoring Framework
+2026-06-27 17:42:58 | INFO     | __main__:main - Data directory: ..\Data
+2026-06-27 17:42:58 | INFO     | __main__:main - Configuration: .\configs\config.yaml
+2026-06-27 17:42:58 | INFO     | __main__:main - Output directory: .\outputs
+2026-06-27 17:42:58 | INFO     | __main__:main - Device: cpu
+2026-06-27 17:42:58 | INFO     | src.utils.helpers:__init__ - Configuration loaded from .\configs\config.yaml
+2026-06-27 17:42:58 | INFO     | src.core.pipeline:__init__ - Initializing XRefactor Pipeline on cpu
+2026-06-27 17:42:58 | INFO     | src.core.pipeline:run_pipeline - 
+================================================================================
+2026-06-27 17:42:58 | INFO     | src.core.pipeline:run_pipeline - STARTING XREFACTOR PIPELINE
+2026-06-27 17:42:58 | INFO     | src.core.pipeline:run_pipeline - ================================================================================
+
+2026-06-27 17:42:58 | INFO     | src.core.pipeline:stage_1_cpg_construction - ================================================================================
+2026-06-27 17:42:58 | INFO     | src.core.pipeline:stage_1_cpg_construction - STAGE 1: CODE PROPERTY GRAPH CONSTRUCTION
+2026-06-27 17:42:58 | INFO     | src.core.pipeline:stage_1_cpg_construction - ================================================================================
+2026-06-27 17:42:58 | INFO     | src.cpg.cpg_builder:__init__ - Initialized CPG for language: java
+2026-06-27 17:42:58 | INFO     | src.cpg.cpg_builder:build_from_directory - Building CPG from directory: ..\Data
+2026-06-27 17:43:35 | INFO     | src.cpg.cpg_builder:_build_cross_file_dependencies - Building cross-file dependencies...
+2026-06-27 17:43:35 | INFO     | src.cpg.cpg_builder:build_from_directory - CPG construction complete. Nodes: 29321, Edges: 61091
+2026-06-27 17:43:35 | INFO     | src.core.pipeline:stage_1_cpg_construction - CPG Construction Complete:
+2026-06-27 17:43:35 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Nodes: 29321
+2026-06-27 17:43:35 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Edges: 61091
+2026-06-27 17:43:35 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Files: 2099
+2026-06-27 17:43:35 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Node types: {'class': 2047, 'method': 20844, 'field': 6430}
+2026-06-27 17:43:35 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - ================================================================================
+2026-06-27 17:43:35 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - STAGE 2: GRAPH NEURAL NETWORK REASONING
+2026-06-27 17:43:35 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - ================================================================================
+2026-06-27 17:43:35 | INFO     | src.gnn.gnn_model:__init__ - Initializing GAT with dims: 1 -> [256, 256] -> 128
+2026-06-27 17:43:35 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - GNN Model created: GAT
+2026-06-27 17:43:35 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Input dim: 1
+2026-06-27 17:43:35 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Hidden dims: [256, 256]
+2026-06-27 17:43:35 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Output dim: 128
+2026-06-27 17:43:38 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - GNN Inference Complete:
+2026-06-27 17:43:38 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Node embeddings shape: torch.Size([29321, 128])
+2026-06-27 17:43:38 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Graph embedding shape: torch.Size([1, 128])
+2026-06-27 17:43:38 | INFO     | src.core.pipeline:stage_3_transformer_generation - ================================================================================
+2026-06-27 17:43:38 | INFO     | src.core.pipeline:stage_3_transformer_generation - STAGE 3: TRANSFORMER-BASED CODE GENERATION
+2026-06-27 17:43:38 | INFO     | src.core.pipeline:stage_3_transformer_generation - ================================================================================
+2026-06-27 17:43:38 | INFO     | src.transformer.code_generator:__init__ - Loading pre-trained model: microsoft/codebert-base
+2026-06-27 17:43:43 | INFO     | src.transformer.code_generator:__init__ - CodeTransformer initialized successfully
+2026-06-27 17:43:43 | INFO     | src.core.pipeline:stage_3_transformer_generation - Transformer model alias 'microsoft/codebert-base' resolved to 'microsoft/codebert-base'
+2026-06-27 17:43:43 | INFO     | src.core.pipeline:stage_3_transformer_generation - Transformer Model created:
+2026-06-27 17:43:43 | INFO     | src.core.pipeline:stage_3_transformer_generation -   - Pre-trained model: microsoft/codebert-base
+2026-06-27 17:43:43 | INFO     | src.core.pipeline:stage_3_transformer_generation -   - Hidden size: 768
+2026-06-27 17:43:43 | INFO     | src.core.pipeline:stage_3_transformer_generation -   - Layers: 6
+2026-06-27 17:50:11 | INFO     | src.core.pipeline:stage_3_transformer_generation - Generated 5 refactoring suggestions
+2026-06-27 17:50:11 | INFO     | src.core.pipeline:stage_4_xai_explanation - ================================================================================
+2026-06-27 17:50:11 | INFO     | src.core.pipeline:stage_4_xai_explanation - STAGE 4: EXPLAINABLE AI MODULE
+2026-06-27 17:50:11 | INFO     | src.core.pipeline:stage_4_xai_explanation - ================================================================================
+2026-06-27 17:50:11 | INFO     | src.xai.explanation_module:__init__ - Initialized CausalInferenceModule
+2026-06-27 17:50:11 | INFO     | src.core.pipeline:stage_4_xai_explanation - XAI Module created:
+2026-06-27 17:50:11 | INFO     | src.core.pipeline:stage_4_xai_explanation -   - Feature dimension: 128
+2026-06-27 17:50:11 | INFO     | src.core.pipeline:stage_4_xai_explanation -   - Explanation method: causal_inference
+2026-06-27 17:50:11 | INFO     | src.core.pipeline:stage_4_xai_explanation -   - Number of suggestions: 5
+2026-06-27 17:50:11 | INFO     | src.core.pipeline:_save_pipeline_results - Pipeline results saved to .\outputs\pipeline_results_20260627_174258.json
+2026-06-27 17:50:11 | INFO     | src.utils.helpers:save_metrics - Metrics saved to .\outputs\metrics_20260627_174258.json
+2026-06-27 17:50:11 | INFO     | src.core.pipeline:run_pipeline - 
+================================================================================
+2026-06-27 17:50:11 | INFO     | src.core.pipeline:run_pipeline - XREFACTOR PIPELINE COMPLETED SUCCESSFULLY
+2026-06-27 17:50:11 | INFO     | src.core.pipeline:run_pipeline - ================================================================================
+2026-06-27 17:50:11 | INFO     | __main__:main - 
+================================================================================
+2026-06-27 17:50:11 | INFO     | __main__:main - PIPELINE SUMMARY
+2026-06-27 17:50:11 | INFO     | __main__:main - ================================================================================
+2026-06-27 17:50:11 | INFO     | __main__:main - Status: success
+2026-06-27 17:50:11 | INFO     | __main__:main - Timestamp: 20260627_174258
+2026-06-27 17:50:11 | INFO     | __main__:main -   cpg: success
+2026-06-27 17:50:11 | INFO     | __main__:main -   gnn: success
+2026-06-27 17:50:11 | INFO     | __main__:main -   transformer: success
+2026-06-27 17:50:11 | INFO     | __main__:main -   xai: success

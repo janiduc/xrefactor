@@ -1,0 +1,58 @@
+{
+  "cpg_total_nodes": {
+    "count": 1,
+    "mean": 29321.0,
+    "median": 29321.0,
+    "min": 29321.0,
+    "max": 29321.0,
+    "stdev": 0
+  },
+  "cpg_total_edges": {
+    "count": 1,
+    "mean": 61091.0,
+    "median": 61091.0,
+    "min": 61091.0,
+    "max": 61091.0,
+    "stdev": 0
+  },
+  "cpg_total_files": {
+    "count": 1,
+    "mean": 2099.0,
+    "median": 2099.0,
+    "min": 2099.0,
+    "max": 2099.0,
+    "stdev": 0
+  },
+  "gnn_nodes": {
+    "count": 1,
+    "mean": 29321.0,
+    "median": 29321.0,
+    "min": 29321.0,
+    "max": 29321.0,
+    "stdev": 0
+  },
+  "gnn_embedding_dim": {
+    "count": 1,
+    "mean": 128.0,
+    "median": 128.0,
+    "min": 128.0,
+    "max": 128.0,
+    "stdev": 0
+  },
+  "transformer_samples": {
+    "count": 1,
+    "mean": 5.0,
+    "median": 5.0,
+    "min": 5.0,
+    "max": 5.0,
+    "stdev": 0
+  },
+  "xai_suggestions": {
+    "count": 1,
+    "mean": 3.0,
+    "median": 3.0,
+    "min": 3.0,
+    "max": 3.0,
+    "stdev": 0
+  }
+}

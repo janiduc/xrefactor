@@ -1,0 +1,106 @@
+{
+  "cpg_total_nodes": {
+    "count": 3,
+    "mean": 8288.0,
+    "median": 2795.0,
+    "min": 2795.0,
+    "max": 19274.0,
+    "stdev": 9514.155085975843
+  },
+  "cpg_total_edges": {
+    "count": 3,
+    "mean": 17172.0,
+    "median": 6565.0,
+    "min": 6565.0,
+    "max": 38386.0,
+    "stdev": 18371.86291588308
+  },
+  "cpg_data_flow_edges": {
+    "count": 3,
+    "mean": 7051.666666666667,
+    "median": 1457.0,
+    "min": 1457.0,
+    "max": 18241.0,
+    "stdev": 9690.24691807868
+  },
+  "cpg_control_flow_edges": {
+    "count": 3,
+    "mean": 4811.666666666667,
+    "median": 1825.0,
+    "min": 1825.0,
+    "max": 10785.0,
+    "stdev": 5173.058411939047
+  },
+  "cpg_call_graph_edges": {
+    "count": 3,
+    "mean": 5308.666666666667,
+    "median": 3283.0,
+    "min": 3283.0,
+    "max": 9360.0,
+    "stdev": 3508.5575858653556
+  },
+  "cpg_total_files": {
+    "count": 3,
+    "mean": 131.0,
+    "median": 47.0,
+    "min": 47.0,
+    "max": 299.0,
+    "stdev": 145.4922678357857
+  },
+  "cpg_include_data_flow": {
+    "count": 3,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0
+  },
+  "cpg_include_control_flow": {
+    "count": 3,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0
+  },
+  "cpg_include_call_graph": {
+    "count": 3,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0
+  },
+  "gnn_nodes": {
+    "count": 3,
+    "mean": 8288.0,
+    "median": 2795.0,
+    "min": 2795.0,
+    "max": 19274.0,
+    "stdev": 9514.155085975843
+  },
+  "gnn_embedding_dim": {
+    "count": 3,
+    "mean": 128.0,
+    "median": 128.0,
+    "min": 128.0,
+    "max": 128.0,
+    "stdev": 0.0
+  },
+  "transformer_samples": {
+    "count": 3,
+    "mean": 5.0,
+    "median": 5.0,
+    "min": 5.0,
+    "max": 5.0,
+    "stdev": 0.0
+  },
+  "xai_suggestions": {
+    "count": 3,
+    "mean": 5.0,
+    "median": 5.0,
+    "min": 5.0,
+    "max": 5.0,
+    "stdev": 0.0
+  }
+}

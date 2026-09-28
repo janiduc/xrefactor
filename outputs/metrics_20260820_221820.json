@@ -1,0 +1,106 @@
+{
+  "cpg_total_nodes": {
+    "count": 2,
+    "mean": 11034.5,
+    "median": 11034.5,
+    "min": 2795.0,
+    "max": 19274.0,
+    "stdev": 11652.412647173116
+  },
+  "cpg_total_edges": {
+    "count": 2,
+    "mean": 22475.5,
+    "median": 22475.5,
+    "min": 6565.0,
+    "max": 38386.0,
+    "stdev": 22500.84488413713
+  },
+  "cpg_data_flow_edges": {
+    "count": 2,
+    "mean": 9849.0,
+    "median": 9849.0,
+    "min": 1457.0,
+    "max": 18241.0,
+    "stdev": 11868.080215435013
+  },
+  "cpg_control_flow_edges": {
+    "count": 2,
+    "mean": 6305.0,
+    "median": 6305.0,
+    "min": 1825.0,
+    "max": 10785.0,
+    "stdev": 6335.676759431466
+  },
+  "cpg_call_graph_edges": {
+    "count": 2,
+    "mean": 6321.5,
+    "median": 6321.5,
+    "min": 3283.0,
+    "max": 9360.0,
+    "stdev": 4297.087909270649
+  },
+  "cpg_total_files": {
+    "count": 2,
+    "mean": 173.0,
+    "median": 173.0,
+    "min": 47.0,
+    "max": 299.0,
+    "stdev": 178.19090885900997
+  },
+  "cpg_include_data_flow": {
+    "count": 2,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0
+  },
+  "cpg_include_control_flow": {
+    "count": 2,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0
+  },
+  "cpg_include_call_graph": {
+    "count": 2,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0
+  },
+  "gnn_nodes": {
+    "count": 2,
+    "mean": 11034.5,
+    "median": 11034.5,
+    "min": 2795.0,
+    "max": 19274.0,
+    "stdev": 11652.412647173116
+  },
+  "gnn_embedding_dim": {
+    "count": 2,
+    "mean": 128.0,
+    "median": 128.0,
+    "min": 128.0,
+    "max": 128.0,
+    "stdev": 0.0
+  },
+  "transformer_samples": {
+    "count": 2,
+    "mean": 5.0,
+    "median": 5.0,
+    "min": 5.0,
+    "max": 5.0,
+    "stdev": 0.0
+  },
+  "xai_suggestions": {
+    "count": 2,
+    "mean": 5.0,
+    "median": 5.0,
+    "min": 5.0,
+    "max": 5.0,
+    "stdev": 0.0
+  }
+}

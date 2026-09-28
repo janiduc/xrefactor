@@ -1,0 +1,55 @@
+# Core Data Processing
+numpy>=1.21.0
+pandas>=1.3.0
+scipy>=1.7.0
+
+# Deep Learning & NNs
+torch>=2.0.0
+torch-geometric>=2.3.0
+transformers>=4.30.0
+tokenizers>=0.13.0
+
+# Code Analysis
+javalang>=0.13.0
+tree-sitter>=0.20.0
+
+# Graph Processing
+networkx>=3.0
+pydot>=1.4.2
+
+# NLP & Embeddings
+nltk>=3.8
+scikit-learn>=1.1.0
+
+# Configuration & Logging
+pyyaml>=6.0
+python-dotenv>=0.20.0
+loguru>=0.6.0
+
+# Utilities
+tqdm>=4.64.0
+pydantic>=1.10.0
+joblib>=1.2.0
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.12.0
+graphviz>=0.20.0
+
+# Web Framework & API
+flask>=2.3.0
+flask-cors>=4.0.0
+flask-restx>=0.5.1
+python-socketio>=5.9.0
+python-engineio>=4.7.0
+
+# Frontend (served via Flask)
+# Vue.js will be included via CDN in HTML templates
+
+# Utilities
+requests>=2.31.0
+python-multipart>=0.0.6

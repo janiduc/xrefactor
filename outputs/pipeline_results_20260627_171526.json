@@ -1,0 +1,195 @@
+{
+  "timestamp": "20260627_171526",
+  "stages": {
+    "cpg": {
+      "status": "success",
+      "statistics": {
+        "total_nodes": 3933,
+        "total_edges": 9756,
+        "node_types": {
+          "class": 292,
+          "method": 2597,
+          "field": 1044
+        },
+        "edge_types": {
+          "calls": 9756
+        },
+        "data_flow_edges": 0,
+        "control_flow_edges": 0,
+        "call_graph_edges": 9756,
+        "total_files": 299,
+        "include_data_flow": true,
+        "include_control_flow": true,
+        "include_call_graph": true
+      }
+    },
+    "gnn": {
+      "status": "success",
+      "model_type": "gat",
+      "embedding_dim": 128
+    },
+    "transformer": {
+      "status": "success",
+      "model": "microsoft/codebert-base",
+      "refactoring_suggestions": [
+        {
+          "original_code": "public class BeanValidators {",
+          "refactored_code": " maxatheredPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPrettyPretty",
+          "refactoring_type": "extract_method",
+          "confidence": 0.75,
+          "type_id": 0,
+          "source_file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\beanvalidator\\BeanValidators.java",
+          "node_type": "class"
+        },
+        {
+          "original_code": "\tpublic static void validateWithException(Validator validator, Object object, Class<?>... groups)",
+          "refactored_code": " maxSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeaking",
+          "refactoring_type": "move_class",
+          "confidence": 0.8,
+          "type_id": 1,
+          "source_file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\beanvalidator\\BeanValidators.java",
+          "node_type": "method"
+        },
+        {
+          "original_code": "\tpublic static List<String> extractMessage(Set<? extends ConstraintViolation> constraintViolations) {",
+          "refactored_code": " capPlayers fourSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeaking",
+          "refactoring_type": "rename_variable",
+          "confidence": 0.85,
+          "type_id": 2,
+          "source_file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\beanvalidator\\BeanValidators.java",
+          "node_type": "method"
+        },
+        {
+          "original_code": "\tpublic static Map<String, String> extractPropertyAndMessage(Set<? extends ConstraintViolation> constraintViolations) {",
+          "refactored_code": " cap SketchSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeaking",
+          "refactoring_type": "consolidate_duplicate_code",
+          "confidence": 0.9,
+          "type_id": 3,
+          "source_file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\beanvalidator\\BeanValidators.java",
+          "node_type": "method"
+        },
+        {
+          "original_code": "\tpublic static List<String> extractPropertyAndMessageAsList(Set<? extends ConstraintViolation> constraintViolations,",
+          "refactored_code": "SpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeakingSpeaking",
+          "refactoring_type": "remove_dead_code",
+          "confidence": 0.95,
+          "type_id": 4,
+          "source_file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\beanvalidator\\BeanValidators.java",
+          "node_type": "method"
+        }
+      ]
+    },
+    "xai": {
+      "status": "success",
+      "explanation_method": "causal_inference",
+      "num_evidence_cards": 5
+    }
+  },
+  "status": "success",
+  "metrics": {
+    "cpg_total_nodes": {
+      "count": 1,
+      "mean": 3933.0,
+      "median": 3933.0,
+      "min": 3933.0,
+      "max": 3933.0,
+      "stdev": 0
+    },
+    "cpg_total_edges": {
+      "count": 1,
+      "mean": 9756.0,
+      "median": 9756.0,
+      "min": 9756.0,
+      "max": 9756.0,
+      "stdev": 0
+    },
+    "cpg_data_flow_edges": {
+      "count": 1,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stdev": 0
+    },
+    "cpg_control_flow_edges": {
+      "count": 1,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stdev": 0
+    },
+    "cpg_call_graph_edges": {
+      "count": 1,
+      "mean": 9756.0,
+      "median": 9756.0,
+      "min": 9756.0,
+      "max": 9756.0,
+      "stdev": 0
+    },
+    "cpg_total_files": {
+      "count": 1,
+      "mean": 299.0,
+      "median": 299.0,
+      "min": 299.0,
+      "max": 299.0,
+      "stdev": 0
+    },
+    "cpg_include_data_flow": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_include_control_flow": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_include_call_graph": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "gnn_nodes": {
+      "count": 1,
+      "mean": 3933.0,
+      "median": 3933.0,
+      "min": 3933.0,
+      "max": 3933.0,
+      "stdev": 0
+    },
+    "gnn_embedding_dim": {
+      "count": 1,
+      "mean": 128.0,
+      "median": 128.0,
+      "min": 128.0,
+      "max": 128.0,
+      "stdev": 0
+    },
+    "transformer_samples": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    },
+    "xai_suggestions": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    }
+  }
+}

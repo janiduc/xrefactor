@@ -1,0 +1,195 @@
+{
+  "timestamp": "20260627_175820",
+  "stages": {
+    "cpg": {
+      "status": "success",
+      "statistics": {
+        "total_nodes": 638,
+        "total_edges": 2218,
+        "node_types": {
+          "class": 60,
+          "method": 279,
+          "field": 299
+        },
+        "edge_types": {
+          "calls": 2218
+        },
+        "data_flow_edges": 0,
+        "control_flow_edges": 0,
+        "call_graph_edges": 2218,
+        "total_files": 47,
+        "include_data_flow": true,
+        "include_control_flow": true,
+        "include_call_graph": true
+      }
+    },
+    "gnn": {
+      "status": "success",
+      "model_type": "gat",
+      "embedding_dim": 128
+    },
+    "transformer": {
+      "status": "success",
+      "model": "microsoft/codebert-base",
+      "refactoring_suggestions": [
+        {
+          "original_code": "public class ExampleInstrumentedTest {",
+          "refactored_code": "delay Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving Cells OsamaLiving",
+          "refactoring_type": "extract_method",
+          "confidence": 0.75,
+          "type_id": 0,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\RP_Research_Papers\\mscResearchXrefactor(PP1_Copy)\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\androidTest\\java\\com\\example\\myshoppingmall\\ExampleInstrumentedTest.java",
+          "node_type": "class"
+        },
+        {
+          "original_code": "    public void useAppContext() {",
+          "refactored_code": "delay Cells surgeon purseNJ youngest\ufffd Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowleymund Crowley",
+          "refactoring_type": "move_class",
+          "confidence": 0.8,
+          "type_id": 1,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\RP_Research_Papers\\mscResearchXrefactor(PP1_Copy)\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\androidTest\\java\\com\\example\\myshoppingmall\\ExampleInstrumentedTest.java",
+          "node_type": "method"
+        },
+        {
+          "original_code": "public class AddAddressActivity extends AppCompatActivity {",
+          "refactored_code": "itatingNJ youngest\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells OsamaSpecific intric\ufffd Cells Osama",
+          "refactoring_type": "rename_variable",
+          "confidence": 0.85,
+          "type_id": 2,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\RP_Research_Papers\\mscResearchXrefactor(PP1_Copy)\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddAddressActivity.java",
+          "node_type": "class"
+        },
+        {
+          "original_code": "    protected void onCreate(Bundle savedInstanceState) {",
+          "refactored_code": "fuscalis definitiveramid Cells Osama ledgerVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVRNJ Totem onwardVR",
+          "refactoring_type": "consolidate_duplicate_code",
+          "confidence": 0.9,
+          "type_id": 3,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\RP_Research_Papers\\mscResearchXrefactor(PP1_Copy)\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddAddressActivity.java",
+          "node_type": "method"
+        },
+        {
+          "original_code": "            public void onClick(View v) {",
+          "refactored_code": " sneaking eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon eyIcon ey",
+          "refactoring_type": "remove_dead_code",
+          "confidence": 0.95,
+          "type_id": 4,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\RP_Research_Papers\\mscResearchXrefactor(PP1_Copy)\\Data\\IceIce1ce\\Practice-Shopping-Android-App\\app\\src\\main\\java\\com\\example\\myshoppingmall\\AddAddressActivity.java",
+          "node_type": "method"
+        }
+      ]
+    },
+    "xai": {
+      "status": "success",
+      "explanation_method": "causal_inference",
+      "num_evidence_cards": 5
+    }
+  },
+  "status": "success",
+  "metrics": {
+    "cpg_total_nodes": {
+      "count": 1,
+      "mean": 638.0,
+      "median": 638.0,
+      "min": 638.0,
+      "max": 638.0,
+      "stdev": 0
+    },
+    "cpg_total_edges": {
+      "count": 1,
+      "mean": 2218.0,
+      "median": 2218.0,
+      "min": 2218.0,
+      "max": 2218.0,
+      "stdev": 0
+    },
+    "cpg_data_flow_edges": {
+      "count": 1,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stdev": 0
+    },
+    "cpg_control_flow_edges": {
+      "count": 1,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stdev": 0
+    },
+    "cpg_call_graph_edges": {
+      "count": 1,
+      "mean": 2218.0,
+      "median": 2218.0,
+      "min": 2218.0,
+      "max": 2218.0,
+      "stdev": 0
+    },
+    "cpg_total_files": {
+      "count": 1,
+      "mean": 47.0,
+      "median": 47.0,
+      "min": 47.0,
+      "max": 47.0,
+      "stdev": 0
+    },
+    "cpg_include_data_flow": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_include_control_flow": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_include_call_graph": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "gnn_nodes": {
+      "count": 1,
+      "mean": 638.0,
+      "median": 638.0,
+      "min": 638.0,
+      "max": 638.0,
+      "stdev": 0
+    },
+    "gnn_embedding_dim": {
+      "count": 1,
+      "mean": 128.0,
+      "median": 128.0,
+      "min": 128.0,
+      "max": 128.0,
+      "stdev": 0
+    },
+    "transformer_samples": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    },
+    "xai_suggestions": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    }
+  }
+}

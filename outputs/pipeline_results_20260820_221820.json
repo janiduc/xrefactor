@@ -1,0 +1,1257 @@
+{
+  "timestamp": "20260820_221820",
+  "stages": {
+    "cpg": {
+      "status": "success",
+      "statistics": {
+        "total_nodes": 19274,
+        "total_edges": 38386,
+        "node_types": {
+          "class": 292,
+          "method": 2597,
+          "variable": 4848,
+          "statement": 10493,
+          "field": 1044
+        },
+        "edge_types": {
+          "data_flow": 18241,
+          "control_flow": 10785,
+          "calls": 9360
+        },
+        "data_flow_edges": 18241,
+        "control_flow_edges": 10785,
+        "call_graph_edges": 9360,
+        "total_files": 299,
+        "include_data_flow": true,
+        "include_control_flow": true,
+        "include_call_graph": true
+      },
+      "graph": {
+        "nodes": [
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\beanvalidator\\BeanValidators.java_BeanValidators",
+            "label": "BeanValidators",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\beanvalidator\\BeanValidators.java",
+            "line": 30
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\config\\Global.java_Global",
+            "label": "Global",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\config\\Global.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\filter\\GetAndPostEncodingFilter.java_GetAndPostEncodingFilter",
+            "label": "GetAndPostEncodingFilter",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\filter\\GetAndPostEncodingFilter.java",
+            "line": 20
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\filter\\GetAndPostEncodingFilter.java_MyRequest",
+            "label": "MyRequest",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\filter\\GetAndPostEncodingFilter.java",
+            "line": 49
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\filter\\PageCachingFilter.java_PageCachingFilter",
+            "label": "PageCachingFilter",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\filter\\PageCachingFilter.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\BeanMapper.java_BeanMapper",
+            "label": "BeanMapper",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\BeanMapper.java",
+            "line": 24
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\JaxbMapper.java_JaxbMapper",
+            "label": "JaxbMapper",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\JaxbMapper.java",
+            "line": 37
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\JaxbMapper.java_CollectionWrapper",
+            "label": "CollectionWrapper",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\JaxbMapper.java",
+            "line": 163
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\JsonMapper.java_JsonMapper",
+            "label": "JsonMapper",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\JsonMapper.java",
+            "line": 38
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\adapters\\MapAdapter.java_MapAdapter",
+            "label": "MapAdapter",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\adapters\\MapAdapter.java",
+            "line": 8
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\adapters\\MapConvertor.java_MapConvertor",
+            "label": "MapConvertor",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\adapters\\MapConvertor.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\adapters\\MapConvertor.java_MapEntry",
+            "label": "MapEntry",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\mapper\\adapters\\MapConvertor.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\ActEntity.java_ActEntity",
+            "label": "ActEntity",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\ActEntity.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\BaseEntity.java_BaseEntity",
+            "label": "BaseEntity",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\BaseEntity.java",
+            "line": 28
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\DataEntity.java_DataEntity",
+            "label": "DataEntity",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\DataEntity.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\MapperLoader.java_MapperLoader",
+            "label": "MapperLoader",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\MapperLoader.java",
+            "line": 36
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\MapperLoader.java_Task",
+            "label": "Task",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\MapperLoader.java",
+            "line": 73
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\MapperLoader.java_Scanner",
+            "label": "Scanner",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\MapperLoader.java",
+            "line": 90
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\Page.java_Page",
+            "label": "Page",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\Page.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\Parameter.java_Parameter",
+            "label": "Parameter",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\Parameter.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\TreeEntity.java_TreeEntity",
+            "label": "TreeEntity",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\TreeEntity.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\DB2Dialect.java_DB2Dialect",
+            "label": "DB2Dialect",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\DB2Dialect.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\DerbyDialect.java_DerbyDialect",
+            "label": "DerbyDialect",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\DerbyDialect.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\H2Dialect.java_H2Dialect",
+            "label": "H2Dialect",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\H2Dialect.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\HSQLDialect.java_HSQLDialect",
+            "label": "HSQLDialect",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\HSQLDialect.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\MySQLDialect.java_MySQLDialect",
+            "label": "MySQLDialect",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\MySQLDialect.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\OracleDialect.java_OracleDialect",
+            "label": "OracleDialect",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\OracleDialect.java",
+            "line": 14
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\PostgreSQLDialect.java_PostgreSQLDialect",
+            "label": "PostgreSQLDialect",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\PostgreSQLDialect.java",
+            "line": 14
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\SQLServer2005Dialect.java_SQLServer2005Dialect",
+            "label": "SQLServer2005Dialect",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\SQLServer2005Dialect.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\SQLServerDialect.java_SQLServerDialect",
+            "label": "SQLServerDialect",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\SQLServerDialect.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\SybaseDialect.java_SybaseDialect",
+            "label": "SybaseDialect",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\dialect\\db\\SybaseDialect.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\interceptor\\BaseInterceptor.java_BaseInterceptor",
+            "label": "BaseInterceptor",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\interceptor\\BaseInterceptor.java",
+            "line": 32
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\interceptor\\PaginationInterceptor.java_PaginationInterceptor",
+            "label": "PaginationInterceptor",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\interceptor\\PaginationInterceptor.java",
+            "line": 31
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\interceptor\\PaginationInterceptor.java_BoundSqlSqlSource",
+            "label": "BoundSqlSqlSource",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\interceptor\\PaginationInterceptor.java",
+            "line": 117
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\interceptor\\PreparePaginationInterceptor.java_PreparePaginationInterceptor",
+            "label": "PreparePaginationInterceptor",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\interceptor\\PreparePaginationInterceptor.java",
+            "line": 30
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\interceptor\\SQLHelper.java_SQLHelper",
+            "label": "SQLHelper",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\interceptor\\SQLHelper.java",
+            "line": 39
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\proxy\\PageConfiguration.java_PageConfiguration",
+            "label": "PageConfiguration",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\proxy\\PageConfiguration.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\proxy\\PaginationMapperMethod.java_PaginationMapperMethod",
+            "label": "PaginationMapperMethod",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\proxy\\PaginationMapperMethod.java",
+            "line": 31
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\proxy\\PaginationMapperProxy.java_PaginationMapperProxy",
+            "label": "PaginationMapperProxy",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\proxy\\PaginationMapperProxy.java",
+            "line": 28
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\proxy\\PaginationMapperRegistry.java_PaginationMapperRegistry",
+            "label": "PaginationMapperRegistry",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\persistence\\proxy\\PaginationMapperRegistry.java",
+            "line": 20
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\Cryptos.java_Cryptos",
+            "label": "Cryptos",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\Cryptos.java",
+            "line": 28
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\Digests.java_Digests",
+            "label": "Digests",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\Digests.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\HasAnyPermissionsTag.java_HasAnyPermissionsTag",
+            "label": "HasAnyPermissionsTag",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\HasAnyPermissionsTag.java",
+            "line": 14
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\cache\\JedisCacheManager.java_JedisCacheManager",
+            "label": "JedisCacheManager",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\cache\\JedisCacheManager.java",
+            "line": 29
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\cache\\JedisCacheManager.java_JedisCache",
+            "label": "JedisCache",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\cache\\JedisCacheManager.java",
+            "line": 51
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\cache\\SessionCacheManager.java_SessionCacheManager",
+            "label": "SessionCacheManager",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\cache\\SessionCacheManager.java",
+            "line": 31
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\cache\\SessionCacheManager.java_SessionCache",
+            "label": "SessionCache",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\cache\\SessionCacheManager.java",
+            "line": 41
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\session\\CacheSessionDAO.java_CacheSessionDAO",
+            "label": "CacheSessionDAO",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\session\\CacheSessionDAO.java",
+            "line": 32
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\session\\JedisSessionDAO.java_JedisSessionDAO",
+            "label": "JedisSessionDAO",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\session\\JedisSessionDAO.java",
+            "line": 37
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\session\\SessionManager.java_SessionManager",
+            "label": "SessionManager",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\security\\shiro\\session\\SessionManager.java",
+            "line": 34
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\service\\BaseService.java_BaseService",
+            "label": "BaseService",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\service\\BaseService.java",
+            "line": 24
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\service\\CrudService.java_CrudService",
+            "label": "CrudService",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\service\\CrudService.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\service\\ServiceException.java_ServiceException",
+            "label": "ServiceException",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\service\\ServiceException.java",
+            "line": 10
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\service\\TreeService.java_TreeService",
+            "label": "TreeService",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\service\\TreeService.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\servlet\\UserfilesDownloadServlet.java_UserfilesDownloadServlet",
+            "label": "UserfilesDownloadServlet",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\servlet\\UserfilesDownloadServlet.java",
+            "line": 26
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\servlet\\ValidateCodeServlet.java_ValidateCodeServlet",
+            "label": "ValidateCodeServlet",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\servlet\\ValidateCodeServlet.java",
+            "line": 29
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\SupcanController.java_SupcanController",
+            "label": "SupcanController",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\SupcanController.java",
+            "line": 39
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\common\\Common.java_Common",
+            "label": "Common",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\common\\Common.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\common\\fonts\\Font.java_Font",
+            "label": "Font",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\common\\fonts\\Font.java",
+            "line": 17
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\common\\properties\\Background.java_Background",
+            "label": "Background",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\common\\properties\\Background.java",
+            "line": 17
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\common\\properties\\Express.java_Express",
+            "label": "Express",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\common\\properties\\Express.java",
+            "line": 20
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\common\\properties\\Properties.java_Properties",
+            "label": "Properties",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\common\\properties\\Properties.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\freeform\\FreeForm.java_FreeForm",
+            "label": "FreeForm",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\freeform\\FreeForm.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\treelist\\TreeList.java_TreeList",
+            "label": "TreeList",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\treelist\\TreeList.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\treelist\\cols\\Col.java_Col",
+            "label": "Col",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\treelist\\cols\\Col.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\treelist\\cols\\Group.java_Group",
+            "label": "Group",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\supcan\\treelist\\cols\\Group.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\test\\SpringTransactionalContextTests.java_SpringTransactionalContextTests",
+            "label": "SpringTransactionalContextTests",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\test\\SpringTransactionalContextTests.java",
+            "line": 17
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\CacheUtils.java_CacheUtils",
+            "label": "CacheUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\CacheUtils.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\Collections3.java_Collections3",
+            "label": "Collections3",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\Collections3.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\CookieUtils.java_CookieUtils",
+            "label": "CookieUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\CookieUtils.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\DateUtils.java_DateUtils",
+            "label": "DateUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\DateUtils.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\EhCacheUtils.java_EhCacheUtils",
+            "label": "EhCacheUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\EhCacheUtils.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\Encodes.java_Encodes",
+            "label": "Encodes",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\Encodes.java",
+            "line": 24
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\Exceptions.java_Exceptions",
+            "label": "Exceptions",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\Exceptions.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\FileSizeHelper.java_FileSizeHelper",
+            "label": "FileSizeHelper",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\FileSizeHelper.java",
+            "line": 14
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\FileUtils.java_FileUtils",
+            "label": "FileUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\FileUtils.java",
+            "line": 34
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\FreeMarkers.java_FreeMarkers",
+            "label": "FreeMarkers",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\FreeMarkers.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\IdGen.java_IdGen",
+            "label": "IdGen",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\IdGen.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\IdcardUtils.java_IdcardUtils",
+            "label": "IdcardUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\IdcardUtils.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\ImageGeo.java_ImageGeo",
+            "label": "ImageGeo",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\ImageGeo.java",
+            "line": 9
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\JedisUtils.java_JedisUtils",
+            "label": "JedisUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\JedisUtils.java",
+            "line": 28
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\MacUtils.java_MacUtils",
+            "label": "MacUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\MacUtils.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\ObjectUtils.java_ObjectUtils",
+            "label": "ObjectUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\ObjectUtils.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\OrderProperties.java_OrderProperties",
+            "label": "OrderProperties",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\OrderProperties.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\OrderProperties.java_PropertiesContext",
+            "label": "PropertiesContext",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\OrderProperties.java",
+            "line": 327
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\OrderProperties.java_PropertyEntry",
+            "label": "PropertyEntry",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\OrderProperties.java",
+            "line": 373
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\PropertiesLoader.java_PropertiesLoader",
+            "label": "PropertiesLoader",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\PropertiesLoader.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\Reflections.java_Reflections",
+            "label": "Reflections",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\Reflections.java",
+            "line": 26
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\SendMailUtil.java_SendMailUtil",
+            "label": "SendMailUtil",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\SendMailUtil.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\SpringContextHolder.java_SpringContextHolder",
+            "label": "SpringContextHolder",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\SpringContextHolder.java",
+            "line": 29
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\StreamUtils.java_StreamUtils",
+            "label": "StreamUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\StreamUtils.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\StringUtils.java_StringUtils",
+            "label": "StringUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\StringUtils.java",
+            "line": 27
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\SystemPath.java_SystemPath",
+            "label": "SystemPath",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\SystemPath.java",
+            "line": 12
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\Threads.java_Threads",
+            "label": "Threads",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\Threads.java",
+            "line": 14
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\TimeUtils.java_TimeUtils",
+            "label": "TimeUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\TimeUtils.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\UploadUtils.java_UploadUtils",
+            "label": "UploadUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\UploadUtils.java",
+            "line": 31
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\UserAgentUtils.java_UserAgentUtils",
+            "label": "UserAgentUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\UserAgentUtils.java",
+            "line": 17
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\WorkDayUtils.java_WorkDayUtils",
+            "label": "WorkDayUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\WorkDayUtils.java",
+            "line": 7
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\ZxingHandler.java_ZxingHandler",
+            "label": "ZxingHandler",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\ZxingHandler.java",
+            "line": 29
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\excel\\ExportExcel.java_ExportExcel",
+            "label": "ExportExcel",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\excel\\ExportExcel.java",
+            "line": 48
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\excel\\ImportExcel.java_ImportExcel",
+            "label": "ImportExcel",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\excel\\ImportExcel.java",
+            "line": 40
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\excel\\fieldtype\\AreaType.java_AreaType",
+            "label": "AreaType",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\excel\\fieldtype\\AreaType.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\excel\\fieldtype\\OfficeType.java_OfficeType",
+            "label": "OfficeType",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\excel\\fieldtype\\OfficeType.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\excel\\fieldtype\\RoleListType.java_RoleListType",
+            "label": "RoleListType",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\utils\\excel\\fieldtype\\RoleListType.java",
+            "line": 20
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\web\\BaseController.java_BaseController",
+            "label": "BaseController",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\web\\BaseController.java",
+            "line": 38
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\web\\CKFinderConfig.java_CKFinderConfig",
+            "label": "CKFinderConfig",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\web\\CKFinderConfig.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\web\\CKFinderConnectorServlet.java_CKFinderConnectorServlet",
+            "label": "CKFinderConnectorServlet",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\web\\CKFinderConnectorServlet.java",
+            "line": 24
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\web\\Servlets.java_Servlets",
+            "label": "Servlets",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\web\\Servlets.java",
+            "line": 36
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\xstream\\DateTimeConverter.java_DateTimeConverter",
+            "label": "DateTimeConverter",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\xstream\\DateTimeConverter.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\entity\\Act.java_Act",
+            "label": "Act",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\entity\\Act.java",
+            "line": 28
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\diagram\\services\\BaseProcessDefinitionDiagramLayoutResource.java_BaseProcessDefinitionDiagramLayoutResource",
+            "label": "BaseProcessDefinitionDiagramLayoutResource",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\diagram\\services\\BaseProcessDefinitionDiagramLayoutResource.java",
+            "line": 54
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\diagram\\services\\ProcessDefinitionDiagramLayoutResource.java_ProcessDefinitionDiagramLayoutResource",
+            "label": "ProcessDefinitionDiagramLayoutResource",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\diagram\\services\\ProcessDefinitionDiagramLayoutResource.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\diagram\\services\\ProcessInstanceDiagramLayoutResource.java_ProcessInstanceDiagramLayoutResource",
+            "label": "ProcessInstanceDiagramLayoutResource",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\diagram\\services\\ProcessInstanceDiagramLayoutResource.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\diagram\\services\\ProcessInstanceHighlightsResource.java_ProcessInstanceHighlightsResource",
+            "label": "ProcessInstanceHighlightsResource",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\diagram\\services\\ProcessInstanceHighlightsResource.java",
+            "line": 42
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\editor\\main\\StencilsetRestResource.java_StencilsetRestResource",
+            "label": "StencilsetRestResource",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\editor\\main\\StencilsetRestResource.java",
+            "line": 28
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\editor\\model\\ModelEditorJsonRestResource.java_ModelEditorJsonRestResource",
+            "label": "ModelEditorJsonRestResource",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\editor\\model\\ModelEditorJsonRestResource.java",
+            "line": 36
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\editor\\model\\ModelSaveRestResource.java_ModelSaveRestResource",
+            "label": "ModelSaveRestResource",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\editor\\model\\ModelSaveRestResource.java",
+            "line": 45
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\servlet\\FilterServletOutputStream.java_FilterServletOutputStream",
+            "label": "FilterServletOutputStream",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\servlet\\FilterServletOutputStream.java",
+            "line": 9
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\servlet\\GenericResponseWrapper.java_GenericResponseWrapper",
+            "label": "GenericResponseWrapper",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\servlet\\GenericResponseWrapper.java",
+            "line": 10
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\servlet\\JsonpCallbackFilter.java_JsonpCallbackFilter",
+            "label": "JsonpCallbackFilter",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\rest\\servlet\\JsonpCallbackFilter.java",
+            "line": 20
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ActModelService.java_ActModelService",
+            "label": "ActModelService",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ActModelService.java",
+            "line": 43
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ActProcessService.java_ActProcessService",
+            "label": "ActProcessService",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ActProcessService.java",
+            "line": 51
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ActTaskService.java_ActTaskService",
+            "label": "ActTaskService",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ActTaskService.java",
+            "line": 79
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\cmd\\CreateAndTakeTransitionCmd.java_CreateAndTakeTransitionCmd",
+            "label": "CreateAndTakeTransitionCmd",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\cmd\\CreateAndTakeTransitionCmd.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\cmd\\JumpTaskCmd.java_JumpTaskCmd",
+            "label": "JumpTaskCmd",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\cmd\\JumpTaskCmd.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\cmd\\ModelDeployProcessDefinitionCmd.java_ModelDeployProcessDefinitionCmd",
+            "label": "ModelDeployProcessDefinitionCmd",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\cmd\\ModelDeployProcessDefinitionCmd.java",
+            "line": 29
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\creator\\ChainedActivitiesCreator.java_ChainedActivitiesCreator",
+            "label": "ChainedActivitiesCreator",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\creator\\ChainedActivitiesCreator.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\creator\\MultiInstanceActivityCreator.java_MultiInstanceActivityCreator",
+            "label": "MultiInstanceActivityCreator",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\creator\\MultiInstanceActivityCreator.java",
+            "line": 17
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\creator\\RuntimeActivityCreatorSupport.java_RuntimeActivityCreatorSupport",
+            "label": "RuntimeActivityCreatorSupport",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\creator\\RuntimeActivityCreatorSupport.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\creator\\RuntimeActivityDefinitionEntityIntepreter.java_RuntimeActivityDefinitionEntityIntepreter",
+            "label": "RuntimeActivityDefinitionEntityIntepreter",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\creator\\RuntimeActivityDefinitionEntityIntepreter.java",
+            "line": 12
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\creator\\SimpleRuntimeActivityDefinitionEntity.java_SimpleRuntimeActivityDefinitionEntity",
+            "label": "SimpleRuntimeActivityDefinitionEntity",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\creator\\SimpleRuntimeActivityDefinitionEntity.java",
+            "line": 10
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ext\\ActGroupEntityService.java_ActGroupEntityService",
+            "label": "ActGroupEntityService",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ext\\ActGroupEntityService.java",
+            "line": 30
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ext\\ActGroupEntityServiceFactory.java_ActGroupEntityServiceFactory",
+            "label": "ActGroupEntityServiceFactory",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ext\\ActGroupEntityServiceFactory.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ext\\ActUserEntityService.java_ActUserEntityService",
+            "label": "ActUserEntityService",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ext\\ActUserEntityService.java",
+            "line": 31
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ext\\ActUserEntityServiceFactory.java_ActUserEntityServiceFactory",
+            "label": "ActUserEntityServiceFactory",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\service\\ext\\ActUserEntityServiceFactory.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\utils\\ActUtils.java_ActUtils",
+            "label": "ActUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\utils\\ActUtils.java",
+            "line": 33
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\utils\\DateConverter.java_DateConverter",
+            "label": "DateConverter",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\utils\\DateConverter.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\utils\\ProcessDefCache.java_ProcessDefCache",
+            "label": "ProcessDefCache",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\utils\\ProcessDefCache.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\utils\\ProcessDefUtils.java_ProcessDefUtils",
+            "label": "ProcessDefUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\utils\\ProcessDefUtils.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\utils\\ProcessDefUtils.java_ExpressionUtils",
+            "label": "ExpressionUtils",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\utils\\ProcessDefUtils.java",
+            "line": 52
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\utils\\Variable.java_Variable",
+            "label": "Variable",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\utils\\Variable.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\web\\ActModelController.java_ActModelController",
+            "label": "ActModelController",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\web\\ActModelController.java",
+            "line": 28
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\web\\ActProcessController.java_ActProcessController",
+            "label": "ActProcessController",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\web\\ActProcessController.java",
+            "line": 40
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\web\\ActTaskController.java_ActTaskController",
+            "label": "ActTaskController",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\act\\web\\ActTaskController.java",
+            "line": 37
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\bruceshop\\entity\\activity\\BruceshopActivity.java_BruceshopActivity",
+            "label": "BruceshopActivity",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\bruceshop\\entity\\activity\\BruceshopActivity.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\bruceshop\\entity\\brand\\BruceshopBrand.java_BruceshopBrand",
+            "label": "BruceshopBrand",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\bruceshop\\entity\\brand\\BruceshopBrand.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\bruceshop\\entity\\category\\BruceshopCategory.java_BruceshopCategory",
+            "label": "BruceshopCategory",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\bruceshop\\entity\\category\\BruceshopCategory.java",
+            "line": 17
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\bruceshop\\entity\\notice\\BruceshopNotice.java_BruceshopNotice",
+            "label": "BruceshopNotice",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\bruceshop\\entity\\notice\\BruceshopNotice.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\bruceshop\\entity\\order\\BruceshopOrder.java_BruceshopOrder",
+            "label": "BruceshopOrder",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\bruceshop\\entity\\order\\BruceshopOrder.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\bruceshop\\entity\\product\\BruceshopProduct.java_BruceshopProduct",
+            "label": "BruceshopProduct",
+            "type": "class",
+            "file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\modules\\bruceshop\\entity\\product\\BruceshopProduct.java",
+            "line": 15
+          }
+        ],
+        "edges": [],
+        "truncated": true,
+        "total_nodes": 19274,
+        "shown_nodes": 150
+      }
+    },
+    "gnn": {
+      "status": "success",
+      "model_type": "gat",
+      "embedding_dim": 128
+    },
+    "transformer": {
+      "status": "success",
+      "model": "microsoft/codebert-base",
+      "refactoring_suggestions": [
+        {
+          "original_code": "public class BeanValidators {",
+          "refactored_code": "smimation Manufacturer Prototype coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer",
+          "refactoring_type": "extract_method",
+          "confidence": 0.75,
+          "type_id": 0,
+          "source_file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\beanvalidator\\BeanValidators.java",
+          "node_type": "class"
+        },
+        {
+          "original_code": "\tpublic static void validateWithException(Validator validator, Object object, Class<?>... groups)",
+          "refactored_code": "smimation coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer coercivepointer",
+          "refactoring_type": "move_class",
+          "confidence": 0.8,
+          "type_id": 1,
+          "source_file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\beanvalidator\\BeanValidators.java",
+          "node_type": "method"
+        },
+        {
+          "original_code": "\t\tSet constraintViolations = validator.validate(object, groups);",
+          "refactored_code": "smimation Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer balance Manufacturer Prototype coercivepointer",
+          "refactoring_type": "rename_variable",
+          "confidence": 0.85,
+          "type_id": 2,
+          "source_file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\beanvalidator\\BeanValidators.java",
+          "node_type": "statement"
+        },
+        {
+          "original_code": "\t\tif (!constraintViolations.isEmpty()) {",
+          "refactored_code": " intest off Vista divul remedyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer Prototype coercive CashasiveSimilarlyingenimation Manufacturer",
+          "refactoring_type": "consolidate_duplicate_code",
+          "confidence": 0.9,
+          "type_id": 3,
+          "source_file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\beanvalidator\\BeanValidators.java",
+          "node_type": "statement"
+        },
+        {
+          "original_code": "\t\t\tthrow new ConstraintViolationException(constraintViolations);",
+          "refactored_code": "smimation Manufacturer Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype coercive Cash Ocean Prototype",
+          "refactoring_type": "remove_dead_code",
+          "confidence": 0.95,
+          "type_id": 4,
+          "source_file": "..\\Data\\1273091433\\jeesite\\src\\main\\java\\com\\thinkgem\\jeesite\\common\\beanvalidator\\BeanValidators.java",
+          "node_type": "statement"
+        }
+      ]
+    },
+    "xai": {
+      "status": "success",
+      "explanation_method": "causal_inference",
+      "num_evidence_cards": 5
+    }
+  },
+  "status": "success",
+  "metrics": {
+    "cpg_total_nodes": {
+      "count": 2,
+      "mean": 11034.5,
+      "median": 11034.5,
+      "min": 2795.0,
+      "max": 19274.0,
+      "stdev": 11652.412647173116
+    },
+    "cpg_total_edges": {
+      "count": 2,
+      "mean": 22475.5,
+      "median": 22475.5,
+      "min": 6565.0,
+      "max": 38386.0,
+      "stdev": 22500.84488413713
+    },
+    "cpg_data_flow_edges": {
+      "count": 2,
+      "mean": 9849.0,
+      "median": 9849.0,
+      "min": 1457.0,
+      "max": 18241.0,
+      "stdev": 11868.080215435013
+    },
+    "cpg_control_flow_edges": {
+      "count": 2,
+      "mean": 6305.0,
+      "median": 6305.0,
+      "min": 1825.0,
+      "max": 10785.0,
+      "stdev": 6335.676759431466
+    },
+    "cpg_call_graph_edges": {
+      "count": 2,
+      "mean": 6321.5,
+      "median": 6321.5,
+      "min": 3283.0,
+      "max": 9360.0,
+      "stdev": 4297.087909270649
+    },
+    "cpg_total_files": {
+      "count": 2,
+      "mean": 173.0,
+      "median": 173.0,
+      "min": 47.0,
+      "max": 299.0,
+      "stdev": 178.19090885900997
+    },
+    "cpg_include_data_flow": {
+      "count": 2,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0.0
+    },
+    "cpg_include_control_flow": {
+      "count": 2,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0.0
+    },
+    "cpg_include_call_graph": {
+      "count": 2,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0.0
+    },
+    "gnn_nodes": {
+      "count": 2,
+      "mean": 11034.5,
+      "median": 11034.5,
+      "min": 2795.0,
+      "max": 19274.0,
+      "stdev": 11652.412647173116
+    },
+    "gnn_embedding_dim": {
+      "count": 2,
+      "mean": 128.0,
+      "median": 128.0,
+      "min": 128.0,
+      "max": 128.0,
+      "stdev": 0.0
+    },
+    "transformer_samples": {
+      "count": 2,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0.0
+    },
+    "xai_suggestions": {
+      "count": 2,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0.0
+    }
+  }
+}

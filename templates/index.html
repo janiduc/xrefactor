@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XRefactor - AI-Driven Code Refactoring</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+    <script src="https://unpkg.com/vis-network@9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% raw %}
+    <div id="app">
+        <!-- Navigation Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🚀 XRefactor</h1>
+                <p>Explainable AI-Driven Cross-File Code Refactoring Framework</p>
+            </div>
+            <div class="header-info">
+                <span v-if="status.connected" class="status-badge connected">● Connected</span>
+                <span v-else class="status-badge disconnected">● Disconnected</span>
+            </div>
+        </header>
+
+        <!-- Main Container -->
+        <div class="container">
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar">
+                <nav class="nav-menu">
+                    <button @click="currentView = 'home'" :class="['nav-item', { active: currentView === 'home' }]">
+                        📊 Home
+                    </button>
+                    <button @click="currentView = 'pipeline'" :class="['nav-item', { active: currentView === 'pipeline' }]">
+                        🔄 Pipeline
+                    </button>
+                    <button @click="currentView = 'configuration'" :class="['nav-item', { active: currentView === 'configuration' }]">
+                        ⚙️ Configuration
+                    </button>
+                    <button @click="currentView = 'results'" :class="['nav-item', { active: currentView === 'results' }]">
+                        📈 Results
+                    </button>
+                    <button @click="currentView = 'documentation'" :class="['nav-item', { active: currentView === 'documentation' }]">
+                        📚 Documentation
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content">
+                <!-- Home View -->
+                <section v-if="currentView === 'home'" class="view-section">
+                    <h2>Welcome to XRefactor</h2>
+                    
+                    <div class="pipeline-overview">
+                        <h3>📋 4-Stage Pipeline Architecture</h3>
+                        <div class="stages-diagram">
+                            <div class="stage-box">
+                                <div class="stage-number">1</div>
+                                <h4>CPG Construction</h4>
+                                <p>Parse source code &amp; build dependency graphs</p>
+                                <small>Input: Source Code</small>
+                                <small>Output: Code Property Graph</small>
+                            </div>
+                            <div class="arrow">→</div>
+                            <div class="stage-box">
+                                <div class="stage-number">2</div>
+                                <h4>GNN Reasoning</h4>
+                                <p>Apply Graph Neural Networks for structural analysis</p>
+                                <small>Input: CPG</small>
+                                <small>Output: Node Embeddings</small>
+                            </div>
+                            <div class="arrow">→</div>
+                            <div class="stage-box">
+                                <div class="stage-number">3</div>
+                                <h4>Transformer Generation</h4>
+                                <p>Generate refactored code using CodeBERT</p>
+                                <small>Input: Embeddings</small>
+                                <small>Output: Refactored Code</small>
+                            </div>
+                            <div class="arrow">→</div>
+                            <div class="stage-box">
+                                <div class="stage-number">4</div>
+                                <h4>XAI Explanation</h4>
+                                <p>Generate explanations &amp; confidence scores</p>
+                                <small>Input: Predictions</small>
+                                <small>Output: Explanations</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-start">
+                        <h3>🚀 Quick Start</h3>
+                        <ol>
+                            <li>Configure your settings in the <strong>Configuration</strong> tab</li>
+                            <li>Go to the <strong>Pipeline</strong> tab</li>
+                            <li>Select your source code directory</li>
+                            <li>Click <strong>Run Full Pipeline</strong></li>
+                            <li>View results in the <strong>Results</strong> tab</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- Pipeline View -->
+                <section v-else-if="currentView === 'pipeline'" class="view-section">
+                    <h2>Run Pipeline</h2>
+                    
+                    <div class="pipeline-controls">
+                        <div class="form-group">
+                            <label>Source Code Directory:</label>
+                            <input v-model="pipelineInput.dataDirectory" type="text" placeholder="e.g., ../Data/1273091433/jeesite" class="form-input">
+                            <small>Full path to your source code folder</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Device:</label>
+                            <select v-model="pipelineInput.device" class="form-select">
+                                <option value="cpu">CPU</option>
+                                <option value="cuda">CUDA (GPU)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Output Directory:</label>
+                            <input v-model="pipelineInput.outputDirectory" type="text" placeholder="./outputs" class="form-input">
+                        </div>
+
+                        <div class="button-group">
+                            <button @click="runFullPipeline" :disabled="pipelineRunning" class="btn btn-primary">
+                                <span v-if="!pipelineRunning">▶️ Run Full Pipeline</span>
+                                <span v-else>⏳ Running... ({{ pipelineElapsedSeconds.toFixed(0) }}s elapsed)</span>
+                            </button>
+                            <button @click="runStage('cpg_construction')" :disabled="pipelineRunning" class="btn btn-secondary">
+                                Stage 1: CPG Only
+                            </button>
+                            <button @click="runStage('gnn_reasoning')" :disabled="pipelineRunning" class="btn btn-secondary">
+                                Stage 2: GNN Only
+                            </button>
+                        </div>
+                    </div>
+
+                    <div v-if="pipelineOutput" class="pipeline-output">
+                        <h3>Output Log</h3>
+                        <pre class="output-log">{{ JSON.stringify(pipelineOutput, null, 2) }}</pre>
+                    </div>
+
+                    <div v-if="pipelineError" class="error-box">
+                        <h3>❌ Error</h3>
+                        <p>{{ pipelineError }}</p>
+                    </div>
+                </section>
+
+                <!-- Configuration View -->
+                <section v-else-if="currentView === 'configuration'" class="view-section">
+                    <h2>Configuration</h2>
+                    
+                    <div class="config-section">
+                        <h3>CPG Settings</h3>
+                        <div class="form-group">
+                            <label>Language:</label>
+                            <select v-model="config.cpg.language" class="form-select">
+                                <option value="java">Java</option>
+                                <option value="python">Python</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input v-model="config.cpg.include_data_flow" type="checkbox">
+                                Include Data Flow Analysis
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input v-model="config.cpg.include_control_flow" type="checkbox">
+                                Include Control Flow Analysis
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="config-section">
+                        <h3>GNN Settings</h3>
+                        <div class="form-group">
+                            <label>Model Type:</label>
+                            <select v-model="config.gnn.model_type" class="form-select">
+                                <option value="gat">Graph Attention Networks (GAT)</option>
+                                <option value="gcn">Graph Convolutional Networks (GCN)</option>
+                                <option value="graphsage">GraphSAGE</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Hidden Dimensions:</label>
+                            <input v-model="config.gnn.hidden_dims" type="text" placeholder="256,256" class="form-input">
+                            <small>Comma-separated values</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Output Dimension:</label>
+                            <input v-model="config.gnn.output_dim" type="number" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button @click="saveConfiguration" class="btn btn-primary">
+                            💾 Save Configuration
+                        </button>
+                        <button @click="loadConfiguration" class="btn btn-secondary">
+                            📂 Load Configuration
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Results View -->
+                <section v-else-if="currentView === 'results'" class="view-section">
+                    <h2>Results</h2>
+                    
+                    <div v-if="lastResults" class="results-box">
+                        <h3>Latest Results</h3>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <strong>Status:</strong>
+                                <span :class="['status-' + lastResults.status]">{{ lastResults.status }}</span>
+                            </div>
+                            <div class="result-item">
+                                <strong>Timestamp:</strong>
+                                <span>{{ lastResults.timestamp }}</span>
+                            </div>
+                            <div class="result-item">
+                                <strong>Nodes:</strong>
+                                <span>{{ lastResults.stats?.cpg?.total_nodes || 'N/A' }}</span>
+                            </div>
+                            <div class="result-item">
+                                <strong>Edges:</strong>
+                                <span>{{ lastResults.stats?.cpg?.total_edges || 'N/A' }}</span>
+                            </div>
+                        </div>
+
+                        <div class="analysis-summary">
+                            <h3>CPG Analysis Details</h3>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <strong>Data Flow Analysis:</strong>
+                                    <span>{{ lastResults.stats?.cpg?.include_data_flow ? 'Enabled' : 'Disabled' }}</span>
+                                </div>
+                                <div class="result-item">
+                                    <strong>Data Flow Edges:</strong>
+                                    <span>{{ lastResults.stats?.cpg?.data_flow_edges ?? 'N/A' }}</span>
+                                </div>
+                                <div class="result-item">
+                                    <strong>Control Flow Analysis:</strong>
+                                    <span>{{ lastResults.stats?.cpg?.include_control_flow ? 'Enabled' : 'Disabled' }}</span>
+                                </div>
+                                <div class="result-item">
+                                    <strong>Control Flow Edges:</strong>
+                                    <span>{{ lastResults.stats?.cpg?.control_flow_edges ?? 'N/A' }}</span>
+                                </div>
+                                <div class="result-item">
+                                    <strong>Call Graph:</strong>
+                                    <span>{{ lastResults.stats?.cpg?.include_call_graph ? 'Enabled' : 'Disabled' }}</span>
+                                </div>
+                                <div class="result-item">
+                                    <strong>Call Graph Edges:</strong>
+                                    <span>{{ lastResults.stats?.cpg?.call_graph_edges ?? 'N/A' }}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="results-detail">
+                            <h4>Refactored Code Output</h4>
+                            <div v-if="lastResults.raw?.results?.stages?.transformer?.refactoring_suggestions?.length">
+                                <div v-for="(suggestion, idx) in lastResults.raw.results.stages.transformer.refactoring_suggestions" :key="idx" class="suggestion-item">
+                                    <strong>{{ idx + 1 }}. {{ suggestion.refactoring_type }}</strong>
+                                    <div><em>Source file:</em> {{ suggestion.source_file || 'N/A' }}</div>
+                                    <div><em>Confidence:</em> {{ suggestion.confidence.toFixed(2) }}</div>
+                                    <pre>{{ suggestion.refactored_code }}</pre>
+                                </div>
+                            </div>
+                            <div v-else>
+                                <p>No refactored code suggestions available yet.</p>
+                            </div>
+                        </div>
+
+                        <!-- Visualizations -->
+                        <div class="visualization-section">
+                            <h3>📊 Analysis Visualizations</h3>
+
+                            <div class="chart-grid">
+                                <div class="chart-box">
+                                    <h4>CPG Node Type Distribution</h4>
+                                    <canvas ref="nodeTypeChart"></canvas>
+                                </div>
+                                <div class="chart-box">
+                                    <h4>CPG Edge Type Distribution</h4>
+                                    <canvas ref="edgeTypeChart"></canvas>
+                                </div>
+                                <div class="chart-box" v-if="confidenceChartData.labels.length">
+                                    <h4>Refactoring Suggestion Confidence</h4>
+                                    <canvas ref="confidenceChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="metrics-table-box">
+                                <h4>⚡ Pipeline Performance Metrics</h4>
+                                <table v-if="metricsRows.length" class="metrics-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Metric</th>
+                                            <th>Count</th>
+                                            <th>Mean</th>
+                                            <th>Median</th>
+                                            <th>Min</th>
+                                            <th>Max</th>
+                                            <th>Std Dev</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="row in metricsRows" :key="row.name">
+                                            <td>{{ row.name }}</td>
+                                            <td>{{ row.count }}</td>
+                                            <td>{{ row.mean.toFixed(2) }}</td>
+                                            <td>{{ row.median.toFixed(2) }}</td>
+                                            <td>{{ row.min.toFixed(2) }}</td>
+                                            <td>{{ row.max.toFixed(2) }}</td>
+                                            <td>{{ row.stdev.toFixed(2) }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p v-else>No performance metrics recorded yet.</p>
+                            </div>
+
+                            <div class="graph-viz-box">
+                                <h4>🕸️ Code Property Graph</h4>
+                                <p v-if="graphData.truncated" class="graph-note">
+                                    Showing {{ graphData.shown_nodes }} of {{ graphData.total_nodes }} nodes (capped for readability).
+                                </p>
+                                <div ref="cpgNetwork" class="cpg-network"></div>
+                                <div class="graph-legend">
+                                    <span><i class="legend-dot" style="background:#667eea"></i> class</span>
+                                    <span><i class="legend-dot" style="background:#4caf50"></i> method</span>
+                                    <span><i class="legend-dot" style="background:#ff9800"></i> field</span>
+                                    <span><i class="legend-dot" style="background:#9c27b0"></i> function</span>
+                                    <span><i class="legend-dot" style="background:#03a9f4"></i> variable</span>
+                                    <span><i class="legend-dot" style="background:#9e9e9e"></i> statement</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="results-detail">
+                            <h4>Full Results JSON</h4>
+                            <pre>{{ JSON.stringify(lastResults, null, 2) }}</pre>
+                        </div>
+                    </div>
+                    <div v-else class="info-box">
+                        <p>No results yet. Run the pipeline to generate results.</p>
+                    </div>
+                </section>
+
+                <!-- Documentation View -->
+                <section v-else-if="currentView === 'documentation'" class="view-section">
+                    <h2>Documentation</h2>
+                    
+                    <div class="doc-section">
+                        <h3>📖 XRefactor Pipeline</h3>
+                        <p>XRefactor is an AI-driven framework for cross-file code refactoring with explainable AI.</p>
+                        
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li><strong>Multi-stage Pipeline:</strong> CPG → GNN → Transformer → XAI</li>
+                            <li><strong>Multiple Languages:</strong> Java, Python, and more</li>
+                            <li><strong>GNN Models:</strong> GAT, GCN, GraphSAGE architectures</li>
+                            <li><strong>Explainability:</strong> Causal inference &amp; evidence cards</li>
+                            <li><strong>GPU Support:</strong> CUDA acceleration for faster processing</li>
+                        </ul>
+
+                        <h4>Architecture Overview:</h4>
+                        <p>See <a href="https://github.com/your-repo/ARCHITECTURE.md" target="_blank">ARCHITECTURE.md</a> for detailed component documentation.</p>
+
+                        <h4>Development Guide:</h4>
+                        <p>See <a href="https://github.com/your-repo/DEVELOPMENT.md" target="_blank">DEVELOPMENT.md</a> for development setup and workflows.</p>
+                    </div>
+
+                    <div class="doc-section">
+                        <h3>🔗 API Reference</h3>
+                        <p><strong>Base URL:</strong> <code>http://localhost:5000/api</code></p>
+                        <ul>
+                            <li><code>GET /health</code> - Health check</li>
+                            <li><code>GET /pipeline/stages</code> - Get pipeline stages</li>
+                            <li><code>POST /pipeline/run</code> - Run full pipeline</li>
+                            <li><code>POST /pipeline/stage/&lt;name&gt;</code> - Run specific stage</li>
+                            <li><code>GET /supported-languages</code> - Supported languages</li>
+                            <li><code>GET /gnn-models</code> - Available GNN models</li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 XRefactor - Explainable AI-Driven Code Refactoring Framework</p>
+        </footer>
+    </div>
+    {% endraw %}
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

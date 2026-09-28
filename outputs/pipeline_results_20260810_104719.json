@@ -1,0 +1,195 @@
+{
+  "timestamp": "20260810_104719",
+  "stages": {
+    "cpg": {
+      "status": "success",
+      "statistics": {
+        "total_nodes": 997,
+        "total_edges": 1450,
+        "node_types": {
+          "class": 119,
+          "method": 452,
+          "field": 426
+        },
+        "edge_types": {
+          "calls": 1450
+        },
+        "data_flow_edges": 0,
+        "control_flow_edges": 0,
+        "call_graph_edges": 1450,
+        "total_files": 125,
+        "include_data_flow": true,
+        "include_control_flow": true,
+        "include_call_graph": true
+      }
+    },
+    "gnn": {
+      "status": "success",
+      "model_type": "gat",
+      "embedding_dim": 128
+    },
+    "transformer": {
+      "status": "success",
+      "model": "microsoft/codebert-base",
+      "refactoring_suggestions": [
+        {
+          "original_code": "public class Application {",
+          "refactored_code": " criticizedDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX positionDX",
+          "refactoring_type": "extract_method",
+          "confidence": 0.75,
+          "type_id": 0,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\RP_Research_Papers\\mscResearchXrefactor(PP1_Copy2)\\Data\\Penguinz22\\Sylk\\src\\main\\java\\dev\\penguinz\\Sylk\\Application.java",
+          "node_type": "class"
+        },
+        {
+          "original_code": "    private static class ApplicationPropertySet {",
+          "refactored_code": " cube Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish",
+          "refactoring_type": "move_class",
+          "confidence": 0.8,
+          "type_id": 1,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\RP_Research_Papers\\mscResearchXrefactor(PP1_Copy2)\\Data\\Penguinz22\\Sylk\\src\\main\\java\\dev\\penguinz\\Sylk\\Application.java",
+          "node_type": "class"
+        },
+        {
+          "original_code": "    public void attachLayers(Layer... layers) {",
+          "refactored_code": " cube Export Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish",
+          "refactoring_type": "rename_variable",
+          "confidence": 0.85,
+          "type_id": 2,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\RP_Research_Papers\\mscResearchXrefactor(PP1_Copy2)\\Data\\Penguinz22\\Sylk\\src\\main\\java\\dev\\penguinz\\Sylk\\Application.java",
+          "node_type": "method"
+        },
+        {
+          "original_code": "    public void removeLayers(Layer... layers) {",
+          "refactored_code": " cube Export Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish",
+          "refactoring_type": "consolidate_duplicate_code",
+          "confidence": 0.9,
+          "type_id": 3,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\RP_Research_Papers\\mscResearchXrefactor(PP1_Copy2)\\Data\\Penguinz22\\Sylk\\src\\main\\java\\dev\\penguinz\\Sylk\\Application.java",
+          "node_type": "method"
+        },
+        {
+          "original_code": "    public <T extends Layer> T getLayer(Class<T> layerClass) {",
+          "refactored_code": " cube Export Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish Finnish",
+          "refactoring_type": "remove_dead_code",
+          "confidence": 0.95,
+          "type_id": 4,
+          "source_file": "D:\\MSc. IT\\Year2 Sem1\\Research Project\\RP_Research_Papers\\mscResearchXrefactor(PP1_Copy2)\\Data\\Penguinz22\\Sylk\\src\\main\\java\\dev\\penguinz\\Sylk\\Application.java",
+          "node_type": "method"
+        }
+      ]
+    },
+    "xai": {
+      "status": "success",
+      "explanation_method": "causal_inference",
+      "num_evidence_cards": 5
+    }
+  },
+  "status": "success",
+  "metrics": {
+    "cpg_total_nodes": {
+      "count": 1,
+      "mean": 997.0,
+      "median": 997.0,
+      "min": 997.0,
+      "max": 997.0,
+      "stdev": 0
+    },
+    "cpg_total_edges": {
+      "count": 1,
+      "mean": 1450.0,
+      "median": 1450.0,
+      "min": 1450.0,
+      "max": 1450.0,
+      "stdev": 0
+    },
+    "cpg_data_flow_edges": {
+      "count": 1,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stdev": 0
+    },
+    "cpg_control_flow_edges": {
+      "count": 1,
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stdev": 0
+    },
+    "cpg_call_graph_edges": {
+      "count": 1,
+      "mean": 1450.0,
+      "median": 1450.0,
+      "min": 1450.0,
+      "max": 1450.0,
+      "stdev": 0
+    },
+    "cpg_total_files": {
+      "count": 1,
+      "mean": 125.0,
+      "median": 125.0,
+      "min": 125.0,
+      "max": 125.0,
+      "stdev": 0
+    },
+    "cpg_include_data_flow": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_include_control_flow": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_include_call_graph": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "gnn_nodes": {
+      "count": 1,
+      "mean": 997.0,
+      "median": 997.0,
+      "min": 997.0,
+      "max": 997.0,
+      "stdev": 0
+    },
+    "gnn_embedding_dim": {
+      "count": 1,
+      "mean": 128.0,
+      "median": 128.0,
+      "min": 128.0,
+      "max": 128.0,
+      "stdev": 0
+    },
+    "transformer_samples": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    },
+    "xai_suggestions": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    }
+  }
+}

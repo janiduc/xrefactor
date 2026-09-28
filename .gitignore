@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environment
+.venv/
+venv/
+
+# Vendored tools (large binaries) - see README for how to re-download
+tools/
+
+# Cloned repos used for refactoring mining (real git repos, not regular files)
+refactoring_mining/repos/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

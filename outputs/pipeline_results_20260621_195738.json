@@ -1,0 +1,94 @@
+{
+  "timestamp": "20260621_195738",
+  "stages": {
+    "cpg": {
+      "status": "success",
+      "statistics": {
+        "total_nodes": 3933,
+        "total_edges": 9756,
+        "node_types": {
+          "class": 292,
+          "method": 2597,
+          "field": 1044
+        },
+        "edge_types": {
+          "calls": 9756
+        },
+        "total_files": 299
+      }
+    },
+    "gnn": {
+      "status": "success",
+      "model_type": "gat",
+      "embedding_dim": 128
+    },
+    "transformer": {
+      "status": "success",
+      "model": "codebert"
+    },
+    "xai": {
+      "status": "success",
+      "explanation_method": "causal_inference",
+      "num_evidence_cards": 3
+    }
+  },
+  "status": "success",
+  "metrics": {
+    "cpg_total_nodes": {
+      "count": 2,
+      "mean": 3933.0,
+      "median": 3933.0,
+      "min": 3933.0,
+      "max": 3933.0,
+      "stdev": 0.0
+    },
+    "cpg_total_edges": {
+      "count": 2,
+      "mean": 9756.0,
+      "median": 9756.0,
+      "min": 9756.0,
+      "max": 9756.0,
+      "stdev": 0.0
+    },
+    "cpg_total_files": {
+      "count": 2,
+      "mean": 299.0,
+      "median": 299.0,
+      "min": 299.0,
+      "max": 299.0,
+      "stdev": 0.0
+    },
+    "gnn_nodes": {
+      "count": 2,
+      "mean": 3933.0,
+      "median": 3933.0,
+      "min": 3933.0,
+      "max": 3933.0,
+      "stdev": 0.0
+    },
+    "gnn_embedding_dim": {
+      "count": 2,
+      "mean": 128.0,
+      "median": 128.0,
+      "min": 128.0,
+      "max": 128.0,
+      "stdev": 0.0
+    },
+    "transformer_samples": {
+      "count": 2,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0.0
+    },
+    "xai_suggestions": {
+      "count": 2,
+      "mean": 3.0,
+      "median": 3.0,
+      "min": 3.0,
+      "max": 3.0,
+      "stdev": 0.0
+    }
+  }
+}

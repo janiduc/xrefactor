@@ -1,0 +1,106 @@
+{
+  "cpg_total_nodes": {
+    "count": 2,
+    "mean": 2465.0,
+    "median": 2465.0,
+    "min": 997.0,
+    "max": 3933.0,
+    "stdev": 2076.0655095637035
+  },
+  "cpg_total_edges": {
+    "count": 2,
+    "mean": 5603.0,
+    "median": 5603.0,
+    "min": 1450.0,
+    "max": 9756.0,
+    "stdev": 5873.228924535464
+  },
+  "cpg_data_flow_edges": {
+    "count": 2,
+    "mean": 0.0,
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "stdev": 0.0
+  },
+  "cpg_control_flow_edges": {
+    "count": 2,
+    "mean": 0.0,
+    "median": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "stdev": 0.0
+  },
+  "cpg_call_graph_edges": {
+    "count": 2,
+    "mean": 5603.0,
+    "median": 5603.0,
+    "min": 1450.0,
+    "max": 9756.0,
+    "stdev": 5873.228924535464
+  },
+  "cpg_total_files": {
+    "count": 2,
+    "mean": 212.0,
+    "median": 212.0,
+    "min": 125.0,
+    "max": 299.0,
+    "stdev": 123.03657992645927
+  },
+  "cpg_include_data_flow": {
+    "count": 2,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0
+  },
+  "cpg_include_control_flow": {
+    "count": 2,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0
+  },
+  "cpg_include_call_graph": {
+    "count": 2,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0.0
+  },
+  "gnn_nodes": {
+    "count": 2,
+    "mean": 2465.0,
+    "median": 2465.0,
+    "min": 997.0,
+    "max": 3933.0,
+    "stdev": 2076.0655095637035
+  },
+  "gnn_embedding_dim": {
+    "count": 2,
+    "mean": 128.0,
+    "median": 128.0,
+    "min": 128.0,
+    "max": 128.0,
+    "stdev": 0.0
+  },
+  "transformer_samples": {
+    "count": 2,
+    "mean": 5.0,
+    "median": 5.0,
+    "min": 5.0,
+    "max": 5.0,
+    "stdev": 0.0
+  },
+  "xai_suggestions": {
+    "count": 2,
+    "mean": 3.0,
+    "median": 3.0,
+    "min": 3.0,
+    "max": 3.0,
+    "stdev": 0.0
+  }
+}
