@@ -75,6 +75,19 @@ xai:
   explanation_length: 200  # words
   num_evidence_cards: 3
   confidence_threshold: 0.7
+  # Path to weights produced by `python -m src.xai.train_causal_module`. Without
+  # this, problem_detector/solution_evaluator are randomly initialized, so
+  # evidence-card confidence scores are not meaningful (explanation TEXT stays
+  # reasonable regardless - it's template-based, keyed off refactoring_type).
+  # Trained 2026-09-29 on weak/proxy supervision (400 problem-detector examples,
+  # 672 solution-evaluator examples) from 3 mined repos. problem_detector reached
+  # 0.95 val accuracy (real signal: refactoring targets ARE structurally
+  # distinctive). solution_evaluator stayed near chance (~0.4-0.6) - the GNN
+  # embeddings here are purely structural/type-based with no semantic text
+  # content, so many before/after pairs (especially local changes like renames)
+  # are close to indistinguishable in this embedding space. See
+  # models/causal_module_trained.pt's training log / DEVELOPMENT.md.
+  pretrained_checkpoint: "./models/causal_module_trained.pt"
   
 # Data Configuration
 data:

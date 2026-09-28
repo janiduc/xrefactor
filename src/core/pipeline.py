@@ -156,7 +156,35 @@ class XRefactorPipeline:
         self.transformer.fusion_layer.load_state_dict(checkpoint["fusion_layer_state"])
         self.transformer.gnn_projection.load_state_dict(checkpoint["gnn_projection_state"])
         logger.info(f"Loaded trained transformer weights from {checkpoint_path}")
-    
+
+    def _load_xai_checkpoint_if_available(self) -> None:
+        """
+        Load problem_detector/solution_evaluator weights trained on weak/proxy
+        supervision from real mined refactorings (see
+        src/xai/train_causal_module.py) if configured. Without this, both
+        heads are randomly initialized, so problem/solution scores (and the
+        confidence_score they feed into) are not meaningful - only the
+        template-based explanation TEXT (which is keyed off refactoring_type,
+        not these scores) stays reasonable either way.
+        """
+        checkpoint_path = self.config.get("xai.pretrained_checkpoint")
+        if not checkpoint_path:
+            logger.warning(
+                "No xai.pretrained_checkpoint configured - problem_detector/solution_evaluator "
+                "weights are randomly initialized. Evidence-card confidence scores are not "
+                "meaningful. Run src/xai/train_causal_module.py to train one."
+            )
+            return
+
+        if not os.path.exists(checkpoint_path):
+            logger.warning(f"xai.pretrained_checkpoint '{checkpoint_path}' not found - using random init")
+            return
+
+        checkpoint = torch.load(checkpoint_path, map_location=self.device)
+        self.xai_module.problem_detector.load_state_dict(checkpoint["problem_detector_state"])
+        self.xai_module.solution_evaluator.load_state_dict(checkpoint["solution_evaluator_state"])
+        logger.info(f"Loaded trained XAI weights from {checkpoint_path}")
+
     def stage_1_cpg_construction(self, data_directory: str) -> CodePropertyGraph:
         """
         Stage 1: Construct Code Property Graph
@@ -382,6 +410,7 @@ class XRefactorPipeline:
             )
             suggestion["source_file"] = sample.get("file")
             suggestion["node_type"] = sample.get("type")
+            suggestion["embedding_index"] = embedding_index
             suggestion["learned_pattern"] = learned_pattern
             suggestion["detected_smell_pattern"] = detected_pattern
             suggestion["pattern_agreement"] = (detected_pattern is None) or (detected_pattern == learned_pattern)
@@ -392,41 +421,79 @@ class XRefactorPipeline:
         
         return refactoring_suggestions
     
-    def stage_4_xai_explanation(self, 
+    def stage_4_xai_explanation(self,
                                 refactoring_suggestions: List[Dict[str, Any]],
-                                node_embeddings: torch.Tensor) -> ExplainabilityReport:
+                                node_embeddings: torch.Tensor) -> Dict[str, Any]:
         """
         Stage 4: Explainable AI (XAI) Module
-        
+
         Args:
             refactoring_suggestions: Refactoring suggestions from stage 3
             node_embeddings: Node embeddings for explanation
-        
+
         Returns:
-            ExplainabilityReport
+            Report dict from ExplainabilityReport.generate_report(), with real
+            evidence cards (previously this stage constructed the module but
+            never called it - "num_evidence_cards" was just len(suggestions),
+            not an actual count of generated cards).
         """
         logger.info("=" * 80)
         logger.info("STAGE 4: EXPLAINABLE AI MODULE")
         logger.info("=" * 80)
-        
+
         # Create causal inference module
         feature_dim = node_embeddings.shape[1]
         self.xai_module = CausalInferenceModule(feature_dim=feature_dim).to(self.device)
-        
-        # Create explanation generator
+        self._load_xai_checkpoint_if_available()
+        self.xai_module.eval()
+
+        # Create explanation generator + report generator
         explanation_gen = ExplanationGenerator(self.xai_module)
-        
-        # Create report generator
         report_gen = ExplainabilityReport(explanation_gen)
-        
+
         logger.info(f"XAI Module created:")
         logger.info(f"  - Feature dimension: {feature_dim}")
         logger.info(f"  - Explanation method: causal_inference")
         logger.info(f"  - Number of suggestions: {len(refactoring_suggestions)}")
-        
+
+        evidence_cards = []
+        with torch.no_grad():
+            for suggestion in refactoring_suggestions:
+                embedding_index = suggestion.get("embedding_index", -1)
+                if embedding_index is None or embedding_index < 0 or embedding_index >= node_embeddings.shape[0]:
+                    continue
+                original_embedding = node_embeddings[embedding_index].unsqueeze(0).unsqueeze(0)  # [1, 1, feature_dim]
+                # No embedding of the GENERATED code is available at inference time
+                # (would require re-running CPG+GNN on the freshly generated snippet,
+                # which stage 3's raw text output isn't set up to do) - the original
+                # node's embedding stands in for both slots. solution_scores here
+                # reflect "how good does this code look in isolation" rather than a
+                # genuine before/after structural delta - a documented limitation,
+                # not a hidden one. Training (src/xai/train_causal_module.py) does
+                # use real distinct before/after embeddings, so the heads themselves
+                # are meaningfully trained even though this specific input isn't.
+                refactored_embedding = original_embedding
+
+                problem_scores, solution_scores, attn_weights = self.xai_module(
+                    original_embedding, refactored_embedding
+                )
+
+                evidence_card = explanation_gen.generate_evidence_card(
+                    problem_scores=problem_scores.squeeze(0),
+                    solution_scores=solution_scores.squeeze(0),
+                    attention_weights=attn_weights.squeeze(0),
+                    refactoring_type=suggestion.get("refactoring_type", "unknown"),
+                    affected_files=[suggestion.get("source_file") or "unknown"],
+                    cpg_nodes={}
+                )
+                evidence_cards.append(evidence_card)
+
+        report = report_gen.generate_report(evidence_cards)
         self.metrics.record("xai_suggestions", float(len(refactoring_suggestions)))
-        
-        return report_gen
+        self.metrics.record("xai_evidence_cards", float(len(evidence_cards)))
+        logger.info(f"Generated {len(evidence_cards)} real evidence cards")
+
+        return report
     
     def run_pipeline(self, data_directory: str, output_directory: str = None) -> Dict[str, Any]:
         """
@@ -498,12 +565,18 @@ class XRefactorPipeline:
             }
             
             # Stage 4: XAI Explanation
-            report_gen = self.stage_4_xai_explanation(refactoring_suggestions, node_embeddings)
+            xai_report = self.stage_4_xai_explanation(refactoring_suggestions, node_embeddings)
             results["stages"]["xai"] = {
                 "status": "success",
                 "explanation_method": "causal_inference",
-                "num_evidence_cards": len(refactoring_suggestions)
+                "num_evidence_cards": xai_report["num_suggestions"],
+                "avg_confidence": xai_report["total_confidence"],
             }
+
+            evidence_cards_file = os.path.join(output_directory, f"evidence_cards_{timestamp}.json")
+            with open(evidence_cards_file, "w") as f:
+                json.dump(xai_report, f, indent=2, default=str)
+            logger.info(f"Evidence cards saved to {evidence_cards_file}")
             
             # Save results
             results["status"] = "success"
