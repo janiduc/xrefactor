@@ -59,8 +59,14 @@ def _git_parent_sha(repo_path: Path, sha1: str) -> Optional[str]:
 
 
 def _git_checkout(repo_path: Path, sha1: str) -> bool:
-    result = _run(["git", "checkout", "--force", sha1], repo_path)
-    return result.returncode == 0
+    """git checkout exits non-zero if it fails to write ANY file - on Windows this
+    routinely happens for a handful of long-named test-fixture files (>260 char
+    paths) even when the working tree otherwise switched correctly. Since we only
+    ever read .java files afterward, treat the checkout as usable whenever HEAD
+    actually moved to the target commit, rather than trusting the exit code."""
+    _run(["git", "checkout", "--force", sha1], repo_path)
+    head = _run(["git", "rev-parse", "HEAD"], repo_path)
+    return head.stdout.strip() == sha1
 
 
 def _candidate_locations(refactoring: dict) -> List[dict]:
@@ -159,7 +165,7 @@ def build_dataset(mined_json_path: Path, repo_path: Path, language: str = "java"
                    device: str = "cpu"):
     hidden_dims = hidden_dims or [256, 256]
 
-    with open(mined_json_path) as f:
+    with open(mined_json_path, encoding="utf-8") as f:
         mined = json.load(f)
 
     # Group refactorings by parent commit so we only rebuild the CPG once per commit

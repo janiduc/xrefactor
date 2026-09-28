@@ -1,0 +1,5265 @@
+{
+"commits": [
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "f62e75076b525fa1a4636317584e3e7dd1036cda",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/f62e75076b525fa1a4636317584e3e7dd1036cda",
+	"refactorings": [{
+	"type": "Move Method",
+	"description": "Move Method public passwordEncoder() : BCryptPasswordEncoder from class ticket.Application to public passwordEncoder() : BCryptPasswordEncoder from class ticket.config.WebMvcConfiguration",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/Application.java",
+		"startLine": 16,
+		"endLine": 19,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public passwordEncoder() : BCryptPasswordEncoder"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/config/WebMvcConfiguration.java",
+		"startLine": 27,
+		"endLine": 30,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "moved method declaration",
+		"codeElement": "public passwordEncoder() : BCryptPasswordEncoder"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "7bb664e9c4cd4bf02342e866b2377bf582507486",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/7bb664e9c4cd4bf02342e866b2377bf582507486",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "871c68a9a71c9e285fa876e21313f029ab01eb10",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/871c68a9a71c9e285fa876e21313f029ab01eb10",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "f0b5562ae9d4da4c55e4e4f3c6df18c9528bd43f",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/f0b5562ae9d4da4c55e4e4f3c6df18c9528bd43f",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "f63d81d9e6fee65f05f47276fc3dc3d2a4998a50",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/f63d81d9e6fee65f05f47276fc3dc3d2a4998a50",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "abcb13ddcfd8b87bec95da252f38154baee1f0b5",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/abcb13ddcfd8b87bec95da252f38154baee1f0b5",
+	"refactorings": [{
+	"type": "Move Class",
+	"description": "Move Class ticket.controller.test.TestController moved to ticket.controller.TestController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/test/TestController.java",
+		"startLine": 24,
+		"endLine": 123,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original type declaration",
+		"codeElement": "ticket.controller.test.TestController"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TestController.java",
+		"startLine": 24,
+		"endLine": 171,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "moved type declaration",
+		"codeElement": "ticket.controller.TestController"
+}]
+},
+{
+	"type": "Add Parameter",
+	"description": "Add Parameter cookie : Cookie in method public movieInfo(cookie Cookie, model Model) : String from class ticket.controller.TestController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/test/TestController.java",
+		"startLine": 31,
+		"endLine": 43,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public movieInfo(model Model) : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TestController.java",
+		"startLine": 41,
+		"endLine": 41,
+		"startColumn": 29,
+		"endColumn": 90,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "added parameter",
+		"codeElement": "cookie : Cookie"
+}, {
+		"filePath": "src/main/java/ticket/controller/TestController.java",
+		"startLine": 40,
+		"endLine": 55,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added parameter",
+		"codeElement": "public movieInfo(cookie Cookie, model Model) : String"
+}]
+},
+{
+	"type": "Add Parameter",
+	"description": "Add Parameter cookie : Cookie in method public playInfo(cookie Cookie, model Model) : String from class ticket.controller.TestController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/test/TestController.java",
+		"startLine": 45,
+		"endLine": 57,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public playInfo(model Model) : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TestController.java",
+		"startLine": 58,
+		"endLine": 58,
+		"startColumn": 28,
+		"endColumn": 89,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "added parameter",
+		"codeElement": "cookie : Cookie"
+}, {
+		"filePath": "src/main/java/ticket/controller/TestController.java",
+		"startLine": 57,
+		"endLine": 72,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added parameter",
+		"codeElement": "public playInfo(cookie Cookie, model Model) : String"
+}]
+},
+{
+	"type": "Add Parameter",
+	"description": "Add Parameter cookie : Cookie in method public concertInfo(cookie Cookie, model Model) : String from class ticket.controller.TestController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/test/TestController.java",
+		"startLine": 59,
+		"endLine": 71,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public concertInfo(model Model) : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TestController.java",
+		"startLine": 75,
+		"endLine": 75,
+		"startColumn": 31,
+		"endColumn": 92,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "added parameter",
+		"codeElement": "cookie : Cookie"
+}, {
+		"filePath": "src/main/java/ticket/controller/TestController.java",
+		"startLine": 74,
+		"endLine": 89,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added parameter",
+		"codeElement": "public concertInfo(cookie Cookie, model Model) : String"
+}]
+},
+{
+	"type": "Add Parameter",
+	"description": "Add Parameter cookie : Cookie in method public ticketInfo(showId String, cookie Cookie, model Model) : String from class ticket.controller.TestController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/test/TestController.java",
+		"startLine": 73,
+		"endLine": 91,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public ticketInfo(showId String, model Model) : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TestController.java",
+		"startLine": 92,
+		"endLine": 92,
+		"startColumn": 59,
+		"endColumn": 120,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "added parameter",
+		"codeElement": "cookie : Cookie"
+}, {
+		"filePath": "src/main/java/ticket/controller/TestController.java",
+		"startLine": 91,
+		"endLine": 113,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added parameter",
+		"codeElement": "public ticketInfo(showId String, cookie Cookie, model Model) : String"
+}]
+},
+{
+	"type": "Add Parameter",
+	"description": "Add Parameter model : Model in method public registerShow(cookie Cookie, model Model) : String from class ticket.controller.TestController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/test/TestController.java",
+		"startLine": 93,
+		"endLine": 105,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public registerShow(cookie Cookie) : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TestController.java",
+		"startLine": 116,
+		"endLine": 116,
+		"startColumn": 95,
+		"endColumn": 106,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "added parameter",
+		"codeElement": "model : Model"
+}, {
+		"filePath": "src/main/java/ticket/controller/TestController.java",
+		"startLine": 115,
+		"endLine": 130,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added parameter",
+		"codeElement": "public registerShow(cookie Cookie, model Model) : String"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "bc94d1979551bfcd5a8d4cf03c40fb222d7a84e2",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/bc94d1979551bfcd5a8d4cf03c40fb222d7a84e2",
+	"refactorings": [{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type created_date : LocalDateTime to created_date : LocalDate in class ticket.dto.UserDTO",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/UserDTO.java",
+		"startLine": 16,
+		"endLine": 16,
+		"startColumn": 27,
+		"endColumn": 39,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "created_date : LocalDateTime"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/UserDTO.java",
+		"startLine": 16,
+		"endLine": 16,
+		"startColumn": 23,
+		"endColumn": 35,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "created_date : LocalDate"
+}]
+},
+{
+	"type": "Add Attribute Annotation",
+	"description": "Add Attribute Annotation @CreationTimestamp in attribute private created_date : LocalDate from class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 33,
+		"endLine": 33,
+		"startColumn": 23,
+		"endColumn": 53,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private created_date : LocalDate"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 33,
+		"endLine": 33,
+		"startColumn": 5,
+		"endColumn": 23,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@CreationTimestamp"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 23,
+		"endColumn": 53,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with added annotation",
+		"codeElement": "private created_date : LocalDate"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "c716be426f3a631733e67f677e72dd1c0bdd0c5d",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/c716be426f3a631733e67f677e72dd1c0bdd0c5d",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "d59b8cf341cef848aa07aed136f2958076e52b94",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/d59b8cf341cef848aa07aed136f2958076e52b94",
+	"refactorings": [{
+	"type": "Move Class",
+	"description": "Move Class ticket.entity.RequestUser moved to ticket.dto.RequestUser",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/RequestUser.java",
+		"startLine": 5,
+		"endLine": 10,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original type declaration",
+		"codeElement": "ticket.entity.RequestUser"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/RequestUser.java",
+		"startLine": 5,
+		"endLine": 10,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "moved type declaration",
+		"codeElement": "ticket.dto.RequestUser"
+}]
+},
+{
+	"type": "Move Class",
+	"description": "Move Class ticket.entity.ResponseUser moved to ticket.dto.ResponseUser",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ResponseUser.java",
+		"startLine": 7,
+		"endLine": 15,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original type declaration",
+		"codeElement": "ticket.entity.ResponseUser"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/ResponseUser.java",
+		"startLine": 7,
+		"endLine": 15,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "moved type declaration",
+		"codeElement": "ticket.dto.ResponseUser"
+}]
+},
+{
+	"type": "Move Class",
+	"description": "Move Class ticket.entity.UserDTO moved to ticket.dto.UserDTO",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserDTO.java",
+		"startLine": 8,
+		"endLine": 19,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original type declaration",
+		"codeElement": "ticket.entity.UserDTO"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/UserDTO.java",
+		"startLine": 8,
+		"endLine": 19,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "moved type declaration",
+		"codeElement": "ticket.dto.UserDTO"
+}]
+},
+{
+	"type": "Move Class",
+	"description": "Move Class ticket.entity.RequestLogin moved to ticket.dto.RequestLogin",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/RequestLogin.java",
+		"startLine": 5,
+		"endLine": 9,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original type declaration",
+		"codeElement": "ticket.entity.RequestLogin"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/RequestLogin.java",
+		"startLine": 5,
+		"endLine": 9,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "moved type declaration",
+		"codeElement": "ticket.dto.RequestLogin"
+}]
+},
+{
+	"type": "Remove Attribute Annotation",
+	"description": "Remove Attribute Annotation @CreationTimestamp in attribute private created_date : LocalDate from class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 36,
+		"endLine": 36,
+		"startColumn": 5,
+		"endColumn": 23,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@CreationTimestamp"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 37,
+		"endLine": 37,
+		"startColumn": 23,
+		"endColumn": 53,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private created_date : LocalDate"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 33,
+		"endLine": 33,
+		"startColumn": 23,
+		"endColumn": 53,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with removed annotation",
+		"codeElement": "private created_date : LocalDate"
+}]
+},
+{
+	"type": "Add Attribute Annotation",
+	"description": "Add Attribute Annotation @Column(columnDefinition = \"integer default 0\") in attribute private current_point : Integer from class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 40,
+		"endLine": 40,
+		"startColumn": 21,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private current_point : Integer"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 5,
+		"endColumn": 52,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@Column(columnDefinition = \"integer default 0\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 36,
+		"endLine": 36,
+		"startColumn": 21,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with added annotation",
+		"codeElement": "private current_point : Integer"
+}]
+},
+{
+	"type": "Remove Attribute Annotation",
+	"description": "Remove Attribute Annotation @ColumnDefault(\"1000000\") in attribute private current_point : Integer from class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 39,
+		"endLine": 39,
+		"startColumn": 5,
+		"endColumn": 30,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@ColumnDefault(\"1000000\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 40,
+		"endLine": 40,
+		"startColumn": 21,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private current_point : Integer"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 36,
+		"endLine": 36,
+		"startColumn": 21,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with removed annotation",
+		"codeElement": "private current_point : Integer"
+}]
+},
+{
+	"type": "Add Attribute Annotation",
+	"description": "Add Attribute Annotation @Column(columnDefinition = \"varchar(255) default 'user'\") in attribute private role : String from class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 43,
+		"endLine": 43,
+		"startColumn": 20,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private role : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 38,
+		"endLine": 38,
+		"startColumn": 5,
+		"endColumn": 62,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@Column(columnDefinition = \"varchar(255) default 'user'\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 39,
+		"endLine": 39,
+		"startColumn": 20,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with added annotation",
+		"codeElement": "private role : String"
+}]
+},
+{
+	"type": "Remove Attribute Annotation",
+	"description": "Remove Attribute Annotation @ColumnDefault(\"'user'\") in attribute private role : String from class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 42,
+		"endLine": 42,
+		"startColumn": 5,
+		"endColumn": 29,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@ColumnDefault(\"'user'\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 43,
+		"endLine": 43,
+		"startColumn": 20,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private role : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 39,
+		"endLine": 39,
+		"startColumn": 20,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with removed annotation",
+		"codeElement": "private role : String"
+}]
+},
+{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type created_date : LocalDate to created_date : LocalDateTime in class ticket.dto.UserDTO",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserDTO.java",
+		"startLine": 16,
+		"endLine": 16,
+		"startColumn": 23,
+		"endColumn": 35,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "created_date : LocalDate"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/UserDTO.java",
+		"startLine": 16,
+		"endLine": 16,
+		"startColumn": 27,
+		"endColumn": 39,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "created_date : LocalDateTime"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "58179b80d0cce0e7cb7a4b274fbcd674380eff68",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/58179b80d0cce0e7cb7a4b274fbcd674380eff68",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "49f15c247cb0bad76327eb59b5423c854dd38420",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/49f15c247cb0bad76327eb59b5423c854dd38420",
+	"refactorings": [{
+	"type": "Modify Method Annotation",
+	"description": "Modify Method Annotation @Scheduled(cron = \"0/15 * * * * *\") to @Scheduled(cron = \"0 0 * * * *\") in method public draw() : String from class ticket.controller.TicketingController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 81,
+		"endLine": 81,
+		"startColumn": 5,
+		"endColumn": 40,
+		"codeElementType": "ANNOTATION",
+		"description": "original annotation",
+		"codeElement": "@Scheduled(cron = \"0/15 * * * * *\")"
+}, {
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 81,
+		"endLine": 102,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public draw() : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 83,
+		"endLine": 83,
+		"startColumn": 5,
+		"endColumn": 37,
+		"codeElementType": "ANNOTATION",
+		"description": "modified annotation",
+		"codeElement": "@Scheduled(cron = \"0 0 * * * *\")"
+}, {
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 83,
+		"endLine": 102,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with modified annotation",
+		"codeElement": "public draw() : String"
+}]
+},
+{
+	"type": "Modify Method Annotation",
+	"description": "Modify Method Annotation @Scheduled(cron = \"0/15 * * * * *\") to @Scheduled(cron = \"0 0 * * * *\") in method public refund() : String from class ticket.controller.TicketingController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 106,
+		"endLine": 106,
+		"startColumn": 5,
+		"endColumn": 40,
+		"codeElementType": "ANNOTATION",
+		"description": "original annotation",
+		"codeElement": "@Scheduled(cron = \"0/15 * * * * *\")"
+}, {
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 106,
+		"endLine": 126,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public refund() : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 108,
+		"endLine": 108,
+		"startColumn": 5,
+		"endColumn": 37,
+		"codeElementType": "ANNOTATION",
+		"description": "modified annotation",
+		"codeElement": "@Scheduled(cron = \"0 0 * * * *\")"
+}, {
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 108,
+		"endLine": 126,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with modified annotation",
+		"codeElement": "public refund() : String"
+}]
+},
+{
+	"type": "Remove Class Annotation",
+	"description": "Remove Class Annotation @RequestMapping(\"/test\") in class ticket.controller.test.TestController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/test/TestController.java",
+		"startLine": 18,
+		"endLine": 18,
+		"startColumn": 0,
+		"endColumn": 25,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@RequestMapping(\"/test\")"
+}, {
+		"filePath": "src/main/java/ticket/controller/test/TestController.java",
+		"startLine": 16,
+		"endLine": 83,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.controller.test.TestController"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/test/TestController.java",
+		"startLine": 25,
+		"endLine": 124,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with removed annotation",
+		"codeElement": "ticket.controller.test.TestController"
+}]
+},
+{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type created_date : LocalDateTime to created_date : LocalDate in class ticket.entity.UserDTO",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserDTO.java",
+		"startLine": 16,
+		"endLine": 16,
+		"startColumn": 27,
+		"endColumn": 39,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "created_date : LocalDateTime"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserDTO.java",
+		"startLine": 16,
+		"endLine": 16,
+		"startColumn": 23,
+		"endColumn": 35,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "created_date : LocalDate"
+}]
+},
+{
+	"type": "Add Attribute Annotation",
+	"description": "Add Attribute Annotation @CreationTimestamp in attribute private created_date : LocalDate from class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 33,
+		"endLine": 33,
+		"startColumn": 23,
+		"endColumn": 53,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private created_date : LocalDate"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 36,
+		"endLine": 36,
+		"startColumn": 5,
+		"endColumn": 23,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@CreationTimestamp"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 37,
+		"endLine": 37,
+		"startColumn": 23,
+		"endColumn": 53,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with added annotation",
+		"codeElement": "private created_date : LocalDate"
+}]
+},
+{
+	"type": "Add Attribute Annotation",
+	"description": "Add Attribute Annotation @ColumnDefault(\"1000000\") in attribute private current_point : Integer from class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 36,
+		"endLine": 36,
+		"startColumn": 21,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private current_point : Integer"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 39,
+		"endLine": 39,
+		"startColumn": 5,
+		"endColumn": 30,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@ColumnDefault(\"1000000\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 40,
+		"endLine": 40,
+		"startColumn": 21,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with added annotation",
+		"codeElement": "private current_point : Integer"
+}]
+},
+{
+	"type": "Remove Attribute Annotation",
+	"description": "Remove Attribute Annotation @Column(columnDefinition = \"integer default 0\") in attribute private current_point : Integer from class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 5,
+		"endColumn": 52,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@Column(columnDefinition = \"integer default 0\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 36,
+		"endLine": 36,
+		"startColumn": 21,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private current_point : Integer"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 40,
+		"endLine": 40,
+		"startColumn": 21,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with removed annotation",
+		"codeElement": "private current_point : Integer"
+}]
+},
+{
+	"type": "Add Attribute Annotation",
+	"description": "Add Attribute Annotation @ColumnDefault(\"'user'\") in attribute private role : String from class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 39,
+		"endLine": 39,
+		"startColumn": 20,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private role : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 42,
+		"endLine": 42,
+		"startColumn": 5,
+		"endColumn": 29,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@ColumnDefault(\"'user'\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 43,
+		"endLine": 43,
+		"startColumn": 20,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with added annotation",
+		"codeElement": "private role : String"
+}]
+},
+{
+	"type": "Remove Attribute Annotation",
+	"description": "Remove Attribute Annotation @Column(columnDefinition = \"varchar(255) default 'user'\") in attribute private role : String from class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 38,
+		"endLine": 38,
+		"startColumn": 5,
+		"endColumn": 62,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@Column(columnDefinition = \"varchar(255) default 'user'\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 39,
+		"endLine": 39,
+		"startColumn": 20,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private role : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 43,
+		"endLine": 43,
+		"startColumn": 20,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with removed annotation",
+		"codeElement": "private role : String"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "0bf137faaea03e30d1afb022e3cc878013e8b026",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/0bf137faaea03e30d1afb022e3cc878013e8b026",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "298089f1b3a84c368c37a2f04d73916a100f5121",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/298089f1b3a84c368c37a2f04d73916a100f5121",
+	"refactorings": [{
+	"type": "Modify Method Annotation",
+	"description": "Modify Method Annotation @PostMapping(\"/logout\") to @PostMapping(\"/logoutt\") in method public logout(response HttpServletResponse) : String from class ticket.controller.UserController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 105,
+		"endLine": 105,
+		"startColumn": 5,
+		"endColumn": 28,
+		"codeElementType": "ANNOTATION",
+		"description": "original annotation",
+		"codeElement": "@PostMapping(\"/logout\")"
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 105,
+		"endLine": 111,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public logout(response HttpServletResponse) : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 105,
+		"endLine": 105,
+		"startColumn": 5,
+		"endColumn": 29,
+		"codeElementType": "ANNOTATION",
+		"description": "modified annotation",
+		"codeElement": "@PostMapping(\"/logoutt\")"
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 105,
+		"endLine": 111,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with modified annotation",
+		"codeElement": "public logout(response HttpServletResponse) : String"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "181b1e30a96ff0ebc14472040bd938e6cba46505",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/181b1e30a96ff0ebc14472040bd938e6cba46505",
+	"refactorings": [{
+	"type": "Rename Variable",
+	"description": "Rename Variable idCookie : Cookie to userIdCookie : Cookie in method public login(requestLogin RequestLogin, response HttpServletResponse, userId Long) : String from class ticket.controller.UserController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 92,
+		"endLine": 92,
+		"startColumn": 16,
+		"endColumn": 87,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "original variable declaration",
+		"codeElement": "idCookie : Cookie"
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 92,
+		"endLine": 92,
+		"startColumn": 9,
+		"endColumn": 88,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 93,
+		"endLine": 93,
+		"startColumn": 9,
+		"endColumn": 38,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 91,
+		"endLine": 91,
+		"startColumn": 16,
+		"endColumn": 91,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "renamed variable declaration",
+		"codeElement": "userIdCookie : Cookie"
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 91,
+		"endLine": 91,
+		"startColumn": 9,
+		"endColumn": 92,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 92,
+		"endLine": 92,
+		"startColumn": 9,
+		"endColumn": 42,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Change Return Type",
+	"description": "Change Return Type ResponseEntity<ResponseUser> to String in method public login(requestLogin RequestLogin, response HttpServletResponse, userId Long) : String from class ticket.controller.UserController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 86,
+		"endLine": 86,
+		"startColumn": 12,
+		"endColumn": 40,
+		"codeElementType": "TYPE",
+		"description": "original return type",
+		"codeElement": "ResponseEntity<ResponseUser>"
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 85,
+		"endLine": 98,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public login(requestLogin RequestLogin, response HttpServletResponse) : ResponseEntity<ResponseUser>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 81,
+		"endLine": 81,
+		"startColumn": 12,
+		"endColumn": 18,
+		"codeElementType": "TYPE",
+		"description": "changed return type",
+		"codeElement": "String"
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 80,
+		"endLine": 103,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with changed return type",
+		"codeElement": "public login(requestLogin RequestLogin, response HttpServletResponse, userId Long) : String"
+}]
+},
+{
+	"type": "Add Parameter",
+	"description": "Add Parameter userId : Long in method public login(requestLogin RequestLogin, response HttpServletResponse, userId Long) : String from class ticket.controller.UserController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 85,
+		"endLine": 98,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public login(requestLogin RequestLogin, response HttpServletResponse) : ResponseEntity<ResponseUser>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 81,
+		"endLine": 81,
+		"startColumn": 95,
+		"endColumn": 154,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "added parameter",
+		"codeElement": "userId : Long"
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 80,
+		"endLine": 103,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added parameter",
+		"codeElement": "public login(requestLogin RequestLogin, response HttpServletResponse, userId Long) : String"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "d4178cab70db28b5bca1bcf3fe5195057857586b",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/d4178cab70db28b5bca1bcf3fe5195057857586b",
+	"refactorings": [{
+	"type": "Inline Variable",
+	"description": "Inline Variable responseDTO : UserDTO in method public createUser(user RequestUser) : ResponseEntity<ResponseUser> from class ticket.controller.UserController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 58,
+		"endLine": 58,
+		"startColumn": 17,
+		"endColumn": 60,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "inlined variable declaration",
+		"codeElement": "responseDTO : UserDTO"
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 60,
+		"endLine": 60,
+		"startColumn": 9,
+		"endColumn": 81,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement with the name of the inlined variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 60,
+		"endLine": 60,
+		"startColumn": 9,
+		"endColumn": 77,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement with the initializer of the inlined variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type created_date : LocalDate to created_date : LocalDateTime in class ticket.entity.UserDTO",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserDTO.java",
+		"startLine": 16,
+		"endLine": 16,
+		"startColumn": 23,
+		"endColumn": 35,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "created_date : LocalDate"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserDTO.java",
+		"startLine": 16,
+		"endLine": 16,
+		"startColumn": 27,
+		"endColumn": 39,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "created_date : LocalDateTime"
+}]
+},
+{
+	"type": "Add Class Annotation",
+	"description": "Add Class Annotation @DynamicInsert in class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 10,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.entity.UserEntity"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 15,
+		"endLine": 15,
+		"startColumn": 0,
+		"endColumn": 15,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@DynamicInsert"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 12,
+		"endLine": 51,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with added annotation",
+		"codeElement": "ticket.entity.UserEntity"
+}]
+},
+{
+	"type": "Add Class Annotation",
+	"description": "Add Class Annotation @DynamicUpdate in class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 10,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.entity.UserEntity"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 16,
+		"endLine": 16,
+		"startColumn": 0,
+		"endColumn": 15,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@DynamicUpdate"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 12,
+		"endLine": 51,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with added annotation",
+		"codeElement": "ticket.entity.UserEntity"
+}]
+},
+{
+	"type": "Modify Attribute Annotation",
+	"description": "Modify Attribute Annotation @Column(nullable = false, columnDefinition = \"integer default 0\") to @Column(columnDefinition = \"integer default 0\") in attribute private current_point : Integer from class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 31,
+		"endLine": 31,
+		"startColumn": 5,
+		"endColumn": 70,
+		"codeElementType": "ANNOTATION",
+		"description": "original annotation",
+		"codeElement": "@Column(nullable = false, columnDefinition = \"integer default 0\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 32,
+		"endLine": 32,
+		"startColumn": 21,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private current_point : Integer"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 5,
+		"endColumn": 52,
+		"codeElementType": "ANNOTATION",
+		"description": "modified annotation",
+		"codeElement": "@Column(columnDefinition = \"integer default 0\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 36,
+		"endLine": 36,
+		"startColumn": 21,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with modified annotation",
+		"codeElement": "private current_point : Integer"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "a8b40a83302a6edc228984da52405c9ea86536a9",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/a8b40a83302a6edc228984da52405c9ea86536a9",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "a3fa7e7508a223db780f8c459a911baa3a5f7615",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/a3fa7e7508a223db780f8c459a911baa3a5f7615",
+	"refactorings": [{
+	"type": "Modify Method Annotation",
+	"description": "Modify Method Annotation @Scheduled(cron = \"0 0 * * * *\") to @Scheduled(cron = \"0/15 * * * * *\") in method public draw() : String from class ticket.controller.TicketingController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 82,
+		"endLine": 82,
+		"startColumn": 5,
+		"endColumn": 37,
+		"codeElementType": "ANNOTATION",
+		"description": "original annotation",
+		"codeElement": "@Scheduled(cron = \"0 0 * * * *\")"
+}, {
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 82,
+		"endLine": 101,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public draw() : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 81,
+		"endLine": 81,
+		"startColumn": 5,
+		"endColumn": 40,
+		"codeElementType": "ANNOTATION",
+		"description": "modified annotation",
+		"codeElement": "@Scheduled(cron = \"0/15 * * * * *\")"
+}, {
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 81,
+		"endLine": 102,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with modified annotation",
+		"codeElement": "public draw() : String"
+}]
+},
+{
+	"type": "Add Class Annotation",
+	"description": "Add Class Annotation @Data in class ticket.dto.LogResponseDto",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/LogResponseDto.java",
+		"startLine": 9,
+		"endLine": 25,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.dto.LogResponseDto"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/LogResponseDto.java",
+		"startLine": 9,
+		"endLine": 9,
+		"startColumn": 0,
+		"endColumn": 6,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@Data"
+}, {
+		"filePath": "src/main/java/ticket/dto/LogResponseDto.java",
+		"startLine": 9,
+		"endLine": 26,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with added annotation",
+		"codeElement": "ticket.dto.LogResponseDto"
+}]
+},
+{
+	"type": "Remove Class Annotation",
+	"description": "Remove Class Annotation @Getter in class ticket.dto.LogResponseDto",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/LogResponseDto.java",
+		"startLine": 9,
+		"endLine": 9,
+		"startColumn": 0,
+		"endColumn": 8,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@Getter"
+}, {
+		"filePath": "src/main/java/ticket/dto/LogResponseDto.java",
+		"startLine": 9,
+		"endLine": 25,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.dto.LogResponseDto"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/LogResponseDto.java",
+		"startLine": 9,
+		"endLine": 26,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with removed annotation",
+		"codeElement": "ticket.dto.LogResponseDto"
+}]
+},
+{
+	"type": "Add Parameter",
+	"description": "Add Parameter refunded : boolean in method public TicketingLogUpdateRequestDto(id Long, success boolean, refunded boolean) from class ticket.dto.TicketingLogUpdateRequestDto",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/TicketingLogUpdateRequestDto.java",
+		"startLine": 13,
+		"endLine": 17,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public TicketingLogUpdateRequestDto(id Long, success boolean)"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/TicketingLogUpdateRequestDto.java",
+		"startLine": 15,
+		"endLine": 15,
+		"startColumn": 67,
+		"endColumn": 83,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "added parameter",
+		"codeElement": "refunded : boolean"
+}, {
+		"filePath": "src/main/java/ticket/dto/TicketingLogUpdateRequestDto.java",
+		"startLine": 14,
+		"endLine": 19,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added parameter",
+		"codeElement": "public TicketingLogUpdateRequestDto(id Long, success boolean, refunded boolean)"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "0d70cd326e1e4fbd75e8bad970cf607d01a81856",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/0d70cd326e1e4fbd75e8bad970cf607d01a81856",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "ddc06590a6670e947c993acfb371b5e6f808083b",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/ddc06590a6670e947c993acfb371b5e6f808083b",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "45e7ba4dab1f06c1bf3d4fc48e98b2152abe8d81",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/45e7ba4dab1f06c1bf3d4fc48e98b2152abe8d81",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "72572bce7929132f9793894fd922cf36405a3a91",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/72572bce7929132f9793894fd922cf36405a3a91",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "ee85a127926c9495b6cb4938070d2184a9e5b4ba",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/ee85a127926c9495b6cb4938070d2184a9e5b4ba",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "5bf6a2b23332976d7ea3a7d7095bbdcbf1c8cf86",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/5bf6a2b23332976d7ea3a7d7095bbdcbf1c8cf86",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "a3329cd3793d254cbb65a408c7a55319e45d4699",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/a3329cd3793d254cbb65a408c7a55319e45d4699",
+	"refactorings": [{
+	"type": "Add Parameter Annotation",
+	"description": "Add Parameter Annotation @RequestParam(\"requestDto\") in parameter request : String in method public save(files List<MultipartFile>, request String) : ResponseEntity<String> from class ticket.controller.ShowAndSeatController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 31,
+		"endLine": 31,
+		"startColumn": 89,
+		"endColumn": 130,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "request : String"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 30,
+		"endLine": 41,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public save(files List<MultipartFile>, request String) : ResponseEntity<String>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 32,
+		"endLine": 32,
+		"startColumn": 89,
+		"endColumn": 116,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@RequestParam(\"requestDto\")"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 32,
+		"endLine": 32,
+		"startColumn": 89,
+		"endColumn": 131,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "variable declaration with added annotation",
+		"codeElement": "request : String"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 31,
+		"endLine": 44,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added variable annotation",
+		"codeElement": "public save(files List<MultipartFile>, request String) : ResponseEntity<String>"
+}]
+},
+{
+	"type": "Remove Parameter Annotation",
+	"description": "Remove Parameter Annotation @RequestPart(\"requestDto\") in parameter request : String in method public save(files List<MultipartFile>, request String) : ResponseEntity<String> from class ticket.controller.ShowAndSeatController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 31,
+		"endLine": 31,
+		"startColumn": 89,
+		"endColumn": 115,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@RequestPart(\"requestDto\")"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 31,
+		"endLine": 31,
+		"startColumn": 89,
+		"endColumn": 130,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "request : String"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 30,
+		"endLine": 41,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public save(files List<MultipartFile>, request String) : ResponseEntity<String>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 32,
+		"endLine": 32,
+		"startColumn": 89,
+		"endColumn": 131,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "variable declaration with removed annotation",
+		"codeElement": "request : String"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 31,
+		"endLine": 44,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with removed variable annotation",
+		"codeElement": "public save(files List<MultipartFile>, request String) : ResponseEntity<String>"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "5824e9d2a3caaa8cec55888bf41e9e433c5c5c0b",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/5824e9d2a3caaa8cec55888bf41e9e433c5c5c0b",
+	"refactorings": [{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type created_date : LocalDateTime to created_date : LocalDate in class ticket.entity.UserDTO",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserDTO.java",
+		"startLine": 15,
+		"endLine": 15,
+		"startColumn": 27,
+		"endColumn": 39,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "created_date : LocalDateTime"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserDTO.java",
+		"startLine": 16,
+		"endLine": 16,
+		"startColumn": 23,
+		"endColumn": 35,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "created_date : LocalDate"
+}]
+},
+{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type current_point : int to current_point : Integer in class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 32,
+		"endLine": 32,
+		"startColumn": 17,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "current_point : int"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 32,
+		"endLine": 32,
+		"startColumn": 21,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "current_point : Integer"
+}]
+},
+{
+	"type": "Rename Variable",
+	"description": "Rename Variable userDto : UserDTO to userDTO : UserDTO in method public getUsersByUserId(userId Long) : UserDTO from class ticket.service.UserServiceImpl",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/UserServiceImpl.java",
+		"startLine": 58,
+		"endLine": 58,
+		"startColumn": 17,
+		"endColumn": 75,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "original variable declaration",
+		"codeElement": "userDto : UserDTO"
+}, {
+		"filePath": "src/main/java/ticket/service/UserServiceImpl.java",
+		"startLine": 58,
+		"endLine": 58,
+		"startColumn": 9,
+		"endColumn": 76,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}, {
+		"filePath": "src/main/java/ticket/service/UserServiceImpl.java",
+		"startLine": 59,
+		"endLine": 59,
+		"startColumn": 9,
+		"endColumn": 24,
+		"codeElementType": "RETURN_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/UserServiceImpl.java",
+		"startLine": 58,
+		"endLine": 58,
+		"startColumn": 17,
+		"endColumn": 75,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "renamed variable declaration",
+		"codeElement": "userDTO : UserDTO"
+}, {
+		"filePath": "src/main/java/ticket/service/UserServiceImpl.java",
+		"startLine": 58,
+		"endLine": 58,
+		"startColumn": 9,
+		"endColumn": 76,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}, {
+		"filePath": "src/main/java/ticket/service/UserServiceImpl.java",
+		"startLine": 59,
+		"endLine": 59,
+		"startColumn": 9,
+		"endColumn": 24,
+		"codeElementType": "RETURN_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "03b6f896956620b1a7ea03662023b70a04bdb653",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/03b6f896956620b1a7ea03662023b70a04bdb653",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "e64701912e8a4456d02e4143ea92a809ef509e68",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/e64701912e8a4456d02e4143ea92a809ef509e68",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "95a008597b4f5c151534b64c39242bd7ab184d62",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/95a008597b4f5c151534b64c39242bd7ab184d62",
+	"refactorings": [{
+	"type": "Extract Variable",
+	"description": "Extract Variable responseDtoList : List<ShowInfoResponseDto> in method public findAllShow() : List<ShowInfoResponseDto> from class ticket.controller.ShowAndSeatController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 41,
+		"endLine": 41,
+		"startColumn": 9,
+		"endColumn": 53,
+		"codeElementType": "RETURN_STATEMENT",
+		"description": "statement with the initializer of the extracted variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 64,
+		"endLine": 64,
+		"startColumn": 35,
+		"endColumn": 89,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "extracted variable declaration",
+		"codeElement": "responseDtoList : List<ShowInfoResponseDto>"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 69,
+		"endLine": 69,
+		"startColumn": 9,
+		"endColumn": 32,
+		"codeElementType": "RETURN_STATEMENT",
+		"description": "statement with the name of the extracted variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Change Return Type",
+	"description": "Change Return Type ShowInfoResponseDto to ResponseEntity<ShowInfoResponseDto> in method public findShowById(id Long) : ResponseEntity<ShowInfoResponseDto> from class ticket.controller.ShowAndSeatController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 30,
+		"endLine": 30,
+		"startColumn": 12,
+		"endColumn": 31,
+		"codeElementType": "TYPE",
+		"description": "original return type",
+		"codeElement": "ShowInfoResponseDto"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 29,
+		"endLine": 32,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public findShowById(id Long) : ShowInfoResponseDto"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 49,
+		"endLine": 49,
+		"startColumn": 12,
+		"endColumn": 47,
+		"codeElementType": "TYPE",
+		"description": "changed return type",
+		"codeElement": "ResponseEntity<ShowInfoResponseDto>"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 48,
+		"endLine": 55,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with changed return type",
+		"codeElement": "public findShowById(id Long) : ResponseEntity<ShowInfoResponseDto>"
+}]
+},
+{
+	"type": "Add Thrown Exception Type",
+	"description": "Add Thrown Exception Type Exception in method public findShowById(id Long) : ResponseEntity<ShowInfoResponseDto> from class ticket.controller.ShowAndSeatController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 29,
+		"endLine": 32,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public findShowById(id Long) : ShowInfoResponseDto"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 49,
+		"endLine": 49,
+		"startColumn": 91,
+		"endColumn": 100,
+		"codeElementType": "TYPE",
+		"description": "added thrown exception type",
+		"codeElement": "Exception"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 48,
+		"endLine": 55,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added thrown exception type",
+		"codeElement": "public findShowById(id Long) : ResponseEntity<ShowInfoResponseDto>"
+}]
+},
+{
+	"type": "Localize Parameter",
+	"description": "Localize Parameter requestDto : ShowInfoSaveRequestDto to requestDto : ShowInfoSaveRequestDto in method public save(files List<MultipartFile>, request String) : ResponseEntity<String> from class ticket.controller.ShowAndSeatController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 40,
+		"endColumn": 86,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "requestDto : ShowInfoSaveRequestDto"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 21,
+		"endLine": 21,
+		"startColumn": 9,
+		"endColumn": 111,
+		"codeElementType": "RETURN_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 35,
+		"endLine": 36,
+		"startColumn": 32,
+		"endColumn": 11,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "renamed variable declaration",
+		"codeElement": "requestDto : ShowInfoSaveRequestDto"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 40,
+		"endLine": 40,
+		"startColumn": 9,
+		"endColumn": 111,
+		"codeElementType": "RETURN_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Remove Parameter Annotation",
+	"description": "Remove Parameter Annotation @RequestBody in parameter requestDto : ShowInfoSaveRequestDto in method public save(requestDto ShowInfoSaveRequestDto) : ResponseEntity<String> from class ticket.controller.ShowAndSeatController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 40,
+		"endColumn": 52,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@RequestBody"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 40,
+		"endColumn": 86,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "requestDto : ShowInfoSaveRequestDto"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 19,
+		"endLine": 22,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public save(requestDto ShowInfoSaveRequestDto) : ResponseEntity<String>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 35,
+		"endLine": 36,
+		"startColumn": 32,
+		"endColumn": 11,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "variable declaration with removed annotation",
+		"codeElement": "requestDto : ShowInfoSaveRequestDto"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 30,
+		"endLine": 41,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with removed variable annotation",
+		"codeElement": "public save(files List<MultipartFile>, request String) : ResponseEntity<String>"
+}]
+},
+{
+	"type": "Add Parameter",
+	"description": "Add Parameter files : List<MultipartFile> in method public save(files List<MultipartFile>, request String) : ResponseEntity<String> from class ticket.controller.ShowAndSeatController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 19,
+		"endLine": 22,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public save(requestDto ShowInfoSaveRequestDto) : ResponseEntity<String>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 31,
+		"endLine": 31,
+		"startColumn": 40,
+		"endColumn": 87,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "added parameter",
+		"codeElement": "files : List<MultipartFile>"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 30,
+		"endLine": 41,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added parameter",
+		"codeElement": "public save(files List<MultipartFile>, request String) : ResponseEntity<String>"
+}]
+},
+{
+	"type": "Add Parameter",
+	"description": "Add Parameter request : String in method public save(files List<MultipartFile>, request String) : ResponseEntity<String> from class ticket.controller.ShowAndSeatController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 19,
+		"endLine": 22,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public save(requestDto ShowInfoSaveRequestDto) : ResponseEntity<String>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 31,
+		"endLine": 31,
+		"startColumn": 89,
+		"endColumn": 130,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "added parameter",
+		"codeElement": "request : String"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 30,
+		"endLine": 41,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added parameter",
+		"codeElement": "public save(files List<MultipartFile>, request String) : ResponseEntity<String>"
+}]
+},
+{
+	"type": "Add Thrown Exception Type",
+	"description": "Add Thrown Exception Type Exception in method public save(files List<MultipartFile>, request String) : ResponseEntity<String> from class ticket.controller.ShowAndSeatController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 19,
+		"endLine": 22,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public save(requestDto ShowInfoSaveRequestDto) : ResponseEntity<String>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 31,
+		"endLine": 31,
+		"startColumn": 139,
+		"endColumn": 148,
+		"codeElementType": "TYPE",
+		"description": "added thrown exception type",
+		"codeElement": "Exception"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 30,
+		"endLine": 41,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added thrown exception type",
+		"codeElement": "public save(files List<MultipartFile>, request String) : ResponseEntity<String>"
+}]
+},
+{
+	"type": "Add Class Annotation",
+	"description": "Add Class Annotation @RestController in class ticket.controller.TicketingController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 20,
+		"endLine": 87,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.controller.TicketingController"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 23,
+		"endLine": 23,
+		"startColumn": 0,
+		"endColumn": 16,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@RestController"
+}, {
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 22,
+		"endLine": 102,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with added annotation",
+		"codeElement": "ticket.controller.TicketingController"
+}]
+},
+{
+	"type": "Remove Class Annotation",
+	"description": "Remove Class Annotation @Controller in class ticket.controller.TicketingController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 21,
+		"endLine": 21,
+		"startColumn": 0,
+		"endColumn": 12,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@Controller"
+}, {
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 20,
+		"endLine": 87,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.controller.TicketingController"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 22,
+		"endLine": 102,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with removed annotation",
+		"codeElement": "ticket.controller.TicketingController"
+}]
+},
+{
+	"type": "Change Variable Type",
+	"description": "Change Variable Type lotteryTargetList : List<ShowDate> to lotteryTargetList : List<Seat> in method public draw() : String from class ticket.controller.TicketingController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 64,
+		"endLine": 64,
+		"startColumn": 24,
+		"endColumn": 82,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "original variable declaration",
+		"codeElement": "lotteryTargetList : List<ShowDate>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 86,
+		"endLine": 86,
+		"startColumn": 20,
+		"endColumn": 78,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "changed-type variable declaration",
+		"codeElement": "lotteryTargetList : List<Seat>"
+}]
+},
+{
+	"type": "Modify Method Annotation",
+	"description": "Modify Method Annotation @Scheduled(cron = \"0/15 * * * * *\") to @Scheduled(cron = \"0 0 * * * *\") in method public draw() : String from class ticket.controller.TicketingController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 58,
+		"endLine": 58,
+		"startColumn": 5,
+		"endColumn": 40,
+		"codeElementType": "ANNOTATION",
+		"description": "original annotation",
+		"codeElement": "@Scheduled(cron = \"0/15 * * * * *\")"
+}, {
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 58,
+		"endLine": 86,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public draw() : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 82,
+		"endLine": 82,
+		"startColumn": 5,
+		"endColumn": 37,
+		"codeElementType": "ANNOTATION",
+		"description": "modified annotation",
+		"codeElement": "@Scheduled(cron = \"0 0 * * * *\")"
+}, {
+		"filePath": "src/main/java/ticket/controller/TicketingController.java",
+		"startLine": 82,
+		"endLine": 101,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with modified annotation",
+		"codeElement": "public draw() : String"
+}]
+},
+{
+	"type": "Rename Attribute",
+	"description": "Rename Attribute user : ResponseUser to userId : Long in class ticket.dto.LogResponseDto",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/LogResponseDto.java",
+		"startLine": 13,
+		"endLine": 13,
+		"startColumn": 26,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "user : ResponseUser"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/LogResponseDto.java",
+		"startLine": 13,
+		"endLine": 13,
+		"startColumn": 18,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "renamed attribute declaration",
+		"codeElement": "userId : Long"
+}]
+},
+{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type user : ResponseUser to userId : Long in class ticket.dto.LogResponseDto",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/LogResponseDto.java",
+		"startLine": 13,
+		"endLine": 13,
+		"startColumn": 26,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "user : ResponseUser"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/LogResponseDto.java",
+		"startLine": 13,
+		"endLine": 13,
+		"startColumn": 18,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "userId : Long"
+}]
+},
+{
+	"type": "Add Class Annotation",
+	"description": "Add Class Annotation @Data in class ticket.dto.ShowInfoSaveRequestDto",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/ShowInfoSaveRequestDto.java",
+		"startLine": 10,
+		"endLine": 27,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.dto.ShowInfoSaveRequestDto"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/ShowInfoSaveRequestDto.java",
+		"startLine": 11,
+		"endLine": 11,
+		"startColumn": 0,
+		"endColumn": 6,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@Data"
+}, {
+		"filePath": "src/main/java/ticket/dto/ShowInfoSaveRequestDto.java",
+		"startLine": 11,
+		"endLine": 30,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with added annotation",
+		"codeElement": "ticket.dto.ShowInfoSaveRequestDto"
+}]
+},
+{
+	"type": "Remove Class Annotation",
+	"description": "Remove Class Annotation @Getter in class ticket.dto.ShowInfoSaveRequestDto",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/ShowInfoSaveRequestDto.java",
+		"startLine": 10,
+		"endLine": 10,
+		"startColumn": 0,
+		"endColumn": 8,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@Getter"
+}, {
+		"filePath": "src/main/java/ticket/dto/ShowInfoSaveRequestDto.java",
+		"startLine": 10,
+		"endLine": 27,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.dto.ShowInfoSaveRequestDto"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/ShowInfoSaveRequestDto.java",
+		"startLine": 11,
+		"endLine": 30,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with removed annotation",
+		"codeElement": "ticket.dto.ShowInfoSaveRequestDto"
+}]
+},
+{
+	"type": "Add Parameter",
+	"description": "Add Parameter posterURI : String in method public ShowInfoSaveRequestDto(name String, classification String, description String, posterURI String, startDate List<LocalDateTime>, seatSaveRequestDtoList List<SeatSaveRequestDto>) from class ticket.dto.ShowInfoSaveRequestDto",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/ShowInfoSaveRequestDto.java",
+		"startLine": 19,
+		"endLine": 26,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public ShowInfoSaveRequestDto(name String, classification String, description String, startDate List<LocalDateTime>, seatSaveRequestDtoList List<SeatSaveRequestDto>)"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/ShowInfoSaveRequestDto.java",
+		"startLine": 22,
+		"endLine": 22,
+		"startColumn": 91,
+		"endColumn": 107,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "added parameter",
+		"codeElement": "posterURI : String"
+}, {
+		"filePath": "src/main/java/ticket/dto/ShowInfoSaveRequestDto.java",
+		"startLine": 21,
+		"endLine": 29,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added parameter",
+		"codeElement": "public ShowInfoSaveRequestDto(name String, classification String, description String, posterURI String, startDate List<LocalDateTime>, seatSaveRequestDtoList List<SeatSaveRequestDto>)"
+}]
+},
+{
+	"type": "Change Return Type",
+	"description": "Change Return Type List<ShowDate> to List<Seat> in method public findLotteryTarget() : List<Seat> from class ticket.service.ShowAndSeatService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/ShowAndSeatService.java",
+		"startLine": 126,
+		"endLine": 126,
+		"startColumn": 12,
+		"endColumn": 26,
+		"codeElementType": "TYPE",
+		"description": "original return type",
+		"codeElement": "List<ShowDate>"
+}, {
+		"filePath": "src/main/java/ticket/service/ShowAndSeatService.java",
+		"startLine": 125,
+		"endLine": 128,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public findLotteryTarget() : List<ShowDate>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/ShowAndSeatService.java",
+		"startLine": 127,
+		"endLine": 127,
+		"startColumn": 12,
+		"endColumn": 22,
+		"codeElementType": "TYPE",
+		"description": "changed return type",
+		"codeElement": "List<Seat>"
+}, {
+		"filePath": "src/main/java/ticket/service/ShowAndSeatService.java",
+		"startLine": 126,
+		"endLine": 129,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with changed return type",
+		"codeElement": "public findLotteryTarget() : List<Seat>"
+}]
+},
+{
+	"type": "Change Parameter Type",
+	"description": "Change Parameter Type showInfo : ShowInfo to showInfoId : Long in method public ShowDate(showInfoId Long, showDate LocalDateTime) from class ticket.entity.ShowDate",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 25,
+		"endLine": 25,
+		"startColumn": 21,
+		"endColumn": 38,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "showInfo : ShowInfo"
+}, {
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 26,
+		"endLine": 26,
+		"startColumn": 9,
+		"endColumn": 34,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 23,
+		"endLine": 23,
+		"startColumn": 21,
+		"endColumn": 36,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "changed-type variable declaration",
+		"codeElement": "showInfoId : Long"
+}, {
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 24,
+		"endLine": 24,
+		"startColumn": 9,
+		"endColumn": 38,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the variable with changed type",
+		"codeElement": null
+}]
+},
+{
+	"type": "Rename Parameter",
+	"description": "Rename Parameter showInfo : ShowInfo to showInfoId : Long in method public ShowDate(showInfoId Long, showDate LocalDateTime) from class ticket.entity.ShowDate",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 25,
+		"endLine": 25,
+		"startColumn": 21,
+		"endColumn": 38,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "showInfo : ShowInfo"
+}, {
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 26,
+		"endLine": 26,
+		"startColumn": 9,
+		"endColumn": 34,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 23,
+		"endLine": 23,
+		"startColumn": 21,
+		"endColumn": 36,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "renamed variable declaration",
+		"codeElement": "showInfoId : Long"
+}, {
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 24,
+		"endLine": 24,
+		"startColumn": 9,
+		"endColumn": 38,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Rename Attribute",
+	"description": "Rename Attribute showInfo : ShowInfo to showInfoId : Long in class ticket.entity.ShowDate",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "showInfo : ShowInfo"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 18,
+		"endLine": 18,
+		"startColumn": 18,
+		"endColumn": 28,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "renamed attribute declaration",
+		"codeElement": "showInfoId : Long"
+}]
+},
+{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type showInfo : ShowInfo to showInfoId : Long in class ticket.entity.ShowDate",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "showInfo : ShowInfo"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 18,
+		"endLine": 18,
+		"startColumn": 18,
+		"endColumn": 28,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "showInfoId : Long"
+}]
+},
+{
+	"type": "Remove Attribute Annotation",
+	"description": "Remove Attribute Annotation @ManyToOne(cascade = CascadeType.ALL) in attribute private showInfo : ShowInfo from class ticket.entity.ShowDate",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 18,
+		"endLine": 18,
+		"startColumn": 5,
+		"endColumn": 42,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@ManyToOne(cascade = CascadeType.ALL)"
+}, {
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private showInfo : ShowInfo"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 18,
+		"endLine": 18,
+		"startColumn": 18,
+		"endColumn": 28,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with removed annotation",
+		"codeElement": "private showInfoId : Long"
+}]
+},
+{
+	"type": "Remove Attribute Annotation",
+	"description": "Remove Attribute Annotation @JoinColumn(name = \"show_info_id\") in attribute private showInfo : ShowInfo from class ticket.entity.ShowDate",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 19,
+		"endLine": 19,
+		"startColumn": 5,
+		"endColumn": 37,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@JoinColumn(name = \"show_info_id\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private showInfo : ShowInfo"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowDate.java",
+		"startLine": 18,
+		"endLine": 18,
+		"startColumn": 18,
+		"endColumn": 28,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with removed annotation",
+		"codeElement": "private showInfoId : Long"
+}]
+},
+{
+	"type": "Add Parameter",
+	"description": "Add Parameter posterURI : String in method public ShowInfo(name String, classification String, description String, posterURI String) from class ticket.entity.ShowInfo",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowInfo.java",
+		"startLine": 29,
+		"endLine": 34,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public ShowInfo(name String, classification String, description String)"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowInfo.java",
+		"startLine": 32,
+		"endLine": 32,
+		"startColumn": 77,
+		"endColumn": 93,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "added parameter",
+		"codeElement": "posterURI : String"
+}, {
+		"filePath": "src/main/java/ticket/entity/ShowInfo.java",
+		"startLine": 31,
+		"endLine": 37,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added parameter",
+		"codeElement": "public ShowInfo(name String, classification String, description String, posterURI String)"
+}]
+},
+{
+	"type": "Add Attribute Annotation",
+	"description": "Add Attribute Annotation @ManyToOne in attribute private seat : Seat from class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 26,
+		"endLine": 26,
+		"startColumn": 18,
+		"endColumn": 22,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private seat : Seat"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 22,
+		"endLine": 22,
+		"startColumn": 5,
+		"endColumn": 15,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@ManyToOne"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 24,
+		"endLine": 24,
+		"startColumn": 18,
+		"endColumn": 22,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with added annotation",
+		"codeElement": "private seat : Seat"
+}]
+},
+{
+	"type": "Remove Attribute Annotation",
+	"description": "Remove Attribute Annotation @OneToOne(cascade = CascadeType.ALL) in attribute private seat : Seat from class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 24,
+		"endLine": 24,
+		"startColumn": 5,
+		"endColumn": 41,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@OneToOne(cascade = CascadeType.ALL)"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 26,
+		"endLine": 26,
+		"startColumn": 18,
+		"endColumn": 22,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private seat : Seat"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 24,
+		"endLine": 24,
+		"startColumn": 18,
+		"endColumn": 22,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with removed annotation",
+		"codeElement": "private seat : Seat"
+}]
+},
+{
+	"type": "Modify Attribute Annotation",
+	"description": "Modify Attribute Annotation @JoinColumn to @JoinColumn(name = \"seat_id\") in attribute private seat : Seat from class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 25,
+		"endLine": 25,
+		"startColumn": 5,
+		"endColumn": 16,
+		"codeElementType": "ANNOTATION",
+		"description": "original annotation",
+		"codeElement": "@JoinColumn"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 26,
+		"endLine": 26,
+		"startColumn": 18,
+		"endColumn": 22,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private seat : Seat"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 23,
+		"endLine": 23,
+		"startColumn": 5,
+		"endColumn": 34,
+		"codeElementType": "ANNOTATION",
+		"description": "modified annotation",
+		"codeElement": "@JoinColumn(name = \"seat_id\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 24,
+		"endLine": 24,
+		"startColumn": 18,
+		"endColumn": 22,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with modified annotation",
+		"codeElement": "private seat : Seat"
+}]
+},
+{
+	"type": "Change Parameter Type",
+	"description": "Change Parameter Type user : UserEntity to userId : Long in method public TicketingLog(userId Long, seat Seat, success boolean) from class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 34,
+		"endLine": 34,
+		"startColumn": 25,
+		"endColumn": 40,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "user : UserEntity"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 9,
+		"endColumn": 26,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 32,
+		"endLine": 32,
+		"startColumn": 25,
+		"endColumn": 36,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "changed-type variable declaration",
+		"codeElement": "userId : Long"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 33,
+		"endLine": 33,
+		"startColumn": 9,
+		"endColumn": 30,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the variable with changed type",
+		"codeElement": null
+}]
+},
+{
+	"type": "Rename Parameter",
+	"description": "Rename Parameter user : UserEntity to userId : Long in method public TicketingLog(userId Long, seat Seat, success boolean) from class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 34,
+		"endLine": 34,
+		"startColumn": 25,
+		"endColumn": 40,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "user : UserEntity"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 9,
+		"endColumn": 26,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 32,
+		"endLine": 32,
+		"startColumn": 25,
+		"endColumn": 36,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "renamed variable declaration",
+		"codeElement": "userId : Long"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 33,
+		"endLine": 33,
+		"startColumn": 9,
+		"endColumn": 30,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Rename Attribute",
+	"description": "Rename Attribute user : UserEntity to userId : Long in class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 22,
+		"endLine": 22,
+		"startColumn": 24,
+		"endColumn": 28,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "user : UserEntity"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 18,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "renamed attribute declaration",
+		"codeElement": "userId : Long"
+}]
+},
+{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type user : UserEntity to userId : Long in class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 22,
+		"endLine": 22,
+		"startColumn": 24,
+		"endColumn": 28,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "user : UserEntity"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 18,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "userId : Long"
+}]
+},
+{
+	"type": "Remove Attribute Annotation",
+	"description": "Remove Attribute Annotation @OneToOne(cascade = CascadeType.ALL) in attribute private user : UserEntity from class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 5,
+		"endColumn": 41,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@OneToOne(cascade = CascadeType.ALL)"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 22,
+		"endLine": 22,
+		"startColumn": 24,
+		"endColumn": 28,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private user : UserEntity"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 18,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with removed annotation",
+		"codeElement": "private userId : Long"
+}]
+},
+{
+	"type": "Remove Attribute Annotation",
+	"description": "Remove Attribute Annotation @JoinColumn in attribute private user : UserEntity from class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 21,
+		"endLine": 21,
+		"startColumn": 5,
+		"endColumn": 16,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@JoinColumn"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 22,
+		"endLine": 22,
+		"startColumn": 24,
+		"endColumn": 28,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private user : UserEntity"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 18,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with removed annotation",
+		"codeElement": "private userId : Long"
+}]
+},
+{
+	"type": "Modify Attribute Annotation",
+	"description": "Modify Attribute Annotation @ManyToOne(cascade = CascadeType.ALL) to @ManyToOne in attribute private showInfo : ShowInfo from class ticket.entity.Seat",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 18,
+		"endLine": 18,
+		"startColumn": 5,
+		"endColumn": 42,
+		"codeElementType": "ANNOTATION",
+		"description": "original annotation",
+		"codeElement": "@ManyToOne(cascade = CascadeType.ALL)"
+}, {
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private showInfo : ShowInfo"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 19,
+		"endLine": 19,
+		"startColumn": 5,
+		"endColumn": 15,
+		"codeElementType": "ANNOTATION",
+		"description": "modified annotation",
+		"codeElement": "@ManyToOne"
+}, {
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 21,
+		"endLine": 21,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with modified annotation",
+		"codeElement": "private showInfo : ShowInfo"
+}]
+},
+{
+	"type": "Rename Method",
+	"description": "Rename Method public findLotterySeatByTimeAndShowInfoId(time LocalDateTime, id Long) : List<Seat> renamed to public findLotteryTarget() : List<Seat> in class ticket.repository.SeatRepository",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 13,
+		"endLine": 14,
+		"startColumn": 5,
+		"endColumn": 80,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public findLotterySeatByTimeAndShowInfoId(time LocalDateTime, id Long) : List<Seat>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 11,
+		"endLine": 12,
+		"startColumn": 5,
+		"endColumn": 36,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "renamed method declaration",
+		"codeElement": "public findLotteryTarget() : List<Seat>"
+}]
+},
+{
+	"type": "Remove Parameter",
+	"description": "Remove Parameter time : LocalDateTime in method public findLotterySeatByTimeAndShowInfoId(time LocalDateTime, id Long) : List<Seat> from class ticket.repository.SeatRepository",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 14,
+		"endLine": 14,
+		"startColumn": 51,
+		"endColumn": 69,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "removed parameter",
+		"codeElement": "time : LocalDateTime"
+}, {
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 13,
+		"endLine": 14,
+		"startColumn": 5,
+		"endColumn": 80,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public findLotterySeatByTimeAndShowInfoId(time LocalDateTime, id Long) : List<Seat>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 11,
+		"endLine": 12,
+		"startColumn": 5,
+		"endColumn": 36,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with removed parameter",
+		"codeElement": "public findLotteryTarget() : List<Seat>"
+}]
+},
+{
+	"type": "Remove Parameter",
+	"description": "Remove Parameter id : Long in method public findLotterySeatByTimeAndShowInfoId(time LocalDateTime, id Long) : List<Seat> from class ticket.repository.SeatRepository",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 14,
+		"endLine": 14,
+		"startColumn": 71,
+		"endColumn": 78,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "removed parameter",
+		"codeElement": "id : Long"
+}, {
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 13,
+		"endLine": 14,
+		"startColumn": 5,
+		"endColumn": 80,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public findLotterySeatByTimeAndShowInfoId(time LocalDateTime, id Long) : List<Seat>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 11,
+		"endLine": 12,
+		"startColumn": 5,
+		"endColumn": 36,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with removed parameter",
+		"codeElement": "public findLotteryTarget() : List<Seat>"
+}]
+},
+{
+	"type": "Modify Method Annotation",
+	"description": "Modify Method Annotation @Query(\"SELECT s FROM Seat s WHERE show_date = ?1 AND show_info_id = ?2\") to @Query(nativeQuery = true, value = \"SELECT * FROM seat WHERE show_date between current_timestamp AND date_add(current_timestamp, interval 1 day)\") in method public findLotteryTarget() : List<Seat> from class ticket.repository.SeatRepository",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 13,
+		"endLine": 13,
+		"startColumn": 5,
+		"endColumn": 78,
+		"codeElementType": "ANNOTATION",
+		"description": "original annotation",
+		"codeElement": "@Query(\"SELECT s FROM Seat s WHERE show_date = ?1 AND show_info_id = ?2\")"
+}, {
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 13,
+		"endLine": 14,
+		"startColumn": 5,
+		"endColumn": 80,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public findLotterySeatByTimeAndShowInfoId(time LocalDateTime, id Long) : List<Seat>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 11,
+		"endLine": 11,
+		"startColumn": 5,
+		"endColumn": 151,
+		"codeElementType": "ANNOTATION",
+		"description": "modified annotation",
+		"codeElement": "@Query(nativeQuery = true, value = \"SELECT * FROM seat WHERE show_date between current_timestamp AND date_add(current_timestamp, interval 1 day)\")"
+}, {
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 11,
+		"endLine": 12,
+		"startColumn": 5,
+		"endColumn": 36,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with modified annotation",
+		"codeElement": "public findLotteryTarget() : List<Seat>"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "c3280c311c991384d1b0fa942ba9755a9f639c1b",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/c3280c311c991384d1b0fa942ba9755a9f639c1b",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "4ef85927e88543a6cf60815acd9595cd5b0a3fea",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/4ef85927e88543a6cf60815acd9595cd5b0a3fea",
+	"refactorings": [{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type current_point : int to current_point : Integer in class ticket.entity.UserDTO",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserDTO.java",
+		"startLine": 16,
+		"endLine": 16,
+		"startColumn": 17,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "current_point : int"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserDTO.java",
+		"startLine": 16,
+		"endLine": 16,
+		"startColumn": 21,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "current_point : Integer"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "e322671f182f0e0ba074683fe3f868e81f0f0420",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/e322671f182f0e0ba074683fe3f868e81f0f0420",
+	"refactorings": [{
+	"type": "Add Class Annotation",
+	"description": "Add Class Annotation @EnableScheduling in class ticket.Application",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/Application.java",
+		"startLine": 8,
+		"endLine": 18,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.Application"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/Application.java",
+		"startLine": 9,
+		"endLine": 9,
+		"startColumn": 0,
+		"endColumn": 18,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@EnableScheduling"
+}, {
+		"filePath": "src/main/java/ticket/Application.java",
+		"startLine": 9,
+		"endLine": 20,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with added annotation",
+		"codeElement": "ticket.Application"
+}]
+},
+{
+	"type": "Change Return Type",
+	"description": "Change Return Type List<TicketingLog> to List<LogResponseDto> in method public findAll() : List<LogResponseDto> from class ticket.controller.LogController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/LogController.java",
+		"startLine": 16,
+		"endLine": 16,
+		"startColumn": 12,
+		"endColumn": 30,
+		"codeElementType": "TYPE",
+		"description": "original return type",
+		"codeElement": "List<TicketingLog>"
+}, {
+		"filePath": "src/main/java/ticket/controller/LogController.java",
+		"startLine": 15,
+		"endLine": 18,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public findAll() : List<TicketingLog>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/LogController.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 12,
+		"endColumn": 32,
+		"codeElementType": "TYPE",
+		"description": "changed return type",
+		"codeElement": "List<LogResponseDto>"
+}, {
+		"filePath": "src/main/java/ticket/controller/LogController.java",
+		"startLine": 19,
+		"endLine": 22,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with changed return type",
+		"codeElement": "public findAll() : List<LogResponseDto>"
+}]
+},
+{
+	"type": "Change Return Type",
+	"description": "Change Return Type TicketingLog to LogResponseDto in method public findById(id Long) : LogResponseDto from class ticket.controller.LogController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/LogController.java",
+		"startLine": 21,
+		"endLine": 21,
+		"startColumn": 12,
+		"endColumn": 24,
+		"codeElementType": "TYPE",
+		"description": "original return type",
+		"codeElement": "TicketingLog"
+}, {
+		"filePath": "src/main/java/ticket/controller/LogController.java",
+		"startLine": 20,
+		"endLine": 23,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public findById(id Long) : TicketingLog"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/LogController.java",
+		"startLine": 25,
+		"endLine": 25,
+		"startColumn": 12,
+		"endColumn": 26,
+		"codeElementType": "TYPE",
+		"description": "changed return type",
+		"codeElement": "LogResponseDto"
+}, {
+		"filePath": "src/main/java/ticket/controller/LogController.java",
+		"startLine": 24,
+		"endLine": 27,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with changed return type",
+		"codeElement": "public findById(id Long) : LogResponseDto"
+}]
+},
+{
+	"type": "Change Return Type",
+	"description": "Change Return Type String to ResponseEntity<String> in method public save(requestDto ShowInfoSaveRequestDto) : ResponseEntity<String> from class ticket.controller.ShowAndSeatController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 12,
+		"endColumn": 18,
+		"codeElementType": "TYPE",
+		"description": "original return type",
+		"codeElement": "String"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 19,
+		"endLine": 22,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public save(requestDto ShowInfoSaveRequestDto) : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 20,
+		"endLine": 20,
+		"startColumn": 12,
+		"endColumn": 34,
+		"codeElementType": "TYPE",
+		"description": "changed return type",
+		"codeElement": "ResponseEntity<String>"
+}, {
+		"filePath": "src/main/java/ticket/controller/ShowAndSeatController.java",
+		"startLine": 19,
+		"endLine": 22,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with changed return type",
+		"codeElement": "public save(requestDto ShowInfoSaveRequestDto) : ResponseEntity<String>"
+}]
+},
+{
+	"type": "Remove Parameter",
+	"description": "Remove Parameter showId : Long in method public TicketingLogSaveRequestDto(userId Long, seatId Long, showId Long) from class ticket.dto.TicketingLogSaveRequestDto",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/TicketingLogSaveRequestDto.java",
+		"startLine": 15,
+		"endLine": 15,
+		"startColumn": 65,
+		"endColumn": 76,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "removed parameter",
+		"codeElement": "showId : Long"
+}, {
+		"filePath": "src/main/java/ticket/dto/TicketingLogSaveRequestDto.java",
+		"startLine": 14,
+		"endLine": 19,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public TicketingLogSaveRequestDto(userId Long, seatId Long, showId Long)"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/dto/TicketingLogSaveRequestDto.java",
+		"startLine": 13,
+		"endLine": 17,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with removed parameter",
+		"codeElement": "public TicketingLogSaveRequestDto(userId Long, seatId Long)"
+}]
+},
+{
+	"type": "Inline Variable",
+	"description": "Inline Variable responseDto : ShowInfoResponseDto in method public transferToResponse(showInfo ShowInfo) : ShowInfoResponseDto from class ticket.service.ShowAndSeatService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/ShowAndSeatService.java",
+		"startLine": 96,
+		"endLine": 96,
+		"startColumn": 29,
+		"endColumn": 76,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "inlined variable declaration",
+		"codeElement": "responseDto : ShowInfoResponseDto"
+}, {
+		"filePath": "src/main/java/ticket/service/ShowAndSeatService.java",
+		"startLine": 104,
+		"endLine": 104,
+		"startColumn": 9,
+		"endColumn": 28,
+		"codeElementType": "RETURN_STATEMENT",
+		"description": "statement with the name of the inlined variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/ShowAndSeatService.java",
+		"startLine": 135,
+		"endLine": 135,
+		"startColumn": 9,
+		"endColumn": 50,
+		"codeElementType": "RETURN_STATEMENT",
+		"description": "statement with the initializer of the inlined variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Inline Variable",
+	"description": "Inline Variable responseDto : SeatResponseDto in method public transferToResponse(seat Seat) : SeatResponseDto from class ticket.service.ShowAndSeatService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/ShowAndSeatService.java",
+		"startLine": 108,
+		"endLine": 108,
+		"startColumn": 25,
+		"endColumn": 64,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "inlined variable declaration",
+		"codeElement": "responseDto : SeatResponseDto"
+}, {
+		"filePath": "src/main/java/ticket/service/ShowAndSeatService.java",
+		"startLine": 114,
+		"endLine": 114,
+		"startColumn": 9,
+		"endColumn": 28,
+		"codeElementType": "RETURN_STATEMENT",
+		"description": "statement with the name of the inlined variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/ShowAndSeatService.java",
+		"startLine": 139,
+		"endLine": 139,
+		"startColumn": 9,
+		"endColumn": 42,
+		"codeElementType": "RETURN_STATEMENT",
+		"description": "statement with the initializer of the inlined variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Modify Attribute Annotation",
+	"description": "Modify Attribute Annotation @OneToMany(mappedBy = \"showInfo\", cascade = CascadeType.REMOVE) to @OneToMany(mappedBy = \"showInfo\", cascade = CascadeType.ALL, fetch = FetchType.EAGER) in attribute private seatList : List<Seat> from class ticket.entity.ShowInfo",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowInfo.java",
+		"startLine": 27,
+		"endLine": 27,
+		"startColumn": 5,
+		"endColumn": 68,
+		"codeElementType": "ANNOTATION",
+		"description": "original annotation",
+		"codeElement": "@OneToMany(mappedBy = \"showInfo\", cascade = CascadeType.REMOVE)"
+}, {
+		"filePath": "src/main/java/ticket/entity/ShowInfo.java",
+		"startLine": 28,
+		"endLine": 28,
+		"startColumn": 24,
+		"endColumn": 32,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private seatList : List<Seat>"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowInfo.java",
+		"startLine": 23,
+		"endLine": 23,
+		"startColumn": 5,
+		"endColumn": 90,
+		"codeElementType": "ANNOTATION",
+		"description": "modified annotation",
+		"codeElement": "@OneToMany(mappedBy = \"showInfo\", cascade = CascadeType.ALL, fetch = FetchType.EAGER)"
+}, {
+		"filePath": "src/main/java/ticket/entity/ShowInfo.java",
+		"startLine": 24,
+		"endLine": 24,
+		"startColumn": 24,
+		"endColumn": 32,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with modified annotation",
+		"codeElement": "private seatList : List<Seat>"
+}]
+},
+{
+	"type": "Remove Parameter",
+	"description": "Remove Parameter startDate : List<LocalDateTime> in method public ShowInfo(name String, classification String, startDate List<LocalDateTime>, description String) from class ticket.entity.ShowInfo",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowInfo.java",
+		"startLine": 34,
+		"endLine": 34,
+		"startColumn": 57,
+		"endColumn": 86,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "removed parameter",
+		"codeElement": "startDate : List<LocalDateTime>"
+}, {
+		"filePath": "src/main/java/ticket/entity/ShowInfo.java",
+		"startLine": 33,
+		"endLine": 39,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public ShowInfo(name String, classification String, startDate List<LocalDateTime>, description String)"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ShowInfo.java",
+		"startLine": 29,
+		"endLine": 34,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with removed parameter",
+		"codeElement": "public ShowInfo(name String, classification String, description String)"
+}]
+},
+{
+	"type": "Remove Class Annotation",
+	"description": "Remove Class Annotation @Repository in class ticket.repository.SeatRepository",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 9,
+		"endLine": 9,
+		"startColumn": 0,
+		"endColumn": 12,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@Repository"
+}, {
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 9,
+		"endLine": 12,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.repository.SeatRepository"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 10,
+		"endLine": 15,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with removed annotation",
+		"codeElement": "ticket.repository.SeatRepository"
+}]
+},
+{
+	"type": "Add Parameter",
+	"description": "Add Parameter showDate : LocalDateTime in method public Seat(showInfo ShowInfo, showDate LocalDateTime, grade String, price int, totalSeat int) from class ticket.entity.Seat",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 31,
+		"endLine": 37,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public Seat(showInfo ShowInfo, grade String, price int, totalSeat int)"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 36,
+		"endColumn": 58,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "added parameter",
+		"codeElement": "showDate : LocalDateTime"
+}, {
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 34,
+		"endLine": 41,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with added parameter",
+		"codeElement": "public Seat(showInfo ShowInfo, showDate LocalDateTime, grade String, price int, totalSeat int)"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "6f85c6df8803a4a759838b92a15e9ecfe4761ecf",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/6f85c6df8803a4a759838b92a15e9ecfe4761ecf",
+	"refactorings": [{
+	"type": "Change Parameter Type",
+	"description": "Change Parameter Type userId : String to userId : Long in method public getUsers(userId Long) : ResponseEntity<ResponseUser> from class ticket.controller.UserController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 50,
+		"endColumn": 87,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "userId : String"
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 36,
+		"endLine": 36,
+		"startColumn": 9,
+		"endColumn": 64,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 50,
+		"endColumn": 85,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "changed-type variable declaration",
+		"codeElement": "userId : Long"
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 36,
+		"endLine": 36,
+		"startColumn": 9,
+		"endColumn": 64,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the variable with changed type",
+		"codeElement": null
+}]
+},
+{
+	"type": "Add Class Annotation",
+	"description": "Add Class Annotation @Data in class ticket.entity.ResponseUser",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ResponseUser.java",
+		"startLine": 3,
+		"endLine": 7,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.entity.ResponseUser"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/ResponseUser.java",
+		"startLine": 5,
+		"endLine": 5,
+		"startColumn": 0,
+		"endColumn": 6,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@Data"
+}, {
+		"filePath": "src/main/java/ticket/entity/ResponseUser.java",
+		"startLine": 5,
+		"endLine": 10,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with added annotation",
+		"codeElement": "ticket.entity.ResponseUser"
+}]
+},
+{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type created_date : LocalDateTime to created_date : LocalDate in class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 28,
+		"endLine": 28,
+		"startColumn": 27,
+		"endColumn": 61,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "created_date : LocalDateTime"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 29,
+		"endLine": 29,
+		"startColumn": 23,
+		"endColumn": 53,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "created_date : LocalDate"
+}]
+},
+{
+	"type": "Change Parameter Type",
+	"description": "Change Parameter Type userId : String to userId : Long in method public getUsersByUserId(userId Long) : UserDTO from class ticket.service.UserServiceImpl",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/UserServiceImpl.java",
+		"startLine": 38,
+		"endLine": 38,
+		"startColumn": 37,
+		"endColumn": 50,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "userId : String"
+}, {
+		"filePath": "src/main/java/ticket/service/UserServiceImpl.java",
+		"startLine": 39,
+		"endLine": 39,
+		"startColumn": 9,
+		"endColumn": 69,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/UserServiceImpl.java",
+		"startLine": 38,
+		"endLine": 38,
+		"startColumn": 37,
+		"endColumn": 48,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "changed-type variable declaration",
+		"codeElement": "userId : Long"
+}, {
+		"filePath": "src/main/java/ticket/service/UserServiceImpl.java",
+		"startLine": 39,
+		"endLine": 39,
+		"startColumn": 9,
+		"endColumn": 69,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the variable with changed type",
+		"codeElement": null
+}]
+},
+{
+	"type": "Change Parameter Type",
+	"description": "Change Parameter Type userId : String to userId : Long in method public getUsersByUserId(userId Long) : UserDTO from class ticket.service.UserService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/UserService.java",
+		"startLine": 9,
+		"endLine": 9,
+		"startColumn": 30,
+		"endColumn": 43,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "userId : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/UserService.java",
+		"startLine": 9,
+		"endLine": 9,
+		"startColumn": 30,
+		"endColumn": 41,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "changed-type variable declaration",
+		"codeElement": "userId : Long"
+}]
+},
+{
+	"type": "Change Parameter Type",
+	"description": "Change Parameter Type userId : String to userId : Long in method public findByUserId(userId Long) : UserEntity from class ticket.repository.UserRepository",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/UserRepository.java",
+		"startLine": 11,
+		"endLine": 11,
+		"startColumn": 29,
+		"endColumn": 42,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "userId : String"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/UserRepository.java",
+		"startLine": 11,
+		"endLine": 11,
+		"startColumn": 29,
+		"endColumn": 40,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "changed-type variable declaration",
+		"codeElement": "userId : Long"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "e71e91c02a12238676f6da81b10385598d03ff68",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/e71e91c02a12238676f6da81b10385598d03ff68",
+	"refactorings": [{
+	"type": "Add Class Annotation",
+	"description": "Add Class Annotation @NoArgsConstructor in class ticket.entity.Seat",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 9,
+		"endLine": 36,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.entity.Seat"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 10,
+		"endLine": 10,
+		"startColumn": 0,
+		"endColumn": 19,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@NoArgsConstructor"
+}, {
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 9,
+		"endLine": 38,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with added annotation",
+		"codeElement": "ticket.entity.Seat"
+}]
+},
+{
+	"type": "Remove Class Annotation",
+	"description": "Remove Class Annotation @Table(name = \"seats\") in class ticket.entity.Seat",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 10,
+		"endLine": 10,
+		"startColumn": 0,
+		"endColumn": 21,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@Table(name = \"seats\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 9,
+		"endLine": 36,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.entity.Seat"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 9,
+		"endLine": 38,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with removed annotation",
+		"codeElement": "ticket.entity.Seat"
+}]
+},
+{
+	"type": "Change Variable Type",
+	"description": "Change Variable Type showInfo : ShowInfo to seat : Seat in method public save(logDto TicketingLogSaveRequestDto) : String from class ticket.service.LogService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 26,
+		"endLine": 26,
+		"startColumn": 18,
+		"endColumn": 140,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "original variable declaration",
+		"codeElement": "showInfo : ShowInfo"
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 26,
+		"endLine": 26,
+		"startColumn": 9,
+		"endColumn": 141,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 27,
+		"endLine": 30,
+		"startColumn": 9,
+		"endColumn": 26,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 30,
+		"endLine": 30,
+		"startColumn": 14,
+		"endColumn": 128,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "changed-type variable declaration",
+		"codeElement": "seat : Seat"
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 30,
+		"endLine": 30,
+		"startColumn": 9,
+		"endColumn": 129,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the variable with changed type",
+		"codeElement": null
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 34,
+		"endLine": 37,
+		"startColumn": 13,
+		"endColumn": 30,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the variable with changed type",
+		"codeElement": null
+}]
+},
+{
+	"type": "Rename Variable",
+	"description": "Rename Variable showInfo : ShowInfo to seat : Seat in method public save(logDto TicketingLogSaveRequestDto) : String from class ticket.service.LogService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 26,
+		"endLine": 26,
+		"startColumn": 18,
+		"endColumn": 140,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "original variable declaration",
+		"codeElement": "showInfo : ShowInfo"
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 26,
+		"endLine": 26,
+		"startColumn": 9,
+		"endColumn": 141,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 27,
+		"endLine": 30,
+		"startColumn": 9,
+		"endColumn": 26,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 30,
+		"endLine": 30,
+		"startColumn": 14,
+		"endColumn": 128,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "renamed variable declaration",
+		"codeElement": "seat : Seat"
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 30,
+		"endLine": 30,
+		"startColumn": 9,
+		"endColumn": 129,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 34,
+		"endLine": 37,
+		"startColumn": 13,
+		"endColumn": 30,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Change Return Type",
+	"description": "Change Return Type Long to String in method public save(logDto TicketingLogSaveRequestDto) : String from class ticket.service.LogService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 24,
+		"endLine": 24,
+		"startColumn": 12,
+		"endColumn": 16,
+		"codeElementType": "TYPE",
+		"description": "original return type",
+		"codeElement": "Long"
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 23,
+		"endLine": 33,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "original method declaration",
+		"codeElement": "public save(logDto TicketingLogSaveRequestDto) : Long"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 28,
+		"endLine": 28,
+		"startColumn": 12,
+		"endColumn": 18,
+		"codeElementType": "TYPE",
+		"description": "changed return type",
+		"codeElement": "String"
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 27,
+		"endLine": 43,
+		"startColumn": 5,
+		"endColumn": 6,
+		"codeElementType": "METHOD_DECLARATION",
+		"description": "method declaration with changed return type",
+		"codeElement": "public save(logDto TicketingLogSaveRequestDto) : String"
+}]
+},
+{
+	"type": "Change Type Declaration Kind",
+	"description": "Change Type Declaration Kind class to interface in type ticket.repository.SeatRepository",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 10,
+		"endLine": 28,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.repository.SeatRepository"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 9,
+		"endLine": 12,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with changed type declaration kind",
+		"codeElement": "ticket.repository.SeatRepository"
+}]
+},
+{
+	"type": "Change Parameter Type",
+	"description": "Change Parameter Type showInfo : ShowInfo to seat : Seat in method public TicketingLog(user UserEntity, seat Seat, success boolean) from class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 42,
+		"endColumn": 59,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "showInfo : ShowInfo"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 37,
+		"endLine": 37,
+		"startColumn": 9,
+		"endColumn": 34,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 34,
+		"endLine": 34,
+		"startColumn": 42,
+		"endColumn": 51,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "changed-type variable declaration",
+		"codeElement": "seat : Seat"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 36,
+		"endLine": 36,
+		"startColumn": 9,
+		"endColumn": 26,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the variable with changed type",
+		"codeElement": null
+}]
+},
+{
+	"type": "Rename Parameter",
+	"description": "Rename Parameter showInfo : ShowInfo to seat : Seat in method public TicketingLog(user UserEntity, seat Seat, success boolean) from class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 42,
+		"endColumn": 59,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "showInfo : ShowInfo"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 37,
+		"endLine": 37,
+		"startColumn": 9,
+		"endColumn": 34,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 34,
+		"endLine": 34,
+		"startColumn": 42,
+		"endColumn": 51,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "renamed variable declaration",
+		"codeElement": "seat : Seat"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 36,
+		"endLine": 36,
+		"startColumn": 9,
+		"endColumn": 26,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Modify Attribute Annotation",
+	"description": "Modify Attribute Annotation @JoinColumn to @JoinColumn(name = \"show_info_id\") in attribute private showInfo : ShowInfo from class ticket.entity.Seat",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 26,
+		"endLine": 26,
+		"startColumn": 5,
+		"endColumn": 16,
+		"codeElementType": "ANNOTATION",
+		"description": "original annotation",
+		"codeElement": "@JoinColumn"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 27,
+		"endLine": 27,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private showInfo : ShowInfo"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 18,
+		"endLine": 18,
+		"startColumn": 5,
+		"endColumn": 37,
+		"codeElementType": "ANNOTATION",
+		"description": "modified annotation",
+		"codeElement": "@JoinColumn(name = \"show_info_id\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 19,
+		"endLine": 19,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with modified annotation",
+		"codeElement": "private showInfo : ShowInfo"
+}]
+},
+{
+	"type": "Add Attribute Modifier",
+	"description": "Add Attribute Modifier final in attribute private seatRepository : SeatRepository from class ticket.service.LogService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/SeatService.java",
+		"startLine": 14,
+		"endLine": 14,
+		"startColumn": 28,
+		"endColumn": 42,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private seatRepository : SeatRepository"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 24,
+		"endLine": 24,
+		"startColumn": 34,
+		"endColumn": 48,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with added modifier",
+		"codeElement": "private seatRepository : SeatRepository"
+}]
+},
+{
+	"type": "Remove Attribute Annotation",
+	"description": "Remove Attribute Annotation @Autowired in attribute private seatRepository : SeatRepository from class ticket.service.SeatService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/SeatService.java",
+		"startLine": 13,
+		"endLine": 13,
+		"startColumn": 5,
+		"endColumn": 15,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@Autowired"
+}, {
+		"filePath": "src/main/java/ticket/service/SeatService.java",
+		"startLine": 14,
+		"endLine": 14,
+		"startColumn": 28,
+		"endColumn": 42,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private seatRepository : SeatRepository"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 24,
+		"endLine": 24,
+		"startColumn": 34,
+		"endColumn": 48,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with removed annotation",
+		"codeElement": "private seatRepository : SeatRepository"
+}]
+},
+{
+	"type": "Move Attribute",
+	"description": "Move Attribute private showInfo : ShowInfo from class ticket.entity.TicketingLog to private showInfo : ShowInfo from class ticket.entity.Seat",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 27,
+		"endLine": 27,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private showInfo : ShowInfo"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 19,
+		"endLine": 19,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "moved attribute declaration",
+		"codeElement": "private showInfo : ShowInfo"
+}]
+},
+{
+	"type": "Move Attribute",
+	"description": "Move Attribute private seatRepository : SeatRepository from class ticket.service.SeatService to private seatRepository : SeatRepository from class ticket.service.LogService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/SeatService.java",
+		"startLine": 14,
+		"endLine": 14,
+		"startColumn": 28,
+		"endColumn": 42,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private seatRepository : SeatRepository"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 24,
+		"endLine": 24,
+		"startColumn": 34,
+		"endColumn": 48,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "moved attribute declaration",
+		"codeElement": "private seatRepository : SeatRepository"
+}]
+},
+{
+	"type": "Add Attribute Annotation",
+	"description": "Add Attribute Annotation @ManyToOne(cascade = CascadeType.ALL) in attribute private showInfo : ShowInfo from class ticket.entity.Seat",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 27,
+		"endLine": 27,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private showInfo : ShowInfo"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 17,
+		"endLine": 17,
+		"startColumn": 5,
+		"endColumn": 42,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@ManyToOne(cascade = CascadeType.ALL)"
+}, {
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 19,
+		"endLine": 19,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with added annotation",
+		"codeElement": "private showInfo : ShowInfo"
+}]
+},
+{
+	"type": "Remove Attribute Annotation",
+	"description": "Remove Attribute Annotation @OneToOne(cascade = CascadeType.ALL) in attribute private showInfo : ShowInfo from class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 25,
+		"endLine": 25,
+		"startColumn": 5,
+		"endColumn": 41,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@OneToOne(cascade = CascadeType.ALL)"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 27,
+		"endLine": 27,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private showInfo : ShowInfo"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 19,
+		"endLine": 19,
+		"startColumn": 22,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with removed annotation",
+		"codeElement": "private showInfo : ShowInfo"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "bc41ded6c91bc4f6dab0315ee9ed25bc2fba996a",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/bc41ded6c91bc4f6dab0315ee9ed25bc2fba996a",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "90e1b0415a63ea5b064658b5592720fcedab638b",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/90e1b0415a63ea5b064658b5592720fcedab638b",
+	"refactorings": [{
+	"type": "Add Class Annotation",
+	"description": "Add Class Annotation @RestController in class ticket.controller.UserController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 11,
+		"endLine": 23,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.controller.UserController"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 18,
+		"endLine": 18,
+		"startColumn": 0,
+		"endColumn": 16,
+		"codeElementType": "ANNOTATION",
+		"description": "added annotation",
+		"codeElement": "@RestController"
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 18,
+		"endLine": 62,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with added annotation",
+		"codeElement": "ticket.controller.UserController"
+}]
+},
+{
+	"type": "Remove Class Annotation",
+	"description": "Remove Class Annotation @Controller in class ticket.controller.UserController",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 11,
+		"endLine": 11,
+		"startColumn": 0,
+		"endColumn": 12,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@Controller"
+}, {
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 11,
+		"endLine": 23,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.controller.UserController"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/controller/UserController.java",
+		"startLine": 18,
+		"endLine": 62,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with removed annotation",
+		"codeElement": "ticket.controller.UserController"
+}]
+},
+{
+	"type": "Modify Attribute Annotation",
+	"description": "Modify Attribute Annotation @Column(nullable = false) to @Column(nullable = false, columnDefinition = \"integer default 0\") in attribute private current_point : int from class ticket.entity.UserEntity",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 27,
+		"endLine": 27,
+		"startColumn": 5,
+		"endColumn": 30,
+		"codeElementType": "ANNOTATION",
+		"description": "original annotation",
+		"codeElement": "@Column(nullable = false)"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 28,
+		"endLine": 28,
+		"startColumn": 17,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "private current_point : int"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 30,
+		"endLine": 30,
+		"startColumn": 5,
+		"endColumn": 70,
+		"codeElementType": "ANNOTATION",
+		"description": "modified annotation",
+		"codeElement": "@Column(nullable = false, columnDefinition = \"integer default 0\")"
+}, {
+		"filePath": "src/main/java/ticket/entity/UserEntity.java",
+		"startLine": 31,
+		"endLine": 31,
+		"startColumn": 17,
+		"endColumn": 30,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "attribute declaration with modified annotation",
+		"codeElement": "private current_point : int"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "30f10574c578ccde597d4c1feb5ff96b0fd60fea",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/30f10574c578ccde597d4c1feb5ff96b0fd60fea",
+	"refactorings": [{
+	"type": "Move Class",
+	"description": "Move Class ticket.seat.Seat moved to ticket.entity.Seat",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/seat/Seat.java",
+		"startLine": 9,
+		"endLine": 37,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original type declaration",
+		"codeElement": "ticket.seat.Seat"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 9,
+		"endLine": 36,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "moved type declaration",
+		"codeElement": "ticket.entity.Seat"
+}]
+},
+{
+	"type": "Move Class",
+	"description": "Move Class ticket.seat.SeatRepository moved to ticket.repository.SeatRepository",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/seat/SeatRepository.java",
+		"startLine": 9,
+		"endLine": 27,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original type declaration",
+		"codeElement": "ticket.seat.SeatRepository"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 10,
+		"endLine": 28,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "moved type declaration",
+		"codeElement": "ticket.repository.SeatRepository"
+}]
+},
+{
+	"type": "Move Class",
+	"description": "Move Class ticket.seat.SeatService moved to ticket.service.SeatService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/seat/SeatService.java",
+		"startLine": 9,
+		"endLine": 34,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original type declaration",
+		"codeElement": "ticket.seat.SeatService"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/SeatService.java",
+		"startLine": 10,
+		"endLine": 35,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "moved type declaration",
+		"codeElement": "ticket.service.SeatService"
+}]
+},
+{
+	"type": "Move Class",
+	"description": "Move Class ticket.ticketing.TicketingLog moved to ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/ticketing/TicketingLog.java",
+		"startLine": 11,
+		"endLine": 44,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original type declaration",
+		"codeElement": "ticket.ticketing.TicketingLog"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 12,
+		"endLine": 45,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "moved type declaration",
+		"codeElement": "ticket.entity.TicketingLog"
+}]
+},
+{
+	"type": "Move Class",
+	"description": "Move Class ticket.ticketing.TicketingLogRepository moved to ticket.repository.TicketingLogRepository",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/ticketing/TicketingLogRepository.java",
+		"startLine": 8,
+		"endLine": 16,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original type declaration",
+		"codeElement": "ticket.ticketing.TicketingLogRepository"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/repository/TicketingLogRepository.java",
+		"startLine": 9,
+		"endLine": 13,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "moved type declaration",
+		"codeElement": "ticket.repository.TicketingLogRepository"
+}]
+},
+{
+	"type": "Split Package",
+	"description": "Split Package ticket.seat to [ticket.entity, ticket.repository, ticket.service]",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/seat/Seat.java",
+		"startLine": 9,
+		"endLine": 37,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original type declaration",
+		"codeElement": "ticket.seat.Seat"
+}, {
+		"filePath": "src/main/java/ticket/seat/SeatRepository.java",
+		"startLine": 9,
+		"endLine": 27,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original type declaration",
+		"codeElement": "ticket.seat.SeatRepository"
+}, {
+		"filePath": "src/main/java/ticket/seat/SeatService.java",
+		"startLine": 9,
+		"endLine": 34,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original type declaration",
+		"codeElement": "ticket.seat.SeatService"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 9,
+		"endLine": 36,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "moved type declaration",
+		"codeElement": "ticket.entity.Seat"
+}, {
+		"filePath": "src/main/java/ticket/repository/SeatRepository.java",
+		"startLine": 10,
+		"endLine": 28,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "moved type declaration",
+		"codeElement": "ticket.repository.SeatRepository"
+}, {
+		"filePath": "src/main/java/ticket/service/SeatService.java",
+		"startLine": 10,
+		"endLine": 35,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "moved type declaration",
+		"codeElement": "ticket.service.SeatService"
+}]
+},
+{
+	"type": "Change Variable Type",
+	"description": "Change Variable Type member : Member to user : UserEntity in method public save(logDto TicketingLogSaveRequestDto) : Long from class ticket.service.LogService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 21,
+		"endLine": 21,
+		"startColumn": 16,
+		"endColumn": 138,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "original variable declaration",
+		"codeElement": "member : Member"
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 21,
+		"endLine": 21,
+		"startColumn": 9,
+		"endColumn": 139,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 23,
+		"endLine": 26,
+		"startColumn": 9,
+		"endColumn": 26,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 25,
+		"endLine": 25,
+		"startColumn": 20,
+		"endColumn": 134,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "changed-type variable declaration",
+		"codeElement": "user : UserEntity"
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 25,
+		"endLine": 25,
+		"startColumn": 9,
+		"endColumn": 135,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the variable with changed type",
+		"codeElement": null
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 27,
+		"endLine": 30,
+		"startColumn": 9,
+		"endColumn": 26,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the variable with changed type",
+		"codeElement": null
+}]
+},
+{
+	"type": "Rename Variable",
+	"description": "Rename Variable member : Member to user : UserEntity in method public save(logDto TicketingLogSaveRequestDto) : Long from class ticket.service.LogService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 21,
+		"endLine": 21,
+		"startColumn": 16,
+		"endColumn": 138,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "original variable declaration",
+		"codeElement": "member : Member"
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 21,
+		"endLine": 21,
+		"startColumn": 9,
+		"endColumn": 139,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 23,
+		"endLine": 26,
+		"startColumn": 9,
+		"endColumn": 26,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 25,
+		"endLine": 25,
+		"startColumn": 20,
+		"endColumn": 134,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "renamed variable declaration",
+		"codeElement": "user : UserEntity"
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 25,
+		"endLine": 25,
+		"startColumn": 9,
+		"endColumn": 135,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}, {
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 27,
+		"endLine": 30,
+		"startColumn": 9,
+		"endColumn": 26,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Rename Attribute",
+	"description": "Rename Attribute memberRepository : MemberRepository to userRepository : UserRepository in class ticket.service.LogService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 15,
+		"endLine": 15,
+		"startColumn": 36,
+		"endColumn": 52,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "memberRepository : MemberRepository"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 19,
+		"endLine": 19,
+		"startColumn": 34,
+		"endColumn": 48,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "renamed attribute declaration",
+		"codeElement": "userRepository : UserRepository"
+}]
+},
+{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type memberRepository : MemberRepository to userRepository : UserRepository in class ticket.service.LogService",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 15,
+		"endLine": 15,
+		"startColumn": 36,
+		"endColumn": 52,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "memberRepository : MemberRepository"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/service/LogService.java",
+		"startLine": 19,
+		"endLine": 19,
+		"startColumn": 34,
+		"endColumn": 48,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "userRepository : UserRepository"
+}]
+},
+{
+	"type": "Change Variable Type",
+	"description": "Change Variable Type m : Member to u : UserEntity in method public createLog() : void from class ticket.ticketing.TicketingLogTest",
+	"leftSideLocations": [{
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 37,
+		"endLine": 37,
+		"startColumn": 16,
+		"endColumn": 57,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "original variable declaration",
+		"codeElement": "m : Member"
+}, {
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 42,
+		"endLine": 42,
+		"startColumn": 9,
+		"endColumn": 34,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}, {
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 51,
+		"endLine": 51,
+		"startColumn": 9,
+		"endColumn": 81,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 41,
+		"endLine": 41,
+		"startColumn": 20,
+		"endColumn": 40,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "changed-type variable declaration",
+		"codeElement": "u : UserEntity"
+}, {
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 48,
+		"endLine": 48,
+		"startColumn": 9,
+		"endColumn": 32,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the variable with changed type",
+		"codeElement": null
+}, {
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 57,
+		"endLine": 57,
+		"startColumn": 9,
+		"endColumn": 79,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the variable with changed type",
+		"codeElement": null
+}]
+},
+{
+	"type": "Change Variable Type",
+	"description": "Change Variable Type check : List<Member> to check : List<UserEntity> in method public createLog() : void from class ticket.ticketing.TicketingLogTest",
+	"leftSideLocations": [{
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 41,
+		"endLine": 41,
+		"startColumn": 22,
+		"endColumn": 56,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "original variable declaration",
+		"codeElement": "check : List<Member>"
+}, {
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 43,
+		"endLine": 43,
+		"startColumn": 9,
+		"endColumn": 44,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 47,
+		"endLine": 47,
+		"startColumn": 26,
+		"endColumn": 58,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "changed-type variable declaration",
+		"codeElement": "check : List<UserEntity>"
+}, {
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 49,
+		"endLine": 49,
+		"startColumn": 9,
+		"endColumn": 42,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the variable with changed type",
+		"codeElement": null
+}]
+},
+{
+	"type": "Rename Variable",
+	"description": "Rename Variable m : Member to u : UserEntity in method public createLog() : void from class ticket.ticketing.TicketingLogTest",
+	"leftSideLocations": [{
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 37,
+		"endLine": 37,
+		"startColumn": 16,
+		"endColumn": 57,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "original variable declaration",
+		"codeElement": "m : Member"
+}, {
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 42,
+		"endLine": 42,
+		"startColumn": 9,
+		"endColumn": 34,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}, {
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 51,
+		"endLine": 51,
+		"startColumn": 9,
+		"endColumn": 81,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 41,
+		"endLine": 41,
+		"startColumn": 20,
+		"endColumn": 40,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "renamed variable declaration",
+		"codeElement": "u : UserEntity"
+}, {
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 48,
+		"endLine": 48,
+		"startColumn": 9,
+		"endColumn": 32,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}, {
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 57,
+		"endLine": 57,
+		"startColumn": 9,
+		"endColumn": 79,
+		"codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Rename Attribute",
+	"description": "Rename Attribute memberRepository : MemberRepository to userRepository : UserRepository in class ticket.ticketing.TicketingLogTest",
+	"leftSideLocations": [{
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 22,
+		"endLine": 22,
+		"startColumn": 22,
+		"endColumn": 38,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "memberRepository : MemberRepository"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 26,
+		"endLine": 26,
+		"startColumn": 20,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "renamed attribute declaration",
+		"codeElement": "userRepository : UserRepository"
+}]
+},
+{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type memberRepository : MemberRepository to userRepository : UserRepository in class ticket.ticketing.TicketingLogTest",
+	"leftSideLocations": [{
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 22,
+		"endLine": 22,
+		"startColumn": 22,
+		"endColumn": 38,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "memberRepository : MemberRepository"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/test/java/ticket/ticketing/TicketingLogTest.java",
+		"startLine": 26,
+		"endLine": 26,
+		"startColumn": 20,
+		"endColumn": 34,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "userRepository : UserRepository"
+}]
+},
+{
+	"type": "Rename Parameter",
+	"description": "Rename Parameter memberId : Long to userId : Long in method public TicketingLogSaveRequestDto(userId Long, showId Long) from class ticket.ticketing.dto.TicketingLogSaveRequestDto",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/ticketing/dto/TicketingLogSaveRequestDto.java",
+		"startLine": 14,
+		"endLine": 14,
+		"startColumn": 39,
+		"endColumn": 52,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "memberId : Long"
+}, {
+		"filePath": "src/main/java/ticket/ticketing/dto/TicketingLogSaveRequestDto.java",
+		"startLine": 15,
+		"endLine": 15,
+		"startColumn": 9,
+		"endColumn": 34,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/ticketing/dto/TicketingLogSaveRequestDto.java",
+		"startLine": 14,
+		"endLine": 14,
+		"startColumn": 39,
+		"endColumn": 50,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "renamed variable declaration",
+		"codeElement": "userId : Long"
+}, {
+		"filePath": "src/main/java/ticket/ticketing/dto/TicketingLogSaveRequestDto.java",
+		"startLine": 15,
+		"endLine": 15,
+		"startColumn": 9,
+		"endColumn": 30,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Rename Attribute",
+	"description": "Rename Attribute memberId : Long to userId : Long in class ticket.ticketing.dto.TicketingLogSaveRequestDto",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/ticketing/dto/TicketingLogSaveRequestDto.java",
+		"startLine": 10,
+		"endLine": 10,
+		"startColumn": 18,
+		"endColumn": 26,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "memberId : Long"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/ticketing/dto/TicketingLogSaveRequestDto.java",
+		"startLine": 10,
+		"endLine": 10,
+		"startColumn": 18,
+		"endColumn": 24,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "renamed attribute declaration",
+		"codeElement": "userId : Long"
+}]
+},
+{
+	"type": "Remove Class Annotation",
+	"description": "Remove Class Annotation @Setter in class ticket.seat.Seat",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/seat/Seat.java",
+		"startLine": 12,
+		"endLine": 12,
+		"startColumn": 0,
+		"endColumn": 8,
+		"codeElementType": "ANNOTATION",
+		"description": "removed annotation",
+		"codeElement": "@Setter"
+}, {
+		"filePath": "src/main/java/ticket/seat/Seat.java",
+		"startLine": 9,
+		"endLine": 37,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "original class declaration",
+		"codeElement": "ticket.seat.Seat"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/Seat.java",
+		"startLine": 9,
+		"endLine": 36,
+		"startColumn": 0,
+		"endColumn": 2,
+		"codeElementType": "TYPE_DECLARATION",
+		"description": "class declaration with removed annotation",
+		"codeElement": "ticket.entity.Seat"
+}]
+},
+{
+	"type": "Change Parameter Type",
+	"description": "Change Parameter Type member : Member to user : UserEntity in method public TicketingLog(user UserEntity, showInfo ShowInfo, success boolean) from class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/ticketing/TicketingLog.java",
+		"startLine": 34,
+		"endLine": 34,
+		"startColumn": 25,
+		"endColumn": 38,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "member : Member"
+}, {
+		"filePath": "src/main/java/ticket/ticketing/TicketingLog.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 9,
+		"endColumn": 30,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 25,
+		"endColumn": 40,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "changed-type variable declaration",
+		"codeElement": "user : UserEntity"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 36,
+		"endLine": 36,
+		"startColumn": 9,
+		"endColumn": 26,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the variable with changed type",
+		"codeElement": null
+}]
+},
+{
+	"type": "Rename Parameter",
+	"description": "Rename Parameter member : Member to user : UserEntity in method public TicketingLog(user UserEntity, showInfo ShowInfo, success boolean) from class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/ticketing/TicketingLog.java",
+		"startLine": 34,
+		"endLine": 34,
+		"startColumn": 25,
+		"endColumn": 38,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "original variable declaration",
+		"codeElement": "member : Member"
+}, {
+		"filePath": "src/main/java/ticket/ticketing/TicketingLog.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 9,
+		"endColumn": 30,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the original variable",
+		"codeElement": null
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 35,
+		"endLine": 35,
+		"startColumn": 25,
+		"endColumn": 40,
+		"codeElementType": "SINGLE_VARIABLE_DECLARATION",
+		"description": "renamed variable declaration",
+		"codeElement": "user : UserEntity"
+}, {
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 36,
+		"endLine": 36,
+		"startColumn": 9,
+		"endColumn": 26,
+		"codeElementType": "EXPRESSION_STATEMENT",
+		"description": "statement referencing the renamed variable",
+		"codeElement": null
+}]
+},
+{
+	"type": "Rename Attribute",
+	"description": "Rename Attribute member : Member to user : UserEntity in class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/ticketing/TicketingLog.java",
+		"startLine": 22,
+		"endLine": 22,
+		"startColumn": 20,
+		"endColumn": 26,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "member : Member"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 23,
+		"endLine": 23,
+		"startColumn": 24,
+		"endColumn": 28,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "renamed attribute declaration",
+		"codeElement": "user : UserEntity"
+}]
+},
+{
+	"type": "Change Attribute Type",
+	"description": "Change Attribute Type member : Member to user : UserEntity in class ticket.entity.TicketingLog",
+	"leftSideLocations": [{
+		"filePath": "src/main/java/ticket/ticketing/TicketingLog.java",
+		"startLine": 22,
+		"endLine": 22,
+		"startColumn": 20,
+		"endColumn": 26,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "original attribute declaration",
+		"codeElement": "member : Member"
+}],
+	"rightSideLocations": [{
+		"filePath": "src/main/java/ticket/entity/TicketingLog.java",
+		"startLine": 23,
+		"endLine": 23,
+		"startColumn": 24,
+		"endColumn": 28,
+		"codeElementType": "FIELD_DECLARATION",
+		"description": "changed-type attribute declaration",
+		"codeElement": "user : UserEntity"
+}]
+}
+]
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "0b262215f2fdb58348d8c1baf5193f75527d033d",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/0b262215f2fdb58348d8c1baf5193f75527d033d",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "9635349bd91ebff1f072353cbf5f7f9bd123f899",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/9635349bd91ebff1f072353cbf5f7f9bd123f899",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "aef9c0db29b99440544d4ac1ca32e1e226142c33",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/aef9c0db29b99440544d4ac1ca32e1e226142c33",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "29b363b7216cc7e3514e29c3df4718913101bb9a",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/29b363b7216cc7e3514e29c3df4718913101bb9a",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "1a9fb87d532babc260fcef9b8dcd9d5b8ee01680",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/1a9fb87d532babc260fcef9b8dcd9d5b8ee01680",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "49b0aa90cd3a36b4aee4f2a04d9ff0408b652394",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/49b0aa90cd3a36b4aee4f2a04d9ff0408b652394",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "8256a0a083cb6b67dda482fcf048000c3cf77b0a",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/8256a0a083cb6b67dda482fcf048000c3cf77b0a",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "4b19c854edf6e2ac31955a4cab0eb2b7c93d01d5",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/4b19c854edf6e2ac31955a4cab0eb2b7c93d01d5",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "f001f03ba71541d4ae4aea6c78c93baf3531aa5d",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/f001f03ba71541d4ae4aea6c78c93baf3531aa5d",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "d9c1f05e5f60133deb17bad103f8121b8e7e8ea2",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/d9c1f05e5f60133deb17bad103f8121b8e7e8ea2",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "3ac17ef59e5138e99628a3b150463a15b4a3e965",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/3ac17ef59e5138e99628a3b150463a15b4a3e965",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "80d4352ab73a1cbdb1b8c4eacbb645803033f835",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/80d4352ab73a1cbdb1b8c4eacbb645803033f835",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "c3fab2dc0ae0273aa9df591849543f72e0ce548d",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/c3fab2dc0ae0273aa9df591849543f72e0ce548d",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "892aa240af2d1979b166622d566b02d5c4e49e22",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/892aa240af2d1979b166622d566b02d5c4e49e22",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "b836ef2d3c879523b6220adfbea6c0d58681e677",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/b836ef2d3c879523b6220adfbea6c0d58681e677",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "f3d837c3dcd62cdbfe7d036e40444509cbf62887",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/f3d837c3dcd62cdbfe7d036e40444509cbf62887",
+	"refactorings": []
+},
+{
+	"repository": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication.git",
+	"sha1": "84fc1969251f885080ed180d1d58a3b46ecfa6d1",
+	"url": "https://github.com/SeSac-Cloud-Backend-4/TicketingWebApplication/commit/84fc1969251f885080ed180d1d58a3b46ecfa6d1",
+	"refactorings": []
+}]
+}

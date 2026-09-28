@@ -1,0 +1,63 @@
+{
+  "generated": "2026-09-28",
+  "gnn_checkpoint_used": "models/gnn_pretrained.pt",
+  "repos": {
+    "ErikHage/MicroBreweryModel": {
+      "raw_refactorings": 248,
+      "commits_mined": 38,
+      "stage_a_survived_taxonomy_filter": 86,
+      "stage_b_matched": 83,
+      "skipped": {"no_node_match": 3}
+    },
+    "4pxzhou/FEBS-Cloud": {
+      "raw_refactorings": 1063,
+      "commits_mined": 132,
+      "stage_a_survived_taxonomy_filter": 530,
+      "stage_b_matched": 514,
+      "skipped": {"no_node_match": 16}
+    },
+    "SeSac-Cloud-Backend-4/TicketingWebApplication": {
+      "raw_refactorings": 143,
+      "commits_mined": 53,
+      "stage_a_survived_taxonomy_filter": 57,
+      "stage_b_matched": 55,
+      "skipped": {"no_node_match": 2}
+    },
+    "VincenzoArceri/lisa": {
+      "raw_refactorings": 9966,
+      "commits_mined": 881,
+      "stage_a_survived_taxonomy_filter": 3222,
+      "stage_b_matched": 3079,
+      "skipped": {"no_node_match": 143}
+    },
+    "1273091433/jeesite": {
+      "note": "Unmineable - GitHub confirms this repo has only 1 commit (single snapshot upload), no diffable history."
+    },
+    "X-shuffle/axbushu (formerly 1725762388/axbushu)": {
+      "note": "Unmineable - GitHub confirms this repo has only 1 commit (single snapshot upload), no diffable history."
+    }
+  },
+  "totals": {
+    "raw_refactorings_mined": 11420,
+    "stage_a_survived": 3895,
+    "stage_b_matched": 3731,
+    "labeled_dataset_size": 3731
+  },
+  "per_class_distribution": {
+    "extract_method": 231,
+    "move_class": 577,
+    "rename_variable": 542,
+    "consolidate_duplicate_code": 96,
+    "remove_dead_code": 1059,
+    "simplify_condition": 27,
+    "split_class": 95,
+    "extract_interface": 8,
+    "reduce_coupling": 839,
+    "improve_naming": 257
+  },
+  "notes": [
+    "Grew from the original 58-example/7-class dataset (single repo) to 3731 examples across 10/10 classes and 4 repos.",
+    "extract_interface (8 examples) and simplify_condition (27 examples) remain thin - treat predictions for these classes with caution until more data is mined.",
+    "Two real bugs were found and fixed while scaling this: (1) build_refactoring_dataset.py opened mined JSON without UTF-8 encoding, crashing on non-ASCII content (FEBS-Cloud); (2) _git_checkout treated any non-zero exit from `git checkout --force` as failure, but on Windows this routinely happens for a handful of long-named (>260 char) test-fixture files even when the working tree otherwise switched correctly - fixed by verifying HEAD actually moved to the target commit instead of trusting the exit code. This alone recovered ~1500 additional matched examples from lisa."
+  ]
+}
