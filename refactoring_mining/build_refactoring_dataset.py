@@ -27,7 +27,6 @@ Usage:
 
 import argparse
 import json
-import subprocess
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -41,32 +40,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from src.gnn.gnn_model import DependencyHypergraphEncoder, HypergraphGNN, convert_cpg_to_geometric_data
 from src.gnn.refactoring_types import map_rm_type_to_id
 from src.cpg.cpg_builder import CodeNode, CodePropertyGraph
+from refactoring_mining.git_utils import run as _run, git_parent_sha as _git_parent_sha, \
+    git_checkout as _git_checkout, git_current_ref as _git_current_ref
 
 NODE_TYPE_TO_ID = {
     "class": 0, "method": 1, "function": 2, "field": 3,
     "variable": 4, "statement": 5, "call": 6, "definition": 7
 }
 _PREFERRED_ELEMENT_TYPES = ("METHOD_DECLARATION", "TYPE_DECLARATION")
-
-
-def _run(cmd, cwd):
-    return subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
-
-
-def _git_parent_sha(repo_path: Path, sha1: str) -> Optional[str]:
-    result = _run(["git", "rev-parse", f"{sha1}^"], repo_path)
-    return result.stdout.strip() if result.returncode == 0 else None
-
-
-def _git_checkout(repo_path: Path, sha1: str) -> bool:
-    """git checkout exits non-zero if it fails to write ANY file - on Windows this
-    routinely happens for a handful of long-named test-fixture files (>260 char
-    paths) even when the working tree otherwise switched correctly. Since we only
-    ever read .java files afterward, treat the checkout as usable whenever HEAD
-    actually moved to the target commit, rather than trusting the exit code."""
-    _run(["git", "checkout", "--force", sha1], repo_path)
-    head = _run(["git", "rev-parse", "HEAD"], repo_path)
-    return head.stdout.strip() == sha1
 
 
 def _candidate_locations(refactoring: dict) -> List[dict]:
@@ -207,8 +188,7 @@ def build_dataset(mined_json_path: Path, repo_path: Path, language: str = "java"
     node_encoder.eval()
     gnn_model.eval()
 
-    original_branch_result = _run(["git", "rev-parse", "--abbrev-ref", "HEAD"], repo_path)
-    original_ref = original_branch_result.stdout.strip() or "HEAD"
+    original_ref = _git_current_ref(repo_path)
 
     embeddings, labels, matched, fallback_matches = [], [], 0, 0
 
