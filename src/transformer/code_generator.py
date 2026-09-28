@@ -48,7 +48,7 @@ class CodeTransformer(nn.Module):
         self.max_seq_length = max_seq_length
         
         logger.info(f"Loading pre-trained model: {model_name}")
-        
+
         # Load pre-trained encoder
         try:
             self.encoder = AutoModel.from_pretrained(model_name)
@@ -57,7 +57,17 @@ class CodeTransformer(nn.Module):
             logger.warning(f"Could not load {model_name}: {e}. Using default implementation.")
             self.encoder = None
             self.tokenizer = None
-        
+
+        # The decoder's vocabulary MUST match the tokenizer's real vocabulary - a
+        # constructor default (50000) that doesn't match CodeBERT's actual
+        # tokenizer (50265, with different special-token ids) means predicted
+        # token ids get decoded against the wrong vocabulary, producing
+        # incoherent subword garbage regardless of training. Prefer the real
+        # tokenizer's size whenever one loaded successfully.
+        if self.tokenizer is not None:
+            vocab_size = len(self.tokenizer)
+        self.vocab_size = vocab_size
+
         # Decoder for generation
         self.decoder = TransformerDecoder(
             hidden_size=hidden_size,
@@ -178,10 +188,22 @@ class CodeTransformer(nn.Module):
                     gnn_embeddings = self.gnn_projection(gnn_embeddings)
                 encoder_output = gnn_embeddings.unsqueeze(1)
             
-            # Decode greedily
+            # Decode greedily. Use the real tokenizer's special-token ids when
+            # available - hardcoded ids here would not match CodeBERT's actual
+            # BOS/EOS (its vocabulary and special-token layout differ from the
+            # generic constants 2/3 this used to assume).
+            if self.tokenizer is not None and self.tokenizer.bos_token_id is not None:
+                bos_id = self.tokenizer.bos_token_id
+            else:
+                bos_id = 2
+            if self.tokenizer is not None and self.tokenizer.eos_token_id is not None:
+                eos_id = self.tokenizer.eos_token_id
+            else:
+                eos_id = 3
+
             generated_ids = []
-            current_token = torch.tensor([[2]])  # BOS token
-            
+            current_token = torch.tensor([[bos_id]])
+
             for _ in range(max_length):
                 # Simple generation (can be enhanced with beam search)
                 logits = self.decoder.predict_next_token(
@@ -190,13 +212,13 @@ class CodeTransformer(nn.Module):
                     current_tokens=current_token,
                     refactoring_type=refactoring_type
                 )
-                
+
                 next_token = torch.argmax(logits, dim=-1)
                 generated_ids.append(next_token.item())
-                
-                if next_token.item() == 3:  # EOS token
+
+                if next_token.item() == eos_id:
                     break
-                
+
                 current_token = next_token
         
         # Decode to text
