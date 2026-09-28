@@ -1,0 +1,83 @@
+{
+  "dataset": "refactoring_mining\\labeled_dataset.pt",
+  "num_examples": 3731,
+  "train_size": 2612,
+  "val_size": 560,
+  "test_size": 559,
+  "test_accuracy": 0.5080500841140747,
+  "test_classification_report": {
+    "per_class": {
+      "extract_method": {
+        "precision": 0.4166666666666667,
+        "recall": 0.12195121951219512,
+        "f1": 0.18867924528301888,
+        "support": 41
+      },
+      "move_class": {
+        "precision": 0.5411764705882353,
+        "recall": 0.989247311827957,
+        "f1": 0.6996197718631179,
+        "support": 93
+      },
+      "rename_variable": {
+        "precision": 0.6022727272727273,
+        "recall": 0.6973684210526315,
+        "f1": 0.6463414634146342,
+        "support": 76
+      },
+      "consolidate_duplicate_code": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 14
+      },
+      "remove_dead_code": {
+        "precision": 0.6666666666666666,
+        "recall": 0.32051282051282054,
+        "f1": 0.4329004329004329,
+        "support": 156
+      },
+      "simplify_condition": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2
+      },
+      "split_class": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 23
+      },
+      "extract_interface": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "reduce_coupling": {
+        "precision": 0.3925233644859813,
+        "recall": 0.7304347826086957,
+        "f1": 0.5106382978723404,
+        "support": 115
+      },
+      "improve_naming": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 38
+      }
+    },
+    "macro": {
+      "precision": 0.26193058956802767,
+      "recall": 0.28595145555143003,
+      "f1": 0.24781792113335438
+    },
+    "weighted": {
+      "precision": 0.4692766713535856,
+      "recall": 0.5080500894454383,
+      "f1": 0.44396835571945004
+    },
+    "accuracy": 0.5080500894454383
+  }
+}

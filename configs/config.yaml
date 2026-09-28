@@ -35,7 +35,10 @@ gnn:
   # Path to weights produced by refactoring_mining/train_refactoring_predictor.py,
   # trained on real refactorings mined from git history via RefactoringMiner.
   # Without this, refactoring-type/confidence predictions are untrained.
-  refactoring_predictor_checkpoint: null
+  # Trained 2026-09-28 on 3731 labeled examples (10/10 classes) mined from 4 repos -
+  # see refactoring_mining/mining_report.json and models/refactoring_predictor_trained.metrics.json
+  # for per-class test-set precision/recall/F1 (some classes remain thin - see DEVELOPMENT.md).
+  refactoring_predictor_checkpoint: "./models/refactoring_predictor_trained.pt"
   
 # Transformer Configuration
 transformer:
