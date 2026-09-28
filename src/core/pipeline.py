@@ -124,6 +124,38 @@ class XRefactorPipeline:
         self.refactoring_predictor.classifier.load_state_dict(checkpoint["classifier_state"])
         self.refactoring_predictor.confidence_predictor.load_state_dict(checkpoint["confidence_predictor_state"])
         logger.info(f"Loaded trained RefactoringPredictor weights from {checkpoint_path}")
+
+    def _load_transformer_checkpoint_if_available(self) -> None:
+        """
+        Load decoder/fusion weights trained on real mined before/after code pairs
+        (see src/transformer/train_transformer.py) if configured. Without this,
+        the decoder is randomly initialized and generation is not meaningful.
+
+        Note: that training script conditions the decoder on a per-refactoring-
+        TYPE placeholder vector (no per-example structural embedding was used,
+        for tractability - see its docstring), while this pipeline passes real
+        per-node GNN embeddings here. The trained gnn_projection/fusion_layer
+        still define a genuine learned mapping into the decoder's attention
+        space, but expect a distribution shift versus what training saw.
+        """
+        checkpoint_path = self.config.get("transformer.pretrained_checkpoint")
+        if not checkpoint_path:
+            logger.warning(
+                "No transformer.pretrained_checkpoint configured - transformer decoder weights "
+                "are randomly initialized. Generated code will not be meaningful. Run "
+                "src/transformer/train_transformer.py to train one."
+            )
+            return
+
+        if not os.path.exists(checkpoint_path):
+            logger.warning(f"transformer.pretrained_checkpoint '{checkpoint_path}' not found - using random init")
+            return
+
+        checkpoint = torch.load(checkpoint_path, map_location=self.device)
+        self.transformer.decoder.load_state_dict(checkpoint["decoder_state"])
+        self.transformer.fusion_layer.load_state_dict(checkpoint["fusion_layer_state"])
+        self.transformer.gnn_projection.load_state_dict(checkpoint["gnn_projection_state"])
+        logger.info(f"Loaded trained transformer weights from {checkpoint_path}")
     
     def stage_1_cpg_construction(self, data_directory: str) -> CodePropertyGraph:
         """
@@ -289,7 +321,8 @@ class XRefactorPipeline:
             num_layers=num_layers,
             num_attention_heads=num_heads
         ).to(self.device)
-        
+        self._load_transformer_checkpoint_if_available()
+
         logger.info(f"Transformer model alias '{raw_model_type}' resolved to '{model_name}'")
         logger.info(f"Transformer Model created:")
         logger.info(f"  - Pre-trained model: {model_name}")

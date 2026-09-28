@@ -300,14 +300,23 @@ class TransformerDecoder(nn.Module):
         
         # Add positional encoding
         tgt_embed = tgt_embed + self.positional_encoding[:tgt_embed.size(1), :].unsqueeze(0)
-        
+
+        # Causal mask: without this, nn.TransformerDecoder's self-attention over
+        # tgt_embed can attend to LATER positions too, so teacher forcing would
+        # trivially "cheat" by looking at the very token it's supposed to
+        # predict - the loss would drop sharply but the model would never learn
+        # genuine autoregressive generation (at real inference time, future
+        # tokens don't exist yet).
+        tgt_len = tgt_embed.size(1)
+        causal_mask = nn.Transformer.generate_square_subsequent_mask(tgt_len).to(tgt_embed.device)
+
         # Decode with GNN context
         memory = torch.cat([encoder_output, gnn_context], dim=1)
-        decoded = self.decoder_stack(tgt_embed, memory)
-        
+        decoded = self.decoder_stack(tgt_embed, memory, tgt_mask=causal_mask)
+
         # Project to vocabulary
         logits = self.output_projection(decoded)
-        
+
         return logits
     
     def predict_next_token(self,

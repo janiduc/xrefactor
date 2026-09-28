@@ -48,6 +48,14 @@ transformer:
   num_layers: 6
   num_attention_heads: 12
   intermediate_size: 3072
+  # Path to weights produced by `python -m src.transformer.train_transformer`.
+  # Without this, the decoder is randomly initialized and generation is not meaningful.
+  # Trained 2026-09-29 on 1000/2612 available before/after pairs (CPU time budget), 2 epochs,
+  # train loss 4.37->2.23. Output moved from incoherent subword garbage (untrained) to
+  # repetitive-but-real-vocabulary text - a genuine first pass, not converged. Conditioned
+  # on a per-refactoring-type placeholder vector, not real per-example GNN embeddings - see
+  # the training script's docstring and models/transformer_trained.metrics.json.
+  pretrained_checkpoint: "./models/transformer_trained.pt"
   dropout: 0.1
   
 # Training Configuration

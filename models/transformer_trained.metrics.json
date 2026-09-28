@@ -1,0 +1,127 @@
+{
+  "dataset": "refactoring_mining\\codegen_pairs.jsonl",
+  "num_pairs": 3088,
+  "train_size": 1000,
+  "val_size": 463,
+  "test_size": 463,
+  "eval_sample_size": 30,
+  "eval_max_length": 40,
+  "overall_test_generation_quality": {
+    "exact_match": 0.0,
+    "edit_distance_ratio": 0.13112587500936224,
+    "bleu4": 0.005210731338412548,
+    "count": 30
+  },
+  "per_type_test_generation_quality": {
+    "reduce_coupling": {
+      "exact_match": 0.0,
+      "edit_distance_ratio": 0.12277177127502925,
+      "bleu4": 0.0010755956274153846,
+      "count": 8
+    },
+    "remove_dead_code": {
+      "exact_match": 0.0,
+      "edit_distance_ratio": 0.10266680961323171,
+      "bleu4": 8.224408045127995e-06,
+      "count": 10
+    },
+    "consolidate_duplicate_code": {
+      "exact_match": 0.0,
+      "edit_distance_ratio": 0.18520344012472967,
+      "bleu4": 0.0,
+      "count": 2
+    },
+    "extract_interface": {
+      "exact_match": 0.0,
+      "edit_distance_ratio": 0.0048060098453211395,
+      "bleu4": 2.263270282801568e-78,
+      "count": 1
+    },
+    "rename_variable": {
+      "exact_match": 0.0,
+      "edit_distance_ratio": 0.2215937025652301,
+      "bleu4": 0.035794604106252834,
+      "count": 4
+    },
+    "move_class": {
+      "exact_match": 0.0,
+      "edit_distance_ratio": 0.1668752499052714,
+      "bleu4": 0.0014855048758635793,
+      "count": 3
+    },
+    "extract_method": {
+      "exact_match": 0.0,
+      "edit_distance_ratio": 0.0963855421686747,
+      "bleu4": 0.0,
+      "count": 1
+    },
+    "improve_naming": {
+      "exact_match": 0.0,
+      "edit_distance_ratio": 0.06633499170812604,
+      "bleu4": 0.0,
+      "count": 1
+    }
+  },
+  "sample_generations": [
+    {
+      "refactoring_type": "reduce_coupling",
+      "before": "\t/**\n\t * Yields the statements of this control flow graph that are entrypoints,\n\t * that is, that can be executed from other cfgs. This usually contains the\n\t * first statement of this cfg, but might also contain other ones.\n\t * \n\t * @return the entrypoints of this cfg.\n\t */\n\tpublic final Collection",
+      "expected_after": "\t/**\n\t * Yields the nodes of this graph that are entrypoints, that is, that can be\n\t * executed from other graphs. This usually contains the first node of this\n\t * graph, but might also contain other ones.\n\t * \n\t * @return the entrypoints of this graph.\n\t */\n\tpublic final Collection<N> getEntrypoint",
+      "generated": "\tAnalysis\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private"
+    },
+    {
+      "refactoring_type": "remove_dead_code",
+      "before": "\t@Override\n\tpublic abstract String toString();",
+      "expected_after": "\tprotected abstract String toJSONString();",
+      "generated": "\tAnalysisState<>;"
+    },
+    {
+      "refactoring_type": "consolidate_duplicate_code",
+      "before": "\t/**\n\t * Sets whether or not graph files, named\n\t * {@code analysis__<cfg name>.<format>}, should be created and dumped in\n\t * the working directory at the end of the analysis. These files will\n\t * contain a graph representing each input {@link CFG}s' structure, and\n\t * whose nodes will contain a re",
+      "expected_after": "\t@Test\n\tpublic void testHTML() throws AnalysisSetupException {\n\t\tLiSAConfiguration conf = config();\n\t\tconf.analysisGraphs = GraphType.HTML;\n\t\tperform(\"visualization\", \"html\", \"program.imp\", conf);\n\t}",
+      "generated": "\tAnalysis\n * the\n * the\n * the\n * the\n * the\n * the\n * the\n * the\n * the\n * the\n * the\n * the\n *"
+    },
+    {
+      "refactoring_type": "reduce_coupling",
+      "before": "\t/**\n\t * Compares two statements in terms of order of appearance in the program,\n\t * comparing source files first, followed by lines and columns at last. <br>\n\t * <br>\n\t * {@inheritDoc}\n\t */\n\t@Override\n\tpublic final int compareTo(Statement o) {\n\t\tint cmp;\n\n\t\tif ((cmp = StringUtils.compare(sourceFile",
+      "expected_after": "\t@Override\n\tpublic int compareTo(CodeElement o) {\n\t\tint cmp;\n\n\t\tif ((cmp = StringUtils.compare(getSourceFile(), o.getSourceFile())) != 0)\n\t\t\treturn cmp;\n\n\t\tif ((cmp = Integer.compare(getLine(), o.getLine())) != 0)\n\t\t\treturn cmp;\n\n\t\treturn Integer.compare(getCol(), o.getCol());\n\t}",
+      "generated": "\tAnalysisState\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n "
+    },
+    {
+      "refactoring_type": "reduce_coupling",
+      "before": "\t/**\n\t * Builds the less or equal.\n\t * \n\t * @param cfg        the {@link CFG} where this operation lies\n\t * @param sourceFile the source file name where this operation is defined\n\t * @param line       the line number where this operation is defined\n\t * @param col        the column where this operati",
+      "expected_after": "\t/**\n\t * Builds the less than.\n\t * \n\t * @param cfg      the {@link CFG} where this operation lies\n\t * @param location the location where this literal is defined\n\t * @param left     the left-hand side of this operation\n\t * @param right    the right-hand side of this operation\n\t */\n\tpublic LessThan(CF",
+      "generated": "\tAnalysis\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private"
+    },
+    {
+      "refactoring_type": "remove_dead_code",
+      "before": "\t/**\n\t * Creates a UTF-8 encoded file with the given name. If name is a path, all\n\t * missing directories will be created as well. The given name will be\n\t * joined with the workdir used to initialize this file manager, thus\n\t * raising an exception if {@code name} is absolute.\n\t * \n\t * @param name ",
+      "expected_after": "\t/**\n\t * Creates a UTF-8 encoded file with the given name. If name is a path, all\n\t * missing directories will be created as well. The given name will be\n\t * joined with the workdir used to initialize this file manager, thus\n\t * raising an exception if {@code name} is absolute.\n\t * \n\t * @param name ",
+      "generated": "\t/**\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private final Collection\n  private"
+    },
+    {
+      "refactoring_type": "remove_dead_code",
+      "before": "\t/**\n\t * Yields the evaluation of a {@link BinaryExpression} applying\n\t * {@code operator} to two expressions whose abstract value are {@code left}\n\t * and {@code right}, respectively. It is guaranteed that both {@code left}\n\t * and {@code right} are neither {@link #top()} or {@link #bottom()}.\n\t * ",
+      "expected_after": "\t/**\n\t * Yields the evaluation of a {@link BinaryExpression} applying\n\t * {@code operator} to two expressions whose abstract value are {@code left}\n\t * and {@code right}, respectively. It is guaranteed that both {@code left}\n\t * and {@code right} are not {@link #bottom()}.\n\t * \n\t * @param operator t",
+      "generated": "\t/**\n  private final Collection<> :\n  private final Collection<> :\n  private final Collection<> :\n  private final Collection<> :\n  private final Collection<"
+    },
+    {
+      "refactoring_type": "reduce_coupling",
+      "before": "\tprivate void validateEdge(Collection<Statement> nodes, Edge edge) throws ProgramValidationException {\n\t\tif (!nodes.contains(edge.getSource()))\n\t\t\tthrow new ProgramValidationException(this + \" contains an invalid edge: '\" + edge\n\t\t\t\t\t+ \"' originates in a node that is not part of the graph\");\n\t\telse ",
+      "expected_after": "\tprivate void validateEdge(Collection<N> nodes, E edge) throws ProgramValidationException {\n\t\tif (!nodes.contains(edge.getSource()))\n\t\t\tthrow new ProgramValidationException(\"Invalid edge: '\" + edge\n\t\t\t\t\t+ \"' originates in a node that is not part of the graph\");\n\t\telse if (!nodes.contains(edge.getDes",
+      "generated": "\tAnalysisState<> :\n  private final Collection<> :\n  private final Collection<> :\n  private final Collection<> :\n  private final Collection<> :\n "
+    },
+    {
+      "refactoring_type": "extract_interface",
+      "before": "/**\n * A control flow graph, that has {@link Statement}s as nodes and {@link Edge}s\n * as edges.\n * \n * @author <a href=\"mailto:luca.negrini@unive.it\">Luca Negrini</a>\n */\npublic class CFG extends FixpointGraph<CFG, Statement, Edge> {\n\n\tprivate static final Logger log = LogManager.getLogger(CFG.clas",
+      "expected_after": "/**\n * A control flow graph, that has {@link Statement}s as nodes and {@link Edge}s\n * as edges.\n * \n * @author <a href=\"mailto:luca.negrini@unive.it\">Luca Negrini</a>\n */\npublic class CFG extends FixpointGraph<CFG, Statement, Edge> implements CodeMember {\n\n\tprivate static final Logger log = LogMana",
+      "generated": "/**\n * < extends\n * < extends\n * < extends\n * < extends\n * < extends\n * < extends\n * < extends\n * < extends\n * < extends\n * <"
+    },
+    {
+      "refactoring_type": "remove_dead_code",
+      "before": "\t/**\n\t * Builds the call, happening at the given location in the program.\n\t * \n\t * @param cfg               the cfg that this expression belongs to\n\t * @param location          the location where this expression is defined\n\t *                              within the program\n\t * @param assigningStrat",
+      "expected_after": "\t/**\n\t * Builds the call, happening at the given location in the program.\n\t * \n\t * @param cfg        the cfg that this expression belongs to\n\t * @param location   the location where this expression is defined within\n\t *                       the program\n\t * @param callType   the call type of this ca",
+      "generated": "\t/**\n                                     "
+    }
+  ]
+}

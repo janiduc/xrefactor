@@ -16,6 +16,12 @@ tools/
 # Cloned repos used for refactoring mining (real git repos, not regular files)
 refactoring_mining/repos/
 
+# Trained transformer checkpoint (~500MB - dominated by the 50265-vocab embedding/
+# output_projection matrices; too large for git). Regenerate with:
+#   python -m src.transformer.train_transformer --dataset ./refactoring_mining/codegen_pairs.jsonl
+# The small metrics/report file (transformer_trained.metrics.json) IS committed.
+models/transformer_trained.pt
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db
