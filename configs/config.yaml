@@ -86,7 +86,19 @@ refactoring:
     - "remove_dead_code"
   confidence_threshold: 0.8
   max_changes_per_file: 5
-  
+
+# Rule-based code-smell detection (src/cpg/smell_detector.py) - the non-learned
+# counterpart to the GNN's predicted refactoring_type. Each threshold is a
+# deliberately simple heuristic; see the detector's docstrings for caveats.
+smells:
+  long_method_statement_threshold: 15
+  duplicate_code_min_statements: 3
+  duplicate_code_similarity_threshold: 0.7
+  complex_condition_branch_threshold: 5
+  complex_condition_boolean_op_threshold: 3
+  god_class_member_threshold: 20
+  high_coupling_file_threshold: 10
+
 # Logging
 logging:
   level: "INFO"  # DEBUG, INFO, WARNING, ERROR

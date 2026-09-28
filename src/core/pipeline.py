@@ -5,6 +5,7 @@ Coordinates all stages: CPG construction, GNN reasoning, Transformer generation,
 
 import torch
 import os
+from collections import Counter
 from pathlib import Path
 from typing import Dict, List, Optional, Any, Tuple
 from loguru import logger
@@ -12,6 +13,7 @@ import json
 from datetime import datetime
 
 from ..cpg.cpg_builder import CodePropertyGraph
+from ..cpg.smell_detector import SmellDetector
 from ..gnn.gnn_model import HypergraphGNN, DependencyHypergraphEncoder, RefactoringPredictor, convert_cpg_to_geometric_data
 from ..transformer.code_generator import CodeTransformer, RefactoringGenerator
 from ..xai.explanation_module import CausalInferenceModule, ExplanationGenerator, ExplainabilityReport
@@ -48,6 +50,7 @@ class XRefactorPipeline:
         self.node_type_to_id: Dict[str, int] = self._create_node_type_mapping()
         self.node_refactoring_logits: Optional[torch.Tensor] = None
         self.node_confidence_scores: Optional[torch.Tensor] = None
+        self.detected_smells: List[Dict[str, Any]] = []
         self.transformer_model_aliases = {
             "codebert": "microsoft/codebert-base",
             "graphcodebert": "microsoft/graphcodebert-base"
@@ -161,7 +164,14 @@ class XRefactorPipeline:
         for metric_name, value in stats.items():
             if isinstance(value, (int, float)):
                 self.metrics.record(f"cpg_{metric_name}", float(value))
-        
+
+        # Rule-based smell detection: a non-learned, auditable counterpart to
+        # Stage 2's GNN-predicted refactoring_type (see src/cpg/smell_detector.py).
+        self.detected_smells = SmellDetector(self.config).detect(self.cpg)
+        smell_counts = Counter(s["smell_type"] for s in self.detected_smells)
+        logger.info(f"Rule-based smell detection: {len(self.detected_smells)} findings - {dict(smell_counts)}")
+        self.metrics.record("cpg_detected_smells_total", float(len(self.detected_smells)))
+
         return self.cpg
     
     def stage_2_gnn_reasoning(self, cpg: CodePropertyGraph) -> Tuple[Any, Any]:
