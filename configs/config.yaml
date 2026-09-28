@@ -28,7 +28,10 @@ gnn:
   # Path to weights produced by `python -m src.gnn.pretrain` (see docs). Without this,
   # the node encoder and GNN run with random weights - structurally valid embeddings
   # but not yet meaningful ones.
-  pretrained_checkpoint: null
+  # Trained 2026-09-28 via link-prediction pretraining on the full Data/ corpus
+  # (21 repos), 40 epochs, loss converged ~0.406. See refactoring_mining/mining_report.json
+  # and DEVELOPMENT.md's Known Limitations section for coverage caveats.
+  pretrained_checkpoint: "./models/gnn_pretrained.pt"
   # Path to weights produced by refactoring_mining/train_refactoring_predictor.py,
   # trained on real refactorings mined from git history via RefactoringMiner.
   # Without this, refactoring-type/confidence predictions are untrained.
