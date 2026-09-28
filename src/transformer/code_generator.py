@@ -365,9 +365,16 @@ class RefactoringGenerator:
                            max_length: int = 512) -> Dict[str, Any]:
         """
         Generate refactoring suggestion
-        
+
+        Runs the generated code through src/transformer/pattern_validators.py's
+        structural check for this pattern before returning - a suggestion whose
+        generated code doesn't structurally look like a correct instance of the
+        pattern gets its confidence discounted and an explicit caveat attached,
+        rather than being presented as if it were reliable.
+
         Returns:
-            Dictionary with refactored code, type, and confidence
+            Dictionary with refactored code, type, confidence, and
+            structural_validation (see pattern_validators.validate).
         """
         generated_code = self.model.generate(
             source_code=source_code,
@@ -375,11 +382,24 @@ class RefactoringGenerator:
             refactoring_type=refactoring_type,
             max_length=max_length
         )
-        
+
+        pattern_name = self.refactoring_types.get(refactoring_type, "unknown")
+        try:
+            from src.transformer.pattern_validators import validate
+            validation = validate(pattern_name, source_code, generated_code)
+        except Exception as e:
+            validation = {"passed": False, "reason": f"validation error: {e}"}
+
+        effective_confidence = float(confidence_score)
+        if not validation.get("passed"):
+            effective_confidence *= 0.3  # discount, don't hide - the raw score is still visible below
+
         return {
             "original_code": source_code,
             "refactored_code": generated_code,
-            "refactoring_type": self.refactoring_types.get(refactoring_type, "unknown"),
-            "confidence": float(confidence_score),
-            "type_id": refactoring_type
+            "refactoring_type": pattern_name,
+            "confidence": effective_confidence,
+            "raw_confidence": float(confidence_score),
+            "type_id": refactoring_type,
+            "structural_validation": validation,
         }

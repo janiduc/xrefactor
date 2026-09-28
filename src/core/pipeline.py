@@ -331,7 +331,16 @@ class XRefactorPipeline:
         
         # Create generator
         generator = RefactoringGenerator(self.transformer, device=self.device)
-        
+        pattern_name_to_id = {name: type_id for type_id, name in generator.refactoring_types.items()}
+
+        # Rule-based smell detector (Stage 1) vs. the GNN's learned prediction
+        # (Stage 2): the highest-severity detected smell per node, if any.
+        smells_by_node_id: Dict[str, Dict[str, Any]] = {}
+        for smell in self.detected_smells:
+            node_id = smell["node_id"]
+            if node_id not in smells_by_node_id or smell["severity_score"] > smells_by_node_id[node_id]["severity_score"]:
+                smells_by_node_id[node_id] = smell
+
         refactoring_suggestions = []
         for idx, sample in enumerate(source_code_samples):
             source_code = sample.get("code_snippet", sample.get("snippet", ""))
@@ -342,13 +351,27 @@ class XRefactorPipeline:
             node_index = sample.get("node_index", idx)
             embedding_index = node_index if node_index < node_embeddings.shape[0] else -1
             source_embedding = node_embeddings[embedding_index].unsqueeze(0)
-            
+
             if self.node_refactoring_logits is not None and embedding_index < self.node_refactoring_logits.shape[0]:
-                refactoring_type = int(torch.argmax(self.node_refactoring_logits[embedding_index]).item())
+                learned_type_id = int(torch.argmax(self.node_refactoring_logits[embedding_index]).item())
                 confidence_score = float(self.node_confidence_scores[embedding_index].item())
             else:
-                refactoring_type = idx % len(generator.refactoring_types)
+                learned_type_id = idx % len(generator.refactoring_types)
                 confidence_score = 0.75 + 0.05 * (idx % 5)
+            learned_pattern = generator.refactoring_types.get(learned_type_id, "unknown")
+
+            # The rule-based smell detector, when it has an opinion for this exact
+            # node, drives the actual pattern used for generation - it is the more
+            # directly auditable signal (traces to a concrete metric, not just a
+            # classifier score). The learned prediction is still recorded so
+            # agreement/disagreement is visible, not silently discarded.
+            detected_smell = smells_by_node_id.get(sample.get("node_id"))
+            if detected_smell is not None:
+                detected_pattern = detected_smell["refactoring_pattern"]
+                refactoring_type = pattern_name_to_id.get(detected_pattern, learned_type_id)
+            else:
+                detected_pattern = None
+                refactoring_type = learned_type_id
 
             suggestion = generator.suggest_refactoring(
                 source_code=source_code,
@@ -359,6 +382,9 @@ class XRefactorPipeline:
             )
             suggestion["source_file"] = sample.get("file")
             suggestion["node_type"] = sample.get("type")
+            suggestion["learned_pattern"] = learned_pattern
+            suggestion["detected_smell_pattern"] = detected_pattern
+            suggestion["pattern_agreement"] = (detected_pattern is None) or (detected_pattern == learned_pattern)
             refactoring_suggestions.append(suggestion)
         
         self.metrics.record("transformer_samples", float(len(refactoring_suggestions)))
@@ -449,13 +475,14 @@ class XRefactorPipeline:
             # can be matched back to the corresponding row in node_embeddings
             cpg_dict = cpg.to_dict()
             sample_code = []
-            for node_index, node in enumerate(cpg_dict["nodes"].values()):
+            for node_index, (node_id, node) in enumerate(cpg_dict["nodes"].items()):
                 if node.get("code_snippet"):
                     sample_code.append({
                         "code_snippet": node["code_snippet"],
                         "file": node.get("file"),
                         "type": node.get("type"),
-                        "node_index": node_index
+                        "node_index": node_index,
+                        "node_id": node_id
                     })
                 if len(sample_code) >= 5:
                     break
