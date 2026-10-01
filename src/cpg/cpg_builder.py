@@ -14,6 +14,8 @@ from loguru import logger
 
 import javalang
 
+from src.refactor.extent import member_extent
+
 
 @dataclass
 class CodeNode:
@@ -23,7 +25,13 @@ class CodeNode:
     name: str
     file_path: str
     line_number: int
-    code_snippet: str
+    code_snippet: str  # exactly ONE line - see _extract_snippet
+    # Full declaration source for class/method nodes (modifiers and annotations
+    # through the closing brace). Kept SEPARATE from code_snippet on purpose:
+    # smell_detector's duplicate-code Jaccard and boolean-operator thresholds are
+    # calibrated on single-line statement snippets, so widening code_snippet would
+    # silently change detector behaviour. Empty for nodes with no meaningful extent.
+    source_text: str = ""
     metadata: Dict[str, Any] = field(default_factory=dict)
 
 
@@ -103,25 +111,31 @@ class CodePropertyGraph:
             # Extract class definitions
             for path, node in tree.filter(javalang.tree.ClassDeclaration):
                 class_node_id = f"class_{file_path}_{node.name}"
+                source_text, extent = self._extract_source_text(content, node)
                 self._add_node(
                     node_id=class_node_id,
                     node_type="class",
                     name=node.name,
                     file_path=file_path,
                     line_number=node.position[0] if node.position else 0,
-                    code_snippet=self._extract_snippet(content, node.position)
+                    code_snippet=self._extract_snippet(content, node.position),
+                    source_text=source_text,
+                    extent=extent
                 )
-            
+
             # Extract method definitions
             for path, node in tree.filter(javalang.tree.MethodDeclaration):
                 method_node_id = f"method_{file_path}_{node.name}"
+                source_text, extent = self._extract_source_text(content, node)
                 self._add_node(
                     node_id=method_node_id,
                     node_type="method",
                     name=node.name,
                     file_path=file_path,
                     line_number=node.position[0] if node.position else 0,
-                    code_snippet=self._extract_snippet(content, node.position)
+                    code_snippet=self._extract_snippet(content, node.position),
+                    source_text=source_text,
+                    extent=extent
                 )
                 # Build control-flow, data-flow and call edges for this method body
                 self._process_method_body(file_path, content, method_node_id, node)
@@ -351,16 +365,23 @@ class CodePropertyGraph:
         except Exception as e:
             logger.debug(f"Error extracting data flow references for {stmt_id}: {e}")
     
-    def _add_node(self, node_id: str, node_type: str, name: str, 
-                  file_path: str, line_number: int, code_snippet: str) -> None:
-        """Add a node to the CPG"""
+    def _add_node(self, node_id: str, node_type: str, name: str,
+                  file_path: str, line_number: int, code_snippet: str,
+                  source_text: str = "", extent: Optional[Dict[str, Any]] = None) -> None:
+        """Add a node to the CPG.
+
+        `source_text` and `extent` are keyword-with-default so existing
+        positional callers (including tests) keep working unchanged.
+        """
         node = CodeNode(
             node_id=node_id,
             node_type=node_type,
             name=name,
             file_path=file_path,
             line_number=line_number,
-            code_snippet=code_snippet
+            code_snippet=code_snippet,
+            source_text=source_text,
+            metadata={"extent": extent} if extent else {}
         )
         
         self.nodes[node_id] = node
@@ -382,8 +403,32 @@ class CodePropertyGraph:
             self.graph.add_edge(edge.source_id, edge.target_id, 
                               type=edge.edge_type, **edge.metadata)
     
+    def _extract_source_text(self, content: str, node: Any) -> Tuple[str, Optional[Dict[str, Any]]]:
+        """Full declaration source for a class/method node, plus its extent.
+
+        This is what Stage 3 should hand the generator: a single line (all
+        `_extract_snippet` can give) is not a refactorable unit, and the
+        transformer was trained on whole method bodies. Returns ("", None) when
+        the extent cannot be determined, so callers fall back to code_snippet
+        rather than acting on a guess.
+        """
+        try:
+            extent = member_extent(content, node)
+        except Exception as e:  # defensive: never let extent finding break CPG building
+            logger.debug(f"Could not compute extent for {getattr(node, 'name', '?')}: {e}")
+            return "", None
+        if extent is None:
+            return "", None
+        return extent.text(content), extent.to_dict()
+
     def _extract_snippet(self, content: str, position: Tuple[int, int]) -> str:
-        """Extract code snippet from file"""
+        """Extract a ONE-LINE code snippet from file.
+
+        Deliberately single-line: smell_detector's duplicate-code Jaccard
+        (threshold 0.7) and boolean-operator counts (threshold 3) are calibrated
+        on per-statement single lines. For the full declaration source use
+        _extract_source_text / CodeNode.source_text instead.
+        """
         if not position:
             return ""
         line = position[0]
@@ -423,6 +468,7 @@ class CodePropertyGraph:
                 "file": node.file_path,
                 "line": node.line_number,
                 "code_snippet": node.code_snippet,
+                "source_text": node.source_text,
                 "metadata": node.metadata
             } for node_id, node in self.nodes.items()},
             "edges": [

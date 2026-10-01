@@ -371,7 +371,14 @@ class XRefactorPipeline:
 
         refactoring_suggestions = []
         for idx, sample in enumerate(source_code_samples):
-            source_code = sample.get("code_snippet", sample.get("snippet", ""))
+            # Prefer the FULL declaration source. A single line (all
+            # code_snippet holds) is not a refactorable unit, and the
+            # transformer was trained on whole method bodies.
+            source_code = (
+                sample.get("source_text")
+                or sample.get("code_snippet")
+                or sample.get("snippet", "")
+            )
             if not source_code:
                 continue
             # Use the sample's true position in the CPG node list, not its position
@@ -539,20 +546,30 @@ class XRefactorPipeline:
             }
             
             # Extract sample code for stage 3, keeping each node's true position so it
-            # can be matched back to the corresponding row in node_embeddings
+            # can be matched back to the corresponding row in node_embeddings.
+            # Methods/classes are preferred over statement nodes: only they carry
+            # `source_text` (a full refactorable declaration), and a lone
+            # statement line is not something a refactoring can be applied to.
             cpg_dict = cpg.to_dict()
-            sample_code = []
+            candidates = []
             for node_index, (node_id, node) in enumerate(cpg_dict["nodes"].items()):
-                if node.get("code_snippet"):
-                    sample_code.append({
-                        "code_snippet": node["code_snippet"],
-                        "file": node.get("file"),
-                        "type": node.get("type"),
-                        "node_index": node_index,
-                        "node_id": node_id
-                    })
-                if len(sample_code) >= 5:
-                    break
+                if not (node.get("source_text") or node.get("code_snippet")):
+                    continue
+                rank = {"method": 0, "class": 1}.get(node.get("type"), 2)
+                candidates.append((rank, node_index, node_id, node))
+            candidates.sort(key=lambda item: (item[0], item[1]))
+
+            sample_code = [
+                {
+                    "code_snippet": node.get("code_snippet", ""),
+                    "source_text": node.get("source_text", ""),
+                    "file": node.get("file"),
+                    "type": node.get("type"),
+                    "node_index": node_index,
+                    "node_id": node_id,
+                }
+                for _rank, node_index, node_id, node in candidates[:5]
+            ]
             if not sample_code:
                 sample_code = [{"code_snippet": f"// Sample {i}", "file": None, "type": "sample", "node_index": i} for i in range(min(5, len(cpg_dict["nodes"])))]
             

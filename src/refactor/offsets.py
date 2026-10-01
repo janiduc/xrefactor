@@ -68,6 +68,19 @@ def token_offsets(source: str, tokens) -> List[int]:
     return [pos_to_offset(source, t.position[0], t.position[1]) for t in tokens]
 
 
+@lru_cache(maxsize=32)
+def position_index_map(source: str):
+    """{(line, column): token_index} for the whole source, cached.
+
+    A file with many members would otherwise rescan the token stream once per
+    member; this keeps extent lookup O(1) per declaration.
+    """
+    tokens = tokenize_cached(source)
+    if tokens is None:
+        return {}
+    return {(t.position[0], t.position[1]): i for i, t in enumerate(tokens)}
+
+
 def token_index_at(tokens, line: int, column: int) -> Optional[int]:
     """Index of the token starting exactly at (line, column), else None."""
     for i, t in enumerate(tokens):

@@ -184,8 +184,10 @@ def evaluate_end_to_end(config_path: str, held_out_repo: str, top_k: int, eval_m
     cpg_dict = cpg.to_dict()
     samples = []
     for node_index, (node_id, node) in enumerate(cpg_dict["nodes"].items()):
-        if node.get("type") == "method" and node.get("code_snippet"):
-            samples.append({"code_snippet": node["code_snippet"], "file": node.get("file"),
+        if node.get("type") == "method" and (node.get("source_text") or node.get("code_snippet")):
+            samples.append({"code_snippet": node.get("code_snippet", ""),
+                             "source_text": node.get("source_text", ""),
+                             "file": node.get("file"),
                              "type": node.get("type"), "node_index": node_index, "node_id": node_id})
         if len(samples) >= top_k:
             break

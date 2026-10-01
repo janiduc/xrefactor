@@ -29,7 +29,7 @@ from src.refactor.offsets import (
     first_token_index_at_or_after,
     offset_to_pos,
     pos_to_offset,
-    token_index_at,
+    position_index_map,
     tokenize_cached,
 )
 
@@ -211,7 +211,7 @@ def member_extent(source: str, node, include_modifiers: bool = True) -> Optional
     if tokens is None:
         return None
 
-    decl_idx = token_index_at(tokens, node.position[0], node.position[1])
+    decl_idx = position_index_map(source).get((node.position[0], node.position[1]))
     if decl_idx is None:
         decl_idx = first_token_index_at_or_after(tokens, node.position[0], node.position[1])
     if decl_idx is None:
