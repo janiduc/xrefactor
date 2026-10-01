@@ -264,3 +264,80 @@ If this is a private repository, make sure to pass a token having permission to 
 2026-06-27 17:50:11 | INFO     | __main__:main -   gnn: success
 2026-06-27 17:50:11 | INFO     | __main__:main -   transformer: success
 2026-06-27 17:50:11 | INFO     | __main__:main -   xai: success
+2026-09-29 02:12:18 | INFO     | __main__:main - XRefactor - Explainable AI-driven Cross-file Code Refactoring Framework
+2026-09-29 02:12:18 | INFO     | __main__:main - Data directory: ../Data/ErikHage/MicroBreweryModel
+2026-09-29 02:12:18 | INFO     | __main__:main - Configuration: ./configs/config.yaml
+2026-09-29 02:12:18 | INFO     | __main__:main - Output directory: ./outputs
+2026-09-29 02:12:18 | INFO     | __main__:main - Device: cpu
+2026-09-29 02:12:18 | INFO     | src.utils.helpers:__init__ - Configuration loaded from ./configs/config.yaml
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:__init__ - Initializing XRefactor Pipeline on cpu
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:run_pipeline - 
+================================================================================
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:run_pipeline - STARTING XREFACTOR PIPELINE
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:run_pipeline - ================================================================================
+
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_1_cpg_construction - ================================================================================
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_1_cpg_construction - STAGE 1: CODE PROPERTY GRAPH CONSTRUCTION
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_1_cpg_construction - ================================================================================
+2026-09-29 02:12:18 | INFO     | src.cpg.cpg_builder:__init__ - Initialized CPG for language: java
+2026-09-29 02:12:18 | INFO     | src.cpg.cpg_builder:build_from_directory - Building CPG from directory: ../Data/ErikHage/MicroBreweryModel
+2026-09-29 02:12:18 | INFO     | src.cpg.cpg_builder:_build_cross_file_dependencies - Building cross-file dependencies...
+2026-09-29 02:12:18 | INFO     | src.cpg.cpg_builder:build_from_directory - CPG construction complete. Nodes: 1632, Edges: 2396
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_1_cpg_construction - CPG Construction Complete:
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Nodes: 1632
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Edges: 2396
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Files: 66
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_1_cpg_construction -   - Node types: {'class': 52, 'method': 348, 'variable': 338, 'statement': 705, 'field': 189}
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_1_cpg_construction - Rule-based smell detection: 514 findings - {'long_method': 5, 'dead_code': 487, 'god_class': 4, 'poor_naming': 18}
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - ================================================================================
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - STAGE 2: GRAPH NEURAL NETWORK REASONING
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - ================================================================================
+2026-09-29 02:12:18 | INFO     | src.gnn.gnn_model:__init__ - Initializing GAT with dims: 64 -> [256, 256] -> 128
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:_load_gnn_checkpoint_if_available - Loaded pretrained GNN weights from ./models/gnn_pretrained.pt
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - GNN Model created: GAT
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Input dim: 64
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Hidden dims: [256, 256]
+2026-09-29 02:12:18 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Output dim: 128
+2026-09-29 02:12:19 | INFO     | src.core.pipeline:_load_refactoring_predictor_checkpoint_if_available - Loaded trained RefactoringPredictor weights from ./models/refactoring_predictor_trained.pt
+2026-09-29 02:12:19 | INFO     | src.core.pipeline:stage_2_gnn_reasoning - GNN Inference Complete:
+2026-09-29 02:12:19 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Node embeddings shape: torch.Size([1632, 128])
+2026-09-29 02:12:19 | INFO     | src.core.pipeline:stage_2_gnn_reasoning -   - Graph embedding shape: torch.Size([1, 128])
+2026-09-29 02:12:19 | INFO     | src.core.pipeline:stage_3_transformer_generation - ================================================================================
+2026-09-29 02:12:19 | INFO     | src.core.pipeline:stage_3_transformer_generation - STAGE 3: TRANSFORMER-BASED CODE GENERATION
+2026-09-29 02:12:19 | INFO     | src.core.pipeline:stage_3_transformer_generation - ================================================================================
+2026-09-29 02:12:19 | INFO     | src.transformer.code_generator:__init__ - Loading pre-trained model: microsoft/codebert-base
+2026-09-29 02:12:23 | INFO     | src.transformer.code_generator:__init__ - CodeTransformer initialized successfully
+2026-09-29 02:12:24 | INFO     | src.core.pipeline:_load_transformer_checkpoint_if_available - Loaded trained transformer weights from ./models/transformer_trained.pt
+2026-09-29 02:12:24 | INFO     | src.core.pipeline:stage_3_transformer_generation - Transformer model alias 'microsoft/codebert-base' resolved to 'microsoft/codebert-base'
+2026-09-29 02:12:24 | INFO     | src.core.pipeline:stage_3_transformer_generation - Transformer Model created:
+2026-09-29 02:12:24 | INFO     | src.core.pipeline:stage_3_transformer_generation -   - Pre-trained model: microsoft/codebert-base
+2026-09-29 02:12:24 | INFO     | src.core.pipeline:stage_3_transformer_generation -   - Hidden size: 768
+2026-09-29 02:12:24 | INFO     | src.core.pipeline:stage_3_transformer_generation -   - Layers: 6
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:stage_3_transformer_generation - Generated 5 refactoring suggestions
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:stage_4_xai_explanation - ================================================================================
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:stage_4_xai_explanation - STAGE 4: EXPLAINABLE AI MODULE
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:stage_4_xai_explanation - ================================================================================
+2026-09-29 02:16:34 | INFO     | src.xai.explanation_module:__init__ - Initialized CausalInferenceModule
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:_load_xai_checkpoint_if_available - Loaded trained XAI weights from ./models/causal_module_trained.pt
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:stage_4_xai_explanation - XAI Module created:
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:stage_4_xai_explanation -   - Feature dimension: 128
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:stage_4_xai_explanation -   - Explanation method: causal_inference
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:stage_4_xai_explanation -   - Number of suggestions: 5
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:stage_4_xai_explanation - Generated 5 real evidence cards
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:run_pipeline - Evidence cards saved to ./outputs\evidence_cards_20260929_021218.json
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:_save_pipeline_results - Pipeline results saved to ./outputs\pipeline_results_20260929_021218.json
+2026-09-29 02:16:34 | INFO     | src.utils.helpers:save_metrics - Metrics saved to ./outputs\metrics_20260929_021218.json
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:run_pipeline - 
+================================================================================
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:run_pipeline - XREFACTOR PIPELINE COMPLETED SUCCESSFULLY
+2026-09-29 02:16:34 | INFO     | src.core.pipeline:run_pipeline - ================================================================================
+2026-09-29 02:16:34 | INFO     | __main__:main - 
+================================================================================
+2026-09-29 02:16:34 | INFO     | __main__:main - PIPELINE SUMMARY
+2026-09-29 02:16:34 | INFO     | __main__:main - ================================================================================
+2026-09-29 02:16:34 | INFO     | __main__:main - Status: success
+2026-09-29 02:16:34 | INFO     | __main__:main - Timestamp: 20260929_021218
+2026-09-29 02:16:34 | INFO     | __main__:main -   cpg: success
+2026-09-29 02:16:34 | INFO     | __main__:main -   gnn: success
+2026-09-29 02:16:34 | INFO     | __main__:main -   transformer: success
+2026-09-29 02:16:34 | INFO     | __main__:main -   xai: success

@@ -1,0 +1,202 @@
+{
+  "timestamp": "20261001_223208",
+  "stage_2_classifier": {
+    "per_class": {
+      "extract_method": {
+        "precision": 0.4166666666666667,
+        "recall": 0.12195121951219512,
+        "f1": 0.18867924528301888,
+        "support": 41
+      },
+      "move_class": {
+        "precision": 0.5411764705882353,
+        "recall": 0.989247311827957,
+        "f1": 0.6996197718631179,
+        "support": 93
+      },
+      "rename_variable": {
+        "precision": 0.6022727272727273,
+        "recall": 0.6973684210526315,
+        "f1": 0.6463414634146342,
+        "support": 76
+      },
+      "consolidate_duplicate_code": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 14
+      },
+      "remove_dead_code": {
+        "precision": 0.6666666666666666,
+        "recall": 0.32051282051282054,
+        "f1": 0.4329004329004329,
+        "support": 156
+      },
+      "simplify_condition": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 2
+      },
+      "split_class": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 23
+      },
+      "extract_interface": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "reduce_coupling": {
+        "precision": 0.3925233644859813,
+        "recall": 0.7304347826086957,
+        "f1": 0.5106382978723404,
+        "support": 115
+      },
+      "improve_naming": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 38
+      }
+    },
+    "macro": {
+      "precision": 0.26193058956802767,
+      "recall": 0.28595145555143003,
+      "f1": 0.24781792113335438
+    },
+    "weighted": {
+      "precision": 0.4692766713535856,
+      "recall": 0.5080500894454383,
+      "f1": 0.44396835571945004
+    },
+    "accuracy": 0.5080500894454383,
+    "test_size": 559
+  },
+  "stage_3_transformer": {
+    "eval_sample_size": 30,
+    "overall_structural_pass_rate": 0.13333333333333333,
+    "per_pattern": {
+      "reduce_coupling": {
+        "exact_match": 0.0,
+        "edit_distance_ratio": 0.1480737559876335,
+        "bleu4": 0.0005969612961414531,
+        "count": 8,
+        "structural_pass_rate": 0.125
+      },
+      "remove_dead_code": {
+        "exact_match": 0.0,
+        "edit_distance_ratio": 0.12090512896211973,
+        "bleu4": 9.82083541332401e-06,
+        "count": 10,
+        "structural_pass_rate": 0.3
+      },
+      "consolidate_duplicate_code": {
+        "exact_match": 0.0,
+        "edit_distance_ratio": 0.024226692623837334,
+        "bleu4": 0.0,
+        "count": 2,
+        "structural_pass_rate": 0.0
+      },
+      "extract_interface": {
+        "exact_match": 0.0,
+        "edit_distance_ratio": 0.00023285055651283006,
+        "bleu4": 1.3280537078844329e-101,
+        "count": 1,
+        "structural_pass_rate": 0.0
+      },
+      "rename_variable": {
+        "exact_match": 0.0,
+        "edit_distance_ratio": 0.18535654214682348,
+        "bleu4": 0.0028756959049750113,
+        "count": 4,
+        "structural_pass_rate": 0.0
+      },
+      "move_class": {
+        "exact_match": 0.0,
+        "edit_distance_ratio": 0.15474937210571818,
+        "bleu4": 0.0014855048760557146,
+        "count": 3,
+        "structural_pass_rate": 0.0
+      },
+      "extract_method": {
+        "exact_match": 0.0,
+        "edit_distance_ratio": 0.09339080459770115,
+        "bleu4": 0.0,
+        "count": 1,
+        "structural_pass_rate": 0.0
+      },
+      "improve_naming": {
+        "exact_match": 0.0,
+        "edit_distance_ratio": 0.06633499170812604,
+        "bleu4": 0.0,
+        "count": 1,
+        "structural_pass_rate": 0.0
+      }
+    }
+  },
+  "stage_4_xai": {
+    "note": "Weak/proxy supervision - no ground-truth 'problem severity' or 'fix quality' labels exist. This reports separation on the same kind of proxy signal used in training (see src/xai/train_causal_module.py), not validated ground truth.",
+    "problem_detector_test_accuracy": 0.8833333253860474,
+    "problem_detector_mean_score_on_known_problems": 0.9144642949104309,
+    "problem_detector_mean_score_on_random_nodes": 0.3731716275215149,
+    "solution_evaluator_test_accuracy": 0.5247524976730347,
+    "recommendation": "Report a small human rubric (1-5 scale, N sampled evidence cards: does the explanation match the real diff? does confidence track whether the suggestion looks sensible?) alongside these numbers - no automatic metric substitutes for that judgment here."
+  },
+  "end_to_end_trace": {
+    "repo": "../Data/IceIce1ce/Practice-Shopping-Android-App",
+    "num_smells_detected": 619,
+    "num_suggestions_traced": 5,
+    "structural_pass_rate": 0.4,
+    "traces": [
+      {
+        "detected_smell_pattern": "remove_dead_code",
+        "learned_pattern": "reduce_coupling",
+        "pattern_agreement": false,
+        "final_pattern_used": "remove_dead_code",
+        "structural_validation_passed": false,
+        "structural_validation_reason": "after is degenerate/repetitive text, not meaningful code",
+        "confidence": 0.11380459070205688
+      },
+      {
+        "detected_smell_pattern": "remove_dead_code",
+        "learned_pattern": "reduce_coupling",
+        "pattern_agreement": false,
+        "final_pattern_used": "remove_dead_code",
+        "structural_validation_passed": true,
+        "structural_validation_reason": "after shrank by 38%",
+        "confidence": 0.37934863567352295
+      },
+      {
+        "detected_smell_pattern": "remove_dead_code",
+        "learned_pattern": "reduce_coupling",
+        "pattern_agreement": false,
+        "final_pattern_used": "remove_dead_code",
+        "structural_validation_passed": false,
+        "structural_validation_reason": "after is degenerate/repetitive text, not meaningful code",
+        "confidence": 0.11380459070205688
+      },
+      {
+        "detected_smell_pattern": "remove_dead_code",
+        "learned_pattern": "reduce_coupling",
+        "pattern_agreement": false,
+        "final_pattern_used": "remove_dead_code",
+        "structural_validation_passed": true,
+        "structural_validation_reason": "after shrank by 47%",
+        "confidence": 0.37934863567352295
+      },
+      {
+        "detected_smell_pattern": "remove_dead_code",
+        "learned_pattern": "reduce_coupling",
+        "pattern_agreement": false,
+        "final_pattern_used": "remove_dead_code",
+        "structural_validation_passed": false,
+        "structural_validation_reason": "after is degenerate/repetitive text, not meaningful code",
+        "confidence": 0.11380459070205688
+      }
+    ]
+  }
+}

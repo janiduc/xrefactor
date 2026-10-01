@@ -1,0 +1,97 @@
+{
+  "num_suggestions": 5,
+  "total_confidence": 0.11137322783470154,
+  "evidence_cards": [
+    {
+      "evidence_id": "ev_move_class_2920",
+      "problem_type": "code_duplication",
+      "affected_entities": [
+        "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java"
+      ],
+      "explanation": "Code duplication detected in ..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java. Multiple identical or near-identical code blocks increase maintenance...",
+      "supporting_metrics": {
+        "avg_problem_score": 0.9950956106185913,
+        "avg_solution_score": 0.5314257740974426,
+        "improvement_delta": -0.4636698365211487,
+        "attention_concentration": 1.0
+      },
+      "confidence_score": 0.03387796878814697,
+      "recommendation": "Optional: You might consider move_class on ..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java"
+    },
+    {
+      "evidence_id": "ev_reduce_coupling_2920",
+      "problem_type": "tight_coupling",
+      "affected_entities": [
+        "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java"
+      ],
+      "explanation": "Tight coupling detected between ..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java. High interdependencies limit modularity and reusability. Reduce co...",
+      "supporting_metrics": {
+        "avg_problem_score": 0.3731715977191925,
+        "avg_solution_score": 0.40518718957901,
+        "improvement_delta": 0.032015591859817505,
+        "attention_concentration": 1.0
+      },
+      "confidence_score": 0.21860139071941376,
+      "recommendation": "Optional: You might consider reduce_coupling on ..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java"
+    },
+    {
+      "evidence_id": "ev_rename_variable_2920",
+      "problem_type": "code_duplication",
+      "affected_entities": [
+        "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java"
+      ],
+      "explanation": "Code duplication detected in ..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java. Multiple identical or near-identical code blocks increase maintenance...",
+      "supporting_metrics": {
+        "avg_problem_score": 0.8452084064483643,
+        "avg_solution_score": 0.47451162338256836,
+        "improvement_delta": -0.3706967830657959,
+        "attention_concentration": 1.0
+      },
+      "confidence_score": 0.05190742015838623,
+      "recommendation": "Optional: You might consider rename_variable on ..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java"
+    },
+    {
+      "evidence_id": "ev_move_class_3826",
+      "problem_type": "code_duplication",
+      "affected_entities": [
+        "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java"
+      ],
+      "explanation": "Code duplication detected in ..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java. Multiple identical or near-identical code blocks increase maintenan...",
+      "supporting_metrics": {
+        "avg_problem_score": 0.9950956106185913,
+        "avg_solution_score": 0.5314257740974426,
+        "improvement_delta": -0.4636698365211487,
+        "attention_concentration": 1.0
+      },
+      "confidence_score": 0.03387796878814697,
+      "recommendation": "Optional: You might consider move_class on ..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java"
+    },
+    {
+      "evidence_id": "ev_remove_dead_code_3826",
+      "problem_type": "dead_code",
+      "affected_entities": [
+        "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java"
+      ],
+      "explanation": "Unreachable or unused code found in ..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java. Dead code increases cognitive load during maintenance. Remov...",
+      "supporting_metrics": {
+        "avg_problem_score": 0.3731715977191925,
+        "avg_solution_score": 0.40518718957901,
+        "improvement_delta": 0.032015591859817505,
+        "attention_concentration": 1.0
+      },
+      "confidence_score": 0.21860139071941376,
+      "recommendation": "Optional: You might consider remove_dead_code on ..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java"
+    }
+  ],
+  "summary": "Found 5 refactoring opportunities:\n- Problem types: code_duplication, tight_coupling, dead_code\n- Recommended refactorings: might",
+  "risk_assessment": {
+    "high_risk": 5,
+    "medium_risk": 0,
+    "low_risk": 0
+  },
+  "impact_analysis": {
+    "files_affected": 2,
+    "estimated_complexity": "low",
+    "total_improvements": -1.2340052723884583
+  }
+}

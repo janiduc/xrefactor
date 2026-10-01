@@ -1,0 +1,1382 @@
+{
+  "timestamp": "20260929_021218",
+  "stages": {
+    "cpg": {
+      "status": "success",
+      "statistics": {
+        "total_nodes": 1632,
+        "total_edges": 2396,
+        "node_types": {
+          "class": 52,
+          "method": 348,
+          "variable": 338,
+          "statement": 705,
+          "field": 189
+        },
+        "edge_types": {
+          "data_flow": 796,
+          "control_flow": 708,
+          "calls": 892
+        },
+        "data_flow_edges": 796,
+        "control_flow_edges": 708,
+        "call_graph_edges": 892,
+        "total_files": 66,
+        "include_data_flow": true,
+        "include_control_flow": true,
+        "include_call_graph": true
+      },
+      "graph": {
+        "nodes": [
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java_MicroBreweryModelApplication",
+            "label": "MicroBreweryModelApplication",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java",
+            "line": 7
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java_BrewPriorityComparator",
+            "label": "BrewPriorityComparator",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\CarbonationPriorityComparator.java_CarbonationPriorityComparator",
+            "label": "CarbonationPriorityComparator",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\CarbonationPriorityComparator.java",
+            "line": 14
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\InventoryItemCategoryBasedComparator.java_InventoryItemCategoryBasedComparator",
+            "label": "InventoryItemCategoryBasedComparator",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\InventoryItemCategoryBasedComparator.java",
+            "line": 12
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\CostsConfig.java_CostsConfig",
+            "label": "CostsConfig",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\CostsConfig.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\InventoryConfig.java_InventoryConfig",
+            "label": "InventoryConfig",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\InventoryConfig.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\ProcessorConfig.java_ProcessorConfig",
+            "label": "ProcessorConfig",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\ProcessorConfig.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\RecipeConfig.java_RecipeConfig",
+            "label": "RecipeConfig",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\RecipeConfig.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\SalesConfig.java_SalesConfig",
+            "label": "SalesConfig",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\SalesConfig.java",
+            "line": 26
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ModelController.java_ModelController",
+            "label": "ModelController",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ModelController.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java_ViewController",
+            "label": "ViewController",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java",
+            "line": 28
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java_LocalBatchDao",
+            "label": "LocalBatchDao",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalCashflowDao.java_LocalCashflowDao",
+            "label": "LocalCashflowDao",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalCashflowDao.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalInventoryDao.java_LocalInventoryDao",
+            "label": "LocalInventoryDao",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalInventoryDao.java",
+            "line": 24
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalSalesDao.java_LocalSalesDao",
+            "label": "LocalSalesDao",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalSalesDao.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\exception\\InventoryException.java_InventoryException",
+            "label": "InventoryException",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\exception\\InventoryException.java",
+            "line": 8
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\helper\\ContextHelper.java_ContextHelper",
+            "label": "ContextHelper",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\helper\\ContextHelper.java",
+            "line": 29
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java_Batch",
+            "label": "Batch",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java",
+            "line": 10
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_BeverageProduct",
+            "label": "BeverageProduct",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java",
+            "line": 9
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java_Cashflow",
+            "label": "Cashflow",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Context.java_Context",
+            "label": "Context",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Context.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\ContextSummary.java_ContextSummary",
+            "label": "ContextSummary",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\ContextSummary.java",
+            "line": 12
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\FixedCost.java_FixedCost",
+            "label": "FixedCost",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\FixedCost.java",
+            "line": 9
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Ingredient.java_Ingredient",
+            "label": "Ingredient",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Ingredient.java",
+            "line": 7
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\InitialParameters.java_InitialParameters",
+            "label": "InitialParameters",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\InitialParameters.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\InventoryItem.java_InventoryItem",
+            "label": "InventoryItem",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\InventoryItem.java",
+            "line": 10
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Recipe.java_Recipe",
+            "label": "Recipe",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Recipe.java",
+            "line": 10
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Sale.java_Sale",
+            "label": "Sale",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Sale.java",
+            "line": 14
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\ViewContext.java_ViewContext",
+            "label": "ViewContext",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\ViewContext.java",
+            "line": 11
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\serialize\\LocalDateJsonDeserializer.java_LocalDateJsonDeserializer",
+            "label": "LocalDateJsonDeserializer",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\serialize\\LocalDateJsonDeserializer.java",
+            "line": 17
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\serialize\\LocalDateJsonSerializer.java_LocalDateJsonSerializer",
+            "label": "LocalDateJsonSerializer",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\serialize\\LocalDateJsonSerializer.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\probability\\NormalizedProbability.java_NormalizedProbability",
+            "label": "NormalizedProbability",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\probability\\NormalizedProbability.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\probability\\NormalizedProbability.java_Item",
+            "label": "Item",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\probability\\NormalizedProbability.java",
+            "line": 133
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\BrewingProcessor.java_BrewingProcessor",
+            "label": "BrewingProcessor",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\BrewingProcessor.java",
+            "line": 26
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\InventoryProcessor.java_InventoryProcessor",
+            "label": "InventoryProcessor",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\InventoryProcessor.java",
+            "line": 33
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\OverheadProcessor.java_OverheadProcessor",
+            "label": "OverheadProcessor",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\OverheadProcessor.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\ProcessDefinition.java_ProcessDefinition",
+            "label": "ProcessDefinition",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\ProcessDefinition.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\ReportingProcessor.java_ReportingProcessor",
+            "label": "ReportingProcessor",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\ReportingProcessor.java",
+            "line": 33
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\SalesProcessor.java_SalesProcessor",
+            "label": "SalesProcessor",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\SalesProcessor.java",
+            "line": 28
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\TransferProcessor.java_TransferProcessor",
+            "label": "TransferProcessor",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\processor\\TransferProcessor.java",
+            "line": 30
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\service\\BatchServiceImpl.java_BatchServiceImpl",
+            "label": "BatchServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\service\\BatchServiceImpl.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\service\\CashflowServiceImpl.java_CashflowServiceImpl",
+            "label": "CashflowServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\service\\CashflowServiceImpl.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\service\\InventoryServiceImpl.java_InventoryServiceImpl",
+            "label": "InventoryServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\service\\InventoryServiceImpl.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\service\\SalesServiceImpl.java_SalesServiceImpl",
+            "label": "SalesServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\service\\SalesServiceImpl.java",
+            "line": 26
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplicationTests.java_MicroBreweryModelApplicationTests",
+            "label": "MicroBreweryModelApplicationTests",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplicationTests.java",
+            "line": 10
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\config\\TestInventoryConfig.java_TestInventoryConfig",
+            "label": "TestInventoryConfig",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\config\\TestInventoryConfig.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\config\\TestRecipeConfig.java_TestRecipeConfig",
+            "label": "TestRecipeConfig",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\config\\TestRecipeConfig.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\config\\TestSalesConfig.java_TestSalesConfig",
+            "label": "TestSalesConfig",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\config\\TestSalesConfig.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\controller\\TestModelController.java_TestModelController",
+            "label": "TestModelController",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\controller\\TestModelController.java",
+            "line": 24
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\helper\\TestContextHelper.java_TestContextHelper",
+            "label": "TestContextHelper",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\helper\\TestContextHelper.java",
+            "line": 17
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\processor\\TestProcessDefinition.java_TestProcessDefinition",
+            "label": "TestProcessDefinition",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\processor\\TestProcessDefinition.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\service\\TestInventoryServiceImpl.java_TestInventoryServiceImpl",
+            "label": "TestInventoryServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\test\\java\\com\\tfr\\microbrew\\service\\TestInventoryServiceImpl.java",
+            "line": 23
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java_main",
+            "label": "main",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java",
+            "line": 9
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java_compare",
+            "label": "compare",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java",
+            "line": 34
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java_getAdjustedDifference",
+            "label": "getAdjustedDifference",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java",
+            "line": 53
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\CarbonationPriorityComparator.java_compare",
+            "label": "compare",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\CarbonationPriorityComparator.java",
+            "line": 17
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\InventoryItemCategoryBasedComparator.java_compare",
+            "label": "compare",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\InventoryItemCategoryBasedComparator.java",
+            "line": 14
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\BeverageVolume.java_getFromValue",
+            "label": "getFromValue",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\BeverageVolume.java",
+            "line": 32
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\BeverageVolume.java_getValue",
+            "label": "getValue",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\BeverageVolume.java",
+            "line": 41
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\BrewStep.java_getValue",
+            "label": "getValue",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\BrewStep.java",
+            "line": 21
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\CostsConfig.java_fixedCosts",
+            "label": "fixedCosts",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\CostsConfig.java",
+            "line": 19
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\DayOfWeek.java_getFromInt",
+            "label": "getFromInt",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\DayOfWeek.java",
+            "line": 29
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\DayOfWeek.java_getValue",
+            "label": "getValue",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\DayOfWeek.java",
+            "line": 38
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\DayOfWeek.java_getName",
+            "label": "getName",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\DayOfWeek.java",
+            "line": 42
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\InventoryConfig.java_inventoryItems",
+            "label": "inventoryItems",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\InventoryConfig.java",
+            "line": 32
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\ProcessorConfig.java_dailyProcessors",
+            "label": "dailyProcessors",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\ProcessorConfig.java",
+            "line": 19
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\RecipeConfig.java_recipesList",
+            "label": "recipesList",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\RecipeConfig.java",
+            "line": 31
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\SalesConfig.java_productProbabilities",
+            "label": "productProbabilities",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\SalesConfig.java",
+            "line": 43
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\SalesConfig.java_beverageProducts",
+            "label": "beverageProducts",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\SalesConfig.java",
+            "line": 57
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\SalesConfig.java_volumeProbabilities",
+            "label": "volumeProbabilities",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\SalesConfig.java",
+            "line": 68
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\SalesConfig.java_volumeFactors",
+            "label": "volumeFactors",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\SalesConfig.java",
+            "line": 83
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ModelController.java_runModel",
+            "label": "runModel",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ModelController.java",
+            "line": 36
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ModelController.java_setInitialContext",
+            "label": "setInitialContext",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ModelController.java",
+            "line": 52
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ModelController.java_processDay",
+            "label": "processDay",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ModelController.java",
+            "line": 61
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java_index",
+            "label": "index",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java",
+            "line": 36
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java_contextSummary",
+            "label": "contextSummary",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java",
+            "line": 48
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java_dayViewStart",
+            "label": "dayViewStart",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java",
+            "line": 68
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java_dayView",
+            "label": "dayView",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java",
+            "line": 96
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java_isValidFile",
+            "label": "isValidFile",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java",
+            "line": 127
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java_create",
+            "label": "create",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java",
+            "line": 14
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java_readAll",
+            "label": "readAll",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java",
+            "line": 15
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java_readByStep",
+            "label": "readByStep",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java",
+            "line": 16
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java_readByRecipe",
+            "label": "readByRecipe",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java",
+            "line": 17
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java_readByRecipeAndStep",
+            "label": "readByRecipeAndStep",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java",
+            "line": 18
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java_update",
+            "label": "update",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java",
+            "line": 19
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java_delete",
+            "label": "delete",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\BatchDao.java",
+            "line": 20
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\CashflowDao.java_create",
+            "label": "create",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\CashflowDao.java",
+            "line": 14
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\CashflowDao.java_readAll",
+            "label": "readAll",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\CashflowDao.java",
+            "line": 16
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\CashflowDao.java_readByDate",
+            "label": "readByDate",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\CashflowDao.java",
+            "line": 17
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\InventoryDao.java_create",
+            "label": "create",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\InventoryDao.java",
+            "line": 14
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\InventoryDao.java_readAll",
+            "label": "readAll",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\InventoryDao.java",
+            "line": 15
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\InventoryDao.java_readByName",
+            "label": "readByName",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\InventoryDao.java",
+            "line": 16
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\InventoryDao.java_update",
+            "label": "update",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\InventoryDao.java",
+            "line": 17
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\InventoryDao.java_delete",
+            "label": "delete",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\InventoryDao.java",
+            "line": 18
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java_create",
+            "label": "create",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java",
+            "line": 27
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java_readAll",
+            "label": "readAll",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java",
+            "line": 32
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java_readByStep",
+            "label": "readByStep",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java",
+            "line": 39
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java_readByRecipe",
+            "label": "readByRecipe",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java",
+            "line": 47
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java_readByRecipeAndStep",
+            "label": "readByRecipeAndStep",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java",
+            "line": 55
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java_update",
+            "label": "update",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java",
+            "line": 64
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java_delete",
+            "label": "delete",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalBatchDao.java",
+            "line": 69
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalCashflowDao.java_create",
+            "label": "create",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalCashflowDao.java",
+            "line": 21
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalCashflowDao.java_readAll",
+            "label": "readAll",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalCashflowDao.java",
+            "line": 26
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalCashflowDao.java_readByDate",
+            "label": "readByDate",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalCashflowDao.java",
+            "line": 31
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalInventoryDao.java_create",
+            "label": "create",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalInventoryDao.java",
+            "line": 36
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalInventoryDao.java_readAll",
+            "label": "readAll",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalInventoryDao.java",
+            "line": 41
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalInventoryDao.java_readByName",
+            "label": "readByName",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalInventoryDao.java",
+            "line": 48
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalInventoryDao.java_update",
+            "label": "update",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalInventoryDao.java",
+            "line": 53
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalInventoryDao.java_delete",
+            "label": "delete",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalInventoryDao.java",
+            "line": 58
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalSalesDao.java_create",
+            "label": "create",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalSalesDao.java",
+            "line": 20
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalSalesDao.java_readAll",
+            "label": "readAll",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalSalesDao.java",
+            "line": 26
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalSalesDao.java_readByDate",
+            "label": "readByDate",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalSalesDao.java",
+            "line": 33
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalSalesDao.java_readByFulfilled",
+            "label": "readByFulfilled",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\LocalSalesDao.java",
+            "line": 49
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\SalesDao.java_create",
+            "label": "create",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\SalesDao.java",
+            "line": 15
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\SalesDao.java_readAll",
+            "label": "readAll",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\SalesDao.java",
+            "line": 17
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\SalesDao.java_readByDate",
+            "label": "readByDate",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\SalesDao.java",
+            "line": 18
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\SalesDao.java_readByFulfilled",
+            "label": "readByFulfilled",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\dao\\SalesDao.java",
+            "line": 20
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\helper\\ContextHelper.java_getContextIds",
+            "label": "getContextIds",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\helper\\ContextHelper.java",
+            "line": 38
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\helper\\ContextHelper.java_getInitialContextData",
+            "label": "getInitialContextData",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\helper\\ContextHelper.java",
+            "line": 55
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\helper\\ContextHelper.java_getContextData",
+            "label": "getContextData",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\helper\\ContextHelper.java",
+            "line": 73
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\helper\\ContextHelper.java_getContextSummary",
+            "label": "getContextSummary",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\helper\\ContextHelper.java",
+            "line": 86
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java_equals",
+            "label": "equals",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java",
+            "line": 29
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java_hashCode",
+            "label": "hashCode",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java",
+            "line": 39
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java_toString",
+            "label": "toString",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java",
+            "line": 44
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java_getBatchId",
+            "label": "getBatchId",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java",
+            "line": 53
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java_setBatchId",
+            "label": "setBatchId",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java",
+            "line": 57
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java_getRecipe",
+            "label": "getRecipe",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java",
+            "line": 61
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java_setRecipe",
+            "label": "setRecipe",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java",
+            "line": 65
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java_getCurrentStep",
+            "label": "getCurrentStep",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java",
+            "line": 69
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java_setCurrentStep",
+            "label": "setCurrentStep",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java",
+            "line": 73
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java_getDaysInStep",
+            "label": "getDaysInStep",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java",
+            "line": 77
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java_setDaysInStep",
+            "label": "setDaysInStep",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Batch.java",
+            "line": 81
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_equals",
+            "label": "equals",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java",
+            "line": 26
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_hashCode",
+            "label": "hashCode",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java",
+            "line": 38
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_toString",
+            "label": "toString",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java",
+            "line": 46
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_getBeverageVolume",
+            "label": "getBeverageVolume",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java",
+            "line": 54
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_setBeverageVolume",
+            "label": "setBeverageVolume",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java",
+            "line": 58
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_getVolume",
+            "label": "getVolume",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java",
+            "line": 62
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_setVolume",
+            "label": "setVolume",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java",
+            "line": 66
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_getProbability",
+            "label": "getProbability",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java",
+            "line": 70
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_setProbability",
+            "label": "setProbability",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java",
+            "line": 74
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java_getDate",
+            "label": "getDate",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java",
+            "line": 41
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java_setDate",
+            "label": "setDate",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java",
+            "line": 45
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java_getAmount",
+            "label": "getAmount",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java",
+            "line": 49
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java_setAmount",
+            "label": "setAmount",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java",
+            "line": 53
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java_getDescription",
+            "label": "getDescription",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java",
+            "line": 57
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java_setDescription",
+            "label": "setDescription",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java",
+            "line": 61
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java_getNote",
+            "label": "getNote",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java",
+            "line": 65
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java_setNote",
+            "label": "setNote",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Cashflow.java",
+            "line": 69
+          },
+          {
+            "id": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Context.java_getDate",
+            "label": "getDate",
+            "type": "method",
+            "file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\Context.java",
+            "line": 39
+          }
+        ],
+        "edges": [
+          {
+            "source": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java_compare",
+            "target": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java_getAdjustedDifference",
+            "type": "calls"
+          },
+          {
+            "source": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java_compare",
+            "target": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java_getAdjustedDifference",
+            "type": "calls"
+          },
+          {
+            "source": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\SalesConfig.java_volumeProbabilities",
+            "target": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\config\\SalesConfig.java_beverageProducts",
+            "type": "calls"
+          },
+          {
+            "source": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ModelController.java_runModel",
+            "target": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ModelController.java_setInitialContext",
+            "type": "calls"
+          },
+          {
+            "source": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ModelController.java_runModel",
+            "target": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ModelController.java_processDay",
+            "type": "calls"
+          },
+          {
+            "source": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java_dayView",
+            "target": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java_isValidFile",
+            "type": "calls"
+          },
+          {
+            "source": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java_dayView",
+            "target": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\controller\\ViewController.java_isValidFile",
+            "type": "calls"
+          },
+          {
+            "source": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_equals",
+            "target": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_equals",
+            "type": "calls"
+          },
+          {
+            "source": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_equals",
+            "target": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_equals",
+            "type": "calls"
+          },
+          {
+            "source": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_hashCode",
+            "target": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_hashCode",
+            "type": "calls"
+          },
+          {
+            "source": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_hashCode",
+            "target": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_hashCode",
+            "type": "calls"
+          },
+          {
+            "source": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_hashCode",
+            "target": "method_..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\model\\BeverageProduct.java_hashCode",
+            "type": "calls"
+          }
+        ],
+        "truncated": true,
+        "total_nodes": 1632,
+        "shown_nodes": 150
+      }
+    },
+    "gnn": {
+      "status": "success",
+      "model_type": "gat",
+      "embedding_dim": 128
+    },
+    "transformer": {
+      "status": "success",
+      "model": "microsoft/codebert-base",
+      "refactoring_suggestions": [
+        {
+          "original_code": "public class MicroBreweryModelApplication {",
+          "refactored_code": "\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")\tAnalysisState classTestCodeMember\")",
+          "refactoring_type": "move_class",
+          "confidence": 0.16168080568313598,
+          "raw_confidence": 0.5389360189437866,
+          "type_id": 1,
+          "structural_validation": {
+            "passed": false,
+            "reason": "after is degenerate/repetitive text, not meaningful code"
+          },
+          "source_file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java",
+          "node_type": "class",
+          "embedding_index": 0,
+          "learned_pattern": "move_class",
+          "detected_smell_pattern": null,
+          "pattern_agreement": true
+        },
+        {
+          "original_code": "\tpublic static void main(String[] args) {",
+          "refactored_code": "\tpublic boolean is  private final Collection<>;",
+          "refactoring_type": "reduce_coupling",
+          "confidence": 0.37934863567352295,
+          "raw_confidence": 0.37934863567352295,
+          "type_id": 8,
+          "structural_validation": {
+            "passed": true,
+            "reason": "qualified calls 0 -> 0",
+            "before_qualified_calls": 0,
+            "after_qualified_calls": 0
+          },
+          "source_file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java",
+          "node_type": "method",
+          "embedding_index": 1,
+          "learned_pattern": "reduce_coupling",
+          "detected_smell_pattern": null,
+          "pattern_agreement": true
+        },
+        {
+          "original_code": "\t\tSpringApplication.run(MicroBreweryModelApplication.class, args);",
+          "refactored_code": "\tAnalysisState<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<> :.\n  private final Collection<",
+          "refactoring_type": "rename_variable",
+          "confidence": 0.16965596079826353,
+          "raw_confidence": 0.5655198693275452,
+          "type_id": 2,
+          "structural_validation": {
+            "passed": false,
+            "reason": "after is degenerate/repetitive text, not meaningful code"
+          },
+          "source_file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\MicroBreweryModelApplication.java",
+          "node_type": "statement",
+          "embedding_index": 3,
+          "learned_pattern": "rename_variable",
+          "detected_smell_pattern": null,
+          "pattern_agreement": true
+        },
+        {
+          "original_code": "public class BrewPriorityComparator implements Comparator<Batch> {",
+          "refactored_code": "\tAnalysisState<>;",
+          "refactoring_type": "move_class",
+          "confidence": 0.16168080568313598,
+          "raw_confidence": 0.5389360189437866,
+          "type_id": 1,
+          "structural_validation": {
+            "passed": false,
+            "reason": "after is not a valid distinct declaration"
+          },
+          "source_file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java",
+          "node_type": "class",
+          "embedding_index": 4,
+          "learned_pattern": "move_class",
+          "detected_smell_pattern": null,
+          "pattern_agreement": true
+        },
+        {
+          "original_code": "    public int compare(Batch b1, Batch b2) {",
+          "refactored_code": "  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final  private final ",
+          "refactoring_type": "remove_dead_code",
+          "confidence": 0.11380459070205688,
+          "raw_confidence": 0.37934863567352295,
+          "type_id": 4,
+          "structural_validation": {
+            "passed": false,
+            "reason": "after is degenerate/repetitive text, not meaningful code"
+          },
+          "source_file": "..\\Data\\ErikHage\\MicroBreweryModel\\src\\main\\java\\com\\tfr\\microbrew\\compare\\BrewPriorityComparator.java",
+          "node_type": "method",
+          "embedding_index": 5,
+          "learned_pattern": "reduce_coupling",
+          "detected_smell_pattern": "remove_dead_code",
+          "pattern_agreement": false
+        }
+      ]
+    },
+    "xai": {
+      "status": "success",
+      "explanation_method": "causal_inference",
+      "num_evidence_cards": 5,
+      "avg_confidence": 0.11137322783470154
+    }
+  },
+  "status": "success",
+  "metrics": {
+    "cpg_total_nodes": {
+      "count": 1,
+      "mean": 1632.0,
+      "median": 1632.0,
+      "min": 1632.0,
+      "max": 1632.0,
+      "stdev": 0
+    },
+    "cpg_total_edges": {
+      "count": 1,
+      "mean": 2396.0,
+      "median": 2396.0,
+      "min": 2396.0,
+      "max": 2396.0,
+      "stdev": 0
+    },
+    "cpg_data_flow_edges": {
+      "count": 1,
+      "mean": 796.0,
+      "median": 796.0,
+      "min": 796.0,
+      "max": 796.0,
+      "stdev": 0
+    },
+    "cpg_control_flow_edges": {
+      "count": 1,
+      "mean": 708.0,
+      "median": 708.0,
+      "min": 708.0,
+      "max": 708.0,
+      "stdev": 0
+    },
+    "cpg_call_graph_edges": {
+      "count": 1,
+      "mean": 892.0,
+      "median": 892.0,
+      "min": 892.0,
+      "max": 892.0,
+      "stdev": 0
+    },
+    "cpg_total_files": {
+      "count": 1,
+      "mean": 66.0,
+      "median": 66.0,
+      "min": 66.0,
+      "max": 66.0,
+      "stdev": 0
+    },
+    "cpg_include_data_flow": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_include_control_flow": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_include_call_graph": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_detected_smells_total": {
+      "count": 1,
+      "mean": 514.0,
+      "median": 514.0,
+      "min": 514.0,
+      "max": 514.0,
+      "stdev": 0
+    },
+    "gnn_nodes": {
+      "count": 1,
+      "mean": 1632.0,
+      "median": 1632.0,
+      "min": 1632.0,
+      "max": 1632.0,
+      "stdev": 0
+    },
+    "gnn_embedding_dim": {
+      "count": 1,
+      "mean": 128.0,
+      "median": 128.0,
+      "min": 128.0,
+      "max": 128.0,
+      "stdev": 0
+    },
+    "transformer_samples": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    },
+    "xai_suggestions": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    },
+    "xai_evidence_cards": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    }
+  }
+}

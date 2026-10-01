@@ -1,0 +1,122 @@
+{
+  "cpg_total_nodes": {
+    "count": 1,
+    "mean": 1632.0,
+    "median": 1632.0,
+    "min": 1632.0,
+    "max": 1632.0,
+    "stdev": 0
+  },
+  "cpg_total_edges": {
+    "count": 1,
+    "mean": 2396.0,
+    "median": 2396.0,
+    "min": 2396.0,
+    "max": 2396.0,
+    "stdev": 0
+  },
+  "cpg_data_flow_edges": {
+    "count": 1,
+    "mean": 796.0,
+    "median": 796.0,
+    "min": 796.0,
+    "max": 796.0,
+    "stdev": 0
+  },
+  "cpg_control_flow_edges": {
+    "count": 1,
+    "mean": 708.0,
+    "median": 708.0,
+    "min": 708.0,
+    "max": 708.0,
+    "stdev": 0
+  },
+  "cpg_call_graph_edges": {
+    "count": 1,
+    "mean": 892.0,
+    "median": 892.0,
+    "min": 892.0,
+    "max": 892.0,
+    "stdev": 0
+  },
+  "cpg_total_files": {
+    "count": 1,
+    "mean": 66.0,
+    "median": 66.0,
+    "min": 66.0,
+    "max": 66.0,
+    "stdev": 0
+  },
+  "cpg_include_data_flow": {
+    "count": 1,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0
+  },
+  "cpg_include_control_flow": {
+    "count": 1,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0
+  },
+  "cpg_include_call_graph": {
+    "count": 1,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0
+  },
+  "cpg_detected_smells_total": {
+    "count": 1,
+    "mean": 514.0,
+    "median": 514.0,
+    "min": 514.0,
+    "max": 514.0,
+    "stdev": 0
+  },
+  "gnn_nodes": {
+    "count": 1,
+    "mean": 1632.0,
+    "median": 1632.0,
+    "min": 1632.0,
+    "max": 1632.0,
+    "stdev": 0
+  },
+  "gnn_embedding_dim": {
+    "count": 1,
+    "mean": 128.0,
+    "median": 128.0,
+    "min": 128.0,
+    "max": 128.0,
+    "stdev": 0
+  },
+  "transformer_samples": {
+    "count": 1,
+    "mean": 5.0,
+    "median": 5.0,
+    "min": 5.0,
+    "max": 5.0,
+    "stdev": 0
+  },
+  "xai_suggestions": {
+    "count": 1,
+    "mean": 5.0,
+    "median": 5.0,
+    "min": 5.0,
+    "max": 5.0,
+    "stdev": 0
+  },
+  "xai_evidence_cards": {
+    "count": 1,
+    "mean": 5.0,
+    "median": 5.0,
+    "min": 5.0,
+    "max": 5.0,
+    "stdev": 0
+  }
+}
