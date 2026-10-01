@@ -27,6 +27,9 @@ import re
 from typing import Any, Dict, List, Optional
 
 import javalang
+from javalang.tokenizer import Identifier
+
+from src.refactor.offsets import tokenize_cached
 
 
 def _try_parse_member(snippet: str):
@@ -76,6 +79,45 @@ def _non_whitespace_len(snippet: str) -> int:
     return len(re.sub(r"\s+", "", snippet))
 
 
+def _non_identifier_skeleton(snippet: str) -> Optional[List[str]]:
+    """Token values with every Identifier removed.
+
+    Two snippets that differ only by renaming share this skeleton exactly, so
+    comparing it is a precise test for "nothing but names changed".
+    """
+    tokens = tokenize_cached(snippet)
+    if tokens is None:
+        return None
+    return [t.value for t in tokens if not isinstance(t, Identifier)]
+
+
+def _try_parse_statements(snippet: str):
+    """Parse a snippet as a sequence of statements inside a method body."""
+    wrapped = "class __Dummy__ { void __m__() {\n" + snippet + "\n} }"
+    try:
+        return javalang.parse.parse(wrapped)
+    except Exception:
+        return None
+
+
+def parses_as_member(snippet: str) -> bool:
+    """Is the snippet syntactically valid Java of SOME kind - a member/type
+    declaration, or a sequence of statements?
+
+    Both forms are accepted because mined before/after pairs legitimately
+    contain either (a whole method, or statements lifted out of one). This is
+    the gate that stops meaningless text being scored at all: without it,
+    `validate_reduce_coupling` returned passed=True for
+    'public boolean is  private final Collection<>;' purely because its
+    qualified-call count went 0 -> 0.
+    """
+    if not snippet or not snippet.strip():
+        return False
+    if _try_parse_member(snippet) is not None:
+        return True
+    return _try_parse_statements(snippet) is not None
+
+
 def _is_degenerate(snippet: str) -> bool:
     """Catches the specific failure mode an undertrained/greedy-decoded model
     produces: short-phrase repetition ("private final Collection" over and
@@ -84,7 +126,10 @@ def _is_degenerate(snippet: str) -> bool:
     text where token-level repetition dominates."""
     tokens = _identifiers(snippet)
     if len(tokens) < 4:
-        return False  # too short to judge - let the specific validator decide
+        # Previously this short-circuited to "not degenerate", which let short
+        # junk like 'AnalysisState<>;' through. Short text is only acceptable if
+        # it actually parses as a declaration.
+        return not parses_as_member(snippet)
     unique_ratio = len(set(tokens)) / len(tokens)
     return unique_ratio < 0.35
 
@@ -109,19 +154,49 @@ def validate_extract_method(before: str, after: str) -> Dict[str, Any]:
 
 
 def validate_rename_variable(before: str, after: str) -> Dict[str, Any]:
-    """Checks that identifier changes look like a rename: roughly the same
-    total identifier count, with a small number of distinct names swapped
-    (not a wholesale rewrite). A real rename should preserve almost all
-    other tokens - large token-count drift suggests the model did more
-    than rename something."""
+    """A rename changes identifiers and NOTHING else.
+
+    The strong check is structural: with every Identifier token removed, the
+    remaining token sequence (keywords, separators, operators, literals) must be
+    IDENTICAL before and after. That is what distinguishes a rename from a
+    rewrite that happens to share some names, and it is far harder to satisfy by
+    accident than the previous "small swapped identifier set" heuristic.
+    """
+    before_tokens = tokenize_cached(before if before.strip().endswith(("}", ";"))
+                                    else before)
+    after_tokens = tokenize_cached(after)
+
+    before_skeleton = _non_identifier_skeleton(before)
+    after_skeleton = _non_identifier_skeleton(after)
+    if before_skeleton is None or after_skeleton is None:
+        return {"passed": False, "reason": "could not tokenize both sides"}
+    if before_skeleton != after_skeleton:
+        return {"passed": False,
+                "reason": "non-identifier token sequence changed, so this is a rewrite not a rename"}
+
     before_ids, after_ids = _identifiers(before), _identifiers(after)
-    before_set, after_set = set(before_ids), set(after_ids)
-    removed, added = before_set - after_set, after_set - before_set
-    count_drift = abs(len(before_ids) - len(after_ids))
-    is_rename_like = 0 < len(removed) <= 3 and 0 < len(added) <= 3 and count_drift <= 3
-    return {"passed": is_rename_like, "reason": "small, swapped identifier set" if is_rename_like
-            else "identifier changes do not look like a simple rename",
-            "removed_names": sorted(removed), "added_names": sorted(added)}
+    if len(before_ids) != len(after_ids):
+        return {"passed": False, "reason": "identifier count changed"}
+
+    changed_positions = [(b, a) for b, a in zip(before_ids, after_ids) if b != a]
+    if not changed_positions:
+        return {"passed": False, "reason": "nothing was renamed"}
+
+    distinct_before = {b for b, _ in changed_positions}
+    if len(distinct_before) != 1:
+        return {"passed": False,
+                "reason": f"{len(distinct_before)} distinct identifiers changed; a rename changes exactly one"}
+    distinct_after = {a for _, a in changed_positions}
+    if len(distinct_after) != 1:
+        return {"passed": False, "reason": "one name was replaced by several different names"}
+
+    return {"passed": True,
+            "reason": f"exactly one identifier renamed ({next(iter(distinct_before))} -> "
+                      f"{next(iter(distinct_after))}) with all other tokens unchanged",
+            "renamed_from": next(iter(distinct_before)),
+            "renamed_to": next(iter(distinct_after)),
+            # Number of token POSITIONS rewritten, not distinct name pairs.
+            "occurrences": len(changed_positions)}
 
 
 def validate_remove_dead_code(before: str, after: str) -> Dict[str, Any]:
@@ -230,13 +305,39 @@ _VALIDATORS = {
 def validate(refactoring_type: str, before: str, after: str) -> Dict[str, Any]:
     """Dispatch to the validator for `refactoring_type` (one of the 10
     pattern names in src.gnn.refactoring_types.REFACTORING_TYPE_TO_ID).
-    Returns {"passed": False, "reason": "unknown pattern: ..."} for an
-    unrecognized name rather than raising."""
+
+    Two gates run BEFORE any pattern-specific metric, because the
+    pattern-specific metrics are individually satisfiable by text that is not
+    code at all:
+      * a degeneracy check (repetition), and
+      * a mandatory PARSE gate.
+
+    Without the parse gate, `validate_reduce_coupling` returned passed=True for
+    'public boolean is  private final Collection<>;' simply because its
+    qualified-call count went 0 -> 0. Any metric comparison on unparseable text
+    is meaningless, so it is no longer reached.
+    """
     validator = _VALIDATORS.get(refactoring_type)
     if validator is None:
         return {"passed": False, "reason": f"unknown pattern: {refactoring_type}"}
+
+    # Deletion is the refactoring for remove_dead_code, so an empty result is
+    # legitimate there and only there.
+    if not after or not after.strip():
+        if refactoring_type == "remove_dead_code":
+            removed = _non_whitespace_len(before) > 0
+            return {"passed": removed,
+                    "reason": "member removed entirely" if removed
+                              else "nothing was removed (before was empty too)",
+                    "removed_entirely": True}
+        return {"passed": False, "reason": "after is empty"}
+
     if _is_degenerate(after):
         return {"passed": False, "reason": "after is degenerate/repetitive text, not meaningful code"}
+
+    if not parses_as_member(after):
+        return {"passed": False, "reason": "after does not parse as a Java declaration"}
+
     try:
         return validator(before, after)
     except Exception as e:

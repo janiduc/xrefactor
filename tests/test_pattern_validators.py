@@ -3,6 +3,8 @@ Unit tests for src.transformer.pattern_validators - one clearly-passing and
 one clearly-failing case per pattern.
 """
 
+import pytest
+
 from src.transformer.pattern_validators import validate
 
 
@@ -122,6 +124,59 @@ class TestImproveNaming:
         before = "void doStuff() { doStuff(); }"
         after = "void validateInput() { validateInput(); }"
         assert validate("improve_naming", before, after)["passed"]
+
+
+class TestJunkIsRejected:
+    """Regression pins for output that previously scored as 'passed'.
+
+    These exact strings came out of the real trained model. The first one passed
+    `validate_reduce_coupling` because its only check was a qualified-call count
+    of 0 -> 0, which unparseable text satisfies trivially.
+    """
+
+    REAL_MODEL_JUNK = [
+        "public boolean is  private final Collection<>;",
+        "\tAnalysisState<>;",
+        "\tAnalysis\n  private final Collection\n  private final Collection\n  private final Collection",
+    ]
+
+    @pytest.mark.parametrize("junk", REAL_MODEL_JUNK)
+    @pytest.mark.parametrize("pattern", ["reduce_coupling", "remove_dead_code",
+                                          "rename_variable", "extract_method"])
+    def test_unparseable_output_never_passes(self, pattern, junk):
+        before = "void f() { serviceA.doX(); serviceB.doY(); }"
+        assert not validate(pattern, before, junk)["passed"]
+
+    def test_empty_output_only_counts_for_deletion(self):
+        before = "private void dead() { }"
+        assert validate("remove_dead_code", before, "")["passed"]
+        assert not validate("rename_variable", before, "")["passed"]
+        assert not validate("extract_method", before, "")["passed"]
+
+
+class TestRenameValidatorIsStructural:
+    def test_rewrite_sharing_names_is_rejected(self):
+        """Same identifiers, different structure - the old heuristic let this
+        through because the identifier sets barely changed."""
+        before = "int total = compute(); return total;"
+        after = "int total = compute(); if (total > 0) { return total; } return 0;"
+        assert not validate("rename_variable", before, after)["passed"]
+
+    def test_two_different_names_changed_is_rejected(self):
+        before = "int a = 1; int b = 2; return a + b;"
+        after = "int x = 1; int y = 2; return x + y;"
+        result = validate("rename_variable", before, after)
+        assert not result["passed"]
+        assert "exactly one" in result["reason"]
+
+    def test_pure_rename_reports_the_pair(self):
+        before = "int tmp = compute(); return tmp;"
+        after = "int seed = compute(); return seed;"
+        result = validate("rename_variable", before, after)
+        assert result["passed"], result
+        assert result["renamed_from"] == "tmp"
+        assert result["renamed_to"] == "seed"
+        assert result["occurrences"] == 2
 
 
 class TestUnknownPattern:
