@@ -11,6 +11,45 @@ from typing import Dict, List, Tuple, Optional, Any
 import json
 
 
+def _apply_repetition_penalty(logits: torch.Tensor,
+                              generated_ids: List[int],
+                              penalty: float) -> torch.Tensor:
+    """Divide the logits of already-emitted tokens by `penalty` (>1 discourages
+    repetition). Negative logits are multiplied instead, so the penalty always
+    pushes a token DOWN regardless of sign."""
+    if penalty is None or penalty == 1.0 or not generated_ids:
+        return logits
+    logits = logits.clone()
+    for token_id in set(generated_ids):
+        value = logits[0, token_id]
+        logits[0, token_id] = value / penalty if value > 0 else value * penalty
+    return logits
+
+
+def _block_repeated_ngrams(logits: torch.Tensor,
+                           generated_ids: List[int],
+                           ngram_size: int) -> torch.Tensor:
+    """Forbid any continuation that would repeat an already-seen n-gram.
+
+    An undertrained decoder's dominant failure mode is a short cycle; blocking
+    repeated n-grams breaks the cycle rather than masking it.
+    """
+    if not ngram_size or ngram_size < 2 or len(generated_ids) < ngram_size:
+        return logits
+    prefix = tuple(generated_ids[-(ngram_size - 1):])
+    banned = {
+        generated_ids[i + ngram_size - 1]
+        for i in range(len(generated_ids) - ngram_size + 1)
+        if tuple(generated_ids[i:i + ngram_size - 1]) == prefix
+    }
+    if not banned:
+        return logits
+    logits = logits.clone()
+    for token_id in banned:
+        logits[0, token_id] = float("-inf")
+    return logits
+
+
 class CodeTransformer(nn.Module):
     """
     Transformer-based code generator for refactoring
@@ -94,23 +133,16 @@ class CodeTransformer(nn.Module):
         
         logger.info("CodeTransformer initialized successfully")
     
-    def forward(self, 
-                source_code: List[str],
-                gnn_embeddings: torch.Tensor,
-                refactoring_type: Optional[List[int]] = None) -> Tuple[torch.Tensor, torch.Tensor]:
+    @property
+    def device(self) -> torch.device:
+        return next(self.parameters()).device
+
+    def encode_source(self, source_code: List[str], gnn_embeddings: torch.Tensor) -> torch.Tensor:
+        """Run the (frozen) pretrained encoder over source text.
+
+        Falls back to treating the GNN embedding as a length-1 memory when no
+        pretrained encoder/tokenizer could be loaded.
         """
-        Generate refactored code
-        
-        Args:
-            source_code: List of source code snippets
-            gnn_embeddings: Structural embeddings from GNN [batch_size, hidden_size]
-            refactoring_type: Type of refactoring to apply [batch_size]
-        
-        Returns:
-            generated_tokens: Generated code tokens [batch_size, seq_len]
-            attention_weights: Attention weights for interpretability
-        """
-        # Encode source code
         if self.encoder and self.tokenizer:
             encoded = self.tokenizer(
                 source_code,
@@ -119,113 +151,150 @@ class CodeTransformer(nn.Module):
                 truncation=True,
                 max_length=self.max_seq_length
             )
-            encoder_output = self.encoder(
+            encoded = {k: v.to(self.device) for k, v in encoded.items()}
+            return self.encoder(
                 input_ids=encoded["input_ids"],
                 attention_mask=encoded["attention_mask"]
             )[0]  # [batch_size, seq_len, hidden_size]
-        else:
-            # Fallback: simple embedding
-            encoder_output = gnn_embeddings.unsqueeze(1)
-        
-        # Project GNN embeddings to the transformer's hidden size if needed
+        return gnn_embeddings.unsqueeze(1) if gnn_embeddings.dim() == 2 else gnn_embeddings
+
+    def build_gnn_context(self,
+                          encoder_output: torch.Tensor,
+                          gnn_embeddings: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
+        """Project the GNN embedding and fuse it with the encoder output.
+
+        SINGLE SOURCE OF TRUTH for the decoder's `gnn_context` memory slot,
+        shared by training (src/transformer/train_transformer.py) and
+        generation. Previously training passed this fused output while
+        generation passed the raw projected embedding, so `fusion_layer`'s
+        trained weights were never used at inference and the decoder saw an
+        out-of-distribution memory - one of the reasons generated code was
+        meaningless.
+        """
         if gnn_embeddings.size(-1) != self.hidden_size:
             gnn_embeddings = self.gnn_projection(gnn_embeddings)
-
-        # Fuse GNN embeddings with encoder output via attention
-        gnn_expanded = gnn_embeddings.unsqueeze(1)  # [batch_size, 1, hidden_size]
+        gnn_expanded = gnn_embeddings.unsqueeze(1) if gnn_embeddings.dim() == 2 else gnn_embeddings
         fused_output, attention_weights = self.fusion_layer(
             query=gnn_expanded,
             key=encoder_output,
             value=encoder_output
         )
-        
-        # Generate refactored code
+        return fused_output, attention_weights
+
+    def forward(self,
+                source_code: List[str],
+                gnn_embeddings: torch.Tensor,
+                refactoring_type: Optional[List[int]] = None) -> Tuple[torch.Tensor, torch.Tensor]:
+        """
+        Generate refactored code
+
+        Args:
+            source_code: List of source code snippets
+            gnn_embeddings: Structural embeddings from GNN [batch_size, hidden_size]
+            refactoring_type: Type of refactoring to apply [batch_size]
+
+        Returns:
+            generated_tokens: Generated code tokens [batch_size, seq_len]
+            attention_weights: Attention weights for interpretability
+        """
+        encoder_output = self.encode_source(source_code, gnn_embeddings)
+        fused_output, attention_weights = self.build_gnn_context(encoder_output, gnn_embeddings)
+
         generated_tokens = self.decoder(
             encoder_output=encoder_output,
             gnn_context=fused_output,
             refactoring_type=refactoring_type
         )
-        
+
         return generated_tokens, attention_weights
     
-    def generate(self, 
+    def special_token_ids(self) -> Tuple[int, int]:
+        """(bos, eos) from the real tokenizer when available.
+
+        Hardcoded ids would not match CodeBERT's actual special-token layout -
+        its vocabulary differs from the generic constants 2/3 this once assumed.
+        """
+        bos_id, eos_id = 2, 3
+        if self.tokenizer is not None:
+            if self.tokenizer.bos_token_id is not None:
+                bos_id = self.tokenizer.bos_token_id
+            if self.tokenizer.eos_token_id is not None:
+                eos_id = self.tokenizer.eos_token_id
+        return bos_id, eos_id
+
+    def generate(self,
                  source_code: str,
                  gnn_embeddings: torch.Tensor,
                  refactoring_type: int = 0,
                  max_length: int = 512,
-                 temperature: float = 1.0) -> str:
+                 temperature: float = 1.0,
+                 repetition_penalty: float = 1.2,
+                 no_repeat_ngram_size: int = 3) -> str:
         """
-        Generate refactored code (greedy decoding)
-        
+        Generate refactored code (greedy decoding with anti-repetition).
+
+        The decoding loop feeds the decoder the WHOLE prefix generated so far.
+        It previously assigned `current_token = next_token`, which threw the
+        prefix away (leaving the decoder with no memory of what it had already
+        emitted, so it could not avoid repeating itself) and collapsed the
+        tensor to 1-D, making `positional_encoding[:emb.size(1)]` slice by
+        hidden_size instead of sequence length and feeding the decoder a
+        meaningless 512-step broadcast. That is why output looked like
+        "private final private final private final ...".
+
         Args:
             source_code: Input source code
             gnn_embeddings: Structural embeddings
             refactoring_type: Type of refactoring
-            max_length: Maximum generation length
-            temperature: Sampling temperature
-        
+            max_length: Maximum number of tokens to generate
+            temperature: Logit temperature (1.0 = plain greedy)
+            repetition_penalty: >1.0 divides the logits of already-emitted
+                tokens, discouraging loops
+            no_repeat_ngram_size: forbids repeating any n-gram of this size
+
         Returns:
             Generated refactored code
         """
         self.eval()
-        
+
         with torch.no_grad():
-            # Project GNN embeddings if needed for fallback path
-            if gnn_embeddings.size(-1) != self.hidden_size:
-                gnn_embeddings = self.gnn_projection(gnn_embeddings)
+            encoder_output = self.encode_source([source_code], gnn_embeddings)
+            # Same fused context the training path builds - see build_gnn_context.
+            gnn_context, _ = self.build_gnn_context(encoder_output, gnn_embeddings)
 
-            # Encode
-            if self.encoder and self.tokenizer:
-                encoded = self.tokenizer(
-                    [source_code],
-                    return_tensors="pt",
-                    max_length=self.max_seq_length,
-                    truncation=True
-                )
-                encoder_output = self.encoder(**encoded)[0]
-            else:
-                if gnn_embeddings.size(-1) != self.hidden_size:
-                    gnn_embeddings = self.gnn_projection(gnn_embeddings)
-                encoder_output = gnn_embeddings.unsqueeze(1)
-            
-            # Decode greedily. Use the real tokenizer's special-token ids when
-            # available - hardcoded ids here would not match CodeBERT's actual
-            # BOS/EOS (its vocabulary and special-token layout differ from the
-            # generic constants 2/3 this used to assume).
-            if self.tokenizer is not None and self.tokenizer.bos_token_id is not None:
-                bos_id = self.tokenizer.bos_token_id
-            else:
-                bos_id = 2
-            if self.tokenizer is not None and self.tokenizer.eos_token_id is not None:
-                eos_id = self.tokenizer.eos_token_id
-            else:
-                eos_id = 3
+            bos_id, eos_id = self.special_token_ids()
+            position_limit = min(self.decoder.max_positions, self.max_seq_length)
 
-            generated_ids = []
-            current_token = torch.tensor([[bos_id]])
+            generated_ids: List[int] = []
+            current_tokens = torch.tensor([[bos_id]], dtype=torch.long, device=self.device)
 
             for _ in range(max_length):
-                # Simple generation (can be enhanced with beam search)
                 logits = self.decoder.predict_next_token(
                     encoder_output=encoder_output,
-                    gnn_context=gnn_embeddings.unsqueeze(1),
-                    current_tokens=current_token,
+                    gnn_context=gnn_context,
+                    current_tokens=current_tokens,
                     refactoring_type=refactoring_type
-                )
+                )  # [1, vocab_size]
 
-                next_token = torch.argmax(logits, dim=-1)
-                generated_ids.append(next_token.item())
+                logits = _apply_repetition_penalty(logits, generated_ids, repetition_penalty)
+                logits = _block_repeated_ngrams(logits, generated_ids, no_repeat_ngram_size)
+                if temperature and temperature != 1.0:
+                    logits = logits / temperature
 
-                if next_token.item() == eos_id:
+                next_token = torch.argmax(logits, dim=-1)  # [1]
+                token_id = int(next_token.item())
+                if token_id == eos_id:
                     break
 
-                current_token = next_token
-        
-        # Decode to text
+                generated_ids.append(token_id)
+                # Keep the prefix 2-D ([batch, seq_len]) and GROWING.
+                current_tokens = torch.cat([current_tokens, next_token.view(1, 1)], dim=1)
+                if current_tokens.size(1) >= position_limit:
+                    break
+
         if self.tokenizer:
             return self.tokenizer.decode(generated_ids, skip_special_tokens=True)
-        else:
-            return " ".join(str(tid) for tid in generated_ids)
+        return " ".join(str(tid) for tid in generated_ids)
 
 
 class TransformerDecoder(nn.Module):
@@ -244,10 +313,11 @@ class TransformerDecoder(nn.Module):
         
         self.hidden_size = hidden_size
         self.vocab_size = vocab_size
-        
+        self.max_positions = 512  # rows in the positional encoding; generation must not exceed it
+
         # Embedding layer
         self.embedding = nn.Embedding(vocab_size, hidden_size)
-        self.positional_encoding = self._create_positional_encoding(512, hidden_size)
+        self.positional_encoding = self._create_positional_encoding(self.max_positions, hidden_size)
         
         # Transformer decoder layers
         decoder_layer = nn.TransformerDecoderLayer(
@@ -295,11 +365,16 @@ class TransformerDecoder(nn.Module):
         if target_tokens is not None:
             tgt_embed = self.embedding(target_tokens)
         else:
-            # Teacher forcing with special tokens
-            tgt_embed = self.embedding(torch.ones((encoder_output.size(0), 1), dtype=torch.long) * 2)
-        
-        # Add positional encoding
-        tgt_embed = tgt_embed + self.positional_encoding[:tgt_embed.size(1), :].unsqueeze(0)
+            # No target supplied: start from a single BOS-like position.
+            start = torch.ones((encoder_output.size(0), 1), dtype=torch.long,
+                               device=self.embedding.weight.device) * 2
+            tgt_embed = self.embedding(start)
+
+        # Add positional encoding. `positional_encoding` is a plain tensor rather
+        # than a registered buffer (registering it would add a state_dict key and
+        # break already-saved checkpoints), so move it per use instead.
+        positional = self.positional_encoding[:tgt_embed.size(1), :].unsqueeze(0).to(tgt_embed.device)
+        tgt_embed = tgt_embed + positional
 
         # Causal mask: without this, nn.TransformerDecoder's self-attention over
         # tgt_embed can attend to LATER positions too, so teacher forcing would
@@ -324,15 +399,35 @@ class TransformerDecoder(nn.Module):
                           gnn_context: torch.Tensor,
                           current_tokens: torch.Tensor,
                           refactoring_type: int = 0) -> torch.Tensor:
-        """Predict next token during generation"""
+        """Predict the next token given the WHOLE prefix generated so far.
+
+        `current_tokens` must be [batch_size, seq_len]. The assert is deliberate:
+        passing a 1-D tensor silently "works" via broadcasting but makes
+        `positional_encoding[:tgt_embed.size(1)]` slice by hidden_size rather
+        than sequence length, feeding the stack a meaningless 512-step tensor.
+        That was a real bug; fail loudly instead.
+        """
+        assert current_tokens.dim() == 2, (
+            f"current_tokens must be [batch, seq_len], got shape {tuple(current_tokens.shape)}"
+        )
+        seq_len = current_tokens.size(1)
+        if seq_len > self.max_positions:
+            raise ValueError(f"prefix length {seq_len} exceeds max_positions {self.max_positions}")
+
         tgt_embed = self.embedding(current_tokens)
-        tgt_embed = tgt_embed + self.positional_encoding[:tgt_embed.size(1), :].unsqueeze(0)
-        
+        positional = self.positional_encoding[:seq_len, :].unsqueeze(0).to(tgt_embed.device)
+        tgt_embed = tgt_embed + positional
+
+        # Causal mask, matching forward(): without it the prefix attends
+        # bidirectionally here but causally during training, so the two paths
+        # would see different distributions.
+        causal_mask = nn.Transformer.generate_square_subsequent_mask(seq_len).to(tgt_embed.device)
+
         memory = torch.cat([encoder_output, gnn_context], dim=1)
-        decoded = self.decoder_stack(tgt_embed, memory)
-        
+        decoded = self.decoder_stack(tgt_embed, memory, tgt_mask=causal_mask)
+
         logits = self.output_projection(decoded[:, -1:, :])
-        
+
         return logits.squeeze(1)
 
 

@@ -76,10 +76,11 @@ def _forward_loss(model: CodeTransformer, type_embedding: nn.Embedding,
     encoder_output = model.encoder(**encoded_src)[0]
 
     gnn_emb = type_embedding(torch.tensor([refactoring_type_id], device=device))
-    if gnn_emb.size(-1) != model.hidden_size:
-        gnn_emb = model.gnn_projection(gnn_emb)
-    gnn_expanded = gnn_emb.unsqueeze(1)
-    fused_output, _ = model.fusion_layer(query=gnn_expanded, key=encoder_output, value=encoder_output)
+    # Shared with generation via CodeTransformer.build_gnn_context, so the
+    # decoder's memory slot has the same distribution at train and inference
+    # time. Previously this path fused while generate() passed the raw
+    # projected embedding, leaving fusion_layer's trained weights unused.
+    fused_output, _ = model.build_gnn_context(encoder_output, gnn_emb)
 
     target_ids = model.tokenizer([after], return_tensors="pt", truncation=True,
                                   max_length=max_seq_length)["input_ids"].to(device)
