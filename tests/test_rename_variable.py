@@ -148,19 +148,63 @@ class TestSuccessfulRenames:
 
     def test_falls_back_to_heuristic_when_proposal_is_illegal(self):
         source = """public class Subject {
-    public int run() {
-        int tmp = 1;
+    public Batch run() {
+        Batch tmp = new Batch();
         return tmp;
     }
 }
 """
-        # "class" is reserved; "run" already exists in the file.
+        # "class" is reserved; "run" already names a method in this file.
         outcome = _rename(source, "tmp", proposer=StaticNameProposer(["class", "run"]))
         assert outcome.applied, outcome.to_dict()
         assert outcome.metadata["name_source"] == "heuristic"
+        # Derived from the declared type rather than invented.
+        assert outcome.metadata["new_name"] == "batch"
         reasons = {r["reason"] for r in outcome.metadata["rejected_candidates"]}
         assert "reserved word" in reasons
-        assert "identifier already present in this file" in reasons
+
+    def test_derives_name_from_collection_element_type(self):
+        source = """import java.util.*;
+public class Subject {
+    public int run() {
+        List<Customer> tmp = fetchAll();
+        return tmp.size();
+    }
+}
+"""
+        outcome = _rename(source, "tmp")
+        assert outcome.applied, outcome.to_dict()
+        assert outcome.metadata["new_name"] == "customers"
+
+
+class TestNeverProducesAWorseName:
+    """The engine must not "fix" a name by making it less readable. There is no
+    `renamed<Old>` fallback: when nothing informative can be derived it refuses,
+    because `renamedValue` is strictly worse than `value`."""
+
+    def test_refuses_when_no_informative_name_can_be_derived(self):
+        source = """public class Subject {
+    public int run() {
+        int tmp = 1;
+        return tmp + tmp;
+    }
+}
+"""
+        outcome = _rename(source, "tmp")
+        assert not outcome.applied
+        assert outcome.refusal_code == R.NO_VALID_NEW_NAME
+
+    def test_uninformative_types_yield_no_candidate(self):
+        """`String value` -> `string` tells a reader nothing new."""
+        source = """public class Subject {
+    public String run(String value) {
+        return value + value;
+    }
+}
+"""
+        outcome = _rename(source, "value")
+        assert not outcome.applied
+        assert outcome.refusal_code == R.NO_VALID_NEW_NAME
 
 
 class TestRefusals:

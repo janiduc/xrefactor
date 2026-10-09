@@ -162,14 +162,21 @@ def _has_explicit_annotation_value(node, wanted: Set[str]) -> bool:
 
 def _declared_type_text(source: str, declaration: Any) -> str:
     """Type text spliced verbatim from the source, so generics and array
-    dimensions come through exactly rather than being reconstructed."""
-    type_node = getattr(declaration, "type", None)
-    if type_node is None or getattr(type_node, "position", None) is None:
+    dimensions come through exactly rather than being reconstructed.
+
+    Uses the DECLARATION's position, not the type node's: javalang leaves the
+    type node's own position unset for parameters, while a FormalParameter's /
+    LocalVariableDeclaration's position starts exactly at the type (after any
+    `final` and annotations).
+    """
+    anchor = getattr(declaration, "position", None) or \
+        getattr(getattr(declaration, "type", None), "position", None)
+    if anchor is None:
         return ""
     tokens = tokenize_cached(source)
     if tokens is None:
         return ""
-    start_line, start_col = type_node.position
+    start_line, start_col = anchor[0], anchor[1]
     start = pos_to_offset(source, start_line, start_col)
 
     # Read up to the declared name.
@@ -218,6 +225,16 @@ def rename_local(source: str,
     tokens = tokenize_cached(source)
     if tokens is None:
         return RefactorResult.refuse(PATTERN, R.NO_PARSE, "source does not lex")
+
+    # ---- Usefulness gate: an abstract/interface method has no body, so the
+    # only occurrence is the declaration itself. Renaming there is cosmetic -
+    # parameter names are not part of the JVM signature, implementors in other
+    # files keep the old name, and nothing in this file changes meaning.
+    # Emitting it as a "refactoring" would be misleading.
+    if not getattr(method_node, "body", None):
+        return RefactorResult.refuse(
+            PATTERN, R.NO_BODY,
+            "abstract/interface method: renaming its parameter changes nothing but the declaration")
 
     # ---- Precision gate: do not churn names that are already fine. --------- #
     if enforce_poor_name and new_name is None and not name_is_poor(old_name):
@@ -298,7 +315,18 @@ def rename_local(source: str,
             method_source=extent.text(source),
             enclosing_class_name=next(iter(type_names), ""),
         )
-        new_name, name_source, rejected = choose_name(context, source, proposer)
+        # Names a candidate could actually collide with: file-level members and
+        # types, plus everything named inside this method. Deliberately NOT every
+        # identifier in the file - see choose_name's docstring.
+        scope_identifiers = set(field_names) | set(method_names) | set(type_names)
+        for token in (tokens or ()):
+            if isinstance(token, Identifier):
+                offset = pos_to_offset(source, token.position[0], token.position[1])
+                if extent.start_offset <= offset < extent.end_offset:
+                    scope_identifiers.add(token.value)
+
+        new_name, name_source, rejected = choose_name(context, source, proposer,
+                                                      scope_identifiers=scope_identifiers)
         if new_name is None:
             return RefactorResult.refuse(PATTERN, R.NO_VALID_NEW_NAME,
                                           "no proposed name passed validation")
@@ -331,6 +359,12 @@ def rename_local(source: str,
             f"token layer found {len(selected)} occurrence(s) but the AST implies {expected}")
     if not selected:
         return RefactorResult.refuse(PATTERN, R.TOKEN_AST_MISMATCH, "no occurrences selected")
+    if len(selected) < 2:
+        # Declaration only, no uses: renaming an unused variable or parameter is
+        # busywork, not a refactoring a reviewer would accept.
+        return RefactorResult.refuse(
+            PATTERN, R.NAME_ALREADY_ACCEPTABLE,
+            f"'{old_name}' is declared but never used, so renaming it changes nothing meaningful")
 
     # ---- Apply splices, highest offset first ------------------------------ #
     modified = source

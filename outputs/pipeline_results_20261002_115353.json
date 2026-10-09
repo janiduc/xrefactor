@@ -1,0 +1,1408 @@
+{
+  "timestamp": "20261002_115353",
+  "stages": {
+    "cpg": {
+      "status": "success",
+      "statistics": {
+        "total_nodes": 5952,
+        "total_edges": 9749,
+        "node_types": {
+          "class": 213,
+          "method": 858,
+          "variable": 1748,
+          "statement": 2435,
+          "field": 698
+        },
+        "edge_types": {
+          "data_flow": 4146,
+          "control_flow": 2501,
+          "calls": 3102
+        },
+        "data_flow_edges": 4146,
+        "control_flow_edges": 2501,
+        "call_graph_edges": 3102,
+        "total_files": 277,
+        "include_data_flow": true,
+        "include_control_flow": true,
+        "include_call_graph": true
+      },
+      "graph": {
+        "nodes": [
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-apm\\febs-admin\\src\\main\\java\\cc\\mrbird\\febs\\monitor\\admin\\FebsAdminApplication.java_FebsAdminApplication",
+            "label": "FebsAdminApplication",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-apm\\febs-admin\\src\\main\\java\\cc\\mrbird\\febs\\monitor\\admin\\FebsAdminApplication.java",
+            "line": 12
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-apm\\febs-admin\\src\\main\\java\\cc\\mrbird\\febs\\monitor\\admin\\configure\\FebsSecurityConfigure.java_FebsSecurityConfigure",
+            "label": "FebsSecurityConfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-apm\\febs-admin\\src\\main\\java\\cc\\mrbird\\febs\\monitor\\admin\\configure\\FebsSecurityConfigure.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-apm\\febs-admin\\src\\main\\java\\cc\\mrbird\\febs\\monitor\\admin\\runner\\StartedUpRunner.java_StartedUpRunner",
+            "label": "StartedUpRunner",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-apm\\febs-admin\\src\\main\\java\\cc\\mrbird\\febs\\monitor\\admin\\runner\\StartedUpRunner.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\FebsAuthApplication.java_FebsAuthApplication",
+            "label": "FebsAuthApplication",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\FebsAuthApplication.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\configure\\FebsAuthorizationServerConfigure.java_FebsAuthorizationServerConfigure",
+            "label": "FebsAuthorizationServerConfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\configure\\FebsAuthorizationServerConfigure.java",
+            "line": 39
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\configure\\FebsSecurityConfigure.java_FebsSecurityConfigure",
+            "label": "FebsSecurityConfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\configure\\FebsSecurityConfigure.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\controller\\OauthClientDetailsController.java_OauthClientDetailsController",
+            "label": "OauthClientDetailsController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\controller\\OauthClientDetailsController.java",
+            "line": 28
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\controller\\SecurityController.java_SecurityController",
+            "label": "SecurityController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\controller\\SecurityController.java",
+            "line": 20
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\controller\\SocialLoginController.java_SocialLoginController",
+            "label": "SocialLoginController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\controller\\SocialLoginController.java",
+            "line": 35
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\entity\\BindUser.java_BindUser",
+            "label": "BindUser",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\entity\\BindUser.java",
+            "line": 12
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\entity\\OauthClientDetails.java_OauthClientDetails",
+            "label": "OauthClientDetails",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\entity\\OauthClientDetails.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\entity\\UserConnection.java_UserConnection",
+            "label": "UserConnection",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\entity\\UserConnection.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\filter\\ValidateCodeFilter.java_ValidateCodeFilter",
+            "label": "ValidateCodeFilter",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\filter\\ValidateCodeFilter.java",
+            "line": 36
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\handler\\GlobalExceptionHandler.java_GlobalExceptionHandler",
+            "label": "GlobalExceptionHandler",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\handler\\GlobalExceptionHandler.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\manager\\UserManager.java_UserManager",
+            "label": "UserManager",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\manager\\UserManager.java",
+            "line": 29
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\properties\\FebsAuthProperties.java_FebsAuthProperties",
+            "label": "FebsAuthProperties",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\properties\\FebsAuthProperties.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\properties\\FebsValidateCodeProperties.java_FebsValidateCodeProperties",
+            "label": "FebsValidateCodeProperties",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\properties\\FebsValidateCodeProperties.java",
+            "line": 10
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\runner\\StartedUpRunner.java_StartedUpRunner",
+            "label": "StartedUpRunner",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\runner\\StartedUpRunner.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\service\\impl\\FebsUserDetailServiceImpl.java_FebsUserDetailServiceImpl",
+            "label": "FebsUserDetailServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\service\\impl\\FebsUserDetailServiceImpl.java",
+            "line": 26
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\service\\impl\\OauthClientDetailsServiceImpl.java_OauthClientDetailsServiceImpl",
+            "label": "OauthClientDetailsServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\service\\impl\\OauthClientDetailsServiceImpl.java",
+            "line": 31
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\service\\impl\\RedisClientDetailsService.java_RedisClientDetailsService",
+            "label": "RedisClientDetailsService",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\service\\impl\\RedisClientDetailsService.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\service\\impl\\SocialLoginServiceImpl.java_SocialLoginServiceImpl",
+            "label": "SocialLoginServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\service\\impl\\SocialLoginServiceImpl.java",
+            "line": 42
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\service\\impl\\UserConnectionServiceImpl.java_UserConnectionServiceImpl",
+            "label": "UserConnectionServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\service\\impl\\UserConnectionServiceImpl.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\service\\impl\\ValidateCodeServiceImpl.java_ValidateCodeServiceImpl",
+            "label": "ValidateCodeServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\service\\impl\\ValidateCodeServiceImpl.java",
+            "line": 31
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\translator\\FebsWebResponseExceptionTranslator.java_FebsWebResponseExceptionTranslator",
+            "label": "FebsWebResponseExceptionTranslator",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\translator\\FebsWebResponseExceptionTranslator.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\converter\\TimeConverter.java_TimeConverter",
+            "label": "TimeConverter",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\converter\\TimeConverter.java",
+            "line": 17
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\CurrentUser.java_CurrentUser",
+            "label": "CurrentUser",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\CurrentUser.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\DeptTree.java_DeptTree",
+            "label": "DeptTree",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\DeptTree.java",
+            "line": 12
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\FebsAuthUser.java_FebsAuthUser",
+            "label": "FebsAuthUser",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\FebsAuthUser.java",
+            "line": 17
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\FebsResponse.java_FebsResponse",
+            "label": "FebsResponse",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\FebsResponse.java",
+            "line": 8
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\MenuTree.java_MenuTree",
+            "label": "MenuTree",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\MenuTree.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\QueryRequest.java_QueryRequest",
+            "label": "QueryRequest",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\QueryRequest.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\Tree.java_Tree",
+            "label": "Tree",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\Tree.java",
+            "line": 14
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\auth\\OauthCliendetails.java_OauthCliendetails",
+            "label": "OauthCliendetails",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\auth\\OauthCliendetails.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\member\\Accusation.java_Accusation",
+            "label": "Accusation",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\member\\Accusation.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\member\\Member.java_Member",
+            "label": "Member",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\member\\Member.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\member\\Order.java_Order",
+            "label": "Order",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\member\\Order.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\member\\Question.java_Question",
+            "label": "Question",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\member\\Question.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\router\\RouterMeta.java_RouterMeta",
+            "label": "RouterMeta",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\router\\RouterMeta.java",
+            "line": 17
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\router\\VueRouter.java_VueRouter",
+            "label": "VueRouter",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\router\\VueRouter.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Column.java_Column",
+            "label": "Column",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Column.java",
+            "line": 9
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\DataPermissionTest.java_DataPermissionTest",
+            "label": "DataPermissionTest",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\DataPermissionTest.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Dept.java_Dept",
+            "label": "Dept",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Dept.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Eximport.java_Eximport",
+            "label": "Eximport",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Eximport.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\GeneratorConfig.java_GeneratorConfig",
+            "label": "GeneratorConfig",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\GeneratorConfig.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Log.java_Log",
+            "label": "Log",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Log.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\LoginLog.java_LoginLog",
+            "label": "LoginLog",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\LoginLog.java",
+            "line": 24
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Menu.java_Menu",
+            "label": "Menu",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Menu.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Price.java_Price",
+            "label": "Price",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Price.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Role.java_Role",
+            "label": "Role",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Role.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\RoleMenu.java_RoleMenu",
+            "label": "RoleMenu",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\RoleMenu.java",
+            "line": 14
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\SystemUser.java_SystemUser",
+            "label": "SystemUser",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\SystemUser.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Table.java_Table",
+            "label": "Table",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\Table.java",
+            "line": 9
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\TradeLog.java_TradeLog",
+            "label": "TradeLog",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\TradeLog.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\UserDataPermission.java_UserDataPermission",
+            "label": "UserDataPermission",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\UserDataPermission.java",
+            "line": 12
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\UserRole.java_UserRole",
+            "label": "UserRole",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\entity\\system\\UserRole.java",
+            "line": 14
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\exception\\FebsException.java_FebsException",
+            "label": "FebsException",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\exception\\FebsException.java",
+            "line": 8
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\exception\\FileDownloadException.java_FileDownloadException",
+            "label": "FileDownloadException",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\exception\\FileDownloadException.java",
+            "line": 8
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\exception\\ValidateCodeException.java_ValidateCodeException",
+            "label": "ValidateCodeException",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\exception\\ValidateCodeException.java",
+            "line": 8
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\handler\\BaseExceptionHandler.java_BaseExceptionHandler",
+            "label": "BaseExceptionHandler",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\handler\\BaseExceptionHandler.java",
+            "line": 29
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\utils\\DateUtil.java_DateUtil",
+            "label": "DateUtil",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\utils\\DateUtil.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\utils\\FebsUtil.java_FebsUtil",
+            "label": "FebsUtil",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\utils\\FebsUtil.java",
+            "line": 41
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\utils\\FileUtil.java_FileUtil",
+            "label": "FileUtil",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\utils\\FileUtil.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\utils\\SortUtil.java_SortUtil",
+            "label": "SortUtil",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\utils\\SortUtil.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\utils\\TreeUtil.java_TreeUtil",
+            "label": "TreeUtil",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\utils\\TreeUtil.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\validator\\MobileValidator.java_MobileValidator",
+            "label": "MobileValidator",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-core\\src\\main\\java\\cc\\mrbird\\febs\\common\\core\\validator\\MobileValidator.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-datasource-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\datasource\\starter\\configure\\FebsDataSourceAutoconfigure.java_FebsDataSourceAutoconfigure",
+            "label": "FebsDataSourceAutoconfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-datasource-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\datasource\\starter\\configure\\FebsDataSourceAutoconfigure.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-datasource-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\datasource\\starter\\inteceptor\\DataPermissionInterceptor.java_DataPermissionInterceptor",
+            "label": "DataPermissionInterceptor",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-datasource-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\datasource\\starter\\inteceptor\\DataPermissionInterceptor.java",
+            "line": 33
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-gateway-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\gateway\\configure\\FebsDocGatewayAutoConfigure.java_FebsDocGatewayAutoConfigure",
+            "label": "FebsDocGatewayAutoConfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-gateway-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\gateway\\configure\\FebsDocGatewayAutoConfigure.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-gateway-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\gateway\\configure\\FebsDocGatewayResourceConfigure.java_FebsDocGatewayResourceConfigure",
+            "label": "FebsDocGatewayResourceConfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-gateway-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\gateway\\configure\\FebsDocGatewayResourceConfigure.java",
+            "line": 17
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-gateway-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\gateway\\filter\\FebsDocGatewayHeaderFilter.java_FebsDocGatewayHeaderFilter",
+            "label": "FebsDocGatewayHeaderFilter",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-gateway-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\gateway\\filter\\FebsDocGatewayHeaderFilter.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-gateway-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\gateway\\handler\\FebsDocGatewayHandler.java_FebsDocGatewayHandler",
+            "label": "FebsDocGatewayHandler",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-gateway-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\gateway\\handler\\FebsDocGatewayHandler.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-gateway-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\gateway\\properties\\FebsDocGatewayProperties.java_FebsDocGatewayProperties",
+            "label": "FebsDocGatewayProperties",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-gateway-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\gateway\\properties\\FebsDocGatewayProperties.java",
+            "line": 9
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\starter\\configure\\FebsDocAutoconfigure.java_FebsDocAutoconfigure",
+            "label": "FebsDocAutoconfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\starter\\configure\\FebsDocAutoconfigure.java",
+            "line": 33
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\starter\\properties\\FebsDocProperties.java_FebsDocProperties",
+            "label": "FebsDocProperties",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-doc-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\doc\\starter\\properties\\FebsDocProperties.java",
+            "line": 9
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-redis-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\redis\\configure\\FebsLettuceRedisAutoConfigure.java_FebsLettuceRedisAutoConfigure",
+            "label": "FebsLettuceRedisAutoConfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-redis-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\redis\\configure\\FebsLettuceRedisAutoConfigure.java",
+            "line": 26
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-redis-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\redis\\properties\\FebsLettuceRedisProperties.java_FebsLettuceRedisProperties",
+            "label": "FebsLettuceRedisProperties",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-redis-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\redis\\properties\\FebsLettuceRedisProperties.java",
+            "line": 9
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-redis-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\redis\\service\\RedisService.java_RedisService",
+            "label": "RedisService",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-redis-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\redis\\service\\RedisService.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\configure\\FebsCloudResourceServerConfigure.java_FebsCloudResourceServerConfigure",
+            "label": "FebsCloudResourceServerConfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\configure\\FebsCloudResourceServerConfigure.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\configure\\FebsCloudSecurityAutoconfigure.java_FebsCloudSecurityAutoconfigure",
+            "label": "FebsCloudSecurityAutoconfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\configure\\FebsCloudSecurityAutoconfigure.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\configure\\FebsCloudSecurityInteceptorConfigure.java_FebsCloudSecurityInteceptorConfigure",
+            "label": "FebsCloudSecurityInteceptorConfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\configure\\FebsCloudSecurityInteceptorConfigure.java",
+            "line": 12
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\handler\\FebsAccessDeniedHandler.java_FebsAccessDeniedHandler",
+            "label": "FebsAccessDeniedHandler",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\handler\\FebsAccessDeniedHandler.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\handler\\FebsAuthExceptionEntryPoint.java_FebsAuthExceptionEntryPoint",
+            "label": "FebsAuthExceptionEntryPoint",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\handler\\FebsAuthExceptionEntryPoint.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\interceptor\\FebsServerProtectInterceptor.java_FebsServerProtectInterceptor",
+            "label": "FebsServerProtectInterceptor",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\interceptor\\FebsServerProtectInterceptor.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\properties\\FebsCloudSecurityProperties.java_FebsCloudSecurityProperties",
+            "label": "FebsCloudSecurityProperties",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-common\\febs-common-security-starter\\src\\main\\java\\cc\\mrbird\\febs\\common\\security\\starter\\properties\\FebsCloudSecurityProperties.java",
+            "line": 10
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\FebsGatewayApplication.java_FebsGatewayApplication",
+            "label": "FebsGatewayApplication",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\FebsGatewayApplication.java",
+            "line": 11
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\common\\configure\\FebsGatewayErrorConfigure.java_FebsGatewayErrorConfigure",
+            "label": "FebsGatewayErrorConfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\common\\configure\\FebsGatewayErrorConfigure.java",
+            "line": 24
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\common\\controller\\FallbackController.java_FallbackController",
+            "label": "FallbackController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\common\\controller\\FallbackController.java",
+            "line": 17
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\common\\controller\\IndexController.java_IndexController",
+            "label": "IndexController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\common\\controller\\IndexController.java",
+            "line": 11
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\common\\filter\\FebsGatewayRequestFilter.java_FebsGatewayRequestFilter",
+            "label": "FebsGatewayRequestFilter",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\common\\filter\\FebsGatewayRequestFilter.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\common\\handler\\FebsGatewayExceptionHandler.java_FebsGatewayExceptionHandler",
+            "label": "FebsGatewayExceptionHandler",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\common\\handler\\FebsGatewayExceptionHandler.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\common\\runner\\StartedUpRunner.java_StartedUpRunner",
+            "label": "StartedUpRunner",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\common\\runner\\StartedUpRunner.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\auth\\AuthenticationManager.java_AuthenticationManager",
+            "label": "AuthenticationManager",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\auth\\AuthenticationManager.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\auth\\JwtTokenHelper.java_JwtTokenHelper",
+            "label": "JwtTokenHelper",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\auth\\JwtTokenHelper.java",
+            "line": 20
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\auth\\SecurityConfigure.java_SecurityConfigure",
+            "label": "SecurityConfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\auth\\SecurityConfigure.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\auth\\SecurityContextRepository.java_SecurityContextRepository",
+            "label": "SecurityContextRepository",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\auth\\SecurityContextRepository.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\auth\\WebFluxSecurityCorsFilter.java_WebFluxSecurityCorsFilter",
+            "label": "WebFluxSecurityCorsFilter",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\auth\\WebFluxSecurityCorsFilter.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\configure\\FebsRouteEnhanceConfigure.java_FebsRouteEnhanceConfigure",
+            "label": "FebsRouteEnhanceConfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\configure\\FebsRouteEnhanceConfigure.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\BlackListController.java_BlackListController",
+            "label": "BlackListController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\BlackListController.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\BlockLogController.java_BlockLogController",
+            "label": "BlockLogController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\BlockLogController.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\RateLimitLogController.java_RateLimitLogController",
+            "label": "RateLimitLogController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\RateLimitLogController.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\RateLimitRuleController.java_RateLimitRuleController",
+            "label": "RateLimitRuleController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\RateLimitRuleController.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\RouteLogController.java_RouteLogController",
+            "label": "RouteLogController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\RouteLogController.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\RouteLoginController.java_RouteLoginController",
+            "label": "RouteLoginController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\RouteLoginController.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\RouteUserController.java_RouteUserController",
+            "label": "RouteUserController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\controller\\RouteUserController.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\entity\\BlackList.java_BlackList",
+            "label": "BlackList",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\entity\\BlackList.java",
+            "line": 18
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\entity\\BlockLog.java_BlockLog",
+            "label": "BlockLog",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\entity\\BlockLog.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\entity\\RateLimitLog.java_RateLimitLog",
+            "label": "RateLimitLog",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\entity\\RateLimitLog.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\entity\\RateLimitRule.java_RateLimitRule",
+            "label": "RateLimitRule",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\entity\\RateLimitRule.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\entity\\RouteLog.java_RouteLog",
+            "label": "RouteLog",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\entity\\RouteLog.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\entity\\RouteUser.java_RouteUser",
+            "label": "RouteUser",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\entity\\RouteUser.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\runner\\FebsRouteEnhanceRunner.java_FebsRouteEnhanceRunner",
+            "label": "FebsRouteEnhanceRunner",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\runner\\FebsRouteEnhanceRunner.java",
+            "line": 14
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\BlackListServiceImpl.java_BlackListServiceImpl",
+            "label": "BlackListServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\BlackListServiceImpl.java",
+            "line": 30
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\BlockLogServiceImpl.java_BlockLogServiceImpl",
+            "label": "BlockLogServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\BlockLogServiceImpl.java",
+            "line": 26
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\RateLimitLogServiceImpl.java_RateLimitLogServiceImpl",
+            "label": "RateLimitLogServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\RateLimitLogServiceImpl.java",
+            "line": 26
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\RateLimitRuleServiceImpl.java_RateLimitRuleServiceImpl",
+            "label": "RateLimitRuleServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\RateLimitRuleServiceImpl.java",
+            "line": 29
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\RouteEnhanceCacheServiceImpl.java_RouteEnhanceCacheServiceImpl",
+            "label": "RouteEnhanceCacheServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\RouteEnhanceCacheServiceImpl.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\RouteEnhanceServiceImpl.java_RouteEnhanceServiceImpl",
+            "label": "RouteEnhanceServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\RouteEnhanceServiceImpl.java",
+            "line": 37
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\RouteLogServiceImpl.java_RouteLogServiceImpl",
+            "label": "RouteLogServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\RouteLogServiceImpl.java",
+            "line": 26
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\RouteUserServiceImpl.java_RouteUserServiceImpl",
+            "label": "RouteUserServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\service\\impl\\RouteUserServiceImpl.java",
+            "line": 28
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\utils\\AddressUtil.java_AddressUtil",
+            "label": "AddressUtil",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\utils\\AddressUtil.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\utils\\PageableExecutionUtil.java_PageableExecutionUtil",
+            "label": "PageableExecutionUtil",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\utils\\PageableExecutionUtil.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\utils\\RouteEnhanceCacheUtil.java_RouteEnhanceCacheUtil",
+            "label": "RouteEnhanceCacheUtil",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-gateway\\src\\main\\java\\cc\\mrbird\\febs\\gateway\\enhance\\utils\\RouteEnhanceCacheUtil.java",
+            "line": 9
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\FebsServerGeneratorApplication.java_FebsServerGeneratorApplication",
+            "label": "FebsServerGeneratorApplication",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\FebsServerGeneratorApplication.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\controller\\GeneratorConfigController.java_GeneratorConfigController",
+            "label": "GeneratorConfigController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\controller\\GeneratorConfigController.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\controller\\GeneratorController.java_GeneratorController",
+            "label": "GeneratorController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\controller\\GeneratorController.java",
+            "line": 39
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\entity\\FieldType.java_FieldType",
+            "label": "FieldType",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\entity\\FieldType.java",
+            "line": 6
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\handler\\GlobalExceptionHandler.java_GlobalExceptionHandler",
+            "label": "GlobalExceptionHandler",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\handler\\GlobalExceptionHandler.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\helper\\GeneratorHelper.java_GeneratorHelper",
+            "label": "GeneratorHelper",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\helper\\GeneratorHelper.java",
+            "line": 31
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\runner\\StartedUpRunner.java_StartedUpRunner",
+            "label": "StartedUpRunner",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\runner\\StartedUpRunner.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\service\\impl\\GeneratorConfigServiceImpl.java_GeneratorConfigServiceImpl",
+            "label": "GeneratorConfigServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\service\\impl\\GeneratorConfigServiceImpl.java",
+            "line": 19
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\service\\impl\\GeneratorServiceImpl.java_GeneratorServiceImpl",
+            "label": "GeneratorServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-generator\\src\\main\\java\\cc\\mrbird\\febs\\server\\generator\\service\\impl\\GeneratorServiceImpl.java",
+            "line": 22
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\FebsServerJobApplication.java_FebsServerJobApplication",
+            "label": "FebsServerJobApplication",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\FebsServerJobApplication.java",
+            "line": 15
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\configure\\FebsJobConfigure.java_FebsJobConfigure",
+            "label": "FebsJobConfigure",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\configure\\FebsJobConfigure.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\controller\\JobController.java_JobController",
+            "label": "JobController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\controller\\JobController.java",
+            "line": 30
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\controller\\JobLogController.java_JobLogController",
+            "label": "JobLogController",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\controller\\JobLogController.java",
+            "line": 29
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\entity\\Job.java_Job",
+            "label": "Job",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\entity\\Job.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\entity\\JobLog.java_JobLog",
+            "label": "JobLog",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\entity\\JobLog.java",
+            "line": 21
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\handler\\GlobalExceptionHandler.java_GlobalExceptionHandler",
+            "label": "GlobalExceptionHandler",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\handler\\GlobalExceptionHandler.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\helper\\ScheduleJob.java_ScheduleJob",
+            "label": "ScheduleJob",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\helper\\ScheduleJob.java",
+            "line": 23
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\helper\\ScheduleRunnable.java_ScheduleRunnable",
+            "label": "ScheduleRunnable",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\helper\\ScheduleRunnable.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\helper\\ScheduleUtils.java_ScheduleUtils",
+            "label": "ScheduleUtils",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\helper\\ScheduleUtils.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\runner\\StartedUpRunner.java_StartedUpRunner",
+            "label": "StartedUpRunner",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\runner\\StartedUpRunner.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\service\\impl\\JobLogServiceImpl.java_JobLogServiceImpl",
+            "label": "JobLogServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\service\\impl\\JobLogServiceImpl.java",
+            "line": 25
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\service\\impl\\JobServiceImpl.java_JobServiceImpl",
+            "label": "JobServiceImpl",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\service\\impl\\JobServiceImpl.java",
+            "line": 36
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\task\\TaskList.java_TaskList",
+            "label": "TaskList",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\task\\TaskList.java",
+            "line": 13
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\utils\\SpringContextUtil.java_SpringContextUtil",
+            "label": "SpringContextUtil",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\utils\\SpringContextUtil.java",
+            "line": 14
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\validator\\CronValidator.java_CronValidator",
+            "label": "CronValidator",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-job\\src\\main\\java\\cc\\mrbird\\febs\\server\\job\\validator\\CronValidator.java",
+            "line": 14
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-member\\src\\main\\java\\cc\\mrbird\\febs\\server\\member\\FebsServerMemberApplication.java_FebsServerMemberApplication",
+            "label": "FebsServerMemberApplication",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-member\\src\\main\\java\\cc\\mrbird\\febs\\server\\member\\FebsServerMemberApplication.java",
+            "line": 16
+          },
+          {
+            "id": "class_..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-member\\src\\main\\java\\cc\\mrbird\\febs\\server\\member\\aspect\\BaseAspectSupport.java_BaseAspectSupport",
+            "label": "BaseAspectSupport",
+            "type": "class",
+            "file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-server\\febs-server-member\\src\\main\\java\\cc\\mrbird\\febs\\server\\member\\aspect\\BaseAspectSupport.java",
+            "line": 11
+          }
+        ],
+        "edges": [],
+        "truncated": true,
+        "total_nodes": 5952,
+        "shown_nodes": 150
+      }
+    },
+    "gnn": {
+      "status": "success",
+      "model_type": "gat",
+      "embedding_dim": 128
+    },
+    "transformer": {
+      "status": "success",
+      "model": "microsoft/codebert-base",
+      "refactoring_suggestions": [
+        {
+          "original_code": "public static void main(String[] args) {\n        SpringApplication.run(FebsAdminApplication.class, args);\n    }",
+          "refactored_code": "  private final FebsAuthProperties properties;",
+          "refactoring_type": "reduce_coupling",
+          "confidence": 0.37934863567352295,
+          "raw_confidence": 0.37934863567352295,
+          "type_id": 8,
+          "structural_validation": {
+            "passed": true,
+            "reason": "qualified calls 1 -> 0",
+            "before_qualified_calls": 1,
+            "after_qualified_calls": 0
+          },
+          "confidence_kind": "model",
+          "generation_path": "neural",
+          "ast_refusal_code": "PATTERN_NOT_SUPPORTED",
+          "verification": null,
+          "edit": null,
+          "source_file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-apm\\febs-admin\\src\\main\\java\\cc\\mrbird\\febs\\monitor\\admin\\FebsAdminApplication.java",
+          "node_type": "method",
+          "embedding_index": 1,
+          "learned_pattern": "reduce_coupling",
+          "detected_smell_pattern": null,
+          "pattern_agreement": true,
+          "pattern_source": "learned",
+          "predicted_pattern": "reduce_coupling",
+          "ast_opportunity_refusals": [
+            {
+              "pattern": "rename_variable",
+              "refusal": "NAME_ALREADY_ACCEPTABLE"
+            },
+            {
+              "pattern": "remove_dead_code",
+              "refusal": "NOT_PRIVATE"
+            }
+          ]
+        },
+        {
+          "original_code": "@Override\n    protected void configure(HttpSecurity http) throws Exception {\n        SavedRequestAwareAuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();\n        successHandler.setTargetUrlParameter(\"redirectTo\");\n\n        http.headers().frameOptions().disable()\n                .and()\n                .authorizeRequests()\n                .antMatchers(adminContextPath + \"/assets/**\").permitAll()\n                .antMatchers(adminContextPath + \"/login\").permitAll()\n                .anyRequest().authenticated()\n                .and()\n                .formLogin().loginPage(adminContextPath + \"/login\").successHandler(successHandler).and()\n                .logout().logoutUrl(adminContextPath + \"/logout\").and()\n                .httpBasic().and()\n                .csrf().disable();\n    }",
+          "refactored_code": "   private final FebsAuthProperties properties;\n    * @paramProperties\n  the {@link CFG}\n\n   public void add\n  *   theRequest.get(String_SensitiveToken(String) {\n  private static final String = new SubTypes(b.isService.getName().getId = \"(\"\ufffd\u8d25\")\n  if the_OR_SATISFIED_SAConfiguration_Sites>();\n  this.getClass() {\n */\n  /**\n  }",
+          "refactoring_type": "remove_dead_code",
+          "confidence": 0.11380459070205688,
+          "raw_confidence": 0.37934863567352295,
+          "type_id": 4,
+          "structural_validation": {
+            "passed": false,
+            "reason": "after does not parse as a Java declaration"
+          },
+          "confidence_kind": "model",
+          "generation_path": "neural",
+          "ast_refusal_code": "NOT_PRIVATE",
+          "verification": null,
+          "edit": null,
+          "source_file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-apm\\febs-admin\\src\\main\\java\\cc\\mrbird\\febs\\monitor\\admin\\configure\\FebsSecurityConfigure.java",
+          "node_type": "method",
+          "embedding_index": 5,
+          "learned_pattern": "reduce_coupling",
+          "detected_smell_pattern": "remove_dead_code",
+          "pattern_agreement": false,
+          "pattern_source": "smell",
+          "predicted_pattern": "remove_dead_code",
+          "ast_opportunity_refusals": [
+            {
+              "pattern": "rename_variable",
+              "refusal": "NAME_ALREADY_ACCEPTABLE"
+            },
+            {
+              "pattern": "remove_dead_code",
+              "refusal": "NOT_PRIVATE"
+            }
+          ]
+        },
+        {
+          "original_code": "private static void printSystemUpBanner(Environment environment) {\n        String banner = \"-----------------------------------------\\n\" +\n                \"\u670d\u52a1\u542f\u52a8\u6210\u529f\uff0c\u65f6\u95f4\uff1a\" + LocalDateTime.now() + \"\\n\" +\n                \"\u670d\u52a1\u540d\u79f0\uff1a\" + environment.getProperty(\"spring.application.name\") + \"\\n\" +\n                \"\u7aef\u53e3\u53f7\uff1a\" + environment.getProperty(\"server.port\") + \"\\n\" +\n                \"-----------------------------------------\";\n        System.out.println(banner);\n    }",
+          "refactored_code": "   private final FebsAuthProperties properties;\n    * @param source   the {@link CFG}\n  the edge.\n  *   public void add\n  private static final String toString() {@unive.getClass = \"(\"\ufffd\u8d25\")\n  if the\n  this.isService.\n */\n  }",
+          "refactoring_type": "reduce_coupling",
+          "confidence": 0.11380459070205688,
+          "raw_confidence": 0.37934863567352295,
+          "type_id": 8,
+          "structural_validation": {
+            "passed": false,
+            "reason": "after does not parse as a Java declaration"
+          },
+          "confidence_kind": "model",
+          "generation_path": "neural",
+          "ast_refusal_code": "PATTERN_NOT_SUPPORTED",
+          "verification": null,
+          "edit": null,
+          "source_file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-apm\\febs-admin\\src\\main\\java\\cc\\mrbird\\febs\\monitor\\admin\\runner\\StartedUpRunner.java",
+          "node_type": "method",
+          "embedding_index": 13,
+          "learned_pattern": "reduce_coupling",
+          "detected_smell_pattern": null,
+          "pattern_agreement": true,
+          "pattern_source": "learned",
+          "predicted_pattern": "reduce_coupling",
+          "ast_opportunity_refusals": [
+            {
+              "pattern": "rename_variable",
+              "refusal": "NAME_ALREADY_ACCEPTABLE"
+            },
+            {
+              "pattern": "remove_dead_code",
+              "refusal": "STILL_REFERENCED"
+            }
+          ]
+        },
+        {
+          "original_code": "@Override\n    public void run(ApplicationArguments args) {\n        if (context.isActive()) {\n            printSystemUpBanner(environment);\n        }\n    }",
+          "refactored_code": "   private final FebsAuthProperties properties;",
+          "refactoring_type": "reduce_coupling",
+          "confidence": 0.37934863567352295,
+          "raw_confidence": 0.37934863567352295,
+          "type_id": 8,
+          "structural_validation": {
+            "passed": true,
+            "reason": "qualified calls 1 -> 0",
+            "before_qualified_calls": 1,
+            "after_qualified_calls": 0
+          },
+          "confidence_kind": "model",
+          "generation_path": "neural",
+          "ast_refusal_code": "PATTERN_NOT_SUPPORTED",
+          "verification": null,
+          "edit": null,
+          "source_file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-apm\\febs-admin\\src\\main\\java\\cc\\mrbird\\febs\\monitor\\admin\\runner\\StartedUpRunner.java",
+          "node_type": "method",
+          "embedding_index": 18,
+          "learned_pattern": "reduce_coupling",
+          "detected_smell_pattern": null,
+          "pattern_agreement": true,
+          "pattern_source": "learned",
+          "predicted_pattern": "reduce_coupling",
+          "ast_opportunity_refusals": [
+            {
+              "pattern": "rename_variable",
+              "refusal": "NAME_ALREADY_ACCEPTABLE"
+            },
+            {
+              "pattern": "remove_dead_code",
+              "refusal": "NOT_PRIVATE"
+            }
+          ]
+        },
+        {
+          "original_code": "public static void main(String[] args) {\n        new SpringApplicationBuilder(FebsAuthApplication.class)\n                .web(WebApplicationType.SERVLET)\n                .run(args);\n    }",
+          "refactored_code": "   private final FebsAuthProperties properties;\n    * @param source   the program.\n  public void add\n  the edge.\n */\n  *   }",
+          "refactoring_type": "reduce_coupling",
+          "confidence": 0.11380459070205688,
+          "raw_confidence": 0.37934863567352295,
+          "type_id": 8,
+          "structural_validation": {
+            "passed": false,
+            "reason": "after does not parse as a Java declaration"
+          },
+          "confidence_kind": "model",
+          "generation_path": "neural",
+          "ast_refusal_code": "PATTERN_NOT_SUPPORTED",
+          "verification": null,
+          "edit": null,
+          "source_file": "..\\Data\\4pxzhou\\FEBS-Cloud\\febs-auth\\src\\main\\java\\cc\\mrbird\\febs\\auth\\FebsAuthApplication.java",
+          "node_type": "method",
+          "embedding_index": 25,
+          "learned_pattern": "reduce_coupling",
+          "detected_smell_pattern": null,
+          "pattern_agreement": true,
+          "pattern_source": "learned",
+          "predicted_pattern": "reduce_coupling",
+          "ast_opportunity_refusals": [
+            {
+              "pattern": "rename_variable",
+              "refusal": "NAME_ALREADY_ACCEPTABLE"
+            },
+            {
+              "pattern": "remove_dead_code",
+              "refusal": "NOT_PRIVATE"
+            }
+          ]
+        }
+      ]
+    },
+    "xai": {
+      "status": "success",
+      "explanation_method": "causal_inference",
+      "num_evidence_cards": 5,
+      "avg_confidence": 0.21860139071941376
+    }
+  },
+  "status": "success",
+  "metrics": {
+    "cpg_total_nodes": {
+      "count": 1,
+      "mean": 5952.0,
+      "median": 5952.0,
+      "min": 5952.0,
+      "max": 5952.0,
+      "stdev": 0
+    },
+    "cpg_total_edges": {
+      "count": 1,
+      "mean": 9749.0,
+      "median": 9749.0,
+      "min": 9749.0,
+      "max": 9749.0,
+      "stdev": 0
+    },
+    "cpg_data_flow_edges": {
+      "count": 1,
+      "mean": 4146.0,
+      "median": 4146.0,
+      "min": 4146.0,
+      "max": 4146.0,
+      "stdev": 0
+    },
+    "cpg_control_flow_edges": {
+      "count": 1,
+      "mean": 2501.0,
+      "median": 2501.0,
+      "min": 2501.0,
+      "max": 2501.0,
+      "stdev": 0
+    },
+    "cpg_call_graph_edges": {
+      "count": 1,
+      "mean": 3102.0,
+      "median": 3102.0,
+      "min": 3102.0,
+      "max": 3102.0,
+      "stdev": 0
+    },
+    "cpg_total_files": {
+      "count": 1,
+      "mean": 277.0,
+      "median": 277.0,
+      "min": 277.0,
+      "max": 277.0,
+      "stdev": 0
+    },
+    "cpg_include_data_flow": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_include_control_flow": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_include_call_graph": {
+      "count": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "stdev": 0
+    },
+    "cpg_detected_smells_total": {
+      "count": 1,
+      "mean": 1459.0,
+      "median": 1459.0,
+      "min": 1459.0,
+      "max": 1459.0,
+      "stdev": 0
+    },
+    "gnn_nodes": {
+      "count": 1,
+      "mean": 5952.0,
+      "median": 5952.0,
+      "min": 5952.0,
+      "max": 5952.0,
+      "stdev": 0
+    },
+    "gnn_embedding_dim": {
+      "count": 1,
+      "mean": 128.0,
+      "median": 128.0,
+      "min": 128.0,
+      "max": 128.0,
+      "stdev": 0
+    },
+    "transformer_samples": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    },
+    "xai_suggestions": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    },
+    "xai_evidence_cards": {
+      "count": 1,
+      "mean": 5.0,
+      "median": 5.0,
+      "min": 5.0,
+      "max": 5.0,
+      "stdev": 0
+    }
+  }
+}

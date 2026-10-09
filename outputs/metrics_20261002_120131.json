@@ -1,0 +1,138 @@
+{
+  "cpg_total_nodes": {
+    "count": 1,
+    "mean": 5952.0,
+    "median": 5952.0,
+    "min": 5952.0,
+    "max": 5952.0,
+    "stdev": 0
+  },
+  "cpg_total_edges": {
+    "count": 1,
+    "mean": 9749.0,
+    "median": 9749.0,
+    "min": 9749.0,
+    "max": 9749.0,
+    "stdev": 0
+  },
+  "cpg_data_flow_edges": {
+    "count": 1,
+    "mean": 4146.0,
+    "median": 4146.0,
+    "min": 4146.0,
+    "max": 4146.0,
+    "stdev": 0
+  },
+  "cpg_control_flow_edges": {
+    "count": 1,
+    "mean": 2501.0,
+    "median": 2501.0,
+    "min": 2501.0,
+    "max": 2501.0,
+    "stdev": 0
+  },
+  "cpg_call_graph_edges": {
+    "count": 1,
+    "mean": 3102.0,
+    "median": 3102.0,
+    "min": 3102.0,
+    "max": 3102.0,
+    "stdev": 0
+  },
+  "cpg_total_files": {
+    "count": 1,
+    "mean": 277.0,
+    "median": 277.0,
+    "min": 277.0,
+    "max": 277.0,
+    "stdev": 0
+  },
+  "cpg_include_data_flow": {
+    "count": 1,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0
+  },
+  "cpg_include_control_flow": {
+    "count": 1,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0
+  },
+  "cpg_include_call_graph": {
+    "count": 1,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0
+  },
+  "cpg_detected_smells_total": {
+    "count": 1,
+    "mean": 1459.0,
+    "median": 1459.0,
+    "min": 1459.0,
+    "max": 1459.0,
+    "stdev": 0
+  },
+  "gnn_nodes": {
+    "count": 1,
+    "mean": 5952.0,
+    "median": 5952.0,
+    "min": 5952.0,
+    "max": 5952.0,
+    "stdev": 0
+  },
+  "gnn_embedding_dim": {
+    "count": 1,
+    "mean": 128.0,
+    "median": 128.0,
+    "min": 128.0,
+    "max": 128.0,
+    "stdev": 0
+  },
+  "transformer_samples": {
+    "count": 1,
+    "mean": 5.0,
+    "median": 5.0,
+    "min": 5.0,
+    "max": 5.0,
+    "stdev": 0
+  },
+  "suggestions_ast_verified": {
+    "count": 1,
+    "mean": 1.0,
+    "median": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "stdev": 0
+  },
+  "suggestions_neural": {
+    "count": 1,
+    "mean": 4.0,
+    "median": 4.0,
+    "min": 4.0,
+    "max": 4.0,
+    "stdev": 0
+  },
+  "xai_suggestions": {
+    "count": 1,
+    "mean": 5.0,
+    "median": 5.0,
+    "min": 5.0,
+    "max": 5.0,
+    "stdev": 0
+  },
+  "xai_evidence_cards": {
+    "count": 1,
+    "mean": 5.0,
+    "median": 5.0,
+    "min": 5.0,
+    "max": 5.0,
+    "stdev": 0
+  }
+}

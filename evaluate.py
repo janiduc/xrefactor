@@ -188,6 +188,7 @@ def evaluate_end_to_end(config_path: str, held_out_repo: str, top_k: int, eval_m
             samples.append({"code_snippet": node.get("code_snippet", ""),
                              "source_text": node.get("source_text", ""),
                              "file": node.get("file"),
+                             "name": node.get("name"), "line": node.get("line"),
                              "type": node.get("type"), "node_index": node_index, "node_id": node_id})
         if len(samples) >= top_k:
             break

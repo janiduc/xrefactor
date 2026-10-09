@@ -108,6 +108,21 @@ refactoring:
   confidence_threshold: 0.8
   max_changes_per_file: 5
 
+# Deterministic AST refactoring engine (src/refactor/). When enabled, Stage 3
+# tries a provably-correct, javac-verified transformation first and only falls
+# back to neural generation when the engine refuses. Patterns with no
+# deterministic implementation (move_class, split_class, extract_interface,
+# reduce_coupling, consolidate_duplicate_code) always go to the neural path.
+refactor:
+  use_ast_engine: true
+  # How many ranked candidate nodes Stage 3 examines (smell-flagged nodes first).
+  # The engine applies to roughly 7-15% of methods - it refuses the rest, mostly
+  # because the names are already fine or the method is not private - so a pool
+  # larger than the number of suggestions is needed to surface verified fixes.
+  candidate_pool: 40
+  # How many suggestions to emit; verified deterministic ones fill these first.
+  max_suggestions: 5
+
 # Rule-based code-smell detection (src/cpg/smell_detector.py) - the non-learned
 # counterpart to the GNN's predicted refactoring_type. Each threshold is a
 # deliberately simple heuristic; see the detector's docstrings for caveats.

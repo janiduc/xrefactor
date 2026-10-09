@@ -14,6 +14,8 @@ from datetime import datetime
 
 from ..cpg.cpg_builder import CodePropertyGraph
 from ..cpg.smell_detector import SmellDetector
+from ..refactor.engine import SUPPORTED_PATTERNS, attempt_refactoring, find_applicable_pattern
+from ..transformer.pattern_validators import validate as validate_pattern
 from ..gnn.gnn_model import HypergraphGNN, DependencyHypergraphEncoder, RefactoringPredictor, convert_cpg_to_geometric_data
 from ..transformer.code_generator import CodeTransformer, RefactoringGenerator
 from ..xai.explanation_module import CausalInferenceModule, ExplanationGenerator, ExplainabilityReport
@@ -340,6 +342,7 @@ class XRefactorPipeline:
         num_layers = self.config.get("transformer.num_layers", 6)
         num_heads = self.config.get("transformer.num_attention_heads", 12)
         max_length = self.config.get("transformer.max_length", 256)
+        use_ast_engine = self.config.get("refactor.use_ast_engine", True)
         
         gnn_embedding_dim = node_embeddings.shape[1]
         self.transformer = CodeTransformer(
@@ -369,8 +372,13 @@ class XRefactorPipeline:
             if node_id not in smells_by_node_id or smell["severity_score"] > smells_by_node_id[node_id]["severity_score"]:
                 smells_by_node_id[node_id] = smell
 
+        max_suggestions = self.config.get("refactor.max_suggestions", 5)
         refactoring_suggestions = []
+        neural_backlog = []  # candidates the engine declined, used to fill remaining slots
+
         for idx, sample in enumerate(source_code_samples):
+            if len(refactoring_suggestions) >= max_suggestions:
+                break
             # Prefer the FULL declaration source. A single line (all
             # code_snippet holds) is not a refactorable unit, and the
             # transformer was trained on whole method bodies.
@@ -408,24 +416,158 @@ class XRefactorPipeline:
                 detected_pattern = None
                 refactoring_type = learned_type_id
 
-            suggestion = generator.suggest_refactoring(
-                source_code=source_code,
-                gnn_embeddings=source_embedding,
-                confidence_score=confidence_score,
-                refactoring_type=refactoring_type,
-                max_length=max_length
-            )
+            pattern_name = generator.refactoring_types.get(refactoring_type, "unknown")
+
+            # HYBRID ROUTING. Try the deterministic engine first: when it applies
+            # AND javac verifies the edit, the refactoring is correct by
+            # construction rather than merely plausible. Otherwise fall back to
+            # the neural generator, recording why the engine declined.
+            engine_outcome = None
+            predicted_pattern = pattern_name
+            pattern_source = "smell" if detected_pattern else "learned"
+            opportunity_refusals = None
+
+            if use_ast_engine and sample.get("type") == "method" and sample.get("name"):
+                if pattern_name in SUPPORTED_PATTERNS:
+                    engine_outcome = attempt_refactoring(
+                        pattern=pattern_name,
+                        member_name=sample["name"],
+                        file_path=sample.get("file"),
+                        member_line=sample.get("line"),
+                    )
+                if engine_outcome is None or not engine_outcome.usable:
+                    # The predicted pattern has no deterministic implementation or
+                    # the engine refused it. Ask whether ANY verifiable refactoring
+                    # applies here - a verified correct edit beats an unverified
+                    # generated one. Recorded explicitly: the applied pattern then
+                    # differs from the predicted one, and both are reported.
+                    found, found_outcome, opportunity_refusals = find_applicable_pattern(
+                        member_name=sample["name"],
+                        file_path=sample.get("file"),
+                        member_line=sample.get("line"),
+                    )
+                    if found is not None:
+                        pattern_name = found
+                        refactoring_type = pattern_name_to_id.get(found, refactoring_type)
+                        engine_outcome = found_outcome
+                        pattern_source = "ast_opportunity"
+
+            if engine_outcome is not None and engine_outcome.usable:
+                suggestion = {
+                    "original_code": engine_outcome.result.original_member or source_code,
+                    "refactored_code": engine_outcome.result.refactored_member
+                                        if engine_outcome.result.refactored_member is not None
+                                        else "",
+                    "refactoring_type": pattern_name,
+                    # Deterministic and compile-verified: this is not a model
+                    # score, and S12's reporting excludes it from calibration.
+                    "confidence": 1.0,
+                    "raw_confidence": float(confidence_score),
+                    "confidence_kind": "deterministic",
+                    "type_id": refactoring_type,
+                    "generation_path": "ast",
+                    "ast_refusal_code": None,
+                    "verification": engine_outcome.verification.to_dict(),
+                    "edit": engine_outcome.result.metadata,
+                    "structural_validation": validate_pattern(
+                        pattern_name,
+                        engine_outcome.result.original_member or source_code,
+                        engine_outcome.result.refactored_member or "",
+                    ),
+                }
+            else:
+                # Defer neural generation: let the engine scan the whole ranked
+                # candidate pool first, so verified refactorings are not crowded
+                # out by unverified ones from earlier candidates. Generation is
+                # also the expensive step, so doing it last avoids paying for
+                # candidates we never emit.
+                neural_backlog.append({
+                    "sample": sample,
+                    "source_code": source_code,
+                    "source_embedding": source_embedding,
+                    "confidence_score": confidence_score,
+                    "refactoring_type": refactoring_type,
+                    "pattern_name": pattern_name,
+                    "predicted_pattern": predicted_pattern,
+                    "pattern_source": pattern_source,
+                    "embedding_index": embedding_index,
+                    "learned_pattern": learned_pattern,
+                    "detected_pattern": detected_pattern,
+                    "engine_outcome": engine_outcome,
+                    "opportunity_refusals": opportunity_refusals,
+                })
+                continue
+
             suggestion["source_file"] = sample.get("file")
             suggestion["node_type"] = sample.get("type")
             suggestion["embedding_index"] = embedding_index
             suggestion["learned_pattern"] = learned_pattern
             suggestion["detected_smell_pattern"] = detected_pattern
             suggestion["pattern_agreement"] = (detected_pattern is None) or (detected_pattern == learned_pattern)
+            # Which signal chose the pattern, and what was originally predicted -
+            # so an engine-opportunity override is never mistaken for the
+            # classifier having been right.
+            suggestion["pattern_source"] = pattern_source
+            suggestion["predicted_pattern"] = predicted_pattern
+            if opportunity_refusals:
+                suggestion["ast_opportunity_refusals"] = [
+                    {"pattern": p, "refusal": r} for p, r in opportunity_refusals
+                ]
             refactoring_suggestions.append(suggestion)
-        
+
+        ast_count = len(refactoring_suggestions)
+
+        # Fill any remaining slots with neural generation, so the neural path is
+        # still represented (and measurable) rather than silently crowded out.
+        for pending in neural_backlog:
+            if len(refactoring_suggestions) >= max_suggestions:
+                break
+            engine_outcome = pending["engine_outcome"]
+            suggestion = generator.suggest_refactoring(
+                source_code=pending["source_code"],
+                gnn_embeddings=pending["source_embedding"],
+                confidence_score=pending["confidence_score"],
+                refactoring_type=pending["refactoring_type"],
+                max_length=max_length
+            )
+            suggestion["confidence_kind"] = "model"
+            suggestion["generation_path"] = "neural"
+            suggestion["ast_refusal_code"] = (
+                engine_outcome.result.refusal_code if engine_outcome is not None
+                else (None if pending["pattern_name"] in SUPPORTED_PATTERNS
+                      else "PATTERN_NOT_SUPPORTED")
+            )
+            suggestion["verification"] = (
+                engine_outcome.verification.to_dict()
+                if engine_outcome is not None and engine_outcome.verification is not None
+                else None
+            )
+            suggestion["edit"] = None
+            suggestion["source_file"] = pending["sample"].get("file")
+            suggestion["node_type"] = pending["sample"].get("type")
+            suggestion["embedding_index"] = pending["embedding_index"]
+            suggestion["learned_pattern"] = pending["learned_pattern"]
+            suggestion["detected_smell_pattern"] = pending["detected_pattern"]
+            suggestion["pattern_agreement"] = (
+                (pending["detected_pattern"] is None)
+                or (pending["detected_pattern"] == pending["learned_pattern"])
+            )
+            suggestion["pattern_source"] = pending["pattern_source"]
+            suggestion["predicted_pattern"] = pending["predicted_pattern"]
+            if pending["opportunity_refusals"]:
+                suggestion["ast_opportunity_refusals"] = [
+                    {"pattern": p, "refusal": r} for p, r in pending["opportunity_refusals"]
+                ]
+            refactoring_suggestions.append(suggestion)
+
+        neural_count = len(refactoring_suggestions) - ast_count
         self.metrics.record("transformer_samples", float(len(refactoring_suggestions)))
-        logger.info(f"Generated {len(refactoring_suggestions)} refactoring suggestions")
-        
+        self.metrics.record("suggestions_ast_verified", float(ast_count))
+        self.metrics.record("suggestions_neural", float(neural_count))
+        logger.info(f"Generated {len(refactoring_suggestions)} refactoring suggestions "
+                    f"({ast_count} deterministic+verified, {neural_count} neural) "
+                    f"from {len(source_code_samples)} candidates")
+
         return refactoring_suggestions
     
     def stage_4_xai_explanation(self,
@@ -551,13 +693,20 @@ class XRefactorPipeline:
             # `source_text` (a full refactorable declaration), and a lone
             # statement line is not something a refactoring can be applied to.
             cpg_dict = cpg.to_dict()
+            smell_node_ids = {s["node_id"] for s in self.detected_smells}
+            candidate_pool = self.config.get("refactor.candidate_pool", 40)
+
             candidates = []
             for node_index, (node_id, node) in enumerate(cpg_dict["nodes"].items()):
                 if not (node.get("source_text") or node.get("code_snippet")):
                     continue
+                # Nodes the smell detector actually flagged come first: examining
+                # the first five nodes in file order was arbitrary and mostly
+                # surfaced code with nothing wrong with it.
+                flagged = 0 if node_id in smell_node_ids else 1
                 rank = {"method": 0, "class": 1}.get(node.get("type"), 2)
-                candidates.append((rank, node_index, node_id, node))
-            candidates.sort(key=lambda item: (item[0], item[1]))
+                candidates.append((flagged, rank, node_index, node_id, node))
+            candidates.sort(key=lambda item: (item[0], item[1], item[2]))
 
             sample_code = [
                 {
@@ -565,10 +714,14 @@ class XRefactorPipeline:
                     "source_text": node.get("source_text", ""),
                     "file": node.get("file"),
                     "type": node.get("type"),
+                    # name/line let the AST engine locate this exact declaration
+                    # (the CPG keys methods by name alone, so overloads collide).
+                    "name": node.get("name"),
+                    "line": node.get("line"),
                     "node_index": node_index,
                     "node_id": node_id,
                 }
-                for _rank, node_index, node_id, node in candidates[:5]
+                for _flagged, _rank, node_index, node_id, node in candidates[:candidate_pool]
             ]
             if not sample_code:
                 sample_code = [{"code_snippet": f"// Sample {i}", "file": None, "type": "sample", "node_index": i} for i in range(min(5, len(cpg_dict["nodes"])))]

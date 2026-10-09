@@ -44,6 +44,15 @@ _COLLECTION_TYPES = {"List", "ArrayList", "LinkedList", "Set", "HashSet", "TreeS
                      "Collection", "Queue", "Deque", "Iterable"}
 _MAP_TYPES = {"Map", "HashMap", "TreeMap", "LinkedHashMap", "ConcurrentHashMap"}
 
+# Deriving a name from these says nothing a reader did not already know:
+# `String value` -> `string` is not an improvement. Primitives are also excluded
+# because their lowercase form is a reserved word anyway.
+_UNINFORMATIVE_TYPES = {
+    "String", "Object", "Integer", "Long", "Double", "Float", "Short", "Byte",
+    "Character", "Boolean", "Number", "CharSequence", "Serializable", "Comparable",
+    "int", "long", "double", "float", "short", "byte", "char", "boolean", "void", "var",
+}
+
 _GETTER_PREFIXES = ("get", "find", "load", "build", "create", "to", "parse", "read", "fetch")
 
 
@@ -153,18 +162,17 @@ class HeuristicNameProposer:
         if creator:
             candidates.append(_lower_camel(_simple_type_name(creator.group(1))))
 
-        if type_text.strip() == "boolean":
-            if call:
-                candidates.append("is" + (call.group(1)[0].upper() + call.group(1)[1:]))
-            candidates.append("isEnabled")
+        if type_text.strip() == "boolean" and call:
+            candidates.append("is" + (call.group(1)[0].upper() + call.group(1)[1:]))
 
-        if simple and simple not in _MAP_TYPES and simple not in _COLLECTION_TYPES:
+        if simple and simple not in _MAP_TYPES and simple not in _COLLECTION_TYPES \
+                and simple not in _UNINFORMATIVE_TYPES:
             candidates.append(_lower_camel(simple))
 
-        # Last resort, always syntactically valid.
-        candidates.append("renamed" + ctx.old_name[0].upper() + ctx.old_name[1:])
-        for suffix in range(2, 6):
-            candidates.append(f"renamed{ctx.old_name[0].upper()}{ctx.old_name[1:]}{suffix}")
+        # Deliberately NO `renamed<Old>` fallback. That name is always worse than
+        # the original, so emitting it would make the code less readable while
+        # claiming to be a refactoring. When nothing informative can be derived
+        # the engine refuses (NO_VALID_NEW_NAME) - refusing is the honest answer.
 
         seen, ordered = set(), []
         for candidate in candidates:
@@ -238,13 +246,25 @@ def name_is_poor(name: str) -> bool:
 
 def choose_name(ctx: RenameContext,
                 file_source: str,
-                proposer: Optional[NameProposer] = None) -> Tuple[Optional[str], str, List[dict]]:
+                proposer: Optional[NameProposer] = None,
+                scope_identifiers: Optional[set] = None) -> Tuple[Optional[str], str, List[dict]]:
     """Return (chosen_name, name_source, rejected_candidates).
 
     Tries the given proposer first (the neural seam), then the deterministic
     heuristic, so a failed neural suggestion degrades rather than blocking.
+
+    `scope_identifiers` is the set a candidate must avoid. Callers should pass
+    the names that could actually collide - the file's fields, methods and
+    types plus everything declared in the target method - rather than every
+    identifier in the file. Rejecting against the whole file is sound but
+    produces ugly `renamedX` names, because a perfectly good candidate like
+    `batch` usually appears somewhere unrelated. Narrowing the set is safe
+    here because the differential javac verifier is the backstop: if a choice
+    ever did collide, `already.defined` makes the edit BROKEN and the engine
+    refuses to emit it.
     """
-    existing = identifiers_in_source(file_source)
+    existing = scope_identifiers if scope_identifiers is not None \
+        else identifiers_in_source(file_source)
     rejected: List[dict] = []
 
     attempts: List[Tuple[str, NameProposer]] = []

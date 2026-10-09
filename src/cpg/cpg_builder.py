@@ -9,11 +9,15 @@ from pathlib import Path
 from typing import Dict, List, Set, Tuple, Optional, Any
 from dataclasses import dataclass, field
 import networkx as nx
-from collections import defaultdict
+from collections import Counter, defaultdict
 from loguru import logger
 
 import javalang
 
+from src.cpg.call_resolver import (
+    CHAINED, PLAIN, QUALIFIED, SUPER, THIS,
+    CallResolver, PendingCall, coverage, simple_type_name,
+)
 from src.refactor.extent import member_extent
 
 
@@ -65,7 +69,22 @@ class CodePropertyGraph:
         self.nodes: Dict[str, CodeNode] = {}
         self.edges: List[CodeEdge] = []
         self.file_map: Dict[str, List[str]] = defaultdict(list)  # file -> node_ids
-        
+
+        # Call-graph resolution (see src/cpg/call_resolver.py). Invocations are
+        # COLLECTED during the first pass and resolved during the second,
+        # because an invocation's target is frequently declared in a file that
+        # has not been parsed yet - resolving eagerly is what previously forced
+        # the builder to assume every call targeted the caller's own file.
+        self.call_resolver = CallResolver()
+        self._pending_calls: List[PendingCall] = []
+        self._pending_inherits: List[Tuple[str, str]] = []  # (class node id, supertype name)
+        self._class_nodes_by_name: Dict[str, List[str]] = defaultdict(list)
+        # Invocations deliberately left unresolved, each with its reason, and
+        # the tally of which rule decided each call. Reported by
+        # get_statistics() so the call graph's real coverage is visible.
+        self.unresolved_calls: List[Dict[str, Any]] = []
+        self.call_resolution_stats: Counter = Counter()
+
         logger.info(f"Initialized CPG for language: {language}")
     
     def build_from_directory(self, directory_path: str) -> None:
@@ -103,10 +122,62 @@ class CodePropertyGraph:
         else:
             logger.warning(f"Language {self.language} not yet supported")
     
+    @staticmethod
+    def _supertype_names(node: Any) -> List[str]:
+        """Simple names of a type declaration's supertypes (extends + implements).
+
+        `extends` is a single reference on a class but a LIST on an interface,
+        so both shapes are accepted rather than assumed.
+        """
+        names: List[str] = []
+        extends = getattr(node, "extends", None)
+        if extends is not None:
+            for parent in (extends if isinstance(extends, list) else [extends]):
+                name = simple_type_name(parent)
+                if name:
+                    names.append(name)
+        for implemented in (getattr(node, "implements", None) or []):
+            name = simple_type_name(implemented)
+            if name:
+                names.append(name)
+        return names
+
+    def _index_type_declarations(self, file_path: str, tree: Any) -> None:
+        """Register every type declared in this file with the call resolver.
+
+        Interfaces and enums are indexed for RESOLUTION but are not added as
+        CPG nodes - only ClassDeclaration becomes a "class" node, which is the
+        pre-existing node-type contract that smell detection, the labeled
+        dataset and the GNN's node-type vocabulary all depend on. Their method
+        declarations are already captured as method nodes (the builder filters
+        MethodDeclaration over the whole tree regardless of the enclosing
+        type), so indexing the type name alone is enough to resolve
+        `service.save()` where `service` is declared as an interface - which in
+        these Spring-style repos is the common case.
+        """
+        for declaration_type in (javalang.tree.ClassDeclaration,
+                                 javalang.tree.InterfaceDeclaration,
+                                 javalang.tree.EnumDeclaration):
+            for _path, node in tree.filter(declaration_type):
+                self.call_resolver.index_class(node.name, file_path,
+                                               self._supertype_names(node))
+                # Type-level annotations, so a call to a member Lombok
+                # SYNTHESISES (a @Data accessor, @Slf4j's `log`) can be
+                # attributed to code generation instead of being reported as a
+                # resolution failure - the member genuinely is not in the source.
+                self.call_resolver.index_type_annotations(file_path, {
+                    annotation.name
+                    for annotation in (getattr(node, "annotations", None) or [])
+                    if getattr(annotation, "name", None)
+                })
+
     def _process_java_file(self, file_path: str, content: str) -> None:
         """Extract entities and relationships from Java file"""
         try:
             tree = javalang.parse.parse(content)
+            # Index every declared type FIRST: the field/local type lookups and
+            # supertype walks used by call resolution are all keyed off this.
+            self._index_type_declarations(file_path, tree)
             
             # Extract class definitions
             for path, node in tree.filter(javalang.tree.ClassDeclaration):
@@ -122,6 +193,9 @@ class CodePropertyGraph:
                     source_text=source_text,
                     extent=extent
                 )
+                self._class_nodes_by_name[node.name].append(class_node_id)
+                for supertype in self._supertype_names(node):
+                    self._pending_inherits.append((class_node_id, supertype))
 
             # Extract method definitions
             for path, node in tree.filter(javalang.tree.MethodDeclaration):
@@ -137,11 +211,13 @@ class CodePropertyGraph:
                     source_text=source_text,
                     extent=extent
                 )
+                self.call_resolver.index_method(method_node_id, node.name, file_path)
                 # Build control-flow, data-flow and call edges for this method body
                 self._process_method_body(file_path, content, method_node_id, node)
             
             # Extract field definitions
             for path, node in tree.filter(javalang.tree.FieldDeclaration):
+                field_type = simple_type_name(getattr(node, "type", None))
                 for decl in node.declarators:
                     field_node_id = f"field_{file_path}_{decl.name}"
                     self._add_node(
@@ -152,6 +228,7 @@ class CodePropertyGraph:
                         line_number=node.position[0] if node.position else 0,
                         code_snippet=self._extract_snippet(content, node.position)
                     )
+                    self.call_resolver.index_field_type(file_path, decl.name, field_type)
         
         except Exception as e:
             logger.error(f"Error parsing Java file {file_path}: {e}")
@@ -221,18 +298,137 @@ class CodePropertyGraph:
                 method_node_id, var_decls, counter, first_edge_kind="entry"
             )
         
-        # Call graph: every invocation inside this method is attributed to it
+        # Declared types of parameters and locals, needed to resolve `x.m()` to
+        # the class x was declared as. Collected independently of the data-flow
+        # walk above so call resolution does not silently degrade when
+        # include_data_flow is off.
+        if self.include_call_graph:
+            self._index_local_types(file_path, method_node)
+
+        # Call graph: every invocation inside this method is attributed to it,
+        # but only COLLECTED here. Targets are resolved in the second pass by
+        # src/cpg/call_resolver.py, once every file's declarations are indexed -
+        # this used to synthesise `method_<this file>_<name>`, which assumed
+        # every call stayed inside the calling file and so produced zero
+        # cross-file call edges plus thousands of dangling targets.
         if self.include_call_graph:
             try:
-                for _, invocation in method_node.filter(javalang.tree.MethodInvocation):
-                    self.edges.append(CodeEdge(
-                        source_id=method_node_id,
-                        target_id=f"method_{file_path}_{invocation.member}",
-                        edge_type="calls",
-                        metadata={"qualifier": str(invocation.qualifier) if invocation.qualifier else ""}
-                    ))
+                self._collect_invocations(file_path, method_node_id, method_node)
             except Exception as e:
                 logger.debug(f"Error extracting method calls for {method_node_id}: {e}")
+
+    def _index_local_types(self, file_path: str, method_node: Any) -> None:
+        """Record the declared type of every named binding inside a method.
+
+        Four javalang shapes introduce a typed name, and missing any of them
+        makes `x.m()` unresolvable for that x:
+          * FormalParameter          - `void m(Batch b)`
+          * LocalVariableDeclaration - `Batch b = ...;`
+          * VariableDeclaration      - `for (Batch b : batches)` and `for (int i...)`
+          * TryResource              - `try (Resource r = open())`
+          * CatchClauseParameter     - `catch (MyError e)`, whose `.types` is a
+            list of plain STRINGS, not type nodes, so it needs its own handling.
+
+        Lambda parameters are deliberately absent: javalang exposes an inferred
+        lambda parameter as a MemberReference with `name=None`, so neither the
+        name nor the type is recoverable, and a lambda receiver's type needs
+        real inference anyway. Those calls stay unresolved by design.
+        """
+        method_name = method_node.name
+
+        def record(name: Optional[str], type_name: Optional[str]) -> None:
+            if name:
+                self.call_resolver.index_local_type(file_path, method_name, name, type_name)
+
+        for param in (method_node.parameters or []):
+            record(param.name, simple_type_name(getattr(param, "type", None)))
+
+        try:
+            for declaration_type in (javalang.tree.LocalVariableDeclaration,
+                                     javalang.tree.VariableDeclaration,
+                                     javalang.tree.TryResource):
+                for _path, declaration in method_node.filter(declaration_type):
+                    type_name = simple_type_name(getattr(declaration, "type", None))
+                    declarators = getattr(declaration, "declarators", None)
+                    if declarators:
+                        for declarator in declarators:
+                            record(declarator.name, type_name)
+                    else:  # TryResource carries its name directly
+                        record(getattr(declaration, "name", None), type_name)
+
+            for _path, catch_param in method_node.filter(javalang.tree.CatchClauseParameter):
+                types = getattr(catch_param, "types", None) or []
+                # A multi-catch (`catch (A | B e)`) has no single type, so only a
+                # single-type clause is specific enough to index.
+                if len(types) == 1:
+                    record(catch_param.name, str(types[0]).split(".")[-1])
+
+            # Lambda parameters: javalang models an inferred parameter as a
+            # MemberReference, so the NAME is on `.member` (not `.name`) and the
+            # type is absent. Recording the name lets an unresolvable receiver
+            # be attributed to missing type inference instead of looking like a
+            # binding the indexer overlooked.
+            for _path, lambda_expr in method_node.filter(javalang.tree.LambdaExpression):
+                for parameter in (lambda_expr.parameters or []):
+                    declared = simple_type_name(getattr(parameter, "type", None))
+                    name = getattr(parameter, "name", None) or getattr(parameter, "member", None)
+                    if not name:
+                        continue
+                    if declared:
+                        record(name, declared)
+                    else:
+                        self.call_resolver.index_untyped_name(file_path, method_name, name)
+        except Exception as e:
+            logger.debug(f"Error indexing local types for {file_path}:{method_name}: {e}")
+
+    @staticmethod
+    def _invocation_kind(path: Any, invocation: Any) -> str:
+        """Classify an invocation's receiver from javalang's AST shape.
+
+        javalang encodes the receiver three different ways, and conflating them
+        is what makes naive resolution unsound:
+          * qualifier == ""   -> an unqualified call, `m()`
+          * qualifier == name -> an explicit receiver, `x.m()` or `Foo.m()`
+          * qualifier is None -> this node is a SELECTOR of something else, which
+            is either `this.m()` (enclosing node is `This`) or a chained call
+            such as `getX().m()` (enclosing node is another invocation). Only
+            the former is resolvable as an unqualified call.
+        """
+        qualifier = invocation.qualifier
+        if qualifier:
+            return QUALIFIED
+        if qualifier == "":
+            return PLAIN
+        enclosing = [node for node in path if not isinstance(node, (list, tuple))]
+        if enclosing and isinstance(enclosing[-1], javalang.tree.This):
+            return THIS
+        return CHAINED
+
+    def _collect_invocations(self, file_path: str, method_node_id: str,
+                             method_node: Any) -> None:
+        """Queue every invocation in this method for second-pass resolution."""
+        for path, invocation in method_node.filter(javalang.tree.MethodInvocation):
+            self._pending_calls.append(PendingCall(
+                caller_node_id=method_node_id,
+                caller_file=file_path,
+                caller_method=method_node.name,
+                member=invocation.member,
+                kind=self._invocation_kind(path, invocation),
+                qualifier=invocation.qualifier,
+                line=invocation.position[0] if invocation.position else 0,
+            ))
+        # `super.m()` is a DIFFERENT javalang node type and was previously
+        # missed entirely, so inherited calls never appeared in the call graph.
+        for _path, invocation in method_node.filter(javalang.tree.SuperMethodInvocation):
+            self._pending_calls.append(PendingCall(
+                caller_node_id=method_node_id,
+                caller_file=file_path,
+                caller_method=method_node.name,
+                member=invocation.member,
+                kind=SUPER,
+                qualifier=None,
+                line=invocation.position[0] if invocation.position else 0,
+            ))
     
     def _normalize_statements(self, statements: Any) -> List[Any]:
         """Flatten a statement, block, or list of statements into an ordered list of atomic statements"""
@@ -396,12 +592,109 @@ class CodePropertyGraph:
         })
     
     def _build_cross_file_dependencies(self) -> None:
-        """Build dependencies between files"""
+        """Second pass: resolve queued invocations and inheritance, then
+        materialise every edge into the NetworkX graph.
+
+        Runs only once the first pass has indexed every declaration in the
+        corpus, which is what makes genuine cross-file resolution possible.
+        """
         logger.info("Building cross-file dependencies...")
-        
+
+        self._resolve_pending_calls()
+        self._resolve_pending_inherits()
+
+        # Only edges whose BOTH endpoints are real nodes are added.
+        # `nx.add_edge` silently creates any node it has not seen, so an
+        # unresolvable target used to materialise a phantom node - 434 of them
+        # on one 66-file repo - leaving graph.number_of_nodes() permanently
+        # larger than len(self.nodes) and every reported node count wrong.
+        skipped = 0
         for edge in self.edges:
-            self.graph.add_edge(edge.source_id, edge.target_id, 
-                              type=edge.edge_type, **edge.metadata)
+            if edge.source_id not in self.nodes or edge.target_id not in self.nodes:
+                skipped += 1
+                continue
+            self.graph.add_edge(edge.source_id, edge.target_id,
+                                type=edge.edge_type, **edge.metadata)
+        if skipped:
+            logger.warning(f"{skipped} edge(s) referenced a node outside the graph and "
+                           f"were not materialised (this should be 0 - investigate)")
+
+    def _resolve_pending_calls(self) -> None:
+        """Turn queued invocations into `calls` edges via the global index."""
+        if not self._pending_calls:
+            return
+
+        resolved, unresolved, stats = self.call_resolver.resolve_all(self._pending_calls)
+        self.unresolved_calls = unresolved
+        self.call_resolution_stats = stats
+
+        cross_file = 0
+        for call, resolution in resolved:
+            target_file = self.nodes[resolution.target_node_id].file_path
+            is_cross_file = target_file != call.caller_file
+            cross_file += int(is_cross_file)
+            self.edges.append(CodeEdge(
+                source_id=call.caller_node_id,
+                target_id=resolution.target_node_id,
+                edge_type="calls",
+                metadata={
+                    "qualifier": call.qualifier or "",
+                    "receiver_kind": call.kind,
+                    # Which rule produced this edge, so a weaker inference
+                    # (unique_global) can be told apart from a strong one
+                    # (same_file, qualifier_type) downstream.
+                    "resolution": resolution.strategy,
+                    "cross_file": is_cross_file,
+                },
+            ))
+
+        total = len(self._pending_calls)
+        logger.info(
+            f"Call resolution: {len(resolved)}/{total} invocations resolved "
+            f"({cross_file} cross-file), {len(unresolved)} left unresolved")
+        logger.debug(f"Call resolution strategies: {dict(stats)}")
+        self._pending_calls = []
+
+    def _resolve_pending_inherits(self) -> None:
+        """Turn queued supertype references into class-to-class `inherits` edges.
+
+        ARCHITECTURE.md has always listed `inherits` as a supported
+        relationship, but no edge of that type was ever created. They are added
+        here because the same supertype index that resolves an inherited call
+        makes them free, and because they are the other genuinely cross-file
+        structural relationship in these codebases.
+        """
+        for class_node_id, supertype_name in self._pending_inherits:
+            candidates = self._class_nodes_by_name.get(supertype_name, [])
+            if len(candidates) != 1:
+                if candidates:
+                    # Several classes share this simple name; picking one would
+                    # be a guess.
+                    reason = "inherits_ambiguous"
+                elif supertype_name in self.call_resolver.files_by_class:
+                    # The supertype IS declared in this corpus, but as an
+                    # interface or enum - and only ClassDeclaration becomes a
+                    # CPG node, so there is no node to point the edge at. This
+                    # is the dominant case in Spring-style repos, where almost
+                    # every supertype is an interface: `inherits` edges
+                    # therefore under-report real structure until interfaces
+                    # become first-class nodes. Counted separately so that gap
+                    # is visible rather than looking like an external base class.
+                    reason = "inherits_supertype_not_a_node"
+                else:
+                    reason = "inherits_outside_corpus"
+                self.call_resolution_stats[reason] += 1
+                continue
+            target = candidates[0]
+            if target == class_node_id:
+                continue
+            self.edges.append(CodeEdge(
+                source_id=class_node_id,
+                target_id=target,
+                edge_type="inherits",
+                metadata={"supertype": supertype_name},
+            ))
+        self._pending_inherits = []
     
     def _extract_source_text(self, content: str, node: Any) -> Tuple[str, Optional[Dict[str, Any]]]:
         """Full declaration source for a class/method node, plus its extent.
@@ -482,16 +775,38 @@ class CodePropertyGraph:
         }
     
     def get_statistics(self) -> Dict[str, Any]:
-        """Get CPG statistics"""
+        """Get CPG statistics.
+
+        `graph_nodes` is reported alongside `total_nodes` as a consistency
+        check: the two must be equal, and any gap means edges are referencing
+        nodes that do not exist (which NetworkX would materialise silently).
+        """
         edge_types = self._count_by_type(self.edges, "edge_type")
+        call_edges = [e for e in self.edges if e.edge_type == "calls"]
+        cross_file_calls = sum(1 for e in call_edges if e.metadata.get("cross_file"))
+        attempted = len(call_edges) + len(self.unresolved_calls)
         return {
             "total_nodes": len(self.nodes),
+            "graph_nodes": self.graph.number_of_nodes(),
             "total_edges": len(self.edges),
             "node_types": self._count_by_type(self.nodes.values(), "node_type"),
             "edge_types": edge_types,
             "data_flow_edges": edge_types.get("data_flow", 0),
             "control_flow_edges": edge_types.get("control_flow", 0),
             "call_graph_edges": edge_types.get("calls", 0),
+            "inherits_edges": edge_types.get("inherits", 0),
+            "cross_file_call_edges": cross_file_calls,
+            "unresolved_calls": len(self.unresolved_calls),
+            # Honest coverage: resolved / every invocation we saw. Library calls
+            # and Lombok-generated members are legitimately unresolvable, so
+            # this is NOT expected to approach 1.0 - see
+            # src/cpg/call_resolver.py's OUT_OF_SCOPE_REASONS.
+            "call_resolution_rate": (len(call_edges) / attempted) if attempted else 0.0,
+            # Both rates together: the second excludes invocations no
+            # source-only resolver could decide, so it reflects resolver
+            # quality rather than corpus composition. Reported as a pair.
+            "call_coverage": coverage(self.call_resolution_stats),
+            "call_resolution_strategies": dict(self.call_resolution_stats),
             "total_files": len(self.file_map),
             "include_data_flow": self.include_data_flow,
             "include_control_flow": self.include_control_flow,

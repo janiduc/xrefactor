@@ -8,6 +8,8 @@ Architecture and design documentation for XRefactor
 
 The architecture below was the original design and remains accurate as *design* - what has changed since is that every stage now runs on real trained weights by default, not scaffolding. See `README.md`'s "Current Status" table for headline numbers and `DEVELOPMENT.md`'s "Known Limitations" for the honest caveats (dataset sizes, thin classes, the transformer's undertrained repetition, the XAI module's weak-supervision framing). One structural addition beyond the original design: `src/cpg/smell_detector.py` adds a rule-based code-smell detection layer (Stage 1) that runs alongside the GNN's learned `refactoring_type` prediction (Stage 2) - Stage 3 cross-checks the two and surfaces disagreement rather than silently picking one, closing the loop from "a specific code smell was identified" to "code was generated for that exact pattern."
 
+One correction to the original design, rather than an addition: the CPG's call graph was never actually inter-file. Every call edge was synthesised against the *caller's* file path, so cross-file invocations pointed at node ids that did not exist, and the "inter-file dependency resolution" the diagram below claims was not happening. `src/cpg/call_resolver.py` now resolves invocations against a global index of every declaration in the corpus, in a second pass - see the CPG section's "Call-graph resolution" below, and `DEVELOPMENT.md`'s "Known Limitations" for measured coverage and what remains out of reach without a classpath.
+
 ## High-Level Overview
 
 ```
@@ -63,16 +65,36 @@ Input Source Code (Multiple Files)
 - `CodeEdge`: Represents relationships (calls, uses, inherits)
 - `CodePropertyGraph`: Main graph builder
 
-**Supported Relationships:**
-- `calls`: Method call relationships
-- `uses`: Variable/field access
-- `defines`: Definition relationships
-- `inherits`: Inheritance relationships
-- `contains`: Containment relationships
+**Edge types actually produced** (`CodeEdge.edge_type`, as emitted - this list
+was previously aspirational and named three types the builder never created):
+- `control_flow`: statement sequencing and branching. `metadata["kind"]` is one
+  of `entry`, `sequence`, `branch_true`, `branch_false`, `loop_body`,
+  `try_body`, `catch_body`, `finally_body`, `case_body`.
+- `data_flow`: def-use. `metadata["role"]` is `parameter`, `definition` or `use`
+  (i.e. "defines" and "uses" are roles on this edge type, not separate types).
+- `calls`: method invocation, resolved to a real declaration by
+  `src/cpg/call_resolver.py`. `metadata` carries `resolution` (which rule found
+  the target), `receiver_kind` and `cross_file`.
+- `inherits`: class-to-class `extends`/`implements`.
+
+Containment is represented by `CodeNode.file_path` + `CodePropertyGraph.file_map`
+rather than by an edge.
+
+**Call-graph resolution (`src/cpg/call_resolver.py`).** Invocations are collected
+during a first pass and resolved during a second, once every declaration in the
+corpus is indexed. Each edge records the rule that produced it (`same_file`,
+`inherited`, `super_chain`, `unique_global`, `static_class`, `qualifier_type`),
+and every invocation that is NOT resolved is recorded with a specific reason
+rather than dropped or guessed. Full type resolution needs the dependency
+classpath these repos are not built with, so the resolver refuses instead of
+inventing a target - see that module's docstring for the strategy ladder and
+each deliberate refusal.
 
 **Language Support:**
 - Java: Full support via javalang parser
-- Python: Partial support via AST
+- Python: scaffold only - `build_from_directory` globs `*.{language}`, so
+  `language="python"` looks for `*.python` and matches nothing. Class/function
+  nodes are extracted but no edges are built.
 - C/C++: Planned
 - JavaScript: Planned
 
