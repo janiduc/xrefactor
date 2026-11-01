@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XRefactor - AI-Driven Code Refactoring</title>
+    <script>
+        // Applied before first paint so a dark-mode reload does not flash light.
+        try {
+            var t = localStorage.getItem('xrefactor_theme');
+            if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+        } catch (e) { /* private mode: fall through to the light default */ }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
@@ -16,104 +23,132 @@
         <!-- Navigation Header -->
         <header class="header">
             <div class="header-content">
-                <h1>🚀 XRefactor</h1>
+                <h1>XRefactor</h1>
                 <p>Explainable AI-Driven Cross-File Code Refactoring Framework</p>
             </div>
             <div class="header-info">
-                <span v-if="status.connected" class="status-badge connected">● Connected</span>
-                <span v-else class="status-badge disconnected">● Disconnected</span>
+                <button v-if="caveatCount" class="status-badge disconnected"
+                        :title="blockerCount + ' blocker(s), ' + caveatCount + ' total'"
+                        @click="currentView = 'limitations'">
+                    {{ caveatCount }} caveat{{ caveatCount === 1 ? '' : 's' }}
+                    <template v-if="blockerCount">· {{ blockerCount }} blocking</template>
+                </button>
+                <span v-if="status.connected" class="status-badge connected">Connected</span>
+                <span v-else class="status-badge disconnected">Disconnected</span>
+                <button class="theme-toggle" @click="toggleTheme">
+                    {{ theme === 'dark' ? 'Light' : 'Dark' }}
+                </button>
             </div>
         </header>
 
-        <!-- Main Container -->
         <div class="container">
-            <!-- Sidebar Navigation -->
+            <!-- Sidebar -->
             <aside class="sidebar">
                 <nav class="nav-menu">
-                    <button @click="currentView = 'home'" :class="['nav-item', { active: currentView === 'home' }]">
-                        📊 Home
-                    </button>
-                    <button @click="currentView = 'pipeline'" :class="['nav-item', { active: currentView === 'pipeline' }]">
-                        🔄 Pipeline
-                    </button>
-                    <button @click="currentView = 'configuration'" :class="['nav-item', { active: currentView === 'configuration' }]">
-                        ⚙️ Configuration
-                    </button>
-                    <button @click="currentView = 'results'" :class="['nav-item', { active: currentView === 'results' }]">
-                        📈 Results
-                    </button>
-                    <button @click="currentView = 'documentation'" :class="['nav-item', { active: currentView === 'documentation' }]">
-                        📚 Documentation
-                    </button>
+                    <small class="nav-group-label">Run</small>
+                    <button @click="currentView = 'home'" :class="['nav-item', { active: currentView === 'home' }]">Home</button>
+                    <button @click="currentView = 'pipeline'" :class="['nav-item', { active: currentView === 'pipeline' }]">Pipeline</button>
+                    <button @click="currentView = 'results'" :class="['nav-item', { active: currentView === 'results' }]">Results</button>
+                    <button @click="currentView = 'configuration'" :class="['nav-item', { active: currentView === 'configuration' }]">Configuration</button>
+
+                    <small class="nav-group-label">Evidence</small>
+                    <button @click="currentView = 'benchmarks'" :class="['nav-item', { active: currentView === 'benchmarks' }]">Benchmarks</button>
+                    <button @click="currentView = 'limitations'" :class="['nav-item', { active: currentView === 'limitations' }]">Limitations</button>
+                    <button @click="currentView = 'documentation'" :class="['nav-item', { active: currentView === 'documentation' }]">Documentation</button>
                 </nav>
             </aside>
 
-            <!-- Content Area -->
             <main class="content">
-                <!-- Home View -->
+
+                <!-- ============================ HOME ============================ -->
                 <section v-if="currentView === 'home'" class="view-section">
                     <h2>Welcome to XRefactor</h2>
-                    
+
+                    <div v-if="lastResults" class="kpi-strip">
+                        <div class="kpi">
+                            <div class="kpi-label">Latest run</div>
+                            <div class="kpi-value">{{ runProvenance.label }}</div>
+                            <div class="kpi-sub">{{ runProvenance.timestamp }}</div>
+                        </div>
+                        <div class="kpi">
+                            <div class="kpi-label">CPG</div>
+                            <div class="kpi-value">{{ cpgStats.total_nodes }}</div>
+                            <div class="kpi-sub">nodes · {{ cpgStats.total_edges }} edges</div>
+                        </div>
+                        <div class="kpi">
+                            <div class="kpi-label">Suggestions</div>
+                            <div class="kpi-value">{{ astNeuralSplit.total }}</div>
+                            <div class="kpi-sub">{{ astNeuralSplit.ast }} verified · {{ astNeuralSplit.neural }} neural</div>
+                        </div>
+                        <div class="kpi">
+                            <div class="kpi-label">Caveats</div>
+                            <div class="kpi-value">{{ caveatCount }}</div>
+                            <div class="kpi-sub">{{ blockerCount }} blocking</div>
+                        </div>
+                    </div>
+
                     <div class="pipeline-overview">
-                        <h3>📋 4-Stage Pipeline Architecture</h3>
+                        <h3>4-Stage Pipeline Architecture</h3>
                         <div class="stages-diagram">
                             <div class="stage-box">
                                 <div class="stage-number">1</div>
                                 <h4>CPG Construction</h4>
-                                <p>Parse source code &amp; build dependency graphs</p>
+                                <p>Parse source code &amp; resolve cross-file dependencies</p>
                                 <small>Input: Source Code</small>
                                 <small>Output: Code Property Graph</small>
                             </div>
-                            <div class="arrow">→</div>
+                            <div class="arrow">&rarr;</div>
                             <div class="stage-box">
                                 <div class="stage-number">2</div>
                                 <h4>GNN Reasoning</h4>
-                                <p>Apply Graph Neural Networks for structural analysis</p>
+                                <p>Graph attention over the dependency graph</p>
                                 <small>Input: CPG</small>
                                 <small>Output: Node Embeddings</small>
                             </div>
-                            <div class="arrow">→</div>
+                            <div class="arrow">&rarr;</div>
                             <div class="stage-box">
                                 <div class="stage-number">3</div>
-                                <h4>Transformer Generation</h4>
-                                <p>Generate refactored code using CodeBERT</p>
-                                <small>Input: Embeddings</small>
-                                <small>Output: Refactored Code</small>
+                                <h4>Refactoring</h4>
+                                <p>Deterministic AST engine first, neural fallback second</p>
+                                <small>Input: Embeddings + Source</small>
+                                <small>Output: Verified or generated edit</small>
                             </div>
-                            <div class="arrow">→</div>
+                            <div class="arrow">&rarr;</div>
                             <div class="stage-box">
                                 <div class="stage-number">4</div>
                                 <h4>XAI Explanation</h4>
-                                <p>Generate explanations &amp; confidence scores</p>
-                                <small>Input: Predictions</small>
+                                <p>Evidence cards &amp; confidence scores</p>
+                                <small>Input: Suggestions</small>
                                 <small>Output: Explanations</small>
                             </div>
                         </div>
                     </div>
 
                     <div class="quick-start">
-                        <h3>🚀 Quick Start</h3>
+                        <h3>Quick Start</h3>
                         <ol>
-                            <li>Configure your settings in the <strong>Configuration</strong> tab</li>
-                            <li>Go to the <strong>Pipeline</strong> tab</li>
-                            <li>Select your source code directory</li>
-                            <li>Click <strong>Run Full Pipeline</strong></li>
-                            <li>View results in the <strong>Results</strong> tab</li>
+                            <li>Open <strong>Results</strong> to inspect any previously saved run - no re-run needed</li>
+                            <li>Open <strong>Benchmarks</strong> for the per-pattern scorecard and offline evaluation</li>
+                            <li>Use <strong>Pipeline</strong> to analyse a new source directory</li>
                         </ol>
                     </div>
                 </section>
 
-                <!-- Pipeline View -->
+                <!-- ========================== PIPELINE ========================== -->
                 <section v-else-if="currentView === 'pipeline'" class="view-section">
                     <h2>Run Pipeline</h2>
-                    
                     <div class="pipeline-controls">
                         <div class="form-group">
                             <label>Source Code Directory:</label>
-                            <input v-model="pipelineInput.dataDirectory" type="text" placeholder="e.g., ../Data/1273091433/jeesite" class="form-input">
-                            <small>Full path to your source code folder</small>
+                            <input v-model="pipelineInput.dataDirectory" type="text" class="form-input"
+                                   placeholder="e.g., ../Data/ErikHage/MicroBreweryModel">
+                            <small>Path on the server, relative to the xrefactor directory</small>
                         </div>
-
+                        <div class="form-group">
+                            <label>Config file:</label>
+                            <input v-model="pipelineInput.configPath" type="text" class="form-input">
+                            <small>Read server-side; the Configuration tab does not override this</small>
+                        </div>
                         <div class="form-group">
                             <label>Device:</label>
                             <select v-model="pipelineInput.device" class="form-select">
@@ -121,62 +156,58 @@
                                 <option value="cuda">CUDA (GPU)</option>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label>Output Directory:</label>
-                            <input v-model="pipelineInput.outputDirectory" type="text" placeholder="./outputs" class="form-input">
+                            <input v-model="pipelineInput.outputDirectory" type="text" class="form-input" placeholder="./outputs">
                         </div>
-
                         <div class="button-group">
                             <button @click="runFullPipeline" :disabled="pipelineRunning" class="btn btn-primary">
-                                <span v-if="!pipelineRunning">▶️ Run Full Pipeline</span>
-                                <span v-else>⏳ Running... ({{ pipelineElapsedSeconds.toFixed(0) }}s elapsed)</span>
+                                <span v-if="!pipelineRunning">Run Full Pipeline</span>
+                                <span v-else>Running... ({{ pipelineElapsedSeconds.toFixed(0) }}s elapsed)</span>
                             </button>
-                            <button @click="runStage('cpg_construction')" :disabled="pipelineRunning" class="btn btn-secondary">
-                                Stage 1: CPG Only
-                            </button>
-                            <button @click="runStage('gnn_reasoning')" :disabled="pipelineRunning" class="btn btn-secondary">
-                                Stage 2: GNN Only
-                            </button>
+                            <button @click="runStage('cpg_construction')" :disabled="pipelineRunning" class="btn btn-secondary">Stage 1: CPG Only</button>
+                            <button @click="runStage('gnn_reasoning')" :disabled="pipelineRunning" class="btn btn-secondary">Stage 2: GNN Only</button>
                         </div>
+                        <p v-if="pipelineRunning" class="graph-note">
+                            The run is synchronous and has no per-stage progress reporting, so only elapsed time is available.
+                        </p>
+                    </div>
+
+                    <div v-if="pipelineError" class="error-box">
+                        <h3>Error</h3>
+                        <p>{{ pipelineError }}</p>
                     </div>
 
                     <div v-if="pipelineOutput" class="pipeline-output">
                         <h3>Output Log</h3>
-                        <pre class="output-log">{{ JSON.stringify(pipelineOutput, null, 2) }}</pre>
-                    </div>
-
-                    <div v-if="pipelineError" class="error-box">
-                        <h3>❌ Error</h3>
-                        <p>{{ pipelineError }}</p>
+                        <pre class="output-log">{{ JSON.stringify(pipelineOutput.message || pipelineOutput.status, null, 2) }}</pre>
                     </div>
                 </section>
 
-                <!-- Configuration View -->
+                <!-- ======================= CONFIGURATION ======================= -->
                 <section v-else-if="currentView === 'configuration'" class="view-section">
                     <h2>Configuration</h2>
-                    
+                    <div class="caveat-banner">
+                        <h4>Local preferences only</h4>
+                        <p>
+                            These controls persist to this browser's localStorage and are <strong>not</strong> sent to the
+                            backend. A pipeline run reads <code>configs/config.yaml</code> server-side, so changing values
+                            here has no effect on a run. Edit that file to change pipeline behaviour.
+                        </p>
+                    </div>
+
                     <div class="config-section">
                         <h3>CPG Settings</h3>
                         <div class="form-group">
                             <label>Language:</label>
                             <select v-model="config.cpg.language" class="form-select">
                                 <option value="java">Java</option>
-                                <option value="python">Python</option>
+                                <option value="python">Python (scaffold only - no edges built)</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label>
-                                <input v-model="config.cpg.include_data_flow" type="checkbox">
-                                Include Data Flow Analysis
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label>
-                                <input v-model="config.cpg.include_control_flow" type="checkbox">
-                                Include Control Flow Analysis
-                            </label>
-                        </div>
+                        <div class="form-group"><label><input v-model="config.cpg.include_data_flow" type="checkbox"> Include Data Flow Analysis</label></div>
+                        <div class="form-group"><label><input v-model="config.cpg.include_control_flow" type="checkbox"> Include Control Flow Analysis</label></div>
+                        <div class="form-group"><label><input v-model="config.cpg.include_call_graph" type="checkbox"> Include Call Graph</label></div>
                     </div>
 
                     <div class="config-section">
@@ -191,8 +222,7 @@
                         </div>
                         <div class="form-group">
                             <label>Hidden Dimensions:</label>
-                            <input v-model="config.gnn.hidden_dims" type="text" placeholder="256,256" class="form-input">
-                            <small>Comma-separated values</small>
+                            <input v-model="config.gnn.hidden_dims" type="text" class="form-input" placeholder="256,256">
                         </div>
                         <div class="form-group">
                             <label>Output Dimension:</label>
@@ -201,203 +231,1061 @@
                     </div>
 
                     <div class="button-group">
-                        <button @click="saveConfiguration" class="btn btn-primary">
-                            💾 Save Configuration
-                        </button>
-                        <button @click="loadConfiguration" class="btn btn-secondary">
-                            📂 Load Configuration
-                        </button>
+                        <button @click="saveConfiguration" class="btn btn-primary">Save Locally</button>
+                        <button @click="loadConfiguration" class="btn btn-secondary">Load</button>
                     </div>
                 </section>
 
-                <!-- Results View -->
+                <!-- =========================== RESULTS =========================== -->
                 <section v-else-if="currentView === 'results'" class="view-section">
                     <h2>Results</h2>
-                    
-                    <div v-if="lastResults" class="results-box">
-                        <h3>Latest Results</h3>
-                        <div class="results-grid">
-                            <div class="result-item">
-                                <strong>Status:</strong>
-                                <span :class="['status-' + lastResults.status]">{{ lastResults.status }}</span>
-                            </div>
-                            <div class="result-item">
-                                <strong>Timestamp:</strong>
-                                <span>{{ lastResults.timestamp }}</span>
-                            </div>
-                            <div class="result-item">
-                                <strong>Nodes:</strong>
-                                <span>{{ lastResults.stats?.cpg?.total_nodes || 'N/A' }}</span>
-                            </div>
-                            <div class="result-item">
-                                <strong>Edges:</strong>
-                                <span>{{ lastResults.stats?.cpg?.total_edges || 'N/A' }}</span>
-                            </div>
+
+                    <div class="form-group" style="max-width:520px">
+                        <label>Saved run:</label>
+                        <select class="form-select" :value="runId" @change="loadRun($event.target.value)">
+                            <option v-for="run in runs" :key="run.id" :value="run.id">
+                                {{ run.id }} — {{ run.repo_label || run.data_directory || 'unlabelled corpus' }}
+                                ({{ run.suggestion_count }} suggestions)
+                            </option>
+                        </select>
+                        <small>{{ runs.length }} saved run(s) in outputs/. Loading one does not re-run the pipeline.</small>
+                    </div>
+
+                    <div v-if="!lastResults" class="info-box">
+                        <p v-if="loading.run">Loading run...</p>
+                        <p v-else>No results available. Run the pipeline from the Pipeline tab.</p>
+                    </div>
+
+                    <template v-else>
+                        <div class="provenance">
+                            <span class="prov-kind run">RUN</span>
+                            <strong>{{ runProvenance.label }}</strong>
+                            <span>{{ runProvenance.timestamp }}</span>
+                            <span>{{ runProvenance.detail }}</span>
+                            <span :class="['chip', lastResults.status === 'success' ? 'chip-pass' : 'chip-fail']">
+                                {{ lastResults.status }}
+                            </span>
+                            <span v-if="runProvenance.missingLabel" class="chip chip-muted"
+                                  title="This run predates corpus labelling in the pipeline">corpus not recorded</span>
                         </div>
 
-                        <div class="analysis-summary">
-                            <h3>CPG Analysis Details</h3>
-                            <div class="results-grid">
-                                <div class="result-item">
-                                    <strong>Data Flow Analysis:</strong>
-                                    <span>{{ lastResults.stats?.cpg?.include_data_flow ? 'Enabled' : 'Disabled' }}</span>
-                                </div>
-                                <div class="result-item">
-                                    <strong>Data Flow Edges:</strong>
-                                    <span>{{ lastResults.stats?.cpg?.data_flow_edges ?? 'N/A' }}</span>
-                                </div>
-                                <div class="result-item">
-                                    <strong>Control Flow Analysis:</strong>
-                                    <span>{{ lastResults.stats?.cpg?.include_control_flow ? 'Enabled' : 'Disabled' }}</span>
-                                </div>
-                                <div class="result-item">
-                                    <strong>Control Flow Edges:</strong>
-                                    <span>{{ lastResults.stats?.cpg?.control_flow_edges ?? 'N/A' }}</span>
-                                </div>
-                                <div class="result-item">
-                                    <strong>Call Graph:</strong>
-                                    <span>{{ lastResults.stats?.cpg?.include_call_graph ? 'Enabled' : 'Disabled' }}</span>
-                                </div>
-                                <div class="result-item">
-                                    <strong>Call Graph Edges:</strong>
-                                    <span>{{ lastResults.stats?.cpg?.call_graph_edges ?? 'N/A' }}</span>
-                                </div>
-                            </div>
+                        <div v-for="c in caveats.filter(c => c.severity === 'blocker' && (c.scope === 'run' || c.scope === 'global'))"
+                             :key="c.id" class="caveat-banner">
+                            <h4>{{ c.title }}</h4>
+                            <p>{{ c.message }}</p>
                         </div>
 
-                        <div class="results-detail">
-                            <h4>Refactored Code Output</h4>
-                            <div v-if="lastResults.raw?.results?.stages?.transformer?.refactoring_suggestions?.length">
-                                <div v-for="(suggestion, idx) in lastResults.raw.results.stages.transformer.refactoring_suggestions" :key="idx" class="suggestion-item">
-                                    <strong>{{ idx + 1 }}. {{ suggestion.refactoring_type }}</strong>
-                                    <div><em>Source file:</em> {{ suggestion.source_file || 'N/A' }}</div>
-                                    <div><em>Confidence:</em> {{ suggestion.confidence.toFixed(2) }}</div>
-                                    <pre>{{ suggestion.refactored_code }}</pre>
-                                </div>
-                            </div>
-                            <div v-else>
-                                <p>No refactored code suggestions available yet.</p>
-                            </div>
+                        <div class="subtabs">
+                            <button :class="['subtab', { active: resultsTab === 'overview' }]" @click="resultsTab = 'overview'">Overview</button>
+                            <button :class="['subtab', { active: resultsTab === 'suggestions' }]" @click="resultsTab = 'suggestions'">Suggestions ({{ suggestions.length }})</button>
+                            <button :class="['subtab', { active: resultsTab === 'evidence' }]" @click="resultsTab = 'evidence'">Evidence ({{ evidenceCards.length }})</button>
+                            <button :class="['subtab', { active: resultsTab === 'smells' }]" @click="resultsTab = 'smells'">Smells</button>
+                            <button :class="['subtab', { active: resultsTab === 'graph' }]" @click="resultsTab = 'graph'">Graph</button>
+                            <button :class="['subtab', { active: resultsTab === 'raw' }]" @click="resultsTab = 'raw'">Raw</button>
                         </div>
 
-                        <!-- Visualizations -->
-                        <div class="visualization-section">
-                            <h3>📊 Analysis Visualizations</h3>
+                        <!-- ---------- Overview ---------- -->
+                        <div v-if="resultsTab === 'overview'">
+                            <div class="kpi-strip">
+                                <div class="kpi">
+                                    <div class="kpi-label">Nodes</div>
+                                    <div class="kpi-value">{{ cpgStats.total_nodes }}</div>
+                                    <div class="kpi-sub">{{ cpgStats.total_files }} files</div>
+                                </div>
+                                <div class="kpi">
+                                    <div class="kpi-label">Edges</div>
+                                    <div class="kpi-value">{{ cpgStats.total_edges }}</div>
+                                    <div class="kpi-sub">{{ cpgStats.cross_file_call_edges ?? 0 }} cross-file calls</div>
+                                </div>
+                                <div class="kpi">
+                                    <div class="kpi-label">Smells detected</div>
+                                    <div class="kpi-value">{{ smells ? smells.total : (metricsRows.find(r => r.name === 'cpg_detected_smells_total')?.mean ?? '--') }}</div>
+                                    <div class="kpi-sub">rule-based</div>
+                                </div>
+                                <div class="kpi">
+                                    <div class="kpi-label">Suggestions</div>
+                                    <div class="kpi-value">{{ astNeuralSplit.total }}</div>
+                                    <div class="kpi-sub">{{ astNeuralSplit.ast }} verified · {{ astNeuralSplit.neural }} neural</div>
+                                </div>
+                                <div class="kpi">
+                                    <div class="kpi-label">Evidence cards</div>
+                                    <div class="kpi-value">{{ evidenceCards.length }}</div>
+                                    <div class="kpi-sub">stage 4</div>
+                                </div>
+                            </div>
+
+                            <!-- Provenance split: this DOES vary, unlike confidence -->
+                            <div class="chart-box" v-if="astNeuralSplit.total">
+                                <h4>Suggestion provenance</h4>
+                                <div class="composition-bar">
+                                    <div class="composition-seg" :style="{ width: (astNeuralSplit.ast / astNeuralSplit.total * 100) + '%', background: 'var(--c-ast)' }">
+                                        {{ astNeuralSplit.ast }} AST-verified
+                                    </div>
+                                    <div class="composition-seg" :style="{ width: (astNeuralSplit.neural / astNeuralSplit.total * 100) + '%', background: 'var(--c-neural)' }">
+                                        {{ astNeuralSplit.neural }} neural
+                                    </div>
+                                </div>
+                                <p class="graph-note">
+                                    AST suggestions are compile-verified against javac. Neural suggestions are generated
+                                    text, are not verified, and are not conditioned on the requested pattern.
+                                </p>
+                            </div>
+
+                            <!-- Confidence is a statement, not a chart: see caveats -->
+                            <div class="statement-tile" v-if="suggestions.length">
+                                <div class="st-value">
+                                    Model confidence {{ fx(suggestions[0].raw_confidence, 4) }}
+                                    <span v-if="rawConfidenceUniform">(identical on all {{ suggestions.length }})</span>
+                                </div>
+                                <div class="st-text">
+                                    Charting this would be a row of identical bars. Deterministic suggestions additionally
+                                    carry confidence 1.0 by construction, which is not a model score and must not be
+                                    averaged with model confidences.
+                                </div>
+                            </div>
+
+                            <!-- Call resolution: the new CPG work -->
+                            <div class="chart-box" v-if="callCoverage">
+                                <h4>
+                                    Call resolution coverage
+                                    <span class="caveat-dots">
+                                        <button v-for="c in caveats.filter(c => c.id === 'LOW_CALL_RESOLUTION')" :key="c.id"
+                                                :class="['caveat-dot', 'sev-' + c.severity]" :title="c.title"
+                                                @click="toggleCaveat(c.id)"></button>
+                                    </span>
+                                </h4>
+                                <div class="composition-bar">
+                                    <div v-for="seg in coverageSegments" :key="seg.key" class="composition-seg"
+                                         :style="{ width: (seg.share * 100) + '%', background: seg.color }"
+                                         :title="seg.label + ': ' + seg.value">
+                                        {{ seg.share > 0.08 ? seg.value : '' }}
+                                    </div>
+                                </div>
+                                <div class="composition-legend">
+                                    <span v-for="seg in coverageSegments" :key="seg.key">
+                                        <i class="cl-swatch" :style="{ background: seg.color }"></i>{{ seg.label }}: {{ seg.value }}
+                                    </span>
+                                </div>
+
+                                <!-- Both rates, always together -->
+                                <div class="rate-pair">
+                                    <div class="rp-item">
+                                        <div class="rp-value">{{ pct(callCoverage.rate) }}</div>
+                                        <div class="rp-label">of all {{ callCoverage.invocations }} invocations</div>
+                                    </div>
+                                    <div class="rp-item">
+                                        <div class="rp-value">{{ pct(callCoverage.rate_in_corpus) }}</div>
+                                        <div class="rp-label">of the {{ callCoverage.resolved + callCoverage.addressable_unresolved }} a source-only resolver can decide</div>
+                                    </div>
+                                </div>
+                                <p class="graph-note">
+                                    Neither rate is meaningful alone: the first understates the resolver because library
+                                    calls and Lombok-generated members can never be resolved from source; the second
+                                    excludes exactly those and so overstates total coverage.
+                                </p>
+                                <div v-if="openCaveat === 'LOW_CALL_RESOLUTION'" class="caveat-list">
+                                    <li v-for="c in caveats.filter(c => c.id === 'LOW_CALL_RESOLUTION')" :key="c.id">
+                                        {{ c.message }}<br><code>{{ c.trigger }}</code>
+                                    </li>
+                                </div>
+                            </div>
 
                             <div class="chart-grid">
                                 <div class="chart-box">
-                                    <h4>CPG Node Type Distribution</h4>
-                                    <canvas ref="nodeTypeChart"></canvas>
+                                    <h4>Node types</h4>
+                                    <div class="chart-canvas-wrap"><canvas ref="nodeTypeChart"></canvas></div>
                                 </div>
-                                <div class="chart-box">
-                                    <h4>CPG Edge Type Distribution</h4>
-                                    <canvas ref="edgeTypeChart"></canvas>
-                                </div>
-                                <div class="chart-box" v-if="confidenceChartData.labels.length">
-                                    <h4>Refactoring Suggestion Confidence</h4>
-                                    <canvas ref="confidenceChart"></canvas>
+                                <div class="chart-box" v-if="strategyRows.length">
+                                    <h4>Call resolution strategies</h4>
+                                    <div class="chart-canvas-wrap tall"><canvas ref="strategyChart"></canvas></div>
+                                    <p class="graph-note" v-if="inheritsBookkeeping.length">
+                                        Excluded from this partition:
+                                        <template v-for="(b, i) in inheritsBookkeeping" :key="b.key">
+                                            <code>{{ b.key }}</code> ({{ b.value }}){{ i < inheritsBookkeeping.length - 1 ? ', ' : '' }}
+                                        </template>
+                                        — inheritance bookkeeping, not call-site outcomes.
+                                    </p>
                                 </div>
                             </div>
 
+                            <div class="chart-box">
+                                <h4>Edge composition</h4>
+                                <div class="composition-bar">
+                                    <div v-for="(count, type, i) in cpgStats.edge_types" :key="type" class="composition-seg"
+                                         :style="{ width: (count / cpgStats.total_edges * 100) + '%', background: 'var(--c-cat-' + ((i % 6) + 1) + ')' }"
+                                         :title="type + ': ' + count">
+                                        {{ (count / cpgStats.total_edges) > 0.08 ? count : '' }}
+                                    </div>
+                                </div>
+                                <div class="composition-legend">
+                                    <span v-for="(count, type, i) in cpgStats.edge_types" :key="type">
+                                        <i class="cl-swatch" :style="{ background: 'var(--c-cat-' + ((i % 6) + 1) + ')' }"></i>{{ prettyPattern(type) }}: {{ count }}
+                                    </span>
+                                </div>
+                                <p class="graph-note" v-if="cpgStats.inherits_edges === 0">
+                                    inherits: 0 on this corpus — every in-corpus supertype is an interface, and only
+                                    classes are CPG nodes, so there is no node to attach the edge to.
+                                </p>
+                            </div>
+
                             <div class="metrics-table-box">
-                                <h4>⚡ Pipeline Performance Metrics</h4>
+                                <h4>Pipeline metrics</h4>
+                                <p v-if="!metricsHaveDispersion" class="graph-note">
+                                    Single run — dispersion columns are hidden because min, max, median and stdev carry
+                                    no information when count = 1.
+                                </p>
                                 <table v-if="metricsRows.length" class="metrics-table">
                                     <thead>
                                         <tr>
-                                            <th>Metric</th>
-                                            <th>Count</th>
-                                            <th>Mean</th>
-                                            <th>Median</th>
-                                            <th>Min</th>
-                                            <th>Max</th>
-                                            <th>Std Dev</th>
+                                            <th>Metric</th><th>Value</th>
+                                            <template v-if="metricsHaveDispersion">
+                                                <th>Count</th><th>Median</th><th>Min</th><th>Max</th><th>Std Dev</th>
+                                            </template>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr v-for="row in metricsRows" :key="row.name">
                                             <td>{{ row.name }}</td>
-                                            <td>{{ row.count }}</td>
-                                            <td>{{ row.mean.toFixed(2) }}</td>
-                                            <td>{{ row.median.toFixed(2) }}</td>
-                                            <td>{{ row.min.toFixed(2) }}</td>
-                                            <td>{{ row.max.toFixed(2) }}</td>
-                                            <td>{{ row.stdev.toFixed(2) }}</td>
+                                            <td class="num">{{ fx(row.mean) }}</td>
+                                            <template v-if="metricsHaveDispersion">
+                                                <td class="num">{{ row.count }}</td>
+                                                <td class="num">{{ fx(row.median) }}</td>
+                                                <td class="num">{{ fx(row.min) }}</td>
+                                                <td class="num">{{ fx(row.max) }}</td>
+                                                <td class="num">{{ fx(row.stdev) }}</td>
+                                            </template>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <p v-else>No performance metrics recorded yet.</p>
+                                <p v-else>No performance metrics recorded.</p>
                             </div>
+                        </div>
 
+                        <!-- ---------- Suggestions ---------- -->
+                        <div v-else-if="resultsTab === 'suggestions'">
+                            <div v-if="!suggestions.length" class="info-box"><p>No suggestions in this run.</p></div>
+                            <template v-else>
+                                <table class="suggestion-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th><th>Applied pattern</th><th>Path</th><th>File</th>
+                                            <th>Verification</th><th>Validation</th><th>Signals</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(s, idx) in suggestions" :key="idx"
+                                            :class="{ selected: idx === selectedSuggestion }" @click="selectSuggestion(idx)">
+                                            <td>{{ idx + 1 }}</td>
+                                            <td><strong>{{ prettyPattern(s.refactoring_type) }}</strong></td>
+                                            <td>
+                                                <span :class="['chip', s.generation_path === 'ast' ? 'chip-ast' : 'chip-neural']">
+                                                    {{ s.generation_path }}
+                                                </span>
+                                            </td>
+                                            <td :title="s.source_file">{{ basename(s.source_file) }}</td>
+                                            <td><span :class="['chip', verificationChip(s).cls]">{{ verificationChip(s).text }}</span></td>
+                                            <td>
+                                                <span :class="['chip', s.structural_validation?.passed ? 'chip-pass' : 'chip-fail']">
+                                                    {{ s.structural_validation?.passed ? 'passed' : 'failed' }}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span :class="['chip', s.pattern_agreement ? 'chip-muted' : 'chip-warn']">
+                                                    {{ s.pattern_agreement ? 'rules=model' : 'rules≠model' }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <!-- Drill-down -->
+                                <div class="detail-panel" v-if="currentSuggestion">
+                                    <h3>Suggestion {{ selectedSuggestion + 1 }} — {{ prettyPattern(currentSuggestion.refactoring_type) }}</h3>
+
+                                    <div class="detail-block">
+                                        <h5>Provenance</h5>
+                                        <div class="chip-row">
+                                            <span :class="['chip', currentSuggestion.generation_path === 'ast' ? 'chip-ast' : 'chip-neural']">
+                                                {{ currentSuggestion.generation_path === 'ast' ? 'deterministic AST edit' : 'neural generation' }}
+                                            </span>
+                                            <span class="chip chip-muted">confidence: {{ currentSuggestion.confidence_kind }}</span>
+                                            <span class="chip chip-muted">pattern source: {{ currentSuggestion.pattern_source }}</span>
+                                            <span v-if="currentSuggestion.ast_refusal_code" class="chip chip-warn">
+                                                engine refused: {{ currentSuggestion.ast_refusal_code }}
+                                            </span>
+                                        </div>
+                                        <p class="graph-note" v-if="currentSuggestion.generation_path === 'neural'">
+                                            The neural decoder ignores the requested pattern argument entirely, so this
+                                            output is labelled with a pattern it was never conditioned on.
+                                        </p>
+                                        <div v-if="currentSuggestion.ast_opportunity_refusals?.length" class="caveat-list">
+                                            <li v-for="(r, i) in currentSuggestion.ast_opportunity_refusals" :key="i">
+                                                engine tried <code>{{ r.pattern }}</code> and declined: <code>{{ r.refusal }}</code>
+                                            </li>
+                                        </div>
+                                    </div>
+
+                                    <div class="detail-block" v-if="signalChain">
+                                        <h5>Pattern signal chain</h5>
+                                        <div class="signal-chain">
+                                            <div class="signal-node">
+                                                <span class="sn-label">Smell detector (rules)</span>
+                                                <span class="sn-value">{{ prettyPattern(signalChain.detected) || '—' }}</span>
+                                            </div>
+                                            <span :class="['signal-op', signalChain.detected === signalChain.learned ? 'eq' : 'neq']">
+                                                {{ signalChain.detected === signalChain.learned ? '=' : '≠' }}
+                                            </span>
+                                            <div class="signal-node">
+                                                <span class="sn-label">GNN classifier</span>
+                                                <span class="sn-value">{{ prettyPattern(signalChain.learned) || '—' }}</span>
+                                            </div>
+                                            <span :class="['signal-op', signalChain.appliedMatchesPredicted ? 'eq' : 'neq']">&rarr;</span>
+                                            <div class="signal-node">
+                                                <span class="sn-label">Predicted</span>
+                                                <span class="sn-value">{{ prettyPattern(signalChain.predicted) || '—' }}</span>
+                                            </div>
+                                            <span :class="['signal-op', signalChain.appliedMatchesPredicted ? 'eq' : 'neq']">
+                                                {{ signalChain.appliedMatchesPredicted ? '=' : '≠' }}
+                                            </span>
+                                            <div class="signal-node applied">
+                                                <span class="sn-label">Applied</span>
+                                                <span class="sn-value">{{ prettyPattern(signalChain.applied) }}</span>
+                                            </div>
+                                        </div>
+                                        <p class="graph-note">
+                                            <template v-if="signalChain.source === 'ast_opportunity'">
+                                                The applied pattern came from neither predictor: both were discarded and
+                                                the AST engine's opportunistic scan found a verifiable edit instead.
+                                            </template>
+                                            <template v-else>
+                                                Applied pattern was chosen by the <strong>{{ signalChain.source }}</strong> signal.
+                                            </template>
+                                            Note <code>pattern_agreement</code> compares rules against model only — it is
+                                            true when no smell was detected, which is not the same as the signals agreeing.
+                                        </p>
+                                    </div>
+
+                                    <div class="detail-block">
+                                        <h5>Change</h5>
+                                        <div v-if="changeSummary" class="change-summary">{{ changeSummary }}</div>
+                                        <p v-else class="graph-note">
+                                            No structured edit metadata — the neural path produces text, not an AST edit.
+                                        </p>
+                                        <div class="chip-row" style="margin-bottom:8px">
+                                            <button class="btn btn-secondary" style="padding:5px 12px;font-size:12px"
+                                                    @click="diffUnified = !diffUnified">
+                                                {{ diffUnified ? 'Side by side' : 'Unified' }}
+                                            </button>
+                                        </div>
+                                        <div :class="['diff', { unified: diffUnified }]">
+                                            <div class="diff-pane">
+                                                <h6>Original</h6>
+                                                <div v-for="(l, i) in currentDiff.left" :key="'l' + i" :class="['diff-line', l.cls]">
+                                                    <span class="dl-no">{{ l.no }}</span>
+                                                    <span><template v-for="(part, j) in l.parts" :key="j"><span :class="{ 'diff-tok': part.hl }">{{ part.t }}</span></template></span>
+                                                </div>
+                                            </div>
+                                            <div class="diff-pane">
+                                                <h6>Refactored</h6>
+                                                <div v-for="(l, i) in currentDiff.right" :key="'r' + i" :class="['diff-line', l.cls]">
+                                                    <span class="dl-no">{{ l.no }}</span>
+                                                    <span><template v-for="(part, j) in l.parts" :key="j"><span :class="{ 'diff-tok': part.hl }">{{ part.t }}</span></template></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="detail-block">
+                                        <h5>Compiler verification</h5>
+                                        <template v-if="currentSuggestion.verification">
+                                            <div class="chip-row">
+                                                <span :class="['chip', verificationChip(currentSuggestion).cls]">
+                                                    {{ currentSuggestion.verification.verdict }}
+                                                </span>
+                                                <span class="chip chip-muted">baseline diagnostics: {{ currentSuggestion.verification.baseline_diagnostic_count }}</span>
+                                                <span class="chip chip-muted">{{ fx(currentSuggestion.verification.elapsed_seconds, 2) }}s</span>
+                                            </div>
+                                            <p class="graph-note">{{ currentSuggestion.verification.detail }}</p>
+                                            <p class="graph-note">
+                                                "Passed" means no <em>new</em> structural diagnostics relative to the
+                                                original file, which already had
+                                                {{ currentSuggestion.verification.baseline_diagnostic_count }}. It is not a
+                                                claim that behaviour is preserved.
+                                            </p>
+                                        </template>
+                                        <p v-else class="graph-note">
+                                            Not compile-verified — the neural path produces text rather than an AST edit,
+                                            so javac verification does not apply.
+                                        </p>
+                                    </div>
+
+                                    <div class="detail-block" v-if="currentSuggestion.edit">
+                                        <h5>Edit metadata</h5>
+                                        <div class="chip-row">
+                                            <span v-for="(v, k) in currentSuggestion.edit" :key="k" class="chip chip-muted"
+                                                  v-show="k !== 'rejected_candidates'">
+                                                {{ k }}: {{ v === null ? '—' : v }}
+                                            </span>
+                                        </div>
+                                        <p class="graph-note" v-if="currentSuggestion.edit.rejected_candidates?.length">
+                                            Rejected name candidates:
+                                            <span v-for="(c, i) in currentSuggestion.edit.rejected_candidates" :key="i">
+                                                <code>{{ c }}</code>{{ i < currentSuggestion.edit.rejected_candidates.length - 1 ? ', ' : '' }}
+                                            </span>
+                                        </p>
+                                    </div>
+
+                                    <div class="detail-block" v-if="currentSuggestion.structural_validation">
+                                        <h5>Pattern-shape validation</h5>
+                                        <div class="chip-row">
+                                            <span :class="['chip', currentSuggestion.structural_validation.passed ? 'chip-pass' : 'chip-fail']">
+                                                {{ currentSuggestion.structural_validation.passed ? 'passed' : 'failed' }}
+                                            </span>
+                                        </div>
+                                        <p class="graph-note">{{ currentSuggestion.structural_validation.reason }}</p>
+                                        <p class="graph-note">
+                                            A different check from compiler verification: this asks whether the result
+                                            <em>looks like</em> a correct instance of the pattern, not whether it compiles.
+                                        </p>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+
+                        <!-- ---------- Evidence ---------- -->
+                        <div v-else-if="resultsTab === 'evidence'">
+                            <div v-if="!evidenceCards.length" class="info-box">
+                                <p>No evidence cards saved for this run.</p>
+                            </div>
+                            <template v-else>
+                                <div v-for="c in caveats.filter(c => c.severity === 'blocker' && c.scope === 'eval')"
+                                     :key="c.id" class="caveat-banner">
+                                    <h4>{{ c.title }}</h4>
+                                    <p>{{ c.message }}</p>
+                                </div>
+
+                                <div class="statement-tile" v-if="rebuiltSummary">
+                                    <div class="st-value">{{ rebuiltSummary.count }} refactoring opportunities</div>
+                                    <div class="st-text">
+                                        Problem types: {{ rebuiltSummary.problems }}<br>
+                                        Patterns applied: {{ rebuiltSummary.patterns }}
+                                    </div>
+                                    <div class="st-text" v-if="caveats.some(c => c.id === 'SUMMARY_PARSE_BUG')">
+                                        Rebuilt from the cards: the backend summary string is mis-parsed.
+                                    </div>
+                                </div>
+
+                                <div class="chart-box">
+                                    <h4>Risk assessment</h4>
+                                    <div class="composition-bar">
+                                        <div v-for="seg in riskSegments.filter(s => s.value > 0)" :key="seg.key"
+                                             class="composition-seg" :style="{ width: (seg.share * 100) + '%', background: seg.color }">
+                                            {{ seg.value }} {{ seg.label }}
+                                        </div>
+                                    </div>
+                                    <p class="graph-note">
+                                        Shown as a labelled bar rather than a donut: with one non-empty bucket a
+                                        part-to-whole chart is a single filled shape.
+                                    </p>
+                                </div>
+
+                                <div class="chart-grid">
+                                    <!-- Keyed by index: evidence_id is not unique in this payload -->
+                                    <div class="chart-box" v-for="(card, idx) in evidenceCards" :key="idx">
+                                        <h4>{{ prettyPattern(card.problem_type) }}</h4>
+                                        <div class="chip-row" style="margin-bottom:8px">
+                                            <span class="chip chip-muted">confidence {{ fx(card.confidence_score, 3) }}</span>
+                                            <span class="chip chip-warn" v-if="card.confidence_score < 0.7">below "Recommended" threshold</span>
+                                        </div>
+                                        <p style="font-size:12.5px">{{ card.explanation }}</p>
+                                        <p class="graph-note"><strong>{{ card.recommendation }}</strong></p>
+                                        <p class="graph-note">
+                                            <span v-for="f in card.affected_entities" :key="f" :title="f">{{ basename(f) }}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+
+                        <!-- ---------- Smells ---------- -->
+                        <div v-else-if="resultsTab === 'smells'">
+                            <div v-if="!smells" class="info-box">
+                                <p>
+                                    This run did not persist its detected smells. Only the total is available
+                                    ({{ metricsRows.find(r => r.name === 'cpg_detected_smells_total')?.mean ?? 'n/a' }}).
+                                    Re-run the pipeline to capture the per-type breakdown.
+                                </p>
+                            </div>
+                            <template v-else>
+                                <div class="kpi-strip">
+                                    <div class="kpi">
+                                        <div class="kpi-label">Smells detected</div>
+                                        <div class="kpi-value">{{ smells.total }}</div>
+                                    </div>
+                                    <div class="kpi" v-if="funnel">
+                                        <div class="kpi-label">Emitted</div>
+                                        <div class="kpi-value">{{ suggestions.length }}</div>
+                                        <div class="kpi-sub">cap: {{ funnel.max_suggestions }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="chart-box">
+                                    <h4>Smells by type</h4>
+                                    <div class="chart-canvas-wrap"><canvas ref="smellTypeChart"></canvas></div>
+                                </div>
+
+                                <div class="chart-box" v-if="funnel">
+                                    <h4>Candidate funnel</h4>
+                                    <div class="funnel">
+                                        <div class="funnel-step" v-for="step in [
+                                            { label: 'Smells detected', value: funnel.smells_detected },
+                                            { label: 'Candidate pool', value: funnel.candidate_pool },
+                                            { label: 'Samples considered', value: funnel.samples_considered },
+                                            { label: 'AST accepted', value: funnel.ast_accepted },
+                                            { label: 'Neural emitted', value: funnel.neural_emitted }
+                                        ]" :key="step.label">
+                                            <span class="fs-label">{{ step.label }}</span>
+                                            <span class="funnel-bar" :style="{ width: Math.max(3, (step.value / Math.max(1, funnel.smells_detected)) * 320) + 'px' }"></span>
+                                            <span class="fs-value">{{ step.value }}</span>
+                                        </div>
+                                    </div>
+                                    <p class="graph-note">
+                                        The drop from smells to suggestions is set by
+                                        <code>refactor.candidate_pool</code> and <code>refactor.max_suggestions</code> —
+                                        it is a configured cap, not a judgement that the other findings were false.
+                                    </p>
+                                </div>
+                            </template>
+                        </div>
+
+                        <!-- ---------- Graph ---------- -->
+                        <div v-else-if="resultsTab === 'graph'">
                             <div class="graph-viz-box">
-                                <h4>🕸️ Code Property Graph</h4>
+                                <h4>Code Property Graph</h4>
+                                <div class="chip-row" style="margin-bottom:10px">
+                                    <label style="font-size:12px">
+                                        <input type="checkbox" v-model="hideIsolated"> Hide isolated nodes
+                                    </label>
+                                </div>
                                 <p v-if="graphData.truncated" class="graph-note">
-                                    Showing {{ graphData.shown_nodes }} of {{ graphData.total_nodes }} nodes (capped for readability).
+                                    Showing {{ graphData.shown_nodes }} of {{ graphData.total_nodes }} nodes and
+                                    {{ graphData.edges.length }} of {{ cpgStats.total_edges }} edges.
+                                    Nodes are sampled first by type priority and an edge survives only if
+                                    <em>both</em> endpoints do, so statement and variable nodes — which carry the data
+                                    and control flow — are dropped first. Read the edge breakdown from the Overview tab,
+                                    not from this picture.
                                 </p>
                                 <div ref="cpgNetwork" class="cpg-network"></div>
                                 <div class="graph-legend">
-                                    <span><i class="legend-dot" style="background:#667eea"></i> class</span>
-                                    <span><i class="legend-dot" style="background:#4caf50"></i> method</span>
-                                    <span><i class="legend-dot" style="background:#ff9800"></i> field</span>
-                                    <span><i class="legend-dot" style="background:#9c27b0"></i> function</span>
-                                    <span><i class="legend-dot" style="background:#03a9f4"></i> variable</span>
-                                    <span><i class="legend-dot" style="background:#9e9e9e"></i> statement</span>
+                                    <span v-for="type in Object.keys(cpgStats.node_types || {})" :key="type">
+                                        <i class="legend-dot" :style="{ background: 'var(--c-cat-' + ((Object.keys(cpgStats.node_types).indexOf(type) % 6) + 1) + ')' }"></i>{{ type }}
+                                    </span>
+                                    <span><i class="legend-dot" style="background:var(--c-warn)"></i>suggestion target (ring)</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="results-detail">
-                            <h4>Full Results JSON</h4>
-                            <pre>{{ JSON.stringify(lastResults, null, 2) }}</pre>
+                        <!-- ---------- Raw ---------- -->
+                        <div v-else-if="resultsTab === 'raw'">
+                            <div class="results-detail">
+                                <h4>Raw run payload</h4>
+                                <p class="graph-note">
+                                    <a :href="'/api/runs/' + runId" target="_blank">Open as JSON</a> ·
+                                    <a :href="'/api/runs/' + runId + '/evidence'" target="_blank">evidence cards</a>
+                                </p>
+                                <details>
+                                    <summary style="cursor:pointer;font-size:13px">Show inline (large)</summary>
+                                    <pre>{{ JSON.stringify(lastResults.raw, null, 2) }}</pre>
+                                </details>
+                            </div>
+                        </div>
+                    </template>
+                </section>
+
+                <!-- ========================= BENCHMARKS ========================= -->
+                <section v-else-if="currentView === 'benchmarks'" class="view-section">
+                    <h2>Benchmarks</h2>
+
+                    <div v-if="loading.benchmarks" class="info-box"><p>Loading benchmarks...</p></div>
+                    <div v-else-if="!benchmarks" class="info-box">
+                        <p>Benchmarks unavailable. <button class="btn btn-secondary" @click="loadBenchmarks">Retry</button></p>
+                    </div>
+                    <template v-else>
+                        <div class="provenance" v-if="evalProvenance">
+                            <span class="prov-kind eval">OFFLINE EVAL</span>
+                            <strong>{{ evalProvenance.label }}</strong>
+                            <span>{{ evalProvenance.timestamp }}</span>
+                            <span>{{ evalProvenance.detail }}</span>
+                            <code>{{ evalProvenance.source }}</code>
+                        </div>
+
+                        <div v-for="c in caveats.filter(c => c.id === 'PROVENANCE_MISMATCH')" :key="c.id" class="caveat-banner">
+                            <h4>{{ c.title }}</h4>
+                            <p>{{ c.message }}</p>
+                        </div>
+
+                        <div class="subtabs">
+                            <button :class="['subtab', { active: benchTab === 'scorecard' }]" @click="benchTab = 'scorecard'">Pattern scorecard</button>
+                            <button :class="['subtab', { active: benchTab === 'classifier' }]" @click="benchTab = 'classifier'">Classifier</button>
+                            <button :class="['subtab', { active: benchTab === 'generation' }]" @click="benchTab = 'generation'">Generation</button>
+                            <button :class="['subtab', { active: benchTab === 'xai' }]" @click="benchTab = 'xai'">XAI</button>
+                            <button :class="['subtab', { active: benchTab === 'dataset' }]" @click="benchTab = 'dataset'">Dataset</button>
+                        </div>
+
+                        <!-- ---------- Scorecard ---------- -->
+                        <div v-if="benchTab === 'scorecard'">
+                            <div class="kpi-strip">
+                                <div class="kpi" v-for="step in [
+                                    { label: 'Mined examples', value: miningReport?.totals?.stage_b_matched, sub: 'mining_report.json' },
+                                    { label: 'Classifier test', value: classifierReport?.test_size, sub: 'held-out split' },
+                                    { label: 'Generation eval', value: generationReport?.eval_sample_size, sub: 'bounded sample' },
+                                    { label: 'Traced end-to-end', value: traceReport?.num_suggestions_traced, sub: 'different repo' }
+                                ]" :key="step.label">
+                                    <div class="kpi-label">{{ step.label }}</div>
+                                    <div class="kpi-value">{{ step.value ?? '--' }}</div>
+                                    <div class="kpi-sub">{{ step.sub }}</div>
+                                </div>
+                            </div>
+
+                            <div class="chart-box">
+                                <h4>Per-pattern scorecard</h4>
+                                <div class="chip-row" style="margin-bottom:10px">
+                                    <span class="chip verdict-WORKING">WORKING {{ verdictTally.WORKING || 0 }}</span>
+                                    <span class="chip verdict-WEAK">WEAK {{ verdictTally.WEAK || 0 }}</span>
+                                    <span class="chip verdict-THIN">THIN {{ verdictTally.THIN || 0 }}</span>
+                                    <span class="chip verdict-UNTRAINED">UNTRAINED {{ verdictTally.UNTRAINED || 0 }}</span>
+                                    <span class="chip verdict-NOT_EVALUATED">NOT EVALUATED {{ verdictTally.NOT_EVALUATED || 0 }}</span>
+                                    <button class="btn btn-secondary" style="padding:4px 10px;font-size:12px"
+                                            @click="scorecardMarkdown">Copy as Markdown</button>
+                                </div>
+                                <div class="scorecard-wrap">
+                                    <table class="scorecard">
+                                        <thead>
+                                            <tr>
+                                                <th @click="sortScorecard('name')" :class="{ sorted: scorecardSort.key === 'name' }">Pattern</th>
+                                                <th>Engine</th>
+                                                <th @click="sortScorecard('mined')" :class="{ sorted: scorecardSort.key === 'mined' }">Mined</th>
+                                                <th @click="sortScorecard('precision')" :class="{ sorted: scorecardSort.key === 'precision' }">P</th>
+                                                <th @click="sortScorecard('recall')" :class="{ sorted: scorecardSort.key === 'recall' }">R</th>
+                                                <th @click="sortScorecard('f1')" :class="{ sorted: scorecardSort.key === 'f1' }">F1</th>
+                                                <th @click="sortScorecard('support')" :class="{ sorted: scorecardSort.key === 'support' }">Support</th>
+                                                <th @click="sortScorecard('passRate')" :class="{ sorted: scorecardSort.key === 'passRate' }">Gen pass</th>
+                                                <th>n</th>
+                                                <th>BLEU-4</th>
+                                                <th>Verdict</th>
+                                                <th v-if="lastResults">This run</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="row in scorecardRows" :key="row.name">
+                                                <td class="pattern-name">{{ row.label }}</td>
+                                                <td>
+                                                    <span :class="['chip', row.hasAst ? 'chip-ast' : 'chip-neural']">
+                                                        {{ row.hasAst ? 'AST' : 'neural' }}
+                                                    </span>
+                                                </td>
+                                                <td :class="{ 'cell-thin': row.thinMined }">
+                                                    <div class="inline-bar" v-if="row.mined !== null">
+                                                        <span class="inline-bar-track">
+                                                            <span :class="['inline-bar-fill', row.hasAst ? 'is-ast' : 'is-neural']"
+                                                                  :style="{ width: (row.minedShare * 100) + '%' }"></span>
+                                                        </span>
+                                                        <span class="inline-bar-value">{{ row.mined }}</span>
+                                                    </div>
+                                                    <span v-else class="cell-na">n/a</span>
+                                                </td>
+                                                <td class="num" :class="{ 'cell-zero': row.precision === 0 }">{{ row.precision === null ? 'n/a' : fx(row.precision) }}</td>
+                                                <td class="num" :class="{ 'cell-zero': row.recall === 0 }">{{ row.recall === null ? 'n/a' : fx(row.recall) }}</td>
+                                                <td :class="{ 'cell-zero': row.f1 === 0 }">
+                                                    <div class="inline-bar" v-if="row.f1 !== null && row.f1 > 0">
+                                                        <span class="inline-bar-track">
+                                                            <span class="inline-bar-fill" :style="{ width: (row.f1 * 100) + '%' }"></span>
+                                                        </span>
+                                                        <span class="inline-bar-value">{{ fx(row.f1) }}</span>
+                                                    </div>
+                                                    <span v-else-if="row.f1 === 0" title="measured and scored zero">0.00</span>
+                                                    <span v-else class="cell-na">n/a</span>
+                                                </td>
+                                                <td class="num" :class="{ 'cell-thin': row.thinSupport }">{{ row.support ?? 'n/a' }}</td>
+                                                <td :class="{ 'cell-zero': row.passRate === 0, 'cell-thin': row.thinGen }">
+                                                    <div class="inline-bar" v-if="row.passRate">
+                                                        <span class="inline-bar-track">
+                                                            <span class="inline-bar-fill" :style="{ width: (row.passRate * 100) + '%', background: 'var(--c-warn)' }"></span>
+                                                        </span>
+                                                        <span class="inline-bar-value">{{ fx(row.passRate) }}</span>
+                                                    </div>
+                                                    <span v-else-if="row.passRate === 0" title="measured and scored zero">0.00</span>
+                                                    <span v-else class="cell-na" title="never evaluated">&mdash;</span>
+                                                </td>
+                                                <td class="num">{{ row.genCount === null ? '—' : row.genCount }}</td>
+                                                <td class="num">{{ row.bleu === null ? '—' : Number(row.bleu).toExponential(1) }}</td>
+                                                <td><span :class="['chip', 'verdict-' + row.verdict]">{{ row.verdict.replace('_', ' ') }}</span></td>
+                                                <td class="num" v-if="lastResults">{{ row.runCount || '' }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p class="graph-note">
+                                    <strong>0.00</strong> means measured and scored zero; <strong>&mdash;</strong> means
+                                    never evaluated. An orange edge marks a cell whose sample is too thin to be a
+                                    measurement. Hue encodes engine capability, not pattern identity: only
+                                    {{ astSupported.length }} of {{ scorecardRows.length }} patterns have a deterministic,
+                                    compile-verifiable implementation.
+                                </p>
+                                <div class="caveat-list">
+                                    <li v-for="c in caveatsFor('eval').filter(c => c.severity !== 'info')" :key="c.id">
+                                        <strong>{{ c.title }}</strong> — {{ c.value }}
+                                    </li>
+                                </div>
+                            </div>
+
+                            <div class="chart-box">
+                                <h4>Classifier F1 vs generation pass rate</h4>
+                                <div class="chart-canvas-wrap tall"><canvas ref="patternCompareChart"></canvas></div>
+                                <p class="graph-note">
+                                    These are the only two metrics here that legitimately share an axis — both are
+                                    bounded in [0, 1]. Mined counts (8 to 1059) get their own chart on the Dataset tab
+                                    rather than a second y-axis, which would invite a false comparison.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- ---------- Classifier ---------- -->
+                        <div v-else-if="benchTab === 'classifier'">
+                            <div class="kpi-strip" v-if="classifierReport">
+                                <div class="kpi">
+                                    <div class="kpi-label">Accuracy</div>
+                                    <div class="kpi-value">{{ pct(classifierReport.accuracy) }}</div>
+                                    <div class="kpi-sub" v-if="majorityBaseline">
+                                        vs {{ pct(majorityBaseline.accuracy) }} majority-class
+                                    </div>
+                                </div>
+                                <div class="kpi">
+                                    <div class="kpi-label">Macro F1</div>
+                                    <div class="kpi-value">{{ fx(classifierReport.macro.f1) }}</div>
+                                    <div class="kpi-sub">unweighted across 10 classes</div>
+                                </div>
+                                <div class="kpi">
+                                    <div class="kpi-label">Weighted F1</div>
+                                    <div class="kpi-value">{{ fx(classifierReport.weighted.f1) }}</div>
+                                    <div class="kpi-sub">support-weighted</div>
+                                </div>
+                                <div class="kpi">
+                                    <div class="kpi-label">Test size</div>
+                                    <div class="kpi-value">{{ classifierReport.test_size }}</div>
+                                </div>
+                            </div>
+
+                            <div class="statement-tile" v-if="majorityBaseline">
+                                <div class="st-value">Majority-class baseline: {{ pct(majorityBaseline.accuracy) }}</div>
+                                <div class="st-text">
+                                    Computed from class supports ({{ majorityBaseline.best_support }} of
+                                    {{ majorityBaseline.test_size }}), not from a trained model — there is no baseline
+                                    model in this repository.
+                                </div>
+                            </div>
+
+                            <div class="chart-box">
+                                <h4>Precision–recall plane</h4>
+                                <div class="chart-canvas-wrap tall"><canvas ref="clfScatterChart"></canvas></div>
+                                <p class="graph-note">Marker area is proportional to class support. Colour encodes whether a deterministic implementation exists.</p>
+                                <div class="caveat-list" v-if="neverPredicted.length">
+                                    <li>
+                                        <strong>Never predicted:</strong>
+                                        {{ neverPredicted.map(r => r.name + ' (' + r.support + ')').join(', ') }}
+                                        — {{ neverPredictedExamples }} of {{ classifierReport.test_size }} test examples
+                                        ({{ pct(neverPredictedExamples / classifierReport.test_size) }}). These all sit at
+                                        the origin of the plot.
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ---------- Generation ---------- -->
+                        <div v-else-if="benchTab === 'generation'">
+                            <div class="kpi-strip" v-if="generationReport">
+                                <div class="kpi">
+                                    <div class="kpi-label">Structural pass rate</div>
+                                    <div class="kpi-value">{{ pct(generationReport.overall_structural_pass_rate) }}</div>
+                                    <div class="kpi-sub">n = {{ generationReport.eval_sample_size }}</div>
+                                </div>
+                                <div class="kpi">
+                                    <div class="kpi-label">Patterns evaluated</div>
+                                    <div class="kpi-value">{{ Object.keys(generationReport.per_pattern).length }} / {{ scorecardRows.length }}</div>
+                                </div>
+                            </div>
+
+                            <div class="statement-tile">
+                                <div class="st-value">Exact match: 0 of {{ generationReport.eval_sample_size }} samples</div>
+                                <div class="st-text">
+                                    Zero across every evaluated pattern — the generator never reproduced a reference
+                                    refactoring verbatim. Reported as a statement because a flat zero bar chart would
+                                    look like a rendering failure while carrying the same information.
+                                </div>
+                            </div>
+
+                            <div class="chart-box">
+                                <h4>Structural pass rate by pattern</h4>
+                                <div class="chart-canvas-wrap tall"><canvas ref="genPassChart"></canvas></div>
+                                <p class="graph-note">
+                                    Grey bars have n &lt; 5 and are not measurements. Dashed line is the overall rate.
+                                    <template v-if="notEvaluated.length">
+                                        Never evaluated: {{ notEvaluated.map(r => r.name).join(', ') }}.
+                                    </template>
+                                </p>
+                            </div>
+
+                            <div class="chart-box">
+                                <h4>Surface similarity to the reference</h4>
+                                <div class="chart-canvas-wrap tall"><canvas ref="genEditChart"></canvas></div>
+                                <p class="graph-note">
+                                    Edit-distance ratio, axis pinned to 0.2. A value of 1.0 would be an exact match, so
+                                    the best pattern here reaches about 18% surface similarity. BLEU-4 is omitted as a
+                                    chart because it spans roughly 98 orders of magnitude; see the scorecard column.
+                                </p>
+                            </div>
+
+                            <div class="chart-box" v-if="generationSamples.length">
+                                <h4>Sample generations</h4>
+                                <p class="graph-note">
+                                    The strongest available evidence on generation quality. The degeneracy badge is
+                                    computed from the output: distinct-token ratio below 0.3 or a repeated run longer
+                                    than 5.
+                                </p>
+                                <details v-for="s in generationSamples" :key="s.idx" style="margin-bottom:10px">
+                                    <summary style="cursor:pointer;font-size:12.5px">
+                                        <span class="chip chip-muted">{{ prettyPattern(s.refactoring_type) }}</span>
+                                        <span :class="['chip', s.deg.degenerate ? 'chip-fail' : 'chip-pass']">
+                                            {{ s.deg.degenerate ? 'degenerate' : 'non-degenerate' }}
+                                        </span>
+                                        <span class="chip chip-muted">distinct {{ fx(s.deg.ratio, 2) }} · max run {{ s.deg.maxRun }}</span>
+                                    </summary>
+                                    <div class="gen-sample" style="margin-top:8px">
+                                        <div class="gs-col"><h6>Before</h6>{{ s.before }}</div>
+                                        <div class="gs-col"><h6>Expected after</h6>{{ s.expected_after }}</div>
+                                        <div class="gs-col"><h6>Generated</h6>{{ s.generated }}</div>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+
+                        <!-- ---------- XAI ---------- -->
+                        <div v-else-if="benchTab === 'xai'">
+                            <div v-for="c in caveats.filter(c => c.id === 'XAI_SCORE_AT_RANDOM_BASELINE' || c.id === 'CONFIDENCE_FORMULA_CAPPED' || c.id === 'XAI_SOLUTION_EMBEDDING_PROXY')"
+                                 :key="c.id" class="caveat-banner">
+                                <h4>{{ c.title }}</h4>
+                                <p>{{ c.message }}</p>
+                            </div>
+
+                            <div class="chart-box" v-if="xaiReport">
+                                <h4>Problem-detector separation</h4>
+                                <div class="chart-canvas-wrap"><canvas ref="xaiSepChart"></canvas></div>
+                                <p class="graph-note">
+                                    The first two bars are from the offline evaluation; the third, if present, is the
+                                    score observed on the loaded run. This deliberately crosses the run/eval boundary and
+                                    compares a <em>baseline constant</em> against an <em>observed constant</em> across two
+                                    corpora — not two performance figures.
+                                </p>
+                            </div>
+
+                            <div class="chart-box" v-if="evidenceCards.length">
+                                <h4>Confidence ceiling</h4>
+                                <div class="composition-bar" style="background:var(--c-rule)">
+                                    <div class="composition-seg"
+                                         :style="{ width: (maxCardConfidence * 100) + '%', background: 'var(--c-fail)' }">
+                                        max {{ fx(maxCardConfidence, 3) }}
+                                    </div>
+                                </div>
+                                <div class="composition-legend">
+                                    <span>0.50 = high-risk cutoff</span>
+                                    <span>0.70 = "Recommended"</span>
+                                    <span>0.90 = "Highly recommended"</span>
+                                </div>
+                                <p class="graph-note">
+                                    No card on this corpus can cross 0.70, so every card is reported as "Optional" and
+                                    counted high-risk by construction rather than by assessment.
+                                </p>
+                            </div>
+
+                            <div class="chart-box" v-if="xaiReport">
+                                <h4>Reported caveats from the evaluation harness</h4>
+                                <p class="graph-note">{{ xaiReport.note }}</p>
+                                <p class="graph-note"><strong>Recommendation:</strong> {{ xaiReport.recommendation }}</p>
+                            </div>
+
+                            <div class="chart-box" v-if="traceReport">
+                                <h4>End-to-end trace</h4>
+                                <div class="provenance">
+                                    <span class="prov-kind eval">DIFFERENT CORPUS</span>
+                                    <strong>{{ basename(traceReport.repo) }}</strong>
+                                    <span>{{ traceReport.num_smells_detected }} smells detected, {{ traceReport.num_suggestions_traced }} traced</span>
+                                    <span>pass rate {{ pct(traceReport.structural_pass_rate) }}</span>
+                                </div>
+                                <table class="suggestion-table">
+                                    <thead>
+                                        <tr><th>#</th><th>Smell</th><th>Learned</th><th>Agree</th><th>Applied</th><th>Validation</th><th>Reason</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(t, i) in traceReport.traces" :key="i">
+                                            <td>{{ i + 1 }}</td>
+                                            <td>{{ prettyPattern(t.detected_smell_pattern) }}</td>
+                                            <td>{{ prettyPattern(t.learned_pattern) }}</td>
+                                            <td><span :class="['chip', t.pattern_agreement ? 'chip-muted' : 'chip-warn']">{{ t.pattern_agreement ? 'yes' : 'no' }}</span></td>
+                                            <td>{{ prettyPattern(t.final_pattern_used) }}</td>
+                                            <td><span :class="['chip', t.structural_validation_passed ? 'chip-pass' : 'chip-fail']">{{ t.structural_validation_passed ? 'passed' : 'failed' }}</span></td>
+                                            <td style="font-size:11.5px">{{ t.structural_validation_reason }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- ---------- Dataset ---------- -->
+                        <div v-else-if="benchTab === 'dataset'">
+                            <div v-if="!miningReport" class="info-box"><p>Mining report unavailable.</p></div>
+                            <template v-else>
+                                <div class="chart-box">
+                                    <h4>Mining funnel</h4>
+                                    <div class="funnel">
+                                        <div class="funnel-step" v-for="step in [
+                                            { label: 'Raw refactorings mined', value: miningReport.totals.raw_refactorings_mined },
+                                            { label: 'Survived taxonomy filter', value: miningReport.totals.stage_a_survived },
+                                            { label: 'Matched to a CPG node', value: miningReport.totals.stage_b_matched }
+                                        ]" :key="step.label">
+                                            <span class="fs-label">{{ step.label }}</span>
+                                            <span class="funnel-bar" :style="{ width: Math.max(3, (step.value / miningReport.totals.raw_refactorings_mined) * 360) + 'px' }"></span>
+                                            <span class="fs-value">{{ step.value }} ({{ pct(step.value / miningReport.totals.raw_refactorings_mined) }})</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="chart-box">
+                                    <h4>Mined examples per pattern</h4>
+                                    <div class="chart-canvas-wrap tall"><canvas ref="minedDistChart"></canvas></div>
+                                    <p class="graph-note">
+                                        Linear axis deliberately: the 1059-to-8 imbalance is the finding, and a log axis
+                                        would flatten it. Dashed line is the 50-example thin-class threshold.
+                                    </p>
+                                </div>
+
+                                <div class="chart-box">
+                                    <h4>Contribution by repository</h4>
+                                    <table class="metrics-table">
+                                        <thead><tr><th>Repository</th><th>Raw</th><th>Taxonomy-filtered</th><th>Matched</th><th>Share</th></tr></thead>
+                                        <tbody>
+                                            <tr v-for="(v, name) in miningReport.repos" :key="name">
+                                                <td>{{ name }}</td>
+                                                <td class="num">{{ v.raw_refactorings ?? '—' }}</td>
+                                                <td class="num">{{ v.stage_a_survived_taxonomy_filter ?? '—' }}</td>
+                                                <td class="num">{{ v.stage_b_matched ?? '—' }}</td>
+                                                <td class="num">
+                                                    <template v-if="v.stage_b_matched">{{ pct(v.stage_b_matched / miningReport.totals.stage_b_matched) }}</template>
+                                                    <span v-else class="cell-na">{{ v.note ? 'excluded' : '—' }}</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="graph-note" v-for="(v, name) in miningReport.repos" :key="'n' + name">
+                                        <template v-if="v.note"><strong>{{ name }}:</strong> {{ v.note }}</template>
+                                    </p>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </section>
+
+                <!-- ======================== LIMITATIONS ======================== -->
+                <section v-else-if="currentView === 'limitations'" class="view-section">
+                    <h2>Limitations register</h2>
+                    <p class="graph-note">
+                        Every entry is computed from the loaded data, never hardcoded. The trigger expression is shown so
+                        each claim can be verified rather than taken on trust. This list shrinks on its own as the
+                        underlying results improve.
+                    </p>
+
+                    <div class="kpi-strip">
+                        <div class="kpi">
+                            <div class="kpi-label">Blocking</div>
+                            <div class="kpi-value">{{ blockerCount }}</div>
+                        </div>
+                        <div class="kpi">
+                            <div class="kpi-label">Warnings</div>
+                            <div class="kpi-value">{{ caveats.filter(c => c.severity === 'warning').length }}</div>
+                        </div>
+                        <div class="kpi">
+                            <div class="kpi-label">Informational</div>
+                            <div class="kpi-value">{{ caveats.filter(c => c.severity === 'info').length }}</div>
                         </div>
                     </div>
-                    <div v-else class="info-box">
-                        <p>No results yet. Run the pipeline to generate results.</p>
+
+                    <div v-if="!caveats.length" class="info-box"><p>No caveats fired for the loaded data.</p></div>
+
+                    <div v-for="sev in ['blocker', 'warning', 'info']" :key="sev">
+                        <h3 v-if="caveats.some(c => c.severity === sev)">{{ sev }}</h3>
+                        <div v-for="c in caveats.filter(c => c.severity === sev)" :key="c.id" class="chart-box" style="margin-bottom:12px">
+                            <h4>
+                                <span :class="['caveat-dot', 'sev-' + c.severity]" style="display:inline-block;margin-right:7px"></span>
+                                {{ c.title }}
+                                <span class="chip chip-muted">{{ c.scope }}</span>
+                            </h4>
+                            <p style="font-size:12.5px">{{ c.message }}</p>
+                            <p class="graph-note">
+                                Observed: <strong>{{ c.value }}</strong> · trigger: <code>{{ c.trigger }}</code> · id: <code>{{ c.id }}</code>
+                            </p>
+                        </div>
                     </div>
                 </section>
 
-                <!-- Documentation View -->
+                <!-- ======================= DOCUMENTATION ======================= -->
                 <section v-else-if="currentView === 'documentation'" class="view-section">
                     <h2>Documentation</h2>
-                    
+
                     <div class="doc-section">
-                        <h3>📖 XRefactor Pipeline</h3>
-                        <p>XRefactor is an AI-driven framework for cross-file code refactoring with explainable AI.</p>
-                        
-                        <h4>Key Features:</h4>
+                        <h3>Pipeline</h3>
+                        <p>
+                            XRefactor combines a rule-based code-smell detector, a GNN refactoring-type classifier, a
+                            deterministic AST refactoring engine with javac verification, a neural fallback generator,
+                            and a template-based explanation layer.
+                        </p>
+                        <h4>Reading the two groups apart</h4>
                         <ul>
-                            <li><strong>Multi-stage Pipeline:</strong> CPG → GNN → Transformer → XAI</li>
-                            <li><strong>Multiple Languages:</strong> Java, Python, and more</li>
-                            <li><strong>GNN Models:</strong> GAT, GCN, GraphSAGE architectures</li>
-                            <li><strong>Explainability:</strong> Causal inference &amp; evidence cards</li>
-                            <li><strong>GPU Support:</strong> CUDA acceleration for faster processing</li>
+                            <li><strong>Run</strong> views describe one analysed corpus. All figures come from one saved run.</li>
+                            <li><strong>Evidence</strong> views describe the models, from an offline evaluation on a different corpus and date.</li>
                         </ul>
-
-                        <h4>Architecture Overview:</h4>
-                        <p>See <a href="https://github.com/your-repo/ARCHITECTURE.md" target="_blank">ARCHITECTURE.md</a> for detailed component documentation.</p>
-
-                        <h4>Development Guide:</h4>
-                        <p>See <a href="https://github.com/your-repo/DEVELOPMENT.md" target="_blank">DEVELOPMENT.md</a> for development setup and workflows.</p>
+                        <p>
+                            Repository docs: <code>ARCHITECTURE.md</code>, <code>DEVELOPMENT.md</code> (known limitations),
+                            <code>TESTING.md</code>.
+                        </p>
                     </div>
 
                     <div class="doc-section">
-                        <h3>🔗 API Reference</h3>
-                        <p><strong>Base URL:</strong> <code>http://localhost:5000/api</code></p>
+                        <h3>API Reference</h3>
+                        <p><strong>Base URL:</strong> <code>/api</code></p>
                         <ul>
-                            <li><code>GET /health</code> - Health check</li>
-                            <li><code>GET /pipeline/stages</code> - Get pipeline stages</li>
-                            <li><code>POST /pipeline/run</code> - Run full pipeline</li>
-                            <li><code>POST /pipeline/stage/&lt;name&gt;</code> - Run specific stage</li>
-                            <li><code>GET /supported-languages</code> - Supported languages</li>
-                            <li><code>GET /gnn-models</code> - Available GNN models</li>
+                            <li><code>GET /health</code> — health check</li>
+                            <li><code>GET /config</code> — effective server-side configuration</li>
+                            <li><code>GET /pipeline/stages</code> — stage descriptions</li>
+                            <li><code>GET /pipeline/status</code> — whether a run is in progress</li>
+                            <li><code>POST /pipeline/run</code> — run the full pipeline (synchronous)</li>
+                            <li><code>POST /pipeline/stage/&lt;name&gt;</code> — <code>cpg_construction</code> or <code>gnn_reasoning</code> only</li>
+                            <li><code>GET /runs</code> — list saved runs, newest first</li>
+                            <li><code>GET /runs/&lt;id&gt;</code> — one saved run (<code>latest</code> accepted)</li>
+                            <li><code>GET /runs/&lt;id&gt;/evidence</code> — stage-4 evidence cards for that run</li>
+                            <li><code>GET /benchmarks</code> — offline evaluation, model metrics, mining dataset, taxonomy</li>
+                            <li><code>GET /supported-languages</code>, <code>GET /gnn-models</code> — static metadata</li>
                         </ul>
                     </div>
                 </section>
             </main>
         </div>
 
-        <!-- Footer -->
+        <!-- Toasts -->
+        <div class="toast-stack">
+            <div v-for="t in toasts" :key="t.id" :class="['toast', 'toast-' + t.type]">{{ t.message }}</div>
+        </div>
+
         <footer class="footer">
-            <p>&copy; 2026 XRefactor - Explainable AI-Driven Code Refactoring Framework</p>
+            <p>XRefactor — Explainable AI-Driven Code Refactoring Framework</p>
         </footer>
     </div>
     {% endraw %}

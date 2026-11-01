@@ -3,6 +3,77 @@
  * Responsive design for desktop and mobile
  */
 
+/* --------------------------------------------------------------------------
+ * Design tokens
+ *
+ * Introduced because the same accent hex was repeated ~20 times literally and
+ * the node-type palette existed twice - once here in .graph-legend and once as
+ * a JS object in app.js - which is how two copies of one palette drift apart.
+ *
+ * Colour semantics, deliberately narrow:
+ *   --c-ast / --c-neural  encode ENGINE CAPABILITY, the one binary that matters.
+ *                         Pattern identity is carried by consistent ordering and
+ *                         labels instead: ten categorical hues exceed what a
+ *                         reader can hold and would collide with pass/fail.
+ *   --c-cat-*             reserved for genuinely low-cardinality series
+ *                         (node types, edge types, coverage buckets).
+ *   --c-pass/fail/warn/na mean ONLY pass, fail, caution and not-measured, and
+ *                         are never reused to identify a category.
+ * ------------------------------------------------------------------------- */
+:root {
+    --c-bg: #f5f5f5;
+    --c-surface: #ffffff;
+    --c-surface-alt: #f9f9fb;
+    --c-ink: #333333;
+    --c-ink-dim: #666666;
+    --c-ink-faint: #888888;
+    --c-rule: #e0e0e0;
+
+    --c-brand: #667eea;
+    --c-brand-2: #764ba2;
+    --c-brand-wash: #f0f4ff;
+
+    --c-pass: #2e7d32;
+    --c-fail: #c62828;
+    --c-warn: #ef6c00;
+    --c-na: #9e9e9e;
+    --c-hatch: #bdbdbd;
+
+    /* Engine capability */
+    --c-ast: #2e7d32;
+    --c-neural: #6a1b9a;
+
+    /* Low-cardinality categorical ramp */
+    --c-cat-1: #667eea;
+    --c-cat-2: #4caf50;
+    --c-cat-3: #ff9800;
+    --c-cat-4: #03a9f4;
+    --c-cat-5: #9c27b0;
+    --c-cat-6: #9e9e9e;
+}
+
+:root[data-theme="dark"] {
+    --c-bg: #15161a;
+    --c-surface: #1e2025;
+    --c-surface-alt: #23262c;
+    --c-ink: #e6e6e6;
+    --c-ink-dim: #a8a8a8;
+    --c-ink-faint: #8a8a8a;
+    --c-rule: #33363d;
+
+    --c-brand: #8b9cf0;
+    --c-brand-wash: #23262c;
+
+    --c-pass: #66bb6a;
+    --c-fail: #ef5350;
+    --c-warn: #ffa726;
+    --c-na: #757575;
+    --c-hatch: #4a4d55;
+
+    --c-ast: #66bb6a;
+    --c-neural: #ba68c8;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -633,3 +704,428 @@ html, body {
 ::-webkit-scrollbar-thumb:hover {
     background: #666;
 }
+
+/* ==========================================================================
+ * Visualization overhaul additions
+ * ========================================================================== */
+
+/* --------------------------------------------------------------------------
+ * Chart canvas sizing.
+ *
+ * Chart.js sizes a responsive canvas from its parent content box. .chart-box
+ * has no height, so the canvas height WAS the parent height and each
+ * re-render fed the previous height back in - the canvas grew without bound.
+ * A wrapper with an explicit height and position:relative is what makes the
+ * Chart.js resize sensor measure the wrapper instead of escaping to .content.
+ * Pair this with maintainAspectRatio:false (see chartDefaults in app.js).
+ * ------------------------------------------------------------------------- */
+.chart-canvas-wrap {
+    position: relative;
+    width: 100%;
+    height: 280px;
+}
+
+.chart-canvas-wrap.compact { height: 130px; }
+.chart-canvas-wrap.tall    { height: 430px; }
+
+.chart-canvas-wrap > canvas { display: block; }
+
+/* --------------------------------------------------------------------------
+ * Empty-state vocabulary.
+ *
+ * The single most important distinction in this dataset: a metric that was
+ * MEASURED and scored zero must never render identically to one that was
+ * never measured at all. Five classifier classes score exactly 0.0; two
+ * patterns are absent from the generation metrics entirely.
+ * ------------------------------------------------------------------------- */
+.cell-zero {
+    background: repeating-linear-gradient(45deg,
+        var(--c-hatch) 0 2px, transparent 2px 6px);
+    color: var(--c-fail);
+    font-variant-numeric: tabular-nums;
+}
+
+.cell-na {
+    color: var(--c-na);
+    font-style: italic;
+}
+
+.cell-thin { box-shadow: inset 3px 0 0 var(--c-warn); }
+
+/* Inline bar inside a table cell */
+.inline-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-variant-numeric: tabular-nums;
+}
+
+.inline-bar-track {
+    flex: 1;
+    min-width: 34px;
+    height: 7px;
+    background: var(--c-rule);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.inline-bar-fill {
+    display: block;
+    height: 100%;
+    border-radius: 4px;
+    background: var(--c-brand);
+}
+
+.inline-bar-fill.is-ast    { background: var(--c-ast); }
+.inline-bar-fill.is-neural { background: var(--c-neural); }
+.inline-bar-value { min-width: 38px; text-align: right; font-size: 12px; }
+
+/* --------------------------------------------------------------------------
+ * Chips and badges
+ * ------------------------------------------------------------------------- */
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 11px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.6;
+    white-space: nowrap;
+    border: 1px solid transparent;
+}
+
+.chip-ast     { background: var(--c-ast);  color: #fff; }
+.chip-neural  { background: transparent;   color: var(--c-neural); border-color: var(--c-neural); }
+.chip-pass    { background: var(--c-pass); color: #fff; }
+.chip-fail    { background: var(--c-fail); color: #fff; }
+.chip-warn    { background: var(--c-warn); color: #fff; }
+.chip-na      { background: transparent;   color: var(--c-na); border-color: var(--c-na); }
+.chip-muted   { background: var(--c-surface-alt); color: var(--c-ink-dim); border-color: var(--c-rule); }
+
+/* Caveat badge: a dot next to a card title, click for detail */
+.caveat-dots { display: inline-flex; gap: 4px; margin-left: 8px; vertical-align: middle; }
+
+.caveat-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.caveat-dot.sev-blocker { background: var(--c-fail); }
+.caveat-dot.sev-warning { background: var(--c-warn); }
+.caveat-dot.sev-info    { background: var(--c-na); }
+
+.caveat-list {
+    margin-top: 10px;
+    border-left: 3px solid var(--c-warn);
+    background: var(--c-surface-alt);
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--c-ink-dim);
+}
+
+.caveat-list li { margin: 4px 0; list-style: none; }
+.caveat-list code { font-size: 11px; color: var(--c-ink-faint); }
+
+.caveat-banner {
+    border-left: 4px solid var(--c-fail);
+    background: var(--c-surface-alt);
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    border-radius: 0 6px 6px 0;
+}
+
+.caveat-banner h4 { color: var(--c-fail); margin-bottom: 4px; }
+.caveat-banner p  { font-size: 13px; color: var(--c-ink-dim); }
+
+/* --------------------------------------------------------------------------
+ * Provenance strip - the mechanism that stops run figures and offline-eval
+ * figures from being read as one experiment.
+ * ------------------------------------------------------------------------- */
+.provenance {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    font-size: 11px;
+    color: var(--c-ink-faint);
+    padding: 5px 0 9px;
+    border-bottom: 1px dashed var(--c-rule);
+    margin-bottom: 12px;
+}
+
+.provenance .prov-kind {
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 1px 6px;
+    border-radius: 3px;
+}
+
+.provenance .prov-kind.run  { background: var(--c-brand-wash); color: var(--c-brand); }
+.provenance .prov-kind.eval { background: var(--c-surface-alt); color: var(--c-neural); }
+.provenance code { font-size: 11px; }
+
+/* --------------------------------------------------------------------------
+ * KPI tiles
+ * ------------------------------------------------------------------------- */
+.kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.kpi {
+    background: var(--c-surface-alt);
+    border-radius: 8px;
+    padding: 12px 14px;
+    border: 1px solid var(--c-rule);
+}
+
+.kpi-label { font-size: 11px; color: var(--c-ink-faint); text-transform: uppercase; letter-spacing: 0.03em; }
+.kpi-value { font-size: 22px; font-weight: 700; color: var(--c-ink); font-variant-numeric: tabular-nums; }
+.kpi-sub   { font-size: 11px; color: var(--c-ink-dim); margin-top: 2px; }
+
+/* Statement tile: replaces a chart that would have zero variance */
+.statement-tile {
+    background: var(--c-surface-alt);
+    border-left: 3px solid var(--c-na);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+}
+
+.statement-tile .st-value { font-size: 18px; font-weight: 700; color: var(--c-ink); }
+.statement-tile .st-text  { font-size: 12px; color: var(--c-ink-dim); margin-top: 3px; }
+
+/* --------------------------------------------------------------------------
+ * Sub-tabs
+ * ------------------------------------------------------------------------- */
+.subtabs {
+    display: flex;
+    gap: 2px;
+    border-bottom: 1px solid var(--c-rule);
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.subtab {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 8px 14px;
+    font-size: 13px;
+    color: var(--c-ink-dim);
+    cursor: pointer;
+}
+
+.subtab:hover  { color: var(--c-brand); }
+.subtab.active { color: var(--c-brand); border-bottom-color: var(--c-brand); font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+ * Pattern scorecard - the per-pattern spine
+ * ------------------------------------------------------------------------- */
+.scorecard-wrap { overflow-x: auto; }
+
+.scorecard {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    background: var(--c-surface);
+}
+
+.scorecard th {
+    background: var(--c-brand-wash);
+    color: var(--c-brand);
+    padding: 8px 10px;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid var(--c-rule);
+}
+
+.scorecard th.sorted { text-decoration: underline; }
+
+.scorecard td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--c-rule);
+    vertical-align: middle;
+}
+
+.scorecard tbody tr:hover { background: var(--c-surface-alt); }
+.scorecard .pattern-name  { font-weight: 600; white-space: nowrap; }
+.scorecard .num           { text-align: right; font-variant-numeric: tabular-nums; }
+
+.verdict-WORKING       { background: var(--c-pass); color: #fff; }
+.verdict-WEAK          { background: var(--c-warn); color: #fff; }
+.verdict-UNTRAINED     { background: var(--c-fail); color: #fff; }
+.verdict-THIN          { background: transparent; color: var(--c-warn); border-color: var(--c-warn); }
+.verdict-NOT_EVALUATED { background: transparent; color: var(--c-na);   border-color: var(--c-na); }
+
+/* --------------------------------------------------------------------------
+ * Suggestion drill-down
+ * ------------------------------------------------------------------------- */
+.suggestion-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.suggestion-table th { background: var(--c-brand-wash); color: var(--c-brand); padding: 8px 10px; text-align: left; }
+.suggestion-table td { padding: 7px 10px; border-bottom: 1px solid var(--c-rule); }
+.suggestion-table tbody tr { cursor: pointer; }
+.suggestion-table tbody tr:hover { background: var(--c-surface-alt); }
+.suggestion-table tbody tr.selected { background: var(--c-brand-wash); }
+
+.detail-panel {
+    border: 1px solid var(--c-rule);
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 16px;
+    background: var(--c-surface);
+}
+
+.detail-block { margin-bottom: 18px; }
+.detail-block > h5 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--c-ink-faint);
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--c-rule);
+    padding-bottom: 4px;
+}
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+
+/* Pattern signal chain: the three-way disagreement widget */
+.signal-chain {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.signal-node {
+    background: var(--c-surface-alt);
+    border: 1px solid var(--c-rule);
+    border-radius: 6px;
+    padding: 6px 10px;
+}
+
+.signal-node .sn-label { display: block; font-size: 10px; color: var(--c-ink-faint); text-transform: uppercase; }
+.signal-node .sn-value { font-weight: 600; color: var(--c-ink); }
+.signal-node.applied   { border-color: var(--c-ast); box-shadow: 0 0 0 1px var(--c-ast) inset; }
+
+.signal-op { font-weight: 700; font-size: 14px; }
+.signal-op.eq  { color: var(--c-pass); }
+.signal-op.neq { color: var(--c-fail); }
+
+/* Change summary strip: the primary artifact for a rename, where the raw diff
+   is a single identifier and looks like nothing happened. */
+.change-summary {
+    background: var(--c-brand-wash);
+    border-radius: 6px;
+    padding: 9px 12px;
+    font-size: 12.5px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Diff */
+.diff {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+}
+
+.diff.unified { grid-template-columns: 1fr; }
+.diff-pane { border: 1px solid var(--c-rule); border-radius: 6px; overflow: auto; max-height: 420px; background: var(--c-surface); }
+.diff-pane h6 { position: sticky; top: 0; background: var(--c-surface-alt); padding: 5px 9px; font-size: 11px; color: var(--c-ink-faint); }
+.diff-line { display: flex; white-space: pre-wrap; word-break: break-word; padding: 0 9px; }
+.diff-line .dl-no { flex: 0 0 34px; color: var(--c-ink-faint); user-select: none; text-align: right; padding-right: 9px; }
+.diff-line.added   { background: rgba(46, 125, 50, 0.12); }
+.diff-line.removed { background: rgba(198, 40, 40, 0.12); }
+.diff-tok { background: rgba(239, 108, 0, 0.3); border-radius: 2px; font-weight: 700; }
+
+/* Composition bar: a true part-to-whole, labelled, never a one-slice donut */
+.composition-bar { display: flex; width: 100%; height: 26px; border-radius: 5px; overflow: hidden; background: var(--c-rule); }
+.composition-seg { display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #fff; overflow: hidden; white-space: nowrap; }
+.composition-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; font-size: 11.5px; color: var(--c-ink-dim); }
+.composition-legend .cl-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; }
+
+/* Rate pair: two rates with their denominators, never one alone */
+.rate-pair { display: flex; flex-wrap: wrap; gap: 22px; margin: 14px 0 6px; }
+.rate-pair .rp-item { min-width: 170px; }
+.rate-pair .rp-value { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.rate-pair .rp-label { font-size: 11.5px; color: var(--c-ink-dim); }
+
+/* Funnel */
+.funnel { display: flex; flex-direction: column; gap: 5px; }
+.funnel-step { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+.funnel-bar { height: 22px; border-radius: 4px; background: var(--c-brand); min-width: 3px; }
+.funnel-step .fs-label { flex: 0 0 190px; color: var(--c-ink-dim); }
+.funnel-step .fs-value { font-variant-numeric: tabular-nums; font-weight: 600; }
+
+/* Qualitative generation sample */
+.gen-sample { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-family: 'Courier New', monospace; font-size: 11.5px; }
+.gen-sample .gs-col { border: 1px solid var(--c-rule); border-radius: 6px; padding: 9px; background: var(--c-surface); max-height: 230px; overflow: auto; white-space: pre-wrap; }
+.gen-sample .gs-col h6 { font-family: inherit; font-size: 10px; text-transform: uppercase; color: var(--c-ink-faint); margin-bottom: 5px; }
+
+/* Theme toggle in the header */
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.18);
+    border: none;
+    color: #fff;
+    border-radius: 14px;
+    padding: 4px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+@media (max-width: 900px) {
+    .diff, .gen-sample { grid-template-columns: 1fr; }
+    .funnel-step .fs-label { flex: 0 0 120px; }
+}
+
+/* Sidebar group labels */
+.nav-group-label {
+    display: block;
+    padding: 12px 10px 4px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--c-ink-faint);
+}
+
+/* Toasts - replaced blocking alert() */
+.toast-stack {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 999;
+}
+
+.toast {
+    background: var(--c-surface);
+    border-left: 4px solid var(--c-brand);
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+    padding: 11px 16px;
+    font-size: 13px;
+    color: var(--c-ink);
+    max-width: 380px;
+}
+
+.toast-success { border-left-color: var(--c-pass); }
+.toast-error   { border-left-color: var(--c-fail); }
+.toast-info    { border-left-color: var(--c-brand); }
