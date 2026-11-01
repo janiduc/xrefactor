@@ -5,7 +5,7 @@ Maps HTTP requests to pipeline stages
 
 from flask import Blueprint, request, jsonify, send_file
 from loguru import logger
-from typing import Dict, Any
+from typing import Any, Dict, Optional
 import os
 import json
 import time
@@ -14,6 +14,8 @@ from pathlib import Path
 import traceback
 
 from ..core.pipeline import XRefactorPipeline
+from ..gnn.refactoring_types import REFACTORING_TYPE_TO_ID
+from ..refactor.engine import SUPPORTED_PATTERNS
 from ..utils.helpers import ConfigManager
 
 api_bp = Blueprint('api', __name__)
@@ -253,33 +255,252 @@ def run_stage(stage_name: str):
         }), 500
 
 
+# --------------------------------------------------------------------------- #
+# Saved run artifacts
+#
+# The pipeline writes three sibling files per run, all keyed by one timestamp:
+#     outputs/pipeline_results_<ts>.json
+#     outputs/metrics_<ts>.json
+#     outputs/evidence_cards_<ts>.json
+# Nothing used to serve them. The previous /results/<id> route looked for
+# `outputs/<id>/results.json`, a layout the pipeline has never produced, so it
+# returned 404 for every input and ~30 saved runs were unreachable - the only
+# way to see anything was to re-run a multi-minute pipeline.
+# --------------------------------------------------------------------------- #
+
+OUTPUTS_DIR = "./outputs"
+_RESULT_PREFIX = "pipeline_results_"
+
+
+def _outputs_dir() -> Path:
+    return Path(OUTPUTS_DIR)
+
+
+def _result_path(run_id: str) -> Path:
+    return _outputs_dir() / f"{_RESULT_PREFIX}{run_id}.json"
+
+
+def _known_run_ids() -> list:
+    """Run ids (timestamps) on disk, newest first."""
+    paths = _outputs_dir().glob(f"{_RESULT_PREFIX}*.json")
+    return sorted((p.stem[len(_RESULT_PREFIX):] for p in paths), reverse=True)
+
+
+def _resolve_run_id(run_id: str) -> Optional[str]:
+    """Accept a literal timestamp or the alias 'latest'.
+
+    Rejects anything that is not a known id rather than joining user input into
+    a path, so a traversal attempt cannot reach outside outputs/.
+    """
+    known = _known_run_ids()
+    if run_id == "latest":
+        return known[0] if known else None
+    return run_id if run_id in known else None
+
+
+def _load_json(path: Path) -> Any:
+    with open(path, "r", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def _run_summary(run_id: str) -> dict:
+    """Projection of one saved run, for the run picker.
+
+    Reads the whole file but returns only summary fields: the newest result is
+    ~1MB (mostly `original_code`/`refactored_code` strings), so the full payload
+    must not be multiplied across every row of a listing.
+    """
+    results = _load_json(_result_path(run_id))
+    cpg_stats = (results.get("stages", {}).get("cpg", {}) or {}).get("statistics", {}) or {}
+    suggestions = (results.get("stages", {}).get("transformer", {}) or {}).get("refactoring_suggestions", []) or []
+    metrics = results.get("metrics", {}) or {}
+
+    def metric(name: str):
+        entry = metrics.get(name)
+        return entry.get("mean") if isinstance(entry, dict) else None
+
+    return {
+        "id": run_id,
+        # `data_directory`/`repo_label` are absent from runs saved before the
+        # pipeline started recording them - reported as null rather than guessed.
+        "data_directory": results.get("data_directory"),
+        "repo_label": results.get("repo_label"),
+        "run_status": results.get("status"),
+        "total_nodes": cpg_stats.get("total_nodes"),
+        "total_edges": cpg_stats.get("total_edges"),
+        "total_files": cpg_stats.get("total_files"),
+        "suggestion_count": len(suggestions),
+        "ast_count": sum(1 for s in suggestions if s.get("generation_path") == "ast"),
+        "neural_count": sum(1 for s in suggestions if s.get("generation_path") == "neural"),
+        "smell_total": metric("cpg_detected_smells_total"),
+        "has_evidence": (_outputs_dir() / f"evidence_cards_{run_id}.json").exists(),
+        "has_metrics": (_outputs_dir() / f"metrics_{run_id}.json").exists(),
+    }
+
+
+@api_bp.route('/runs', methods=['GET'])
+def list_runs():
+    """List saved pipeline runs, newest first."""
+    try:
+        runs = []
+        for run_id in _known_run_ids():
+            try:
+                runs.append(_run_summary(run_id))
+            except Exception as e:
+                # One corrupt or truncated artifact must not blank the picker.
+                logger.warning(f"Skipping unreadable run {run_id}: {e}")
+        return jsonify({"status": "success", "count": len(runs), "runs": runs})
+    except Exception as e:
+        logger.error(f"Error listing runs: {e}")
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+
+@api_bp.route('/runs/<run_id>', methods=['GET'])
+def get_run(run_id: str):
+    """Full saved pipeline-results payload for one run ('latest' accepted)."""
+    resolved = _resolve_run_id(run_id)
+    if resolved is None:
+        return jsonify({"status": "error", "message": f"Run not found: {run_id}"}), 404
+    try:
+        return jsonify({"status": "success", "id": resolved,
+                        "results": _load_json(_result_path(resolved))})
+    except Exception as e:
+        logger.error(f"Error reading run {resolved}: {e}")
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+
+@api_bp.route('/runs/<run_id>/evidence', methods=['GET'])
+def get_run_evidence(run_id: str):
+    """Stage-4 evidence-card report for one run.
+
+    Stage 4 builds a full report (cards, explanations, risk buckets, impact
+    analysis) but `results["stages"]["xai"]` keeps only four scalars, so the
+    report lived on disk and was reachable over no HTTP route at all - the
+    reason the 'explainable' stage rendered nothing in the UI.
+    """
+    resolved = _resolve_run_id(run_id)
+    if resolved is None:
+        return jsonify({"status": "error", "message": f"Run not found: {run_id}"}), 404
+    evidence_path = _outputs_dir() / f"evidence_cards_{resolved}.json"
+    if not evidence_path.exists():
+        # Runs predating the evidence-cards file legitimately have none.
+        return jsonify({"status": "error", "id": resolved,
+                        "message": f"No evidence cards saved for run {resolved}"}), 404
+    try:
+        return jsonify({"status": "success", "id": resolved,
+                        "report": _load_json(evidence_path)})
+    except Exception as e:
+        logger.error(f"Error reading evidence for {resolved}: {e}")
+        return jsonify({"status": "error", "message": str(e)}), 500
+
+
 @api_bp.route('/results/<result_id>', methods=['GET'])
 def get_result(result_id: str):
-    """Get specific pipeline result"""
-    try:
-        result_dir = f"./outputs/{result_id}"
-        result_file = os.path.join(result_dir, "results.json")
-        
-        if not os.path.exists(result_file):
-            return jsonify({
-                "status": "error",
-                "message": f"Result not found: {result_id}"
-            }), 404
-        
-        with open(result_file, 'r') as f:
-            results = json.load(f)
-        
-        return jsonify({
-            "status": "success",
-            "results": results
-        })
-    
-    except Exception as e:
-        logger.error(f"Error retrieving results: {e}")
-        return jsonify({
-            "status": "error",
-            "message": str(e)
-        }), 500
+    """Deprecated alias for /runs/<id>, kept so existing links keep working."""
+    return get_run(result_id)
+
+
+# --------------------------------------------------------------------------- #
+# Offline evaluation benchmarks
+#
+# These describe the MODELS, not any one run, and they come from a different
+# corpus and date than the newest pipeline run - so every payload below is
+# wrapped with its own provenance (source file, mtime, repo, sample size).
+# Presenting them as part of a run would be a real methodological error, and
+# the provenance block is what lets the UI prevent it.
+# --------------------------------------------------------------------------- #
+
+_MODELS_DIR = "./models"
+_MINING_REPORT = "./refactoring_mining/mining_report.json"
+
+
+def _provenance(path: Path, **extra) -> dict:
+    stat = path.stat()
+    return {
+        "source_file": str(path).replace("\\", "/"),
+        "mtime_iso": datetime.fromtimestamp(stat.st_mtime).isoformat(timespec="seconds"),
+        "size_bytes": stat.st_size,
+        **extra,
+    }
+
+
+def _newest_evaluation_report() -> Optional[Path]:
+    paths = sorted(_outputs_dir().glob("evaluation_report_*.json"), reverse=True)
+    return paths[0] if paths else None
+
+
+@api_bp.route('/benchmarks', methods=['GET'])
+def get_benchmarks():
+    """Offline evaluation, model metrics, mining dataset and the taxonomy.
+
+    One aggregated response so the Evaluation view needs a single fetch.
+
+    `taxonomy` is derived from the SAME constants the pipeline uses -
+    REFACTORING_TYPE_TO_ID and the refactoring engine's SUPPORTED_PATTERNS -
+    rather than duplicated as a literal here, so the "has a deterministic
+    implementation" flag cannot drift when the engine gains a pattern.
+
+    Deliberately NOT served: outputs/baseline_prefix_*.json. It is byte-identical
+    to the evaluation report and referenced by no code; exposing it would invite a
+    fabricated "vs. baseline" comparison. A real comparator is derivable from the
+    class supports (majority-class accuracy) and is computed client-side.
+    """
+    payload: Dict[str, Any] = {
+        "status": "success",
+        "taxonomy": {
+            "order": [name for name, _ in sorted(REFACTORING_TYPE_TO_ID.items(), key=lambda kv: kv[1])],
+            "ids": dict(REFACTORING_TYPE_TO_ID),
+            "ast_supported": sorted(SUPPORTED_PATTERNS),
+        },
+        "eval": None,
+        "models": {},
+        "mining": None,
+        "available_reports": [p.stem.replace("evaluation_report_", "")
+                              for p in sorted(_outputs_dir().glob("evaluation_report_*.json"), reverse=True)],
+    }
+
+    report_path = _newest_evaluation_report()
+    if report_path is not None:
+        try:
+            report = _load_json(report_path)
+            trace = report.get("end_to_end_trace", {}) or {}
+            generation = report.get("stage_3_transformer", {}) or {}
+            payload["eval"] = {
+                "provenance": _provenance(
+                    report_path,
+                    timestamp=report.get("timestamp"),
+                    # The repo the end-to-end trace ran on; the UI compares this
+                    # against the loaded run's repo_label to flag a mismatch.
+                    repo=trace.get("repo"),
+                    sample_size=generation.get("eval_sample_size"),
+                    test_size=(report.get("stage_2_classifier", {}) or {}).get("test_size"),
+                ),
+                "classifier": report.get("stage_2_classifier"),
+                "generation": generation,
+                "xai": report.get("stage_4_xai"),
+                "trace": trace,
+            }
+        except Exception as e:
+            logger.warning(f"Could not read evaluation report {report_path}: {e}")
+
+    for key, filename in (("predictor", "refactoring_predictor_trained.metrics.json"),
+                          ("transformer", "transformer_trained.metrics.json")):
+        path = Path(_MODELS_DIR) / filename
+        if not path.exists():
+            continue
+        try:
+            payload["models"][key] = {"provenance": _provenance(path), **_load_json(path)}
+        except Exception as e:
+            logger.warning(f"Could not read model metrics {path}: {e}")
+
+    mining_path = Path(_MINING_REPORT)
+    if mining_path.exists():
+        try:
+            payload["mining"] = {"provenance": _provenance(mining_path), **_load_json(mining_path)}
+        except Exception as e:
+            logger.warning(f"Could not read mining report {mining_path}: {e}")
+
+    return jsonify(payload)
 
 
 @api_bp.route('/supported-languages', methods=['GET'])

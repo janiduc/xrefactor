@@ -53,6 +53,7 @@ class XRefactorPipeline:
         self.node_refactoring_logits: Optional[torch.Tensor] = None
         self.node_confidence_scores: Optional[torch.Tensor] = None
         self.detected_smells: List[Dict[str, Any]] = []
+        self.last_generation_funnel: Dict[str, Any] = {}
         self.transformer_model_aliases = {
             "codebert": "microsoft/codebert-base",
             "graphcodebert": "microsoft/graphcodebert-base"
@@ -561,6 +562,21 @@ class XRefactorPipeline:
             refactoring_suggestions.append(suggestion)
 
         neural_count = len(refactoring_suggestions) - ast_count
+
+        # Candidate funnel, recorded so the suggestion count is attributable.
+        # Without it, "5 suggestions from 443 detected smells" reads as a
+        # quality judgement when it is in fact set by refactor.max_suggestions
+        # and refactor.candidate_pool.
+        self.last_generation_funnel = {
+            "smells_detected": len(self.detected_smells or []),
+            "candidate_pool": self.config.get("refactor.candidate_pool", 40),
+            "samples_considered": len(source_code_samples),
+            "ast_accepted": ast_count,
+            "neural_backlog": len(neural_backlog),
+            "neural_emitted": neural_count,
+            "max_suggestions": max_suggestions,
+        }
+
         self.metrics.record("transformer_samples", float(len(refactoring_suggestions)))
         self.metrics.record("suggestions_ast_verified", float(ast_count))
         self.metrics.record("suggestions_neural", float(neural_count))
@@ -661,11 +677,17 @@ class XRefactorPipeline:
         os.makedirs(output_directory, exist_ok=True)
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         
+        # Record WHICH corpus this run analysed. Without it a saved result is
+        # unattributable: the UI cannot label a run, and it cannot tell that the
+        # offline evaluation report describes a different repository than the
+        # run being viewed - which it currently does.
         results = {
             "timestamp": timestamp,
+            "data_directory": data_directory,
+            "repo_label": "/".join(Path(data_directory).resolve().parts[-2:]),
             "stages": {}
         }
-        
+
         try:
             # Stage 1: CPG Construction
             logger.info("\n" + "=" * 80)
@@ -676,7 +698,8 @@ class XRefactorPipeline:
             results["stages"]["cpg"] = {
                 "status": "success",
                 "statistics": cpg.get_statistics(),
-                "graph": cpg.get_visualization_data()
+                "graph": cpg.get_visualization_data(),
+                "smells": self._summarize_smells(),
             }
             
             # Stage 2: GNN Reasoning
@@ -731,7 +754,8 @@ class XRefactorPipeline:
             results["stages"]["transformer"] = {
                 "status": "success",
                 "model": self._resolve_transformer_model_name(self.config.get("transformer.model_type", "codebert")),
-                "refactoring_suggestions": refactoring_suggestions
+                "refactoring_suggestions": refactoring_suggestions,
+                "funnel": self.last_generation_funnel,
             }
             
             # Stage 4: XAI Explanation
@@ -765,14 +789,38 @@ class XRefactorPipeline:
         
         return results
 
+    def _summarize_smells(self) -> Dict[str, Any]:
+        """Aggregate the rule-based findings for the saved payload.
+
+        Only a single `cpg_detected_smells_total` metric used to survive, so
+        several hundred findings were invisible to anything downstream. This is
+        an AGGREGATE plus a bounded top-severity sample on purpose: the full
+        list with its per-finding `metric_evidence` would add megabytes to a
+        payload that is already large, for data nothing reads in bulk.
+        """
+        smells = self.detected_smells or []
+        severities = [float(s.get("severity_score", 0.0)) for s in smells]
+        histogram = [0] * 10
+        for value in severities:
+            # Clamp so a severity of exactly 1.0 lands in the last bin.
+            histogram[min(9, max(0, int(value * 10)))] += 1
+        return {
+            "total": len(smells),
+            "by_type": dict(Counter(s["smell_type"] for s in smells)),
+            "by_pattern": dict(Counter(s["refactoring_pattern"] for s in smells)),
+            "severity_histogram": histogram,
+            "sample": sorted(smells, key=lambda s: -s.get("severity_score", 0.0))[:100],
+            "sample_capped_at": 100,
+        }
+
     def _resolve_transformer_model_name(self, model_type: str) -> str:
         """Resolve transformer model alias to actual Hugging Face model name"""
         if not model_type:
             return "microsoft/codebert-base"
         normalized = model_type.strip().lower()
         return self.transformer_model_aliases.get(normalized, model_type)
-    
-    def _save_pipeline_results(self, results: Dict[str, Any], 
+
+    def _save_pipeline_results(self, results: Dict[str, Any],
                               output_dir: str, timestamp: str) -> None:
         """Save pipeline results to output directory"""
         output_file = os.path.join(output_dir, f"pipeline_results_{timestamp}.json")
