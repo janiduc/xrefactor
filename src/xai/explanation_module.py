@@ -21,6 +21,11 @@ class EvidenceCard:
     supporting_metrics: Dict[str, float]
     confidence_score: float
     recommendation: str
+    # The refactoring this card is about, carried EXPLICITLY. Keyword-with-default
+    # so existing constructions keep working. Without it the only way to recover
+    # the pattern was to string-parse `recommendation`, which is what produced the
+    # nonsense summary line "Recommended refactorings: might".
+    refactoring_type: str = ""
 
 
 class CausalInferenceModule(torch.nn.Module):
@@ -105,6 +110,7 @@ class ExplanationGenerator:
     def __init__(self, causal_module: CausalInferenceModule, max_explanation_length: int = 200):
         self.causal_module = causal_module
         self.max_explanation_length = max_explanation_length
+        self._card_sequence = 0
         
         # Problem templates
         self.problem_templates = {
@@ -187,9 +193,15 @@ class ExplanationGenerator:
             confidence=confidence
         )
         
+        # A card id built only from the pattern plus a hash of the affected files
+        # collides whenever two suggestions touch the same file, which observably
+        # happened - two cards shared `ev_remove_dead_code_1261`. A per-generator
+        # sequence makes it unique so callers can key a list on it.
+        self._card_sequence += 1
         return EvidenceCard(
-            evidence_id=f"ev_{refactoring_type}_{hash(tuple(affected_files)) % 10000}",
+            evidence_id=f"ev_{refactoring_type}_{hash(tuple(affected_files)) % 10000}_{self._card_sequence}",
             problem_type=problem_type,
+            refactoring_type=refactoring_type,
             affected_entities=affected_entities,
             explanation=explanation,
             supporting_metrics=metrics,
@@ -288,6 +300,9 @@ class ExplainabilityReport:
         """
         report = {
             "num_suggestions": len(evidence_cards),
+            # MEAN, not a total. `total_confidence` is kept as a deprecated alias
+            # because saved reports and the pipeline's avg_confidence field read it.
+            "mean_confidence": sum(card.confidence_score for card in evidence_cards) / max(1, len(evidence_cards)),
             "total_confidence": sum(card.confidence_score for card in evidence_cards) / max(1, len(evidence_cards)),
             "evidence_cards": [asdict(card) for card in evidence_cards],
             "summary": self._generate_summary(evidence_cards),
@@ -303,8 +318,14 @@ class ExplainabilityReport:
             return "No refactoring suggestions generated."
         
         problem_types = set(card.problem_type for card in evidence_cards)
+        # Read the recorded refactoring_type. This used to take the third
+        # whitespace-separated word of `recommendation`, which only lines up with
+        # the "Highly recommended: Apply X" phrasing - for the "Optional: You
+        # might consider X" phrasing it yielded the word "might", and since
+        # confidence cannot currently exceed the 0.9 threshold that was the
+        # phrasing in every real report.
         refactoring_types = set(
-            card.recommendation.split()[2] for card in evidence_cards if len(card.recommendation.split()) > 2
+            card.refactoring_type for card in evidence_cards if card.refactoring_type
         )
         
         summary = f"Found {len(evidence_cards)} refactoring opportunities:\n"
